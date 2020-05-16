@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/redeem.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="productInfoArea">
+            <div class="productImg">
+
+            </div>
+            <div class="introArea">
+                <p>The content will be bound to your Epic Games account forever, so make sure you sign in to the correct account when prompted</p>
+            </div>
+        </div>
+        <div class="InfoInputArea">
+            <div class="textArea">
+                <h4>Redeem your product</h4>
+                <p>Enter the product code distributed with a retail DVD or other Epic Games product code here.</p>
+            </div>
+            <div class="inputArea">
+                <input type="text" class="productCode" name="code" placeholder="00000-00000-00000-00000" autocomplete="off" required>
+            </div>
+            <div class="buttonArea">
+                <button id="redeemBtn" class="gray-blue-btn" disabled><p>REDEEM</p></button>
+            </div>
+        </div>
+    </div>
+</div>
