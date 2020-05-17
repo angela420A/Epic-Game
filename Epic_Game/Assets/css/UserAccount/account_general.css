@@ -1,0 +1,135 @@
+input:focus, button:focus, select:focus{
+    outline: none;
+}
+.personal-info-container{
+    padding: 35px 30px;
+    background-color: rgb(35,35,35);
+}
+
+.personal-info-container .row + .row{
+    padding-top: 70px;
+}
+
+.textTitle{
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.text-gray{
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.text-red{
+    color: #dc5353;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.accountId{
+    display: flex;
+}
+
+.accountId label{
+    padding-right: 5px;
+}
+
+.thin-text{
+    font-weight: 200;
+}
+
+.formArea select,
+.formArea input{
+    background-color: rgb(75,75,75);
+    border-radius: 0.2em;
+    border: none;
+    padding:8px;
+    width: 100%;
+    height: 50px;
+}
+
+.formArea select{
+    color: #e7e7e7;
+}
+
+.editBtn{
+    border: none;
+    background-color: #0aaff1;
+    color: #e7e7e7;
+    border-radius: 0.2em;
+    height: 48px;
+    width: 48px;
+}
+
+.formArea{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formArea .col{
+    padding-right: 7px;
+}
+
+.smallText{
+    padding-bottom: 10px;    
+}
+
+.nextSection{
+    position: relative;
+}
+
+.nextSection::before{
+    content:'';
+    border-top: 1px solid rgb(75,75,75);
+    width: 100%;
+    margin: auto;
+    left: 0px;
+    top:40px;
+    position: absolute;
+}
+
+.btnArea{
+    padding-top: 30px;
+}
+
+.blue-button,
+.gray-button{
+    border: none;
+    color: #e7e7e7;
+    border-radius: 0.2em;
+    width: 100%;
+    height: 48px;
+    transition-duration: 0.2s;
+}
+
+.blue-button{
+    background-color: #0aaff1;
+}
+
+.gray-button{
+    background-color: #555565;
+}
+
+.blue-button:hover{
+    background-color: #0893ca;
+}
+
+.gray-button:hover{
+    background-color: #474757;
+}
+
+.flex-c{
+    flex-direction: column;
+    align-items: start;
+}
+
+::placeholder{
+    font-size: 14px;
+    position: relative;
+    top:-10px;
+    text-transform: uppercase;
+}

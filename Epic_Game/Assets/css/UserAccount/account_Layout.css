@@ -1,0 +1,86 @@
+.container{
+    padding-top: 40px;
+}
+
+*,p{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(15,15,15);
+    color: #e7e7e7;
+}
+
+.accountNavBar{
+    position: relative;
+}
+
+.settingLink{
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(15,15,15);
+    background-color: rgb(35,35,35);
+    border-bottom: none;
+    transition-duration: 0.2s;
+    padding: 8px;
+    width: 100%;
+}
+
+.linkList li:last-child .settingLink{
+    border-bottom: 1px solid rgb(15,15,15);
+}
+
+.settingLink a{
+    color:  rgba(255,255,255,0.5);
+}
+
+.settingLink:hover a{
+    color: #e7e7e7;
+    text-decoration: none;
+}
+
+.settingLink:hover{
+    border-left-color: #179eed; 
+    border-left-width: 5px;
+}
+
+.Link{
+    display: flex;
+}
+
+.Link i{
+    padding: 10px;
+}
+.Link p{
+    padding: 10px 5px 10px 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.formArea .col {
+    width: 100%;
+}
+
+.formArea-btn {
+    margin-right: 0;
+}
+
+@media screen and (min-width: 992px) {
+    .Link p{
+        font-size: 12px;
+    }
+    
+    .accountNavBar{
+        position: sticky;
+        top: 0;
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+    .Link p{
+        font-size: 14px;
+    }
+}
