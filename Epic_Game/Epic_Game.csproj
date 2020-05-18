@@ -183,6 +183,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\EpicGameBrowse.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
@@ -190,6 +191,23 @@
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
     <Content Include="Assets\css\UserAccount\account_security.css" />
     <Content Include="Assets\css\wishList.css" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 0.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 1.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 10.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 11.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 12.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 13.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 14.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 15.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 2.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 3.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 4.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 5.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 6.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 7.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 8.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\asset 9.jpeg" />
+    <Content Include="Assets\images\EpicGameBrowseImg\awhv1-41zak-001.ico" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 0.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 1.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 10.jpeg" />
@@ -390,6 +408,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\UserAccount\History.cshtml" />
     <Content Include="Views\UserAccount\Security.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
