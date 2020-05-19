@@ -188,6 +188,8 @@
     <Content Include="Assets\css\EpicGameBrowse.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\finish.css" />
+    <Content Include="Assets\css\gamesnews.css" />
+    <Content Include="Assets\css\Newscontentcss.css" />
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
@@ -418,6 +420,8 @@
     <Content Include="Views\UserAccount\Security.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Views\News\Newitem.cshtml" />
+    <Content Include="Views\News\NewContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

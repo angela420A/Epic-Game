@@ -13,5 +13,13 @@ namespace Epic_Game.Controllers
         {
             return View();
         }
+        public ActionResult Newitem()
+        {
+            return View();
+        }
+        public ActionResult NewContent()
+        {
+            return View();
+        }
     }
 }

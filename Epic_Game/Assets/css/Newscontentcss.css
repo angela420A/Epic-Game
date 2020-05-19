@@ -1,0 +1,97 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header .Headimg {
+    background-image: url("https://hmk1.azurewebsites.net/gamesimg/asset 0.png");
+    background-size: cover;
+    width: 100%;
+    height: 330px;
+    background-position: top;
+}
+
+.container {
+    max-width: none;
+}
+
+header .container .row h2,
+header .container .row p,
+article {
+    font-family: Microsoft JhengHei;
+    font-weight: 600;
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header .container .row h2 {
+    margin-top: 5%;
+    font-size: 45px;
+}
+
+header .container .row .Datetxt {
+    margin-top: 2%;
+}
+
+header .container .row .Authortxt {
+    padding: 3% 0;
+}
+
+.Sealandimg,
+.landimg {
+    padding: 3% 0 7% 0;
+}
+
+.Ceotxt {
+    padding-bottom: 15%;
+}
+
+.Dowa:hover {
+    text-decoration: none;
+}
+
+.col-xl-12,
+.col-lg-12,
+.col-sm-12,
+.col-md-12 {
+    padding: 0;
+}
+
+@media screen and (max-width:992px) {
+    .container {
+        max-width: none;
+    }
+
+    header .container .row h2,
+    header .container .row .Datetxt,
+    header .container .row .Authortxt,
+    article {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    header .container .row h2,
+    header .container .row .Datetxt,
+    header .container .row .Authortxt,
+    article {
+        padding-left: 3%;
+        padding-right: 3%;
+        width: 100%;
+    }
+
+    header .container .row h2 {
+        margin-top: 5%;
+        font-size: 39px;
+    }
+
+    header .container .row .Datetxt,
+    header .container .row .Authortxt,
+    article {
+        font-size: 15px;
+    }
+}
