@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\RedeemController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
@@ -185,6 +186,8 @@
   <ItemGroup>
     <Content Include="Assets\css\EpicGameBrowse.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
+    <Content Include="Assets\css\finish.css" />
+    <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
@@ -208,6 +211,10 @@
     <Content Include="Assets\images\EpicGameBrowseImg\asset 8.jpeg" />
     <Content Include="Assets\images\EpicGameBrowseImg\asset 9.jpeg" />
     <Content Include="Assets\images\EpicGameBrowseImg\awhv1-41zak-001.ico" />
+    <Content Include="Assets\images\EpicGamePayImg\credit_card.png" />
+    <Content Include="Assets\images\EpicGamePayImg\EGS_Levelhead_ButterscotchShenanigans_S2-860x1148-b04fcfdf525dd935e68556f031d3b971.png" />
+    <Content Include="Assets\images\EpicGamePayImg\logo.png" />
+    <Content Include="Assets\images\EpicGamePayImg\paypal.png" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 0.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 1.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 10.jpeg" />
@@ -409,6 +416,7 @@
     <Content Include="Views\UserAccount\History.cshtml" />
     <Content Include="Views\UserAccount\Security.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Pay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
