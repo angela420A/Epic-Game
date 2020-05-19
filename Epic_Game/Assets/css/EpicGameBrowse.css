@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-color: #151515;
+}
+
+/* ===============以下曾莞婷=================== */
+
+.navbar{
+    padding: 0rem 0rem;
+}
+
+ .NavListArea{
+     width: 100%;
+    display: flex;
+    align-content: center;
+    height: 80px;
+    background-color: #151515;
+}
+.shopback{
+    
+    background-color: #151515;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}   
+.shopback ul{
+    padding: 0;
+}
+.checkBoxlabel{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+.NavList{
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div_itemlist{
+    position: absolute;
+    bottom: -99%;
+    width: 100%;
+    text-align: center;
+}
+.div_itemlist,.check_control{
+    display: none;
+}
+.check_control:checked ~ .div_itemlist{
+    display:initial;
+}
+.checkBoxlabel{
+    color: #e7e7e7;
+}
+
+.itemList{
+    background-color: #151515;
+}
+
+.itemList a{
+    text-decoration: none;
+    color: #e7e7e7;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+.itemList li{
+    color: rgb(105, 105, 105);
+    font-size: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.fa-chevron-down{
+    color: #e7e7e7;
+}
+@media screen and (min-width: 1024PX) {
+
+    .carousel-inner  iframe{
+        height: 500px;
+    }
+
+    .div_itemlist{
+        position: initial;
+        display: flex;
+        flex-direction: row;
+        background-color: #151515;
+    }
+    .itemList{
+        display: flex;
+    }
+
+    .itemList a{
+        color: #e7e7e7;
+        font-weight: bold;
+    }
+
+
+    .itemList a:hover{
+        left: -10px;
+        color: #e7e7e7;
+    }
+    .itemList li{
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    .checkBoxlabel{
+        display: none;
+    }
+    .div_itemlist li+li{
+        padding-left: 20px;
+    }
+
+
+    .navbar-dark input {
+        background-color:black;
+        color:white;
+    }
+}
+
+
+/* ===============以上曾莞婷=================== */
+.EpicGameTitle{
+    width: 100%;
+}
+
+.wishList-Controll{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding: 10px;
+}
+.sortArea{
+    display: flex;
+    justify-content: start;
+}
+.sort_label{
+    font-weight: 200;
+    color: #6d6d6d;
+}
+.sortSelectArea{
+    position: relative;
+    margin-left: 15px;
+}
+.sort_checked{
+    display: none;
+}
+.sort_checked .fas{
+    transition-duration: .3s;
+}
+.sort_list{
+    position:absolute;
+    display: none;
+    left: 0;
+    top: 30px;
+    width: 160px;
+    background-color: rgb(35,35,35);
+    padding: 10px;
+    z-index: 2;
+}
+.sortLabel{
+    width: 100px;
+}
+.sortLabel p, .wishCount p{
+    display: inline-block;
+    font-weight: 300;
+    color: #e7e7e7;
+}
+.sort_list button{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    color: #e7e7e7
+}
+.sort_checked:checked ~ .sort_list{
+    display: initial;
+}
+
+.EpicGameBrowse{
+    display: flex;
+    width: 100%;
+}
+
+.mvc{
+    width: 270px;
+    height: 100%;
+    background-color: black;
+    display: none;
+}
+
+/* ====================================== */
+.mode_4_li a{
+    text-decoration:none;
+}
+
+.mode_4_li{
+    padding: 10px;
+}
+
+.col-12{
+    padding: 0px;
+}
+
+.mode_4_ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.mode_4_img-2{
+    padding-bottom: calc(4/3 * 100%);
+    position: relative;
+}
+
+.mode_4_text h4{
+    color: #e7e7e7;
+    font-size: 18px;
+}
+
+.mode_4_text p{
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.imgArea{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-size: auto 100%;
+    background-repeat:no-repeat;
+    background-position: bottom;
+}
+
+@media screen and (min-width: 1024px){
+
+.mvc{
+    display: block;
+}
+
+}

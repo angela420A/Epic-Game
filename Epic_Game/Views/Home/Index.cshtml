@@ -2,30 +2,683 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@section topCSS{
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'>
+    <link href="~/Assets/css/EpicGameStore.css" rel="stylesheet" />
+}
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+@section endJS{
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.min.js'></script>
+    <script src="~/Assets/Js/script.js"></script>
+}
+
+<div class="container-fluid store-container">
+    <div class="row sticky-top">
+        <div class="col-12">
+            <div class="NavListArea">
+                <div class="NavList">
+                    <input type="checkbox" id="checkControl" class="check_control">
+                    <label for="checkControl" class="checkBoxlabel">
+                        Death Coming<i class="fas fa-chevron-down"></i>
+                    </label>
+                    <div class="div_itemlist">
+                        <ul class="itemList">
+                            <li><a href="#">探索</a></li>
+                            <li><a href="@Url.Action("Search","Home")">瀏覽</a></li>
+                        </ul>
+                    </div>
+                    <nav class="navbar navbar-dark">
+                        <form class="form-inline">
+                            <input class="form-control  col-10 " type="search" placeholder="搜尋" aria-label="Search">
+                            <button class="btn btn-outline-dark  col-2" type="submit">
+                                <svg class="bi bi-search"
+                                     width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                                          clip-rule="evenodd" />
+                                    <path fill-rule="evenodd"
+                                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                                          clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div id="sync1" class="sync1_padding owl-carousel owl-theme w-100">
+        <div class="item">
+            <img class="item_img" src="~/Assets/images/EpicGameStoreImg/asset 0.jpeg" alt="">
+            <div class="item_text">
+                <div class="sync_text">
+                    <p>領取優惠券並省下一筆!</p>
+                    <h3>2020大特賣</h3>
+                    <p>無數的 Epic 優惠券等你來領取，且購買遊戲大作和附加內容最多可省 75%！ </p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="item_img" src="~/Assets/images/EpicGameStoreImg/asset 1.jpeg" alt="">
+            <div class="item_text">
+                <div class="sync_text">
+                    <p>《GRAND THEFT AUTO V》</p>
+                    <h3>永遠免費擁有!</h3>
+                    <p>2020 大特賣期間，Epic 典藏將於美國東部時間每週四早上 11 點釋出超讚的免費遊戲。</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="item_img" src="~/Assets/images/EpicGameStoreImg/asset 2.jpeg" alt="">
+            <div class="item_text">
+                <div class="sync_text">
+                    <p>搶先體驗</p>
+                    <h3>《Old World》</h3>
+                    <p>史詩級的回合制歷史戰略遊戲。開啟你的王朝！</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="item_img" src="~/Assets/images/EpicGameStoreImg/asset 3.jpeg" alt="">
+            <div class="item_text">
+                <div class="sync_text">
+                    <p>現已推出</p>
+                    <h3>《SnowRunner》</h3>
+                    <p>準備迎接次世代的越野體驗吧！</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="item_img" src="~/Assets/images/EpicGameStoreImg/asset 4.jpeg" alt="">
+            <div class="item_text">
+                <div class="sync_text">
+                    <p>現已推出</p>
+                    <h3>《World War Z:GOTY》</h3>
+                    <p>年度遊戲版包含三種全新任務和所有已推出的附加內容！</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-12">
+            <div class="free_title">
+                <h3 class="free_title_text">免費遊戲</h3>
+                <a class="free_title_more" href="">查看更多項目</a>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="free_content">
+                <ul class="free_item_ul">
+                    <li class="col-12 col-md-6 free_item_li">
+                        <div class="free_content_img">
+                            <img src="~/Assets/images/EpicGameStoreImg/asset 4.jpeg" alt="">
+                        </div>
+                        <div class="free_content_text">
+                            <h4>Death Coming</h4>
+                            <p>目前免費，5月14日下午11:00截止</p>
+                        </div>
+                    </li>
+                    <li class="col-12 col-md-6 free_item_li">
+                        <div class="free_content_img">
+                            <img src="~/Assets/images/EpicGameStoreImg/asset 5.jpeg" alt="">
+                        </div>
+                        <div class="free_content_text">
+                            <h4>在02:04:04:23內解鎖</h4>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="new_title">
+                <h3>全新發行</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 6.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 6.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 7.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 7.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 8.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 8.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 9.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 9.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 10.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 10.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>現已推出</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1">
+                <ul class="mode_1_ul">
+                    <li class="mode_1_li">
+                        <div class="mode_1_text_img">
+                            <div class="mode_1_text">
+                                <h4>《Might & Magic:Chess Royale》</h4>
+                                <p>在即時的兵棋戰鬥中與另外 99 名玩家對戰。</p>
+                                <a class="btn btn-secondary" href="">了解詳情</a>
+                            </div>
+                            <div class="mode_1_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 11.jpeg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="best">
+                <h3 class="best_text">暢銷</h3>
+                <a class="best_more" href="">查看更多項目</a>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 14.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 14.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 16.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 16.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 17.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 17.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 18.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 18.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="coming_soon_title">
+                <h3 class="coming_soon_text">即將推出</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 20.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 20.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 21.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 21.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 23.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 23.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 24.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 24.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 25.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 25.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="update_title">
+                <h3 class="update_text">最近更新</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 27.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 27.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 29.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 29.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 30.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 30.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 31.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 31.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>更新以上線</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1">
+                <ul class="mode_1_ul">
+                    <li class="mode_1_li">
+                        <div class="mode_1_text_img">
+                            <div class="mode_1_text">
+                                <h4>《SuperMash》</h4>
+                                <p>在這款古怪遊戲最新的更新中面對離奇的怪物！</p>
+                                <a class="btn btn-secondary" href="">了解詳情</a>
+                            </div>
+                            <div class="mode_1_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 33.jpeg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="Rising_title">
+                <h3 class="Rising_text">《Rising》</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 50.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 29.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 29.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 32.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 32.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 34.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 34.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 36.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 36.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="popular_title">
+                <h3 class="popular_text">最受歡迎</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 39.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 39.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 30.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 30.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 31.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 31.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mode_5_li">
+                        <a href="">
+                            <div class="mode_5_img-2">
+                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 14.jpeg');"></div>
+                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 14.jpeg" alt=""> -->
+                            </div>
+                            <div class="mode_5_text">
+                                <h4>Before We Leave</h4>
+                                <p>Balancing Monkey Games | Ba...</p>
+                                <h4>US$9.99</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>Epic Games 商店類別</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1 row_out_mode_1_special">
+                <ul class="mode_1_ul">
+                    <li class="mode_1_li">
+                        <div class="mode_1_text_img">
+                            <div class="mode_1_text">
+                                <h4>瀏覽</h4>
+                                <p>探索我們的類別來尋找下一款最愛的遊戲！</p>
+                                <a class="btn btn-secondary" href="">瀏覽全部</a>
+                            </div>
+                            <div class="mode_1_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 38.jpeg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
