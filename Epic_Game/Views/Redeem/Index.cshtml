@@ -1,0 +1,352 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/redeem.css" rel="stylesheet" />
+    <link href="~/Assets/css/UserAccount/account_Layout.css" rel="stylesheet" />
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <div class="accountNavBar">
+                <ul class="linkList">
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-user"></i>
+                                    <p>General</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-wallet"></i>
+                                    <p>payments</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-history"></i>
+                                    <p>transaction</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-key"></i>
+                                    <p>Password & Security</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <!-- Account Management Contents -->
+
+            <div class="personal-info-container">
+                <div class="row pageTitleSection">
+                    <div class="col">
+                        <div class="textArea">
+                            <p class="textTitle">GENERAL SETTINGS</p>
+                            <p class="text-gray">
+                                Manage the account details you've shared with Epic Games including
+                                your name, contact info and more
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row accountInfoSection">
+                    <div class="col">
+                        <div class="accountInfoArea">
+                            <p class="textTitle">Account Info</p>
+                            <div class="accountId">
+                                <label>ID:</label>
+                                <p class="thin-text">12bf1c7bb9a64fd0b07794d315138410</p>
+                            </div>
+                        </div>
+                        <div class="nameAndEmail row">
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="accountDisplayName" calss="col" value=""
+                                               placeholder="DISPLAY NAME">
+                                    </div>
+                                    <button class="editBtn">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="accountEmail" calss="col" value=""
+                                               placeholder="EMAIL EDDRESS">
+                                    </div>
+                                    <button class="editBtn">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row personalInfoSection">
+                    <div class="col">
+                        <div class="personalInfoArea">
+                            <p class="textTitle">PERSONAL DETAILS</p>
+                            <p class="text-gray">
+                                Manage your name and contact info. These personal details are
+                                private and will not be displayed to other users. View our Privacy Policy
+                            </p>
+                        </div>
+                        <div class="nameAndLang row">
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userFirstName" calss="col" value=""
+                                               placeholder="FIRST NAME">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userLastName" calss="col" value=""
+                                               placeholder="LAST NAME">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <select id="userPreferLang">
+                                            <option name="tch" id="0">繁體中文</option>
+                                            <option name="eng" id="1">English</option>
+                                            <option name="jap" id="2">日本語</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row personalInfoSection">
+                    <div class="col">
+                        <div class="personalInfoArea">
+                            <p class="textTitle">ADDRESS</p>
+                        </div>
+                        <div class="userAddress row">
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userAddressI" calss="col" value=""
+                                               placeholder="Address line i">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userAddressII" calss="col" value=""
+                                               placeholder="Address line ii">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userCity" calss="col" value="" placeholder="city">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userRegion" calss="col" value=""
+                                               placeholder="region">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="userPostalCode" calss="col" value=""
+                                               placeholder="postal code">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <p class="smallText">Country / Region</p>
+                                        <select id="userCountry">
+                                            <option name="tch" id="0">Taiwan</option>
+                                            <option name="eng" id="1">United State</option>
+                                            <option name="jap" id="2">Japan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="gray-button">Desgard Changes</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="blue-button">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row companySection nextSection">
+                    <div class="col">
+                        <div class="personalInfoArea">
+                            <p class="textTitle">Company</p>
+                            <p class="text-gray">
+                                Manage your company information used for business VAT receipts for
+                                your purchase(s). Learn more
+                            </p>
+                        </div>
+                        <div class="companyInfo row">
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <p class="smallText">Company Name</p>
+                                        <input type="text" id="userCompanyName" calss="col" value=""
+                                               placeholder="Company Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <p class="smallText">Company Vat Number</p>
+                                        <input type="text" id="userCompanyName" calss="col" value=""
+                                               placeholder="Company Vat Number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row companyAddressSection">
+                    <div class="col">
+                        <div class="personalInfoArea">
+                            <p class="textTitle">Company address</p>
+                        </div>
+                        <div class="row companyAddressInfo">
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="CompanyAddressI" calss="col" value=""
+                                               placeholder="Address line i">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="CompanyAddressII" calss="col" value=""
+                                               placeholder="Address line ii">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="CompanyCity" calss="col" value="" placeholder="city">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="CompanyRegion" calss="col" value=""
+                                               placeholder="region">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <input type="text" id="CompanyPostalCode" calss="col" value=""
+                                               placeholder="postal code">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="gray-button">Desgard Changes</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="blue-button">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row parentalSection nextSection">
+                    <div class="col">
+                        <div class="parentalArea">
+                            <p class="textTitle">PARENTAL CONTROLS</p>
+                        </div>
+                        <div class="row">
+                            <div class="parentalInfoArea col-12 col-lg-8 formArea flex-c">
+                                <p class="text-gray">
+                                    You can use the parental controls to adjust your account's
+                                    access to mature games.
+                                </p>
+                            </div>
+                            <div class="parentalInfoArea col-12 col-lg-4 formArea">
+                                <button class="blue-button" id="parentalSetup">BEGIN SETUP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row deleteAccountSection nextSection">
+                    <div class="col">
+                        <div class="deleteAccountArea">
+                            <p class="textTitle">DELETE ACCOUNT</p>
+                        </div>
+                        <div class="row">
+                            <div class="deleteInfoArea col-12 col-lg-8 formArea flex-c">
+                                <p class="text-gray">Start the process of deleting your Epic Games account including all purchases, game progress, in-game content, and Unreal projects permanently.</p>
+                                <p><span class="text-red">This action is irreversible and your account will be disabled once submitted.</span></p>
+                            </div>
+                            <div class="parentalInfoArea col-12 col-lg-4 formArea">
+                                <button class="blue-button" id="parentalSetup">BEGIN SETUP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

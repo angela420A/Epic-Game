@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "Security";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/UserAccount/account_Layout.css" rel="stylesheet" />
+    <link href="~/Assets/css/UserAccount/account_security.css" rel="stylesheet" />
+}
+
+@section endJS{
+    <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <div class="accountNavBar">
+                <ul class="linkList">
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-user"></i>
+                                    <p>General</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-wallet"></i>
+                                    <p>payments</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-history"></i>
+                                    <p>transaction</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-key"></i>
+                                    <p>Password & Security</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <div class="account-security-container">
+                <div class="row pageTitleSection">
+                    <div class="col">
+                        <div class="textArea">
+                            <p class="textTitle">CHANGE YOUR PASSWORD</p>
+                            <p class="text-gray">
+                                For your security, we highly recommend that you choose a unique
+                                password that you don't use for any other online account.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row chagePasswardSection">
+                    <div class="col-12 col-lg-6 inputSection">
+                        <div class="formArea row">
+                            <div class="col">
+                                <div class="inputArea">
+                                    <p class="text-bold">CURRENT PASSWORD</p>
+                                    <p class="text-gray">REQUIRED</p>
+                                    <input type="text" id="currentPassword" calss="col" value=""
+                                           placeholder="CURRENT PASSWORD">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formArea row">
+                            <div class="col">
+                                <div class="inputArea">
+                                    <p class="text-bold">NEW PASSWORD</p>
+                                    <p class="text-gray">REQUIRED</p>
+                                    <input type="text" id="newPassword" calss="col" value=""
+                                           placeholder="NEW PASSWORD">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formArea row">
+                            <div class="col">
+                                <div class="inputArea">
+                                    <p class="text-bold">RETYPE PASSWORD</p>
+                                    <p class="text-gray">REQUIRED</p>
+                                    <input type="text" id="retypeNewPassword" calss="col" value=""
+                                           placeholder="RETYPE NEW PASSWORD">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 textArea">
+                        <div class="row">
+                            <div class="col">
+                                <div class="passwardInfoArea">
+                                    <p class="text-bold">YOUR PASSWORD</p>
+                                    <ul>
+                                        <li>
+                                            <p class="text-gray">
+                                                Your password must not be the same as your last 5
+                                                passwords used
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="text-gray">Your password must have 7+ characters</p>
+                                        </li>
+                                        <li>
+                                            <p class="text-gray">Your password must have at least 1 number</p>
+                                        </li>
+                                        <li>
+                                            <p class="text-gray">Your password must contain no space(s)</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-6 col-lg-3">
+                                <div class="btnArea">
+                                    <button class="gray-button">Desgard Changes</button>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3">
+                                <div class="btnArea">
+                                    <button class="blue-button">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row twoAuthenticationSection nextSection">
+                    <div class="pageTitleSection">
+                        <div class="col">
+                            <div class="textArea">
+                                <p class="textTitle">TWO-FACTOR AUTHENTICATION</p>
+                                <p class="text-gray">
+                                    Two-Factor Authentication (2FA) can be used to help protect
+                                    your account from unauthorized access by requiring you to enter a security code
+                                    when you sign in. Check out our how-to video here or help article here
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row selectTwoAuthenticationSection">
+                    <div class="AuthenticationArea">
+                        <h5>EMAIL AUTHENTICATION</h5>
+                        <p class="text-gray">
+                            Use a security code that will be sent to the email address
+                            associated with your account when you sign in as your Two-Factor Authentication
+                            (2FA).
+                        </p>
+                        <div class="col-sm-4 col-6 pl-0">
+                            <div class="AuthenticationBtnArea">
+                                <button class="blue-button">Enable E-mail Authentication</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="AuthenticationArea">
+                        <h5>SMS AUTHENTICATION</h5>
+                        <p class="text-gray">Use your phone as your Two-Factor Authentication (2FA) when you sign in you’ll be required to use the security code we send you via SMS message.</p>
+                        <div class="col-sm-4 col-6 pl-0">
+                            <div class="AuthenticationBtnArea">
+                                <button class="blue-button">Enable SMS Authentication</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

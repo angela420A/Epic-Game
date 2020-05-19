@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+   <link href="~/Assets/css/wishList.css" rel="stylesheet" />
+}
+
+@section endJS{
+    <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
+}
+<div class="container">
+    <div class="row">
+        <div class="col PageTitle">
+            <ul class="NavList">
+                <li><a href="" class="backLink"><p>Back to store</p></a></li>
+                <li><p class="PageTitleText">Wish List</p></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="wishList-Controll">
+                <div class="sortArea">
+                    <div class="sortLabelText">
+                        <p class="sort_label">Sort by:</p>
+                    </div>
+                    <div class="sortSelectArea">
+                        <input type="checkbox" id="sort_control" class="sort_checked">
+                        <label for="sort_control" class="sortLabel">
+                            <p>Hot Sales</p>
+                            <i class="fas fa-chevron-up"></i>
+                        </label>
+                        <ul class="sort_list">
+                            <li><button><p>Hot Sales</p></button></li>
+                            <li><button><p>Recently</p></button></li>
+                            <li><button><p>Alphabet</p></button></li>
+                            <li><button><p>Price: Ascendent</p></button></li>
+                            <li><button><p>Price: Descendent</p></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wishCount">
+                    <p>2 items</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="wishListArea">
+                <ul class="wishlist-List">
+                    <li class="wishList-ListItem">
+                        <div class="wishItem">
+                            <a href="" class="col itemInfo">
+                                <div class="wishItem-ImgArea">
+                                    <img src="https://picsum.photos/360/160/?random=1">
+                                </div>
+                                <div class="wishItem-infoArea col">
+                                    <div class="infoArea-productName">
+                                        <p>Assassins' Creed</p>
+                                    </div>
+                                    <div class="infoArea-productPrice">
+                                        <p>1799 TWD</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="wishItem-btnArea">
+                                <button class="changeHeart">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wishList-ListItem">
+                        <div class="wishItem">
+                            <a href="" class="col itemInfo">
+                                <div class="wishItem-ImgArea">
+                                    <img src="https://picsum.photos/360/160/?random=1">
+                                </div>
+                                <div class="wishItem-infoArea col">
+                                    <div class="infoArea-productName">
+                                        <p>Assassins' Creed</p>
+                                    </div>
+                                    <div class="infoArea-productPrice">
+                                        <p>1799 TWD</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="wishItem-btnArea">
+                                <button class="changeHeart">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wishList-ListItem">
+                        <div class="wishItem">
+                            <a href="" class="col itemInfo">
+                                <div class="wishItem-ImgArea">
+                                    <img src="https://picsum.photos/360/160/?random=1">
+                                </div>
+                                <div class="wishItem-infoArea col">
+                                    <div class="infoArea-productName">
+                                        <p>Assassins' Creed</p>
+                                    </div>
+                                    <div class="infoArea-productPrice">
+                                        <p>1799 TWD</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="wishItem-btnArea">
+                                <button class="changeHeart">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+*,select{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+input:focus, button:focus, select:focus{
+    outline: none;
+}
+
+.account-history-container{
+    padding: 35px 30px;
+    background-color: rgb(35,35,35);
+}
+
+.account-history-container .row + .row{
+    padding-top: 70px;
+}
+
+.textTitle{
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.text-gray{
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.nextSection{
+    position: relative;
+}
+
+.nextSection::before{
+    content:'';
+    border-top: 1px solid rgb(75,75,75);
+    width: 100%;
+    margin: auto;
+    left: 0px;
+    top:40px;
+    position: absolute;
+}
+
+.formArea select{
+    background-color: rgb(75,75,75);
+    border-radius: 0.2em;
+    border: none;
+    padding:8px;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.formArea select{
+    color: #e7e7e7;
+}
+
+.account-history-container .historyTableSection{
+    padding-top: 20px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.historyTable{
+    width: 100%;
+}
+
+.historyTable td, .historyTable th{
+    width: 25%;
+    text-align: center;
+    height: 30px;
+}
+
+.historyTable td{
+    height: 40px;
+    font-size: 14px;
+    color: rgba(225,225,225,0.5);
+}
+
+@media screen and (min-width: 992px){
+    .formArea .historySelection{
+        width: 360px;
+    }
+
+    .historySelectionArea{
+        display: flex;
+        justify-content: flex-end;
+    }
+}

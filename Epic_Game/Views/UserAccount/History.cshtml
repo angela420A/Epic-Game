@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "History";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/UserAccount/account_Layout.css" rel="stylesheet" />
+    <link href="~/Assets/css/UserAccount/account_history.css" rel="stylesheet" />
+}
+
+@section endJS{
+    <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <div class="accountNavBar">
+                <ul class="linkList">
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-user"></i>
+                                    <p>General</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-wallet"></i>
+                                    <p>payments</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-history"></i>
+                                    <p>transaction</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="linkList-item">
+                        <div class="settingLink">
+                            <a href="#">
+                                <div class="Link">
+                                    <i class="fas fa-key"></i>
+                                    <p>Password & Security</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <!-- Account Management Contents -->
+
+            <div class="account-history-container">
+                <div class="row pageTitleSection">
+                    <div class="col">
+                        <div class="textArea">
+                            <p class="textTitle">PAYMENT HISTORY</p>
+                            <p class="text-gray">View your account payment details and transactions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row historySelectionSection nextSection">
+                    <div class="historySelectionArea formArea col">
+                        <select name="" id="historyType" class="historySelection">
+                            <option value="">Payment History</option>
+                            <option value="">Code Redemption History</option>
+                            <option value="">V-Buck Card Redemption History</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="historyTableSection">
+                    <div class="col">
+                        <table class="historyTable">
+                            <thead>
+                                <tr>
+                                    <th>date</th>
+                                    <th>description</th>
+                                    <th>price</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2020/05/12</td>
+                                    <td>Assassin's Creed</td>
+                                    <td>$199.00</td>
+                                    <td>Complete</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

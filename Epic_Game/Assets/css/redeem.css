@@ -1,0 +1,162 @@
+p,*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(15,15,15);
+}
+
+.container{
+    background-color: rgb(15,15,15);
+    color:#e7e7e7;
+    padding: 80px 34px 0 34px;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productImg{
+    width: 180px;
+    height: 230px;
+    background-color: rgb(35,35,35);
+}
+
+.introArea p{
+    display: none;
+}
+
+.InfoInputArea .textArea{
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+.InfoInputArea .textArea h4{
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.InfoInputArea .textArea p{
+    font-size: 14px;
+    font-weight: 300;
+    color:  rgba(255,255,255,0.5);
+}
+
+.inputArea{
+    width: 100%;
+}
+
+.productCode{
+    background-color:rgb(15,15,15);
+    border:none;
+    width: 250px;
+    color:#e7e7e7;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+}
+
+.productCode:focus{
+    outline: none;
+}
+
+.buttonArea{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0 15px 0;
+}
+
+.gray-blue-btn{
+    background-color: rgb(9,83,210);
+    color:#e7e7e7;
+    text-transform: uppercase;
+    border: none;
+    padding: 20px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.gray-blue-btn:disabled{
+    background-color: rgb(35,35,35);
+    color:  rgba(255,255,255,0.5);
+}
+
+@media screen and (min-width: 576px){
+    .productInfoArea{
+        padding: 30px 0 0;
+    }
+
+    .inputArea{
+        padding: 20px;
+    }
+
+    .InfoInputArea{
+        width: 65%;
+    }
+    .productInfoArea{
+        width: 35%;
+    }
+
+    .InfoInputArea .textArea h4{
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .row{
+        flex-direction: row;
+        align-items: initial;
+    }
+
+    .introArea{
+        max-width: 180px;
+    }
+
+    .introArea p{
+        display: initial;
+        font-size: 10px;
+        font-weight: 300;
+        color:  rgba(255,255,255,0.5);
+    }
+
+    .productInfoArea{
+        line-height: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .InfoInputArea .textArea,
+    .productCode{
+        text-align: left;
+    }
+
+    .productCode{
+        font-size: 30px;
+    }
+
+    .inputArea{
+        padding: 0;
+    }
+    
+    .gray-blue-btn{
+        padding: 16px;
+        width: 40%;
+    }
+
+    .InfoInputArea .textArea h4{
+        font-size: 30px;
+    }
+
+    .InfoInputArea .textArea{
+        padding: 30px 0 34px 0;
+    }
+
+    .buttonArea{
+        justify-content: left;
+        padding: 15px 0 0 0;
+    }
+}
