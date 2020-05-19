@@ -185,6 +185,7 @@
   <ItemGroup>
     <Content Include="Assets\css\EpicGameBrowse.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
+    <Content Include="Assets\css\Layout\SideBar.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
@@ -243,6 +244,7 @@
     <Content Include="Assets\images\EpicGameStoreImg\asset 8.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 9.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\awhv1-41zak-001.ico" />
+    <Content Include="Assets\images\Layout\logo.png" />
     <Content Include="Assets\Js\script.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
