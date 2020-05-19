@@ -367,7 +367,7 @@ namespace Epic_Game.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email, Address = model.Address, City = model.City, Country = model.Country, PostalCode = model.PostalCode, Birthday = model.Birthday, Phone = model.Phone };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

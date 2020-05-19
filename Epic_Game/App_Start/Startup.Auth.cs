@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Epic_Game.Models;
+using Microsoft.Owin.Security.Facebook;
 
 namespace Epic_Game
 {
@@ -54,9 +55,27 @@ namespace Epic_Game
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            var options = new FacebookAuthenticationOptions
+            {
+                AppId = "1285266295015774",
+                AppSecret = "41da369d50bdae66c30464c9b17b057d",
+                CallbackPath = new PathString("/Account/ExternalLoginCallback/"),
+                Provider = new FacebookAuthenticationProvider
+                {
+                    OnAuthenticated = async context => 
+                    {
+                        // Retrieve the OAuth access token to store for subsequent API calls
+                        string accessToken = context.AccessToken;
+
+                        // Retrieve the username
+                        string facebookUserName = context.UserName;
+
+                        // You can even retrieve the full JSON-serialized user
+                        var serializedUser = context.User;
+                    }
+                }
+            };
+            app.UseFacebookAuthentication(options);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
