@@ -83,15 +83,11 @@ body{
     color: #e7e7e7;
 }
 @media screen and (min-width: 1024PX) {
-    /* body{
-        padding: 0 100px;
-    } */
+
     .carousel-inner  iframe{
         height: 500px;
     }
-    .container{
-        padding: 0 100px;
-    }
+
     .div_itemlist{
         position: initial;
         display: flex;
@@ -233,7 +229,7 @@ body{
 
 .mode_4_text p{
     color: #cccccc;
-    font-size: 14pxq;
+    font-size: 14px;
 }
 
 .imgArea{
