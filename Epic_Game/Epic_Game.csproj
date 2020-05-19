@@ -352,6 +352,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\UserAccount\History.cshtml" />
     <Content Include="Views\UserAccount\Security.cshtml" />
+    <Content Include="Views\UserAccount\_NavListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

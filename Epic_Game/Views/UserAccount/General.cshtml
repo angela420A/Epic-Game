@@ -14,55 +14,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-12">
-            <div class="accountNavBar">
-                <ul class="linkList">
-                    <li class="linkList-item">
-                        <div class="settingLink">
-                            <a href="#">
-                                <div class="Link">
-                                    <i class="fas fa-user"></i>
-                                    <p>General</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="linkList-item">
-                        <div class="settingLink">
-                            <a href="#">
-                                <div class="Link">
-                                    <i class="fas fa-wallet"></i>
-                                    <p>payments</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="linkList-item">
-                        <div class="settingLink">
-                            <a href="#">
-                                <div class="Link">
-                                    <i class="fas fa-history"></i>
-                                    <p>transaction</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="linkList-item">
-                        <div class="settingLink">
-                            <a href="#">
-                                <div class="Link">
-                                    <i class="fas fa-key"></i>
-                                    <p>Password & Security</p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-12">
-            <!-- Account Management Contents -->
+        @Html.Partial("_NavListPartial")
 
+        <!-- Account Management Contents -->
+        <div class="col-lg-9 col-md-12">
             <div class="personal-info-container">
                 <div class="row pageTitleSection">
                     <div class="col">
@@ -351,13 +306,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
                 <!-- Account Management Contents -->
             </div>
         </div>
