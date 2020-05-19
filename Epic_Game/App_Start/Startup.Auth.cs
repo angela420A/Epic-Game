@@ -58,7 +58,7 @@ namespace Epic_Game
             var options = new FacebookAuthenticationOptions
             {
                 AppId = "1285266295015774",
-                AppSecret = "41da369d50bdae66c30464c9b17b057d",
+                AppSecret = "",
                 CallbackPath = new PathString("/Account/ExternalLoginCallback/"),
                 Provider = new FacebookAuthenticationProvider
                 {
