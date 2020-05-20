@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RedeemController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
@@ -409,6 +410,7 @@
     <Content Include="Views\UserAccount\History.cshtml" />
     <Content Include="Views\UserAccount\Security.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Library\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

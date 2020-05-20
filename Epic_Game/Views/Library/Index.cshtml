@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="top_function">
+        <ul class="NavList">
+            <li>
+                <a href="" class="backLink">
+                    <p>Back to store</p>
+                </a>
+            </li>
+            <li>
+                <p class="PageTitleText">Library</p>
+            </li>
+        </ul>
+        <div class="search_div">
+            <i class="fas fa-th-large dis_img"></i>
+            <i class="fas fa-list dis_list"></i>
+            <input type="text" value="Search" class="search_text">
+        </div>
+    </div>
+    <div class="filter_div">
+        <div class="sortList-Controll">
+            <div class="sortArea">
+                <div class="sortLabelText">
+                    <p class="sort_label">Sort by:</p>
+                </div>
+                <div class="sortSelectArea">
+                    <input type="checkbox" id="sort_control" class="sort_checked">
+                    <label for="sort_control" class="sortLabel">
+                        <p>Recent</p>
+                        <i class="fas fa-chevron-up"></i>
+                    </label>
+                    <ul class="sort_list">
+                        <li>
+                            <button>
+                                <p>Recent</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <p>Alphabetical</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="filterList-Controll">
+            <div class="filterArea">
+                <div class="filterLabelText">
+                    <p class="filter_label">Filter:</p>
+                </div>
+                <div class="filterSelectArea">
+                    <input type="checkbox" id="filter_control" class="filter_checked">
+                    <label for="filter_control" class="filterLabel">
+                        <p>All</p>
+                        <i class="fas fa-chevron-up"></i>
+                    </label>
+                    <ul class="filter_list">
+                        <li>
+                            <button>
+                                <p>All</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <p>Installed</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-3 game_div">
+            <div class="pic_div">
+                <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt="borderland3">
+            </div>
+            <h3>Borderland3</h3>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5>Choose install location</h5>
+                    <div class="folder">
+                        <span>Folder:</span>
+                        <input type="text" value="D:/">
+                        <a href="#" class="btn btn-primary">Browse</a>
+                    </div>
+                    <div class="path_div">
+                        <span>Path:</span>
+                        <p class="_path"></p>
+                    </div>
+                    <div class="check_div">
+                        <input type="checkbox" name="auto_upd" id="auto_upd"><label for="auto_upd">Auto-Update</label><br>
+                        <input type="checkbox" name="create_short" id="create_short"><label for="create_short">
+                            Create
+                            Shortcut
+                        </label>
+                    </div>
+                    <a href="#" class="btn btn-primary">Install</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section topCSS{
+    <link href="~/Assets/css/all.css" rel="stylesheet" />
+    <link href="~/Assets/css/dis_img.css" rel="stylesheet" id="dis_style" />
+}
+
+@section endJS{
+    <script src="~/Assets/Js/library.js"></script>
+}
