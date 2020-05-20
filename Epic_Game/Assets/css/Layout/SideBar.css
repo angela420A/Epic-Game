@@ -129,19 +129,47 @@ body{
 }
 
 
-.mainlayout-footer{
+.mainlayout-footer {
     /* width: 100vh; */
-    background-color: lightgray;
+    background-color: #383737;
     color: white;
     position: relative;
     bottom: 0;
     padding: 30px 10px;
-    z-index: -1;
 }
 
-p{
-    margin-bottom: 0;
+    .mainlayout-footer p {
+        margin-bottom: 0;
+        font-size: 13px;
+        color: white;
+        font-family: Microsoft JhengHei;
+    }
+
+.m-footer-logo {
+    margin-top: 20px;
 }
+
+    .m-footer-logo i {
+        color: rgba(255, 255, 255,.3);
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+        .m-footer-logo i:hover {
+            color: white;
+        }
+
+.m-footer-pointword a {
+    color: white;
+    font-size: 13px;
+    margin: 0px 10px;
+}
+
+    .m-footer-pointword a:hover {
+        text-decoration: none;
+        color: rgb(94, 150, 255);
+        transform: .3s;
+    }
 
 
 @media screen and (min-width: 768px){
