@@ -6,10 +6,11 @@ game_div.addEventListener('click', () => {
     $('#exampleModal').modal('toggle');
 })
 dis_img.addEventListener('click', () => {
-    dis_style.href = "~/Assets/css/dis_img.css";
+    dis_style.href = "/Assets/css/dis_img.css";
     game_div.classList.remove("col-md-3");
 })
 dis_list.addEventListener('click', () => {
-    dis_style.href = "~/Assets/css/dis_list.css";
+    dis_style.href = "/Assets/css/dis_list.css";
     game_div.classList.add("col-md-3");
 })
+//123
