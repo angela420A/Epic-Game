@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -8,11 +8,12 @@
     display: block;
 } */
 
-body{
+body {
     display: block;
+    /*position: relative;*/
 }
 
-.mainlayout-header{
+.mainlayout-header {
     position: sticky;
     top: 0;
     display: flex;
@@ -22,47 +23,47 @@ body{
     height: 60px;
 }
 
-.m-h-title-a{
+.m-h-title-a {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-.m-h-title-a:hover{
-    text-decoration: none;
-}
+    .m-h-title-a:hover {
+        text-decoration: none;
+    }
 
-.m-header-title{
+.m-header-title {
     display: flex;
     align-items: center;
 }
 
-.m-header-title img{
-    width: 50px;
-    height: 50px;
-    /* margin: 10px 0px; */
-}
+    .m-header-title img {
+        width: 50px;
+        height: 50px;
+        /* margin: 10px 0px; */
+    }
 
-.m-header-title h3{
-    color: white;
-    font-family: monospace;
-    font-size: 20px;
-}
+    .m-header-title h3 {
+        color: white;
+        font-family: monospace;
+        font-size: 20px;
+    }
 
-.m-header-options{
+.m-header-options {
     display: flex;
     align-items: center;
 }
 
-.m-header-options label{
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    font-size: 30px;
-}
+    .m-header-options label {
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        font-size: 30px;
+    }
 
-.m-h-options-item li{
+.m-h-options-item li {
     margin-top: 30px;
     margin-left: 25px;
 }
@@ -75,32 +76,32 @@ body{
     top: 225px;
 } */
 
-.m-h-options-item a{
+.m-h-options-item a {
     color: rgb(194, 194, 194);
     text-decoration: none;
 }
 
-.m-h-options-item a:hover{
-    color: white;
-    transition: .3s;
-}
+    .m-h-options-item a:hover {
+        color: white;
+        transition: .3s;
+    }
 
-.m-h-options-item li:last-child a{
+.m-h-options-item li:last-child a {
     color: rgba(255, 255, 255,.3);
 }
 
-.m-h-options-item li:last-child a:hover{
-    color: white;
-    transition: .3s;
-}
+    .m-h-options-item li:last-child a:hover {
+        color: white;
+        transition: .3s;
+    }
 
-.m-h-o-items-a i{
+.m-h-o-items-a i {
     margin: 0px 10px;
 }
 
 
 /* 以下為漢堡系列 */
-.m-h-options-item{
+.m-h-options-item {
     display: none;
     position: absolute;
     right: 0;
@@ -111,19 +112,19 @@ body{
     z-index: 1;
 }
 
-.main-layout-checkbox{
+.main-layout-checkbox {
     display: none;
 }
 
-.m-h-o-items-a{
+.m-h-o-items-a {
     font-size: 18px;
 }
 
-.main-layout-checkbox:checked ~.m-h-options-item{
+.main-layout-checkbox:checked ~ .m-h-options-item {
     display: initial;
 }
 
-.mainlayout-body{
+.mainlayout-body {
     /* margin: 0px 5px; */
     box-sizing: border-box;
 }
@@ -131,11 +132,12 @@ body{
 
 .mainlayout-footer {
     /* width: 100vh; */
+    position: relative;
     background-color: #383737;
     color: white;
-    position: relative;
     bottom: 0;
     padding: 30px 10px;
+    margin-top: 20px;
 }
 
     .mainlayout-footer p {
@@ -170,7 +172,6 @@ body{
         color: rgb(94, 150, 255);
         transform: .3s;
     }
-
 
 @media screen and (min-width: 768px){
     *{
@@ -210,6 +211,7 @@ body{
         background-color:transparent;
         /* margin-top: 50px; */
         left: 0;
+        height: 600px;
     }
 
     .m-h-options-item li:last-child a{
@@ -233,4 +235,14 @@ body{
     .m-body-input{
         padding: 5px;
     } */
+}
+
+@media screen and (max-width: 890px) {
+    .m-header-title h3{
+        font-size: 15px;
+    }
+
+    .m-h-o-items-a {
+        font-size: 15px;
+    }
 }
