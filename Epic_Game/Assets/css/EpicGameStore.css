@@ -328,7 +328,7 @@ body{
 
 .mode_5_text p{
         color: #cccccc;
-        font-size: 14pxq;
+        font-size: 14px;
 }
 
 .now_row_out h3{
@@ -469,8 +469,13 @@ body{
     color: white;
 }
 
+.control-top{
+    z-index: -1;
+    position:sticky;
+    top:0;
+}
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     .mode_5_li{
          width: 25%;
      }
@@ -479,6 +484,12 @@ body{
      }
      .mode_1_img{
         width: 50%;
+    }
+
+    .control-top {
+        z-index: 1;
+        position:sticky;
+        top: 0;
     }
     
 }
