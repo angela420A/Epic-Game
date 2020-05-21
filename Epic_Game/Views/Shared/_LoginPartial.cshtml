@@ -7,16 +7,20 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("您好 " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <a class="m-h-o-items-a" id="loginLink" href="@Url.Action("Index","Manage")"><i class="fas fa-sign-out-alt"></i>Hello @User.Identity.GetUserName() !</a>
+            @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+        @*<li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>*@
+        <li><a class="m-h-o-items-a" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt"></i>Sign out</a></li>
     </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    @*<li><i class="fas fa-clipboard-check"></i>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "m-h-o-items-a" })</li>
+    <li><i class="fas fa-clipboard-check"></i>@Html.ActionLink("Sing In", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "m-h-o-items-a" })</li>*@
+    <li><a class="m-h-o-items-a" id="registerLink" href="@Url.Action("Register","Account")"><i class="fas fa-sign-out-alt"></i>Register</a></li>
+    <li><a class="m-h-o-items-a" id="loginLink" href="@Url.Action("Login","Account")"><i class="fas fa-sign-out-alt"></i>Sign In</a></li>
+</ul>
 }
