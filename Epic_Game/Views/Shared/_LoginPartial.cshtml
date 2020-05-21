@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a class="m-h-o-items-a" id="loginLink" href="@Url.Action("Index","Manage")"><i class="fas fa-sign-out-alt"></i>Hello @User.Identity.GetUserName() !</a>
+            <a class="m-h-o-items-a" id="loginLink" href="@Url.Action("Index","Manage")"><i class="fas fa-user-circle"></i>Hello @User.Identity.GetUserName() !</a>
             @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
         </li>
         @*<li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>*@
