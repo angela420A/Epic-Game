@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background-color:rgb(15,15,15);
+}
+.row{
+    color: #e7e7e7;
+}
+.col-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.checkout{
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.checkout p{
+    padding-right: 200px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.5);
+}
+.checkout :first-child{
+    border-bottom: 3px solid rgb(9,83,210);
+    color: #e7e7e7;
+}
+.pay_the_way p{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.detail{
+    padding: 15px;
+    margin: 15px;
+    background-color: #2a2a2a;
+}
+.detail .game_pic{
+    width: 40%;
+}
+.detail .game_text{
+    margin-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.game_text span{
+    font-size: 13px;
+}
+.fk{
+    padding: 10px;
+    margin: 10px;
+    background-color: #2a2a2a;
+    font-size: 20px;
+    border: 4px solid #2a2a2a;
+    /* border: 3px solid blue; */
+}
+.fk:hover{
+    box-sizing: border-box;
+    border: 4px solid rgb(9,83,210);
+}
+.fk img{
+    margin: 0 40px;
+    width: 10%;
+}
+.fk label{
+    margin: 0 40px;
+}
+.form-row input{
+    margin: 10px;
+}
+.credit_input{
+    display: none;
+}
+.paypal_input{
+    display: none;
+}
+.cd_control:checked ~ .credit_input{
+    display: block;
+}
+.pp_control:checked ~ .paypal_input{
+    display: block;
+}
+.year_month_select{
+    margin-top: 10px;
+    background-color: #1e1e1e;
+    border: 1px solid #6c6c6c;
+}
+.information p{
+    font-size: 15px;
+}
+.information_check label{
+    margin: 0;
+    font-size: 15px;
+}
+.tp{
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #999;
+}
+.span_color{
+    color: #999;
+}
+.total_pay{
+    margin: 20px 0 0;
+}
+.input_creater{
+    margin: 20px 0;
+    position: relative;
+}
+.user_input{
+    /* margin: 10px; */
+    background-color: #1e1e1e;
+    border: 1px solid #6c6c6c;
+    width: 100%;
+    color: #fff;
+    padding: 1.1em 1.5em;
+    text-transform: uppercase;
+    font-size: .85em;
+}
+.user_input_information{
+    margin-top: 10px;
+    background-color: #1e1e1e;
+    border: 1px solid #6c6c6c;
+    width: 100%;
+    color: #fff;
+    padding: 1.1em 1.5em;
+    text-transform: uppercase;
+    font-size: .85em;
+}
+.input_creater i{
+    position: absolute;
+    right: .5em;
+    top: .4em;
+    width: 1em;
+    font-size: 1.7em;
+    color: #6c6c6c;
+}
+.input_creater i:hover{
+    color: #e7e7e7;
+}
+.email_ckeck label{
+    font-size: .8em;
+}
+.help{
+    text-align: center;
+    margin: 20px;
+}
+.confirm-container button{
+    margin: 5px;
+    width: 100%;
+    background-color: #818283;
+    border: 2px solid #818283;
+}
+
+
