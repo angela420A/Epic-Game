@@ -14,7 +14,6 @@ namespace Epic_Game.Models
         public string Country { get; set; }
         public string Address { get; set; }
         public int PostalCode { get; set; }
-
         public DateTime Birthday { get; set; }
         public string Phone { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

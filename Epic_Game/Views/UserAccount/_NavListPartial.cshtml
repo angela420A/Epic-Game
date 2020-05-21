@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "_NavListPartialView";
+}
+
+    <div class="col-lg-3 col-md-12">
+        <div class="accountNavBar">
+            <ul class="linkList">
+                <li class="linkList-item">
+                    <div class="settingLink">
+                        <a href="@Url.Action("General", "UserAccount")">
+                            <div class="Link">
+                                <i class="fas fa-user"></i>
+                                <p>General</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="linkList-item">
+                    <div class="settingLink">
+                        <a href="@Url.Action("History", "UserAccount")">
+                            <div class="Link">
+                                <i class="fas fa-history"></i>
+                                <p>transaction</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="linkList-item">
+                    <div class="settingLink">
+                        <a href="@Url.Action("Security", "UserAccount")">
+                            <div class="Link">
+                                <i class="fas fa-key"></i>
+                                <p>Password & Security</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>

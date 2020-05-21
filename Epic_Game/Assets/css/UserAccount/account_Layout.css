@@ -67,20 +67,37 @@ body{
     margin-right: 0;
 }
 
-@media screen and (min-width: 992px) {
-    .Link p{
-        font-size: 12px;
-    }
-    
-    .accountNavBar{
-        position: sticky;
-        top: 0;
-    }
-
+.formArea input{
+    color: white;
 }
 
-@media screen and (min-width: 1200px){
-    .Link p{
-        font-size: 14px;
-    }
+/* ­×¥¿Layout */
+
+.mainlayout-header {
+    height: 60px;
+    flex-direction: initial;
+    padding: initial;
+    width: 100%;
+}
+
+.m-header-options {
+    flex-direction: initial;
+}
+
+.main-layout-label {
+    display: initial;
+}
+
+.m-h-options-item {
+    display: none;
+    background-color: #202020;
+    left: initial;
+}
+
+.m-h-o-items-a {
+    text-align: initial;
+}
+
+.mainlayout-body {
+    width: initial;
 }

@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EpicGameLibrary">
+      <HintPath>..\EpicGameLibrary\bin\Debug\EpicGameLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -430,6 +433,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\UserAccount\History.cshtml" />
     <Content Include="Views\UserAccount\Security.cshtml" />
+    <Content Include="Views\UserAccount\_NavListPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -441,7 +445,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
-    <Folder Include="Repository\" />
+    <Folder Include="Repository\BusinessLayer\" />
+    <Folder Include="Repository\DatebaseLayer\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
