@@ -38,7 +38,7 @@ body{
     align-items: center;
 }
 .NavList{
-    padding: 10px;
+    padding: 20px;
     position: relative;
     width: 100%;
     display: flex;
@@ -83,9 +83,6 @@ body{
     color: #e7e7e7;
 }
 @media screen and (min-width: 1024PX) {
-    .mvc {
-        display: block;
-    }
 
     .carousel-inner  iframe{
         height: 500px;
@@ -138,9 +135,8 @@ body{
 .wishList-Controll{
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding: 20px;
 }
 .sortArea{
     display: flex;
@@ -217,7 +213,7 @@ body{
 .mode_4_ul{
     display: flex;
     flex-wrap: wrap;
-    padding: 0px;
+    padding: 10px;
 }
 
 .mode_4_img-2{
@@ -243,4 +239,10 @@ body{
     background-size: auto 100%;
     background-repeat:no-repeat;
     background-position: bottom;
+}
+
+@media screen and (min-width: 1024PX) {
+    .mvc {
+        display: block;
+    }
 }
