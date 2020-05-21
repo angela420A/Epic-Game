@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -193,12 +194,14 @@
     <Content Include="Assets\css\Newscontentcss.css" />
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\product_style.css" />
+    <Content Include="Assets\css\Layout\SideBar.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
     <Content Include="Assets\css\UserAccount\account_security.css" />
     <Content Include="Assets\css\wishList.css" />
+    <Content Include="Assets\images\EpicGameStoreImg\borderland.png" />
     <Content Include="Assets\images\EpicGameBrowseImg\asset 0.jpeg" />
     <Content Include="Assets\images\EpicGameBrowseImg\asset 1.jpeg" />
     <Content Include="Assets\images\EpicGameBrowseImg\asset 10.jpeg" />
@@ -255,6 +258,7 @@
     <Content Include="Assets\images\EpicGameStoreImg\asset 8.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\asset 9.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\awhv1-41zak-001.ico" />
+    <Content Include="Assets\images\Layout\logo.png" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -279,6 +283,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Assets\images\EpicGameStoreImg\asset 3.webp" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -289,7 +294,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Assets\images\EpicGameStoreImg\asset 3.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -427,6 +431,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\News\Newitem.cshtml" />
     <Content Include="Views\News\NewContent.cshtml" />
+    <Content Include="Views\Library\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
