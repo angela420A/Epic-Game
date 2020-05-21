@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace Epic_Game.Controllers
 {
-    public class PayController : Controller
+    public class LibraryController : Controller
     {
-        // GET: Pay
+        // GET: Library
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Finish()
         {
             return View();
         }

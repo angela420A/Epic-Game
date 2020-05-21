@@ -1,0 +1,20 @@
+.pic_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.game_div {
+  color: #fff;
+}
+
+.game_div h3 {
+  font-size: 20px;
+}
+/*# sourceMappingURL=dis_img.css.map */
