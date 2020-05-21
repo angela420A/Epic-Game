@@ -1,9 +1,14 @@
-a,body{
+body{
     background-color: rgb(15,15,15);
     color: #e7e7e7;
 }
 
-p,h1,h2,h3,h4,h5,h6,label,*{
+a {
+    color: #e7e7e7;
+}
+
+
+p, h1, h2, h3, h4, h5, h6, label, * {
     margin: 0px;
     padding: 0;
     list-style: none;
