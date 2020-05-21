@@ -13,3 +13,4 @@ dis_list.addEventListener('click', () => {
     dis_style.href = "/Assets/css/dis_list.css";
     game_div.classList.add("col-md-3");
 })
+//123
