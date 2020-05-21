@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  color: #fff;
+  background-color: #0f0f0f;
+}
+
+.filter_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#filter_select {
+  margin-right: 50px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #0f0f0f;
+  color: #fff;
+  border: none;
+}
+
+.NavList {
+  width: 50%;
+}
+
+.NavList a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.NavList a :hover {
+  color: #fff;
+}
+
+.card-body {
+  color: #000;
+}
+
+.path_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.check_div {
+  margin-top: 20px;
+}
+
+.card {
+  padding-left: 15%;
+}
+
+.top_function {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search_div {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.search_div i {
+  margin-right: 20px;
+  color: #fff;
+}
+
+.search_text {
+  height: 30px;
+  border: none;
+  background-color: #323232;
+  color: #777;
+}
+
+.sortList-Controll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.sortArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.sort_label {
+  font-weight: 200;
+  color: #ccc;
+}
+
+.sortSelectArea {
+  position: relative;
+  margin-left: 15px;
+}
+
+.sort_checked {
+  display: none;
+}
+
+.sort_checked .fas {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.sort_list {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 30px;
+  width: 160px;
+  background-color: #232323;
+  padding: 10px;
+  z-index: 2;
+}
+
+.sortLabel {
+  width: 100px;
+}
+
+.sortLabel p,
+.sortLabel .wishCount p {
+  display: inline-block;
+  font-weight: 300;
+}
+
+.sort_list button {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+  color: #e7e7e7;
+}
+
+.sort_checked:checked ~ .sort_list {
+  display: initial;
+}
+
+.filterList-Controll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.filterArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.filter_label {
+  font-weight: 200;
+  color: #ccc;
+}
+
+.filterSelectArea {
+  position: relative;
+  margin-left: 15px;
+}
+
+.filter_checked {
+  display: none;
+}
+
+.filter_checked .fas {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.filter_list {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 30px;
+  width: 160px;
+  background-color: #232323;
+  padding: 10px;
+  z-index: 2;
+}
+
+.filterLabel {
+  width: 100px;
+}
+
+.filterLabel p,
+.filterLabel .wishCount p {
+  display: inline-block;
+  font-weight: 300;
+}
+
+.filter_list button {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+  color: #e7e7e7;
+}
+
+.filter_checked:checked ~ .filter_list {
+  display: initial;
+}
+/*# sourceMappingURL=library.css.map */

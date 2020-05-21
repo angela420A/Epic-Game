@@ -1,0 +1,27 @@
+.pic_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pic_div img {
+  width: 100px;
+  height: 50px;
+}
+
+.game_div {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.game_div h3 {
+  font-size: 20px;
+  margin-left: 50px;
+  text-align: center;
+}
+/*# sourceMappingURL=dis_list.css.map */
