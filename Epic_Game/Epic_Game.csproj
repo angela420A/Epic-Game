@@ -187,10 +187,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\all.css" />
+    <Content Include="Assets\css\dis_img.css" />
+    <Content Include="Assets\css\dis_list.css" />
     <Content Include="Assets\css\EpicGameBrowse.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\finish.css" />
     <Content Include="Assets\css\gamesnews.css" />
+    <Content Include="Assets\css\library.css" />
     <Content Include="Assets\css\Newscontentcss.css" />
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\product_style.css" />
@@ -259,6 +263,7 @@
     <Content Include="Assets\images\EpicGameStoreImg\asset 9.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\awhv1-41zak-001.ico" />
     <Content Include="Assets\images\Layout\logo.png" />
+    <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />
     <Content Include="Content\bootstrap-grid.css" />
