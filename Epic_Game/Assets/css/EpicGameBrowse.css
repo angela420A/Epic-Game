@@ -38,7 +38,7 @@ body{
     align-items: center;
 }
 .NavList{
-    padding: 10px;
+    padding: 20px;
     position: relative;
     width: 100%;
     display: flex;
@@ -135,9 +135,8 @@ body{
 .wishList-Controll{
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding: 20px;
 }
 .sortArea{
     display: flex;
@@ -214,7 +213,7 @@ body{
 .mode_4_ul{
     display: flex;
     flex-wrap: wrap;
-    padding: 0px;
+    padding: 10px;
 }
 
 .mode_4_img-2{
@@ -242,10 +241,8 @@ body{
     background-position: bottom;
 }
 
-@media screen and (min-width: 1024px){
-
-.mvc{
-    display: block;
-}
-
+@media screen and (min-width: 1024PX) {
+    .mvc {
+        display: block;
+    }
 }

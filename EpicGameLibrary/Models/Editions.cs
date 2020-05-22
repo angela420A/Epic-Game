@@ -6,26 +6,26 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Comment")]
-    public partial class Comment
+    public partial class Editions
     {
-        public Guid CommentID { get; set; }
-
-        [Required]
-        [StringLength(128)]
-        public string UserID { get; set; }
+        public Guid EditionsID { get; set; }
 
         public Guid ProductID { get; set; }
 
-        [StringLength(20)]
-        public string Title { get; set; }
+        public Guid Img { get; set; }
 
-        public DateTime Date { get; set; }
+        [StringLength(20)]
+        public string Name { get; set; }
 
         [StringLength(2000)]
         public string Description { get; set; }
 
-        public int Rank { get; set; }
+        public decimal Price { get; set; }
+
+        public int Discount { get; set; }
+
+        [StringLength(20)]
+        public string Condition { get; set; }
 
         public virtual Produuct Produuct { get; set; }
     }

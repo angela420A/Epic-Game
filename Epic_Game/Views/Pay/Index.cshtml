@@ -1,10 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
-@section topCSS{
-    <link href="~/Assets/css/pay.css" rel="stylesheet" />
-}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href="~/Assets/css/pay.css" rel="stylesheet" />
+
 
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -167,3 +169,6 @@
         </div>
     </div>
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

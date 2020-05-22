@@ -6,21 +6,20 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class AspNetRoles
+    public partial class P_Img
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetRoles()
+        public P_Img()
         {
-            AspNetUsers = new HashSet<AspNetUsers>();
+            Produuct = new HashSet<Produuct>();
         }
 
-        public string Id { get; set; }
+        [Key]
+        public Guid ImgID { get; set; }
 
-        [Required]
-        [StringLength(256)]
-        public string Name { get; set; }
+        public string URL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
+        public virtual ICollection<Produuct> Produuct { get; set; }
     }
 }

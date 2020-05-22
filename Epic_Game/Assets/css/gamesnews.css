@@ -9,28 +9,19 @@
     display: flex;
     width: 100%;
 }
-
-ul {
-    height: 100%;
-    background-color: rgb(39, 37, 39);
-    color: white;
-    margin-bottom: 0px;
-}
-
-
 .col-xl-6, .col-lg-12,
 .col-sm-12, .col-md-12 {
     padding: 0;
 }
 
 .Allcardgroup {
-    background-color: rgb(2, 2, 2);
+    background-color: #151515;
     width: 100%;
 }
 
 .Cardgroup {
     width: 100%;
-    background-color: rgb(2, 2, 2);
+    background-color: #151515;
     box-sizing: border-box;
     padding-left: 3%;
 }
@@ -42,8 +33,8 @@ ul {
     }
 
 .Allcardgroup h3 {
-    font-size: 15px;
-    color: rgb(111, 113, 116);
+    font-size: 17px;
+    color: rgb(105, 105, 105);
     padding-top: 3%;
     margin-left: 4%;
 }
@@ -81,23 +72,25 @@ ul {
 
 .newsitem .card-text {
     padding-top: 7%;
+    font-size: 25px;
 }
 
 .newsitem .Announcer {
     padding-bottom: 5%;
+    font-size: 15px;
 }
 
 .Onlinefirendgroup {
     min-width: 370px;
     position: relative;
-    background-color: rgb(2, 2, 2);
+    background-color: #151515;
     padding: 2% 3% 0 3%;
     display: flex;
     justify-content: center;
 }
 
 .Onlinefirend {
-    background-color: rgb(2, 2, 2);
+    background-color: #151515;
     position: fixed;
 }
 
@@ -161,7 +154,7 @@ ul {
     }
 
 .Gamesfriendtxt {
-    font-size: 15px;
+    font-size: 17px;
     color: rgb(111, 113, 116);
 }
 
@@ -195,10 +188,6 @@ ul {
 }
 
 @media screen and (max-width:992px) {
-    ul {
-        display: none;
-    }
-
     .Onlinefirendgroup {
         display: none;
     }
@@ -222,9 +211,6 @@ ul {
 }
 
 @media screen and (max-width:768px) {
-    ul {
-        display: none;
-    }
 
     .Onlinefirendgroup {
         display: none;
@@ -232,5 +218,15 @@ ul {
 
     .Allcardgroup h3 {
         margin-bottom: -1%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .newsitem .card-text {
+        font-size: 20px;
+    }
+
+    .newsitem .Announcer {
+        font-size: 10px;
     }
 }

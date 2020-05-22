@@ -6,28 +6,20 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Pack")]
-    public partial class Pack
+    public partial class N_Img
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pack()
+        public N_Img()
         {
-            Order = new HashSet<Order>();
+            News = new HashSet<News>();
         }
 
-        public Guid PackID { get; set; }
+        [Key]
+        public Guid ImgID { get; set; }
 
-        public Guid ProductID { get; set; }
-
-        public string Img { get; set; }
-
-        public decimal? Price { get; set; }
-
-        public int? Discount { get; set; }
+        public string URL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
-
-        public virtual Produuct Produuct { get; set; }
+        public virtual ICollection<News> News { get; set; }
     }
 }

@@ -12,14 +12,22 @@ namespace EpicGameLibrary.Models
 
         public Guid ProductID { get; set; }
 
-        public Guid AuthorID { get; set; }
+        [StringLength(20)]
+        public string Author { get; set; }
 
+        [StringLength(20)]
+        public string NewsTitle { get; set; }
+
+        public DateTime Date { get; set; }
+
+        [Required]
+        [StringLength(2000)]
         public string Description { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public Guid Img_List { get; set; }
 
-        public virtual Activity Activity { get; set; }
+        public virtual N_Img N_Img { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Produuct Produuct { get; set; }
     }
 }

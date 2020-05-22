@@ -8,153 +8,94 @@ namespace EpicGameLibrary.Models
     public partial class EGContext : DbContext
     {
         public EGContext()
-            : base("name=EGContext")
+            : base("name=EGContext1")
         {
         }
 
         public virtual DbSet<Activity> Activity { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
-        public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<Editions> Editions { get; set; }
+        public virtual DbSet<Follow> Follow { get; set; }
+        public virtual DbSet<Library> Library { get; set; }
+        public virtual DbSet<N_Img> N_Img { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<P_Img> P_Img { get; set; }
         public virtual DbSet<Pack> Pack { get; set; }
-        public virtual DbSet<PackDetail> PackDetail { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<UserDetail> UserDetail { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Produuct> Produuct { get; set; }
+        public virtual DbSet<Specifications> Specifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Activity>()
+            modelBuilder.Entity<Editions>()
+                .Property(e => e.Price)
+                .HasPrecision(6, 2);
+
+            modelBuilder.Entity<N_Img>()
                 .HasMany(e => e.News)
-                .WithRequired(e => e.Activity)
-                .HasForeignKey(e => e.AuthorID)
+                .WithRequired(e => e.N_Img)
+                .HasForeignKey(e => e.Img_List)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<AspNetRoles>()
-                .HasMany(e => e.AspNetUsers)
-                .WithMany(e => e.AspNetRoles)
-                .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.AspNetUserClaims)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.UserId);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.AspNetUserLogins)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.UserId);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.Comment)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.UserID)
+            modelBuilder.Entity<P_Img>()
+                .HasMany(e => e.Produuct)
+                .WithRequired(e => e.P_Img)
+                .HasForeignKey(e => e.Img_ListID)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.Order)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.UserID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.Order1)
-                .WithOptional(e => e.AspNetUsers1)
-                .HasForeignKey(e => e.PresentUserID);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.UserDetail)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.UserID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Company>()
-                .HasMany(e => e.Pack)
-                .WithRequired(e => e.Company)
-                .HasForeignKey(e => e.DeveloperID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Company>()
-                .HasMany(e => e.Pack1)
-                .WithRequired(e => e.Company1)
-                .HasForeignKey(e => e.PulisherID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Company>()
-                .HasMany(e => e.Product)
-                .WithRequired(e => e.Company)
-                .HasForeignKey(e => e.DeveloperID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Company>()
-                .HasMany(e => e.Product1)
-                .WithRequired(e => e.Company1)
-                .HasForeignKey(e => e.PulisherID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.Discout)
-                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Pack>()
                 .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .HasPrecision(6, 2);
 
             modelBuilder.Entity<Pack>()
-                .Property(e => e.Discount)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Pack>()
-                .HasMany(e => e.PackDetail)
+                .HasMany(e => e.Order)
                 .WithRequired(e => e.Pack)
+                .HasForeignKey(e => e.ProductID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Produuct>()
                 .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .HasPrecision(6, 2);
 
-            modelBuilder.Entity<Product>()
-                .Property(e => e.Discount)
-                .HasPrecision(2, 1);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Activity)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Produuct>()
                 .HasMany(e => e.Comment)
-                .WithRequired(e => e.Product)
+                .WithRequired(e => e.Produuct)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Produuct>()
+                .HasMany(e => e.Editions)
+                .WithRequired(e => e.Produuct)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Produuct>()
+                .HasMany(e => e.Follow)
+                .WithRequired(e => e.Produuct)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Produuct>()
+                .HasMany(e => e.Library)
+                .WithRequired(e => e.Produuct)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Produuct>()
                 .HasMany(e => e.News)
-                .WithRequired(e => e.Product)
+                .WithRequired(e => e.Produuct)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Produuct>()
                 .HasMany(e => e.Order)
-                .WithRequired(e => e.Product)
+                .WithRequired(e => e.Produuct)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Produuct>()
                 .HasMany(e => e.Pack)
-                .WithRequired(e => e.Product)
+                .WithRequired(e => e.Produuct)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.PackDetail)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.UserDetail)
-                .WithRequired(e => e.Product)
+            modelBuilder.Entity<Produuct>()
+                .HasMany(e => e.Specifications)
+                .WithRequired(e => e.Produuct)
                 .WillCascadeOnDelete(false);
         }
     }
