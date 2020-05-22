@@ -198,6 +198,7 @@
     <Content Include="Assets\css\finish.css" />
     <Content Include="Assets\css\gamesnews.css" />
     <Content Include="Assets\css\library.css" />
+    <Content Include="Assets\css\Login\Login.css" />
     <Content Include="Assets\css\Newscontentcss.css" />
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\product_style.css" />
