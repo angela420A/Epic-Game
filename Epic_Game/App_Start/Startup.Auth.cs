@@ -55,27 +55,27 @@ namespace Epic_Game
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            var options = new FacebookAuthenticationOptions
-            {
-                AppId = "1285266295015774",
-                AppSecret = "",
-                CallbackPath = new PathString("/Account/ExternalLoginCallback/"),
-                Provider = new FacebookAuthenticationProvider
-                {
-                    OnAuthenticated = async context => 
-                    {
-                        // Retrieve the OAuth access token to store for subsequent API calls
-                        string accessToken = context.AccessToken;
+            //var options = new FacebookAuthenticationOptions
+            //{
+            //    AppId = "1285266295015774",
+            //    AppSecret = "",
+            //    CallbackPath = new PathString("/Account/ExternalLoginCallback/"),
+            //    Provider = new FacebookAuthenticationProvider
+            //    {
+            //        OnAuthenticated = async context => 
+            //        {
+            //            // Retrieve the OAuth access token to store for subsequent API calls
+            //            string accessToken = context.AccessToken;
 
-                        // Retrieve the username
-                        string facebookUserName = context.UserName;
+            //            // Retrieve the username
+            //            string facebookUserName = context.UserName;
 
-                        // You can even retrieve the full JSON-serialized user
-                        var serializedUser = context.User;
-                    }
-                }
-            };
-            app.UseFacebookAuthentication(options);
+            //            // You can even retrieve the full JSON-serialized user
+            //            var serializedUser = context.User;
+            //        }
+            //    }
+            //};
+            //app.UseFacebookAuthentication(options);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
