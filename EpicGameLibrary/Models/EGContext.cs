@@ -8,7 +8,7 @@ namespace EpicGameLibrary.Models
     public partial class EGContext : DbContext
     {
         public EGContext()
-            : base("name=EGContext1")
+            : base("name=EGContext")
         {
         }
 
