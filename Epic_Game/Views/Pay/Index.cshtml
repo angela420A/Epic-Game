@@ -5,171 +5,170 @@
 }
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
-@section topCSS{
-    <link href="~/Assets/css/pay.css" rel="stylesheet" />
-}
 
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="pay col-12 col-md-6 col-lg-6">
-                <div class="checkout d-flex">
-                    <p>付款方式</p>
-                    <P>結帳</P>
-                </div>
-                <div class="pay_the_way">
-                    <p>選取一項付款方式</p>
-                    <div class="scroll-container">
-                        <div class="form-check fk">
-                            <div>
-                                <input class="form-check-input-fluid cd_control" type="radio" name="exampleRadios"
-                                       id="credit_card_control" value="option1">
-                                <img src="~/Assets/images/EpicGamePayImg/credit_card.png" alt="">
-                                <label class="form-check-label" for="credit_card_control">信用卡</label>
-                                <div class="credit_input">
-                                    <div class="d-md-flex">
-                                        <div class="address col-lg-6">
-                                            <span>帳單地址</span>
-                                            <div class="col-12">
-                                                <input type="text" class="form-control user_input_information" id="username" placeholder="*全名"
-                                                       required>
-                                                <input type="text" class="form-control user_input_information" id="address1"
-                                                       placeholder="*地址第1行" required>
-                                                <input type="text" class="form-control user_input_information" id="address2" placeholder="地址第2行"
-                                                       required>
-                                                <input type="text" class="form-control user_input_information" id="city" placeholder="*城市"
-                                                       required>
-                                            </div>
-                                            <div class="col-12 d-lg-flex d-md-flex">
-                                                <input type="text" class="form-control user_input_information" id="area" placeholder="地區"
-                                                       required>
-                                                <input type="text" class="form-control user_input_information" id="postalcode"
-                                                       placeholder="郵遞區號" required>
-                                            </div>
-                                        </div>
-                                        <div class="information col-lg-6">
-                                            <span>卡片資訊</span>
-                                            <div class="d-lg-flex">
-                                                <input type="text" class="form-control user_input_information" id="area" placeholder="*信用卡號"
-                                                       required>
-                                                <input type="text" class="form-control user_input_information" id="postalcode"
-                                                       placeholder="*信用卡安全碼" required>
-                                            </div>
-                                            <div class="d-lg-flex">
-                                                <select class="form-control year_month_select" id="exampleFormControlSelect1">
-                                                    <option>*月</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                                <select class="form-control year_month_select" id="exampleFormControlSelect1">
-                                                    <option>*年</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                            </div>
-                                            <p>儲存的信用卡資訊已獲授權可用於未來的購買。</p>
-                                            <div class="form-check information_check">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    不要儲存我的信用卡資訊
-                                                </label>
-                                            </div>
-                                            <div class="confirm-container col-xs-12 d-md-flex">
-                                                <button class="btn btn-primary">
-                                                    <span>取消</span>
-                                                </button>
-                                                <button class="btn btn-primary">
-                                                    <span>CHECKOUT & SAVE</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-check fk">
-                            <div>
-                                <input class="form-check-input-fluid pp_control" type="radio" name="exampleRadios" id="exampleRadios2"
-                                       value="option2">
-                                <img src="~/Assets/images/EpicGamePayImg/paypal.png">
-                                <label class="form-check-label" for="exampleRadios2">PayPal</label>
-                                <div class="information paypal_input col-12">
-                                    <p>儲存的信用卡資訊已獲授權可用於未來的購買。</p>
-                                    <div class="form-check information_check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            不要儲存我的信用卡資訊
-                                        </label>
-                                    </div>
-                                    <div class="confirm-container col-xs-12 d-md-flex">
-                                        <button class="btn btn-primary">
-                                            <span>取消</span>
-                                        </button>
-                                        <button class="btn btn-primary">
-                                            <span>新增PAYPAL並儲存</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <link href="~/Assets/css/pay.css" rel="stylesheet" />
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="pay col-12 col-md-6 col-lg-6">
+            <div class="checkout d-flex">
+                <p>付款方式</p>
+                <P>結帳</P>
             </div>
-            <div class="detail col-12 col-md-3 col-lg-3">
-                <h5>訂單摘要</h5>
-                <div class="game d-flex">
-                    <div class="game_pic">
-                        <img src="~/Assets/images/EpicGamePayImg/EGS_Levelhead_ButterscotchShenanigans_S2-860x1148-b04fcfdf525dd935e68556f031d3b971.png" alt=""
-                             class="d-block w-100">
+            <div class="pay_the_way">
+                <p>選取一項付款方式</p>
+                <div class="scroll-container">
+                    <div class="form-check fk">
+                        <div>
+                            <input class="form-check-input-fluid cd_control" type="radio" name="exampleRadios"
+                                   id="credit_card_control" value="option1">
+                            <img src="~/Assets/images/EpicGamePayImg/credit_card.png" alt="">
+                            <label class="form-check-label" for="credit_card_control">信用卡</label>
+                            <div class="credit_input">
+                                <div class="d-md-flex">
+                                    <div class="address col-lg-6">
+                                        <span>帳單地址</span>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control user_input_information" id="username" placeholder="*全名"
+                                                   required>
+                                            <input type="text" class="form-control user_input_information" id="address1"
+                                                   placeholder="*地址第1行" required>
+                                            <input type="text" class="form-control user_input_information" id="address2" placeholder="地址第2行"
+                                                   required>
+                                            <input type="text" class="form-control user_input_information" id="city" placeholder="*城市"
+                                                   required>
+                                        </div>
+                                        <div class="col-12 d-lg-flex d-md-flex">
+                                            <input type="text" class="form-control user_input_information" id="area" placeholder="地區"
+                                                   required>
+                                            <input type="text" class="form-control user_input_information" id="postalcode"
+                                                   placeholder="郵遞區號" required>
+                                        </div>
+                                    </div>
+                                    <div class="information col-lg-6">
+                                        <span>卡片資訊</span>
+                                        <div class="d-lg-flex">
+                                            <input type="text" class="form-control user_input_information" id="area" placeholder="*信用卡號"
+                                                   required>
+                                            <input type="text" class="form-control user_input_information" id="postalcode"
+                                                   placeholder="*信用卡安全碼" required>
+                                        </div>
+                                        <div class="d-lg-flex">
+                                            <select class="form-control year_month_select" id="exampleFormControlSelect1">
+                                                <option>*月</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <select class="form-control year_month_select" id="exampleFormControlSelect1">
+                                                <option>*年</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <p>儲存的信用卡資訊已獲授權可用於未來的購買。</p>
+                                        <div class="form-check information_check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                不要儲存我的信用卡資訊
+                                            </label>
+                                        </div>
+                                        <div class="confirm-container col-xs-12 d-md-flex">
+                                            <button class="btn btn-primary">
+                                                <span>取消</span>
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <span>CHECKOUT & SAVE</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="game_text">
-                        <h5>Before We Leave</h5>
-                        <span>由 Balancing Monkey Games</span>
+                    <div class="form-check fk">
+                        <div>
+                            <input class="form-check-input-fluid pp_control" type="radio" name="exampleRadios" id="exampleRadios2"
+                                   value="option2">
+                            <img src="~/Assets/images/EpicGamePayImg/paypal.png">
+                            <label class="form-check-label" for="exampleRadios2">PayPal</label>
+                            <div class="information paypal_input col-12">
+                                <p>儲存的信用卡資訊已獲授權可用於未來的購買。</p>
+                                <div class="form-check information_check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        不要儲存我的信用卡資訊
+                                    </label>
+                                </div>
+                                <div class="confirm-container col-xs-12 d-md-flex">
+                                    <button class="btn btn-primary">
+                                        <span>取消</span>
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <span>新增PAYPAL並儲存</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="tp price">
-                    <div class="price_price d-flex justify-content-between">
-                        <span class="span_color">價格</span>
-                        <span>USD $9.99</span>
-                    </div>
-                    <div class="price_text">
-                        <span class="span_color">若適用則包括增值稅</span>
-                    </div>
-                </div>
-                <div class="tp total">
-                    <div class="total_price d-flex justify-content-between">
-                        <span class="span_color">總計</span>
-                        <span>USD $9.99</span>
-                    </div>
-                    <div class="total_pay d-flex justify-content-between">
-                        <span>您的支付</span>
-                        <span>USD $9.99</span>
-                    </div>
-                </div>
-                <div class="input_creater">
-                    <input name="affiliateSlug" placeholder="請輸入一個創作者標籤" value="" autocomplete="off" class="user_input">
-                    <i class="fas fa-info-circle"></i>
-                </div>
-                <div class="form-check email_ckeck">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        點擊此處以和 Coffee Stain Studios 分享您的電子信箱。 Coffee Stain Studios 將依據其<a href="">隱私權政策</a>來使用您的電子信箱地址，因此我們建議您閱讀它。
-                    </label>
-                </div>
-                <div class="help">
-                    <span>需要幫助嗎？ <a href="">聯絡我們</a></span>
-                </div>
-                <div class="confirm-container col-xs-12">
-                    <button class="btn btn-primary">
-                        <span>結帳</span>
-                    </button>
                 </div>
             </div>
         </div>
+        <div class="detail col-12 col-md-3 col-lg-3">
+            <h5>訂單摘要</h5>
+            <div class="game d-flex">
+                <div class="game_pic">
+                    <img src="~/Assets/images/EpicGamePayImg/EGS_Levelhead_ButterscotchShenanigans_S2-860x1148-b04fcfdf525dd935e68556f031d3b971.png" alt=""
+                         class="d-block w-100">
+                </div>
+                <div class="game_text">
+                    <h5>Before We Leave</h5>
+                    <span>由 Balancing Monkey Games</span>
+                </div>
+            </div>
+            <div class="tp price">
+                <div class="price_price d-flex justify-content-between">
+                    <span class="span_color">價格</span>
+                    <span>USD $9.99</span>
+                </div>
+                <div class="price_text">
+                    <span class="span_color">若適用則包括增值稅</span>
+                </div>
+            </div>
+            <div class="tp total">
+                <div class="total_price d-flex justify-content-between">
+                    <span class="span_color">總計</span>
+                    <span>USD $9.99</span>
+                </div>
+                <div class="total_pay d-flex justify-content-between">
+                    <span>您的支付</span>
+                    <span>USD $9.99</span>
+                </div>
+            </div>
+            <div class="input_creater">
+                <input name="affiliateSlug" placeholder="請輸入一個創作者標籤" value="" autocomplete="off" class="user_input">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="form-check email_ckeck">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    點擊此處以和 Coffee Stain Studios 分享您的電子信箱。 Coffee Stain Studios 將依據其<a href="">隱私權政策</a>來使用您的電子信箱地址，因此我們建議您閱讀它。
+                </label>
+            </div>
+            <div class="help">
+                <span>需要幫助嗎？ <a href="">聯絡我們</a></span>
+            </div>
+            <div class="confirm-container col-xs-12">
+                <button class="btn btn-primary">
+                    <span>結帳</span>
+                </button>
+            </div>
+        </div>
     </div>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
