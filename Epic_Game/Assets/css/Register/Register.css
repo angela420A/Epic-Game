@@ -10,7 +10,8 @@ body{
 
 .registered-root{
     display: block;
-    padding: 100px 0px;
+    /*padding: 100px 0px;*/
+    padding-top: 20px;
 }
 
 .r-header-logo{
