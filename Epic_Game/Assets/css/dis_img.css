@@ -8,13 +8,15 @@
   width: 200px;
   height: 250px;
   overflow: hidden;
+  margin:auto;
 }
 
-.game_div {
+#game_div {
   color: #fff;
+  text-align:center;
 }
 
-.game_div h3 {
+#game_div h3 {
   font-size: 20px;
 }
 /*# sourceMappingURL=dis_img.css.map */
