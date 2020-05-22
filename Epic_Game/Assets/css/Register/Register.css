@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-color: rgb(15, 15, 15);
+}
+
+.registered-root{
+    display: block;
+    padding: 100px 0px;
+}
+
+.r-header-logo{
+    margin-bottom: 20px;
+}
+
+.r-header-logo img{
+    /* margin-top: 150px; */
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+}
+
+.r-header-logo h3{
+    color: white;
+    font-family: Microsoft JhengHei;
+}
+
+.r-header-inputtext input{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+}
+
+.r-h-inputtext-nickname{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-nickname input{
+    width: 360px;
+}
+
+.r-h-inputtext-country-city{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-country-city input{
+    width: 177px;
+}
+
+.r-h-inputtext-address{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-address input{
+    width: 360px;
+}
+
+.r-h-inputtext-postalcode{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-postalcode input{
+    width: 360px;
+}
+
+.r-h-inputtext-birthday{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-birthday input{
+    width: 360px;
+}
+
+.r-h-inputtext-birthday input::-webkit-clear-button{
+    cursor: pointer;
+}
+
+.r-h-inputtext-birthday input::-webkit-inner-spin-button{
+    display: none;
+}
+
+.r-h-inputtext-birthday input::-webkit-calendar-picker-indicator{
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.r-h-inputtext-birthday input::-webkit-calendar-picker-indicator:hover{
+    background-color: rgb(255, 255, 255, .2);
+    color: rgb(15, 15, 15);
+}
+
+.r-h-inputtext-phone{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-phone input{
+    width: 360px;
+}
+
+.r-h-inputtext-email{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-email input{
+    width: 360px;
+}
+
+.r-h-inputtext-password{
+    margin-bottom: 10px;
+}
+
+.r-h-inputtext-password input{
+    width: 360px;
+}
+
+.r-h-inputtext-confirmpassword{
+    margin-bottom: 20px;
+}
+
+.r-h-inputtext-confirmpassword input{
+    width: 360px;
+}
+
+.r-h-inputtext-checkbox{
+    margin-bottom: 20px;
+}
+
+.r-h-inputtext-checkbox label{
+    color: white;
+    cursor: pointer;
+    display: inline;
+}
+
+.r-h-inputtext-checkbox a{
+    color: white;
+    cursor: pointer;
+    text-decoration:underline;
+    display: inline;
+}
+
+.r-h-inputtext-button input{
+    background-color: #037BEE;
+    padding: 10px 20px;
+    /* margin-bottom: 150px; */
+}
+
+.r-h-inputtext-button input:hover{
+    background-color: rgb(8, 99, 185);
+}

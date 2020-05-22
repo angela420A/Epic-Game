@@ -204,6 +204,7 @@
     <Content Include="Assets\css\product_style.css" />
     <Content Include="Assets\css\Layout\SideBar.css" />
     <Content Include="Assets\css\redeem.css" />
+    <Content Include="Assets\css\Register\Register.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
