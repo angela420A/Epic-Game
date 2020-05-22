@@ -129,7 +129,7 @@ body {
 }
 
 .m-body-renderbody{
-    min-height: 100vh;
+    min-height: calc(100vh - 234px);
 }
 
 .mainlayout-footer {
@@ -138,7 +138,7 @@ body {
     background-color: #383737;
     color: white;
     bottom: 0;
-    padding: 30px 10px;
+    padding: 30px 23px;
     margin-top: 20px;
 }
 
@@ -234,13 +234,10 @@ body {
         width: 77%;
     }
 
-/* 
-    .m-body-input{
-        padding: 5px;
-    } */
 }
 
 @media screen and (max-width: 890px) {
+
     .m-header-title h3{
         font-size: 15px;
     }
