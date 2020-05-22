@@ -10,7 +10,6 @@
 
 body {
     display: block;
-    /*position: relative;*/
 }
 
 .mainlayout-header {
@@ -129,6 +128,9 @@ body {
     box-sizing: border-box;
 }
 
+.m-body-renderbody{
+    min-height: 100vh;
+}
 
 .mainlayout-footer {
     /* width: 100vh; */
@@ -145,6 +147,7 @@ body {
         font-size: 13px;
         color: white;
         font-family: Microsoft JhengHei;
+        margin-top: 20px;
     }
 
 .m-footer-logo {
