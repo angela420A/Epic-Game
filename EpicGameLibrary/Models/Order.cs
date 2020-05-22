@@ -17,17 +17,14 @@ namespace EpicGameLibrary.Models
 
         public Guid ProductID { get; set; }
 
-        public decimal? Discout { get; set; }
+        public DateTime Date { get; set; }
 
-        public DateTime DateTime { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string Title { get; set; }
 
-        [StringLength(128)]
-        public string PresentUserID { get; set; }
+        public virtual Pack Pack { get; set; }
 
-        public virtual AspNetUsers AspNetUsers { get; set; }
-
-        public virtual AspNetUsers AspNetUsers1 { get; set; }
-
-        public virtual Product Product { get; set; }
+        public virtual Produuct Produuct { get; set; }
     }
 }

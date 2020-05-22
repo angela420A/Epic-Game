@@ -9,13 +9,9 @@ namespace EpicGameLibrary.Models
     [Table("Category")]
     public partial class Category
     {
-        [Key]
-        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string Type { get; set; }
+        public int? Type { get; set; }
     }
 }

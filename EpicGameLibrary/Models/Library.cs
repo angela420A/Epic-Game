@@ -6,17 +6,19 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PackDetail")]
-    public partial class PackDetail
+    [Table("Library")]
+    public partial class Library
     {
-        public Guid PackDetailID { get; set; }
+        public Guid LibraryID { get; set; }
 
-        public Guid PackID { get; set; }
+        public Guid UserID { get; set; }
 
         public Guid ProductID { get; set; }
 
-        public virtual Pack Pack { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string Condition { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Produuct Produuct { get; set; }
     }
 }
