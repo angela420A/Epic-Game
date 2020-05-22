@@ -129,7 +129,7 @@ body {
 }
 
 .m-body-renderbody{
-    min-height: 100vh;
+    min-height: calc(100vh - 234px);
 }
 
 .mainlayout-footer {
@@ -138,7 +138,7 @@ body {
     background-color: #383737;
     color: white;
     bottom: 0;
-    padding: 30px 10px;
+    padding: 30px 23px;
     margin-top: 20px;
 }
 
@@ -185,7 +185,7 @@ body {
 
     body{
         display: flex;
-        flex-wrap: wrap;
+        /*flex-wrap: wrap;*/
     }
 
     /* .mainlayout-root{
@@ -196,7 +196,7 @@ body {
         height: 100vh;
         flex-direction: column;
         padding: 10px 10px;
-        width: 23%;
+        width: 300px;
         box-sizing: border-box;
     }
 
@@ -231,21 +231,18 @@ body {
     }
 
     .mainlayout-body{
-        width: 77%;
+        width: calc(100vw - 300px);
     }
 
-/* 
-    .m-body-input{
-        padding: 5px;
-    } */
 }
 
 @media screen and (max-width: 890px) {
-    .m-header-title h3{
+
+    /*.m-header-title h3{
         font-size: 15px;
     }
 
     .m-h-o-items-a {
         font-size: 15px;
-    }
+    }*/
 }
