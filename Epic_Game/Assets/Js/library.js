@@ -12,6 +12,6 @@ dis_img.addEventListener('click', () => {
 })
 dis_list.addEventListener('click', () => {
     dis_style.href = "/Assets/css/dis_list.css";
-    game_div.className = "col-8";
+    game_div.className = "col-12";
 })
 //123

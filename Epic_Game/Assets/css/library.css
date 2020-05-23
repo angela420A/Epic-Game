@@ -10,22 +10,51 @@ body {
 }
 
 .container {
-    padding: 40px 15px;
+    padding: 0 140px;
+    margin:0;
+}
+
+.row {
+    padding: 0;
+}
+
+.PageTitle {
+    padding: 20px 0;
 }
 
 .NavList {
     display: flex;
+    font-size: 18px;
+    margin-bottom:0;
+    margin-top:0;
+    margin-left:0;
+    margin-right:0;
 }
 
     .NavList li {
-        margin-right: 20px;
+        position: relative;
     }
+        .NavList li p{
+            margin :0;
+        }
+
+        .NavList li + li {
+            margin-left: 40px;
+        }
+
+            .NavList li + li::before {
+                content: '';
+                border-left: 1px solid rgb(75,75,75);
+                height: 60%;
+                bottom: 20%;
+                left: -20px;
+                position: absolute;
+            }
 
 .filter_div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 30px;
 }
 
 #filter_select {
@@ -76,7 +105,7 @@ body {
 }
 
 .search_div {
-    width: 50%;
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -86,7 +115,7 @@ body {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    margin-top:5px;
+    margin: 0;
 }
 
     .search_div i {
@@ -176,7 +205,7 @@ body {
 
 .download_icon:hover {
     color: rgb(9,83,210);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .filterList-Controll {
