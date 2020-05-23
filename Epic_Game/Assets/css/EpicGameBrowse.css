@@ -179,9 +179,9 @@ body{
 @media screen and (min-width: 1024PX) {
     ._stickyTop {
         position: sticky;
-        top: 50;
         background-color: #151515;
         z-index: 1;
+        padding-left:25px
     }
 
     .carousel-inner  iframe{
