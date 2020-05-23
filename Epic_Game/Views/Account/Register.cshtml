@@ -3,80 +3,163 @@
     ViewBag.Title = "註冊";
 }
 
-<h2>@ViewBag.Title.</h2>
+@section topCSS{
+    <link href="~/Assets/css/Register/Register.css" rel="stylesheet" />
+}
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "registered-root", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>建立新帳戶。</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    <div class="col-12 col-md-12 col-lg-12">
+        <div class="r-header-logo text-center">
+            <img src="~/Assets/images/Layout/logo.png" alt="">
+            <h3>Happy Little Sheep</h3>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+    <div class="r-header-inputtext">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-nickname text-center">
+                @*<input type="text" placeholder="  *Your Nickname">*@
+                @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "  *Your Nickname" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-country-city text-center">
+                @*<input type="text" placeholder="  *Country">*@
+                @Html.TextBoxFor(m => m.Country, new { @type = "text", @placeholder = "  *Country" })
+                @*<input type="text" placeholder="  *City">*@
+                @Html.TextBoxFor(m => m.City, new { @type = "text", @placeholder = "  *City" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-address text-center">
+                @*<input type="text" placeholder="  *Address">*@
+                @Html.TextBoxFor(m => m.Address, new { @type = "text", @placeholder = "  *Address" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-postalcode text-center">
+                @*<input type="text" placeholder="  *postalcode">*@
+                @Html.TextBoxFor(m => m.PostalCode, new { @type = "nunber", @placeholder = "  *postalcode" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Birthday, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "生日"})
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-birthday text-center">
+                @*<input type="date" placeholder="  *Your Birthday">*@
+                @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "  *Your Birthday" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-phone text-center">
+                @*<input type="text" placeholder="  *Your Phone Number">*@
+                @Html.TextBoxFor(m => m.Phone, new { @type = "text", @placeholder = "  *Your Phone Number" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-email text-center">
+                @*<input type="email" placeholder="  *Your Email">*@
+                @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "  *Your Email" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-password text-center">
+                @*<input type="password" placeholder="  *Your Password">*@
+                @Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "  *Your Password" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-confirmpassword text-center">
+                @*<input type="password" placeholder="  *ConfirmPassword">*@
+                @Html.TextBoxFor(m => m.ConfirmPassword, new { @type = "password", @placeholder = "  *ConfirmPassword" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="註冊" />
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-checkbox text-center form-check">
+                <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                <label class="form-check-label" for="materialUnchecked">I Have Read </label>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="r-h-inputtext-button text-center">
+                <input type="submit" value="Let Play !">
+            </div>
         </div>
     </div>
 }
+
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>建立新帳戶。</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Birthday, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "生日" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="註冊" />
+            </div>
+        </div>
+    }*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

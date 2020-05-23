@@ -7,8 +7,13 @@ a {
     color: #e7e7e7;
 }
 
-
-p, h1, h2, h3, h4, h5, h6, label, * {
+m-body-renderbody h1,
+m-body-renderbody h2,
+m-body-renderbody h3,
+m-body-renderbody h4,
+m-body-renderbody h5,
+m-body-renderbody h6,
+p, label, * {
     margin: 0px;
     padding: 0;
     list-style: none;

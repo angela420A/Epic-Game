@@ -3,14 +3,16 @@
     padding: 0;
     list-style: none;
 }
-
+body {
+    background-color: #151515;
+}
 .Allgroups {
     font-family: Microsoft JhengHei;
     display: flex;
     width: 100%;
 }
-.col-xl-6, .col-lg-12,
-.col-sm-12, .col-md-12 {
+.Cardgroup .container .row .col-xl-6, .Cardgroup .container .row .col-lg-12,
+.Cardgroup .container .row .col-sm-12, .Cardgroup .container .row .col-md-12 {
     padding: 0;
 }
 
@@ -18,12 +20,17 @@
     background-color: #151515;
     width: 100%;
 }
-
+.Allgroups .Allcardgroup .Titleclass {
+    height: 60px;
+    display: flex;
+    margin-top: 10px;
+}
 .Cardgroup {
     width: 100%;
     background-color: #151515;
     box-sizing: border-box;
     padding-left: 3%;
+    margin-top:-15px;
 }
 
     .Cardgroup .container {
@@ -33,10 +40,12 @@
     }
 
 .Allcardgroup h3 {
-    font-size: 17px;
+    font-size: 16px;
     color: rgb(105, 105, 105);
-    padding-top: 3%;
     margin-left: 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .newsitem {
@@ -91,7 +100,9 @@
 
 .Onlinefirend {
     background-color: #151515;
-    position: fixed;
+    position:sticky;
+    height:360px;
+    top:28px;
 }
 
 .startimg {
@@ -102,6 +113,7 @@
 .Startgroup {
     position: relative;
     cursor: pointer;
+    margin-top:14px;
 }
 
 .startimg img {
@@ -142,6 +154,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-top: 14px;
 }
 
     .Fbgroup:hover {
@@ -154,23 +167,23 @@
     }
 
 .Gamesfriendtxt {
-    font-size: 17px;
+    font-size: 16px;
     color: rgb(111, 113, 116);
+    margin-bottom:0px;
 }
 
 .Friend {
     margin-top: 15%;
 }
+.Titlestartclass {
+    height: 20px;
+    display: flex;
+}
 
 @media screen and (max-width:1200px) {
     .newsitem {
-        margin: 3% 0;
+        margin: 15px 0;
     }
-
-    .Allcardgroup h3 {
-        margin-bottom: -1%;
-    }
-
     .newsitem a {
         display: flex;
         flex-direction: column;
@@ -178,6 +191,9 @@
 
     .card-img-top {
         order: 1;
+    }
+    .Cardgroup {
+        margin-top: -23px;
     }
 }
 
@@ -193,7 +209,8 @@
     }
 
     .Allcardgroup {
-        padding: 51px 5% 0 2%;
+        padding-left:2%;
+        padding-right:5%;
         width: 100%
     }
 
