@@ -6,14 +6,49 @@
 
 body{
     background-color: rgba(15, 15, 15);
+    flex-direction: column;
 }
 
-.body-login-root{
-    display:flex;
+.mainlayout-header {
+    height: 60px;
+    flex-direction: initial;
+    padding: initial;
+    width: 100%;
+}
+
+.m-header-options {
+    flex-direction: initial;
+}
+
+.main-layout-label {
+    display: initial;
+}
+
+.m-h-options-item {
+    display: none;
+    background-color: #202020;
+    left: initial;
+    height: calc(100vh - 60px);
+}
+
+.m-h-o-items-a {
+    text-align: initial;
+}
+
+.mainlayout-body {
+    width: initial;
+}
+
+.mainlayout-footer{
+    display:none;
+}
+
+.body-login-root {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 10px 0px;
 }
 
 .singin-google p{
