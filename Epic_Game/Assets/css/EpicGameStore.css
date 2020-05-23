@@ -502,7 +502,6 @@ body{
 
 .control-top{
     z-index: 1;
-    position:sticky;
     top:60px;
 }
 
@@ -518,7 +517,7 @@ body{
     }
 
     .control-top {
-        z-index: 1;
+        z-index: 0;
         position:sticky;
         top: 0px;
     }
