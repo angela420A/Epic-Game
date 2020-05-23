@@ -1,10 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Finish";
+    Layout = null;
 }
-@section topCSS{
-    <link href="~/Assets/css/finish.css" rel="stylesheet" />
-}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<link href="~/Assets/css/finish.css" rel="stylesheet" />
 
 <div class="finish_screen">
     <div class="logo">
@@ -17,3 +18,5 @@
     </div>
 </div>
 
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
