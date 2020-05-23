@@ -18,7 +18,7 @@ body{
     text-align: center;
     width: 100%;
   }
-  
+
   #sync2 .item {
     background: #C9C9C9;
     padding: 10px 0px;
@@ -47,7 +47,8 @@ body{
   }
   #sync1.owl-theme .owl-next,
   #sync1.owl-theme .owl-prev {
-    width: 22px;
+
+    width: 30px;
     height: 40px;
     margin-top: -20px;
     position: absolute;
@@ -106,8 +107,22 @@ body{
 
 /* ======================以下曾莞婷================== */
 
+.navbar input {
+    background-color:black;
+    color:white;
+}
 .navbar{
-    padding: 0rem 0rem;
+    position: absolute;
+    right: 0;
+}
+.navbar .form-control{
+    display: none;
+}
+.searchbtn{
+    background-color: #151515;
+    color: #e7e7e7;
+    border: none;
+    margin-left: 4px;
 }
 
  .NavListArea{
@@ -176,10 +191,18 @@ body{
 .fa-chevron-down{
     color: #e7e7e7;
 }
+.form-inline {
+    display: contents;
+}
 @media screen and (min-width: 1024PX) {
-    /* body{
-        padding: 0 100px;
-    } */
+    .navbar input {
+        background-color: black;
+        color: white;
+    }
+
+    .form-inline {
+        display: contents;
+    }
     .carousel-inner  iframe{
         height: 500px;
     }
@@ -225,7 +248,15 @@ body{
 
 /* ======================以上曾莞婷================== */
 
-.free_title{
+.free_content_text{
+    padding-top:10px;
+}
+
+.mode_5_text{
+    padding-top:10px
+}
+
+.free_title {
     display: flex;
     justify-content: space-between;
     margin: 0px 0px 15px;
@@ -470,9 +501,8 @@ body{
 }
 
 .control-top{
-    z-index: -1;
-    position:sticky;
-    top:0;
+    z-index: 1;
+    top:60px;
 }
 
 @media screen and (min-width: 768px) {
@@ -487,9 +517,9 @@ body{
     }
 
     .control-top {
-        z-index: 1;
+        z-index: 0;
         position:sticky;
-        top: 0;
+        top: 0px;
     }
     
 }

@@ -20,12 +20,17 @@ body {
     background-color: #151515;
     width: 100%;
 }
-
+.Allgroups .Allcardgroup .Titleclass {
+    height: 60px;
+    display: flex;
+    margin-top: 10px;
+}
 .Cardgroup {
     width: 100%;
     background-color: #151515;
     box-sizing: border-box;
     padding-left: 3%;
+    margin-top:-15px;
 }
 
     .Cardgroup .container {
@@ -35,10 +40,12 @@ body {
     }
 
 .Allcardgroup h3 {
-    font-size: 17px;
+    font-size: 16px;
     color: rgb(105, 105, 105);
-    padding-top: 3%;
     margin-left: 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .newsitem {
@@ -95,7 +102,7 @@ body {
     background-color: #151515;
     position:sticky;
     height:360px;
-    top:30px;
+    top:28px;
 }
 
 .startimg {
@@ -106,6 +113,7 @@ body {
 .Startgroup {
     position: relative;
     cursor: pointer;
+    margin-top:14px;
 }
 
 .startimg img {
@@ -146,6 +154,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-top: 14px;
 }
 
     .Fbgroup:hover {
@@ -158,23 +167,23 @@ body {
     }
 
 .Gamesfriendtxt {
-    font-size: 17px;
+    font-size: 16px;
     color: rgb(111, 113, 116);
+    margin-bottom:0px;
 }
 
 .Friend {
     margin-top: 15%;
 }
+.Titlestartclass {
+    height: 20px;
+    display: flex;
+}
 
 @media screen and (max-width:1200px) {
     .newsitem {
-        margin: 3% 0;
+        margin: 15px 0;
     }
-
-    .Allcardgroup h3 {
-        margin-bottom: -1%;
-    }
-
     .newsitem a {
         display: flex;
         flex-direction: column;
@@ -182,6 +191,9 @@ body {
 
     .card-img-top {
         order: 1;
+    }
+    .Cardgroup {
+        margin-top: -23px;
     }
 }
 
@@ -197,7 +209,8 @@ body {
     }
 
     .Allcardgroup {
-        padding: 51px 5% 0 2%;
+        padding-left:2%;
+        padding-right:5%;
         width: 100%
     }
 
