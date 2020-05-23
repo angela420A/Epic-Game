@@ -4,6 +4,10 @@
     list-style: none;
 }
 
+p, h1, h2, h3, h4, h5, h6, label, input, button, a {
+    font-family: Microsoft JhengHei !important;
+}
+
 /* .mainlayout-root{
     display: block;
 } */
