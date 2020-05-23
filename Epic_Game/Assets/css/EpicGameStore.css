@@ -107,90 +107,88 @@ body{
 
 /* ======================以下曾莞婷================== */
 
-.navbar input {
-    background-color:black;
-    color:white;
-}
-.navbar{
-    position: absolute;
-    right: 0;
-}
-.navbar .form-control{
-    display: none;
-}
-.searchbtn{
-    background-color: #151515;
-    color: #e7e7e7;
-    border: none;
-    margin-left: 4px;
-}
-
- .NavListArea{
-     width: 100%;
+.NavListArea {
     display: flex;
     align-content: center;
     height: 80px;
-    background-color: #151515;
 }
-.shopback{
-    
-    background-color: #151515;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    z-index: 2;
-}   
-.shopback ul{
-    padding: 0;
-}
-.checkBoxlabel{
+.checkBoxlabel {
     margin: 0;
     justify-content: center;
     align-items: center;
 }
-.NavList{
-    padding: 10px;
+
+.NavList {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.itemList{
-    background-color: #151515;
-}
-.div_itemlist{
+
+.div_itemlist {
     position: absolute;
     bottom: -99%;
     width: 100%;
+    background-color: #151515;
     text-align: center;
 }
-.div_itemlist,.check_control{
+
+.div_itemlist, .check_control {
     display: none;
 }
-.check_control:checked ~ .div_itemlist{
-    display:initial;
-}
-.checkBoxlabel{
+
+    .check_control:checked ~ .div_itemlist {
+        display: initial;
+    }
+
+.checkBoxlabel {
     color: #e7e7e7;
 }
-.itemList a{
+
+.itemList a {
     text-decoration: none;
     color: #e7e7e7;
     font-size: 15px;
     text-align: center;
     cursor: pointer;
 }
-.itemList li{
-    color: rgb(105, 105, 105);
+
+.itemList li {
+    color: #e7e7e7;
     font-size: 15px;
     margin-bottom: 20px;
     cursor: pointer;
-    font-weight: bold;
 }
-.fa-chevron-down{
+
+.fa-chevron-down {
     color: #e7e7e7;
 }
+/* 搜尋 */
+.navbar input {
+    background-color: #151515;
+    color: white;
+}
+
+.navbar {
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+
+    .navbar .form-control {
+        display: none;
+    }
+
+.searchbtn {
+    background-color: #151515;
+    color: #e7e7e7;
+    border: none;
+    margin-left: 4px;
+    position: absolute;
+    right: 0;
+}
+
 .form-inline {
     display: contents;
 }
@@ -222,8 +220,6 @@ body{
         color: #e7e7e7;
         font-weight: bold;
     }
-
-
     .itemList a:hover{
         left: -10px;
         color: #e7e7e7;
@@ -238,11 +234,13 @@ body{
     .div_itemlist li+li{
         padding-left: 20px;
     }
-
-
     .navbar-dark input {
         background-color:black;
         color:white;
+    }
+
+    .navbar {
+        width: 20%;
     }
 }
 
@@ -503,6 +501,7 @@ body{
 .control-top{
     z-index: 1;
     top:60px;
+    padding:0px 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -520,10 +519,19 @@ body{
         z-index: 0;
         position:sticky;
         top: 0px;
+        background-color:#151515;
     }
     
 }
 
+@media screen and (min-width: 1024px){
+    .control-top {
+        z-index: 0;
+        position: sticky;
+        top: 0px;
+        background-color:#151515;
+    }
+}
 @media screen and (min-width: 1200px){
    .mode_5_li{
         width: 20%;
