@@ -14,7 +14,8 @@ body{
 }
 
 .accountNavBar{
-    position: relative;
+    position: sticky;
+    top: 0;
 }
 
 .settingLink{
