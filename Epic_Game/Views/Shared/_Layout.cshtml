@@ -16,7 +16,7 @@
 <body>
     <div class="mainlayout-header table-header-group" style="z-index:1">
         <div class="m-header-title">
-            <a href="#" class="m-h-title-a">
+            <a href="@Url.Action("Index", "Home")" class="m-h-title-a">
                 <img src="~/Assets/images/Layout/logo.png" alt="">
                 <h3>Little Happy Sheep</h3>
             </a>
@@ -40,7 +40,9 @@
     </div>
 
     <div class="mainlayout-body table-row-group">
-        @RenderBody()
+        <div class="m-body-renderbody">
+            @RenderBody()
+        </div>
         <div class="mainlayout-footer col-lg-12">
             <p>
                 © 2020, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Fortnite, the

@@ -3,14 +3,16 @@
     padding: 0;
     list-style: none;
 }
-
+body {
+    background-color: #151515;
+}
 .Allgroups {
     font-family: Microsoft JhengHei;
     display: flex;
     width: 100%;
 }
-.col-xl-6, .col-lg-12,
-.col-sm-12, .col-md-12 {
+.Cardgroup .container .row .col-xl-6, .Cardgroup .container .row .col-lg-12,
+.Cardgroup .container .row .col-sm-12, .Cardgroup .container .row .col-md-12 {
     padding: 0;
 }
 
@@ -91,7 +93,9 @@
 
 .Onlinefirend {
     background-color: #151515;
-    position: fixed;
+    position:sticky;
+    height:360px;
+    top:30px;
 }
 
 .startimg {
