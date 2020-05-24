@@ -158,5 +158,9 @@ body{
     background-color: #818283;
     border: 2px solid #818283;
 }
+    .confirm-container button span {
+        font-size:.8rem;
+        white-space: nowrap;
+    }
 
 
