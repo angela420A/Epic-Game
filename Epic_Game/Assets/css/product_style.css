@@ -30,6 +30,7 @@ body {
 
 .span_top {
     display: inline-block;
+    /* position: relative;  */
 }
 
 .span_title {
@@ -39,7 +40,7 @@ body {
 }
 
 .span_context {
-    color: rgb(255,255,255,0.5);
+    color: rgba(255,255,255,0.5);
     font-size: 10px;
     margin-top: 10px;
 }
@@ -89,7 +90,7 @@ body {
     border: none;
     text-decoration: none;
 }
-/* -------導覽列------- */
+/* 導覽列 */
 .NavListArea {
     display: flex;
     align-content: center;
@@ -106,6 +107,7 @@ body {
 
 .shopback ul {
     padding: 0;
+    margin-left: 20px;
 }
 
 .checkBoxlabel {
@@ -114,7 +116,7 @@ body {
     align-items: center;
 }
 
-/* 導覽列 */
+
 .NavList {
     position: relative;
     width: 100%;
@@ -135,9 +137,9 @@ body {
     display: none;
 }
 
-.check_control:checked ~ .div_itemlist {
-    display: initial;
-}
+    .check_control:checked ~ .div_itemlist {
+        display: initial;
+    }
 
 .checkBoxlabel {
     color: #e7e7e7;
@@ -163,7 +165,7 @@ body {
 }
 /* 搜尋 */
 .navbar input {
-    background-color: black;
+    background-color: #151515;
     color: white;
 }
 
@@ -172,15 +174,21 @@ body {
     right: 0;
 }
 
-.navbar .form-control {
-    display: none;
-}
+    .navbar .form-control {
+        display: none;
+    }
 
 .searchbtn {
     background-color: #151515;
     color: #e7e7e7;
     border: none;
     margin-left: 4px;
+    position: absolute;
+    right: 0;
+}
+
+.form-inline {
+    display: contents;
 }
 /* 幻燈片 */
 
@@ -205,7 +213,7 @@ body {
 }
 /* 產品描述 */
 #game_pic .col-12 {
-    padding: 10px;
+    padding: 15px;
     display: flex;
 }
 
@@ -316,20 +324,20 @@ body {
     color: #e7e7e7;
 }
 
-#myBtn:hover {
-    width: 100%;
-    font-size: 14px;
-    background-color: #ffcc33;
-    color: #151515;
-    padding: 10px 0;
-    border: none;
-    border-radius: 0rem;
-}
+    #myBtn:hover {
+        width: 100%;
+        font-size: 14px;
+        background-color: #ffcc33;
+        color: #151515;
+        padding: 10px 0;
+        border: none;
+        border-radius: 0rem;
+    }
 
-#myBtn i {
-    color: #151515;
-    font-size: 10%;
-}
+    #myBtn i {
+        color: #151515;
+        font-size: 10%;
+    }
 
 #more {
     display: none;
@@ -358,20 +366,20 @@ body {
     margin-top: 50px;
 }
 
-#additional .additional_image {
+    #additional .additional_image {
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-}
+    }
 
-#additional .additional_content {
-    margin-bottom: 10px;
-}
+    #additional .additional_content {
+        margin-bottom: 10px;
+    }
 
-#additional .additional_know_right {
-    text-align: center;
-}
+    #additional .additional_know_right {
+        text-align: center;
+    }
 
 .additional_btn .additional_btn_buy {
     margin: auto;
@@ -381,11 +389,6 @@ body {
     background-color: #ffcc33;
     border: none;
 }
-/* .additional_btn_btn{
-    padding: 5px 0;
-    background-color: #ffcc33;
-    border: none;
-} */
 /* 追蹤我們 */
 #trackus .trackus_i {
     background-color: black;
@@ -411,16 +414,16 @@ body {
         transform: scale(1.1, 1.1);
         transition: transform 0.5s ease;
     }
-/* comment */
+/* 分級 */
 
 .star-rating {
     line-height: 32px;
     font-size: 1.25em;
 }
 
-.star-rating .fa-star {
+    .star-rating .fa-star {
         color: yellow;
-}
+    }
 
 #grading .grading_content {
     padding: 0;
@@ -436,12 +439,12 @@ body {
     margin-bottom: 10px;
     background-color: black;
     justify-content: space-between;
-    height: 400px;
+    height: 360px;
 }
 
-#grading .grading_padding:hover {
-    background-color: #353535;
- }
+    #grading .grading_padding:hover {
+        background-color: #353535;
+    }
 
 #grading .author_content {
     margin-bottom: 10px;
@@ -472,7 +475,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     background-color: black;
-    padding: 35px 30px;
+    padding: 35px 50px;
 }
 
 #specification td {
@@ -496,6 +499,7 @@ body {
 #specification .li_text {
     color: #e7e7e7;
     display: inline;
+    font-size:12px;
 }
 
 #specification .title_div {
@@ -535,9 +539,8 @@ body {
 }
 
 @media screen and (min-width: 768PX) {
-    /* body{
-        padding: 0 100px;
-    } */
+
+    /* 影片 */
     #carouselExampleIndicators .carousel-item iframe {
         width: 560px;
         height: 315px;
@@ -545,7 +548,7 @@ body {
         display: flex;
         align-items: center;
     }
-
+    /* 產品描述 */
     .pic {
         width: 50%;
         height: 50%;
@@ -563,7 +566,7 @@ body {
         .collapse_pic .col-12 {
             padding: 0;
         }
-
+    /* 版本 */
     .version_pictext {
         display: flex;
     }
@@ -594,7 +597,7 @@ body {
         justify-content: flex-end;
         margin-bottom: 10px;
     }
-
+    /* 附加 */
     .additional_pictext {
         display: flex;
     }
@@ -626,24 +629,22 @@ body {
         justify-content: flex-end;
         margin-bottom: 10px;
     }
-
+    /* comment */
     #grading .grading_ul {
         display: flex;
     }
 }
 
 @media screen and (min-width: 1024PX) {
-    /* body{
-        padding: 0 100px;
-    } */
+    /* 影片 */
     .carousel-inner iframe {
         height: 500px;
     }
 
     .container {
-        padding: 0 30px;
+        padding: 0 50px;
     }
-
+    /* 導覽列+搜尋 */
     .div_itemlist {
         position: initial;
         display: flex;
@@ -686,17 +687,16 @@ body {
         border-right: 1px solid #e7e7e7;
         right: -10px
     }
-
-
     .navbar input {
         background-color: black;
         color: white;
     }
 
-    .form-inline {
-        display: contents;
+    .navbar {
+        width: 20%;
+        margin-right: 30px;
     }
-
+    /* 產品描述 */
     .pic_img {
         display: flex;
         align-items: center;
@@ -723,7 +723,7 @@ body {
         justify-content: center;
         align-items: center;
     }
-
+    /* 版本 */
     #version .version_know .col-xl-4 {
         display: flex;
         justify-content: flex-end;
@@ -738,7 +738,7 @@ body {
         display: flex;
         justify-content: flex-end;
     }
-
+    /*附加內容  */
     #additional .additional_know .col-xl-4 {
         display: flex;
         justify-content: flex-end;
