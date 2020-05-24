@@ -63,9 +63,9 @@ body{
 
 ._stickyTop{
     position:sticky;
-    top:0;
+    top:60px;
     background-color:#151515;
-    z-index:0;
+    z-index:1;
 }
 
 .itemList {
@@ -157,7 +157,10 @@ body{
 .navbar {
     position: absolute;
     right: 0;
-    width: 100%;
+    padding:0;
+    margin:0;
+    padding-right:1.8em;
+    padding-left:15px;
 }
 
     .navbar .form-control {
@@ -176,6 +179,16 @@ body{
 .form-inline {
     display: contents;
 }
+
+@media screen and (min-width: 768px){
+    ._stickyTop {
+        position: sticky;
+        top: 0px;
+        background-color: #151515;
+        z-index: 1;
+    }
+}
+
 @media screen and (min-width: 1024PX) {
     ._stickyTop {
         position: sticky;
@@ -226,7 +239,8 @@ body{
     }
     
     .navbar {
-        width:20%;
+        margin:0px 0px;
+        padding-left:0px;
     }
 
 }
