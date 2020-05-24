@@ -12,6 +12,7 @@ namespace EpicGameLibrary.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryID { get; set; }
 
-        public int? Type { get; set; }
+        [StringLength(10)]
+        public string Type { get; set; }
     }
 }

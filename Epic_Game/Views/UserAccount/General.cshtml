@@ -1,6 +1,8 @@
-﻿
+﻿@model Epic_Game.ViewModels.UserInfoViewModel
+
 @{
     ViewBag.Title = "General";
+    var m = Model;
 }
 
 @section topCSS{
@@ -10,6 +12,23 @@
 
 @section endJS{
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
+    @*<script>
+        let button = document.querySelector('#desgardBtn');
+        $("#desgardBtn").click(function () {
+            let ddd = {
+                id: "123",
+                text: "12313"
+            };
+            $.ajax({
+                url: "/UserAccount/DesgardChanges",
+                type: "post",
+                data: { jdata: JSON.stringify(ddd) },
+                success: function () {
+                    alert("success");
+                }
+            })
+        })
+    </script>*@
 }
 
 <div class="container">
@@ -36,14 +55,14 @@
                             <p class="textTitle">Account Info</p>
                             <div class="accountId">
                                 <label>ID:</label>
-                                <p class="thin-text">12bf1c7bb9a64fd0b07794d315138410</p>
+                                <p class="thin-text">@m.UserID</p>
                             </div>
                         </div>
                         <div class="nameAndEmail row">
                             <div class="col-12 col-lg-6">
                                 <div class="formArea formArea-btn row">
                                     <div class="col">
-                                        <input type="text" id="accountDisplayName" calss="col" value=""
+                                        <input type="text" id="accountDisplayName" calss="col" value="@m.DisplayName"
                                                placeholder="DISPLAY NAME">
                                     </div>
                                     <button class="editBtn">
@@ -54,7 +73,7 @@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea formArea-btn row">
                                     <div class="col">
-                                        <input type="text" id="accountEmail" calss="col" value=""
+                                        <input type="text" id="accountEmail" calss="col" value="@m.Email"
                                                placeholder="EMAIL EDDRESS">
                                     </div>
                                     <button class="editBtn">
@@ -78,7 +97,7 @@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <input type="text" id="userFirstName" calss="col" value=""
+                                        <input type="text" id="userFirstName" calss="col" value="@m.FirstName"
                                                placeholder="FIRST NAME">
                                     </div>
                                 </div>
@@ -86,22 +105,22 @@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <input type="text" id="userLastName" calss="col" value=""
+                                        <input type="text" id="userLastName" calss="col" value="@m.LastName"
                                                placeholder="LAST NAME">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-6">
+                            @*<div class="col-12 col-lg-6">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <select id="userPreferLang">
+                                        <select id="userPreferLang" selected="@m.PreferLang">
                                             <option name="tch" id="0">繁體中文</option>
                                             <option name="eng" id="1">English</option>
                                             <option name="jap" id="2">日本語</option>
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -111,41 +130,25 @@
                             <p class="textTitle">ADDRESS</p>
                         </div>
                         <div class="userAddress row">
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <input type="text" id="userAddressI" calss="col" value=""
-                                               placeholder="Address line i">
+                                        <input type="text" id="userAddressI" calss="col" value="@m.AddressLine"
+                                               placeholder="Address Line">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <input type="text" id="userAddressII" calss="col" value=""
-                                               placeholder="Address line ii">
+                                        <input type="text" id="userCity" calss="col" value="@m.City" placeholder="city">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <input type="text" id="userCity" calss="col" value="" placeholder="city">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="userRegion" calss="col" value=""
-                                               placeholder="region">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="userPostalCode" calss="col" value=""
+                                        <input type="text" id="userPostalCode" calss="col" value="@m.Postalcode"
                                                placeholder="postal code">
                                     </div>
                                 </div>
@@ -153,12 +156,9 @@
                             <div class="col-12 col-lg-12">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <p class="smallText">Country / Region</p>
-                                        <select id="userCountry">
-                                            <option name="tch" id="0">Taiwan</option>
-                                            <option name="eng" id="1">United State</option>
-                                            <option name="jap" id="2">Japan</option>
-                                        </select>
+                                        <p class="smallText">Country</p>
+                                        <input type="text" id="userCountry" calss="col" value="@m.Country"
+                                               placeholder="Country">
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
                                         <div class="btnArea">
-                                            <button class="gray-button">Desgard Changes</button>
+                                            <button class="gray-button" id="desgardBtn">Desgard Changes</button>
                                         </div>
                                     </div>
                                     <div class="col-6 col-lg-3">
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row companySection nextSection">
+                @*<div class="row companySection nextSection">
                     <div class="col">
                         <div class="personalInfoArea">
                             <p class="textTitle">Company</p>
@@ -271,7 +271,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="row parentalSection nextSection">
                     <div class="col">
                         <div class="parentalArea">

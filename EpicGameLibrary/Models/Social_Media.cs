@@ -6,22 +6,17 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Library")]
-    public partial class Library
+    [Table("Social Media")]
+    public partial class Social_Media
     {
-        public Guid LibraryID { get; set; }
-
-        [Required]
-        [StringLength(128)]
-        public string UserID { get; set; }
+        [Key]
+        public Guid FollowID { get; set; }
 
         public Guid ProductID { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Condition { get; set; }
+        public string Community { get; set; }
 
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public string URL { get; set; }
 
         public virtual Product Product { get; set; }
     }
