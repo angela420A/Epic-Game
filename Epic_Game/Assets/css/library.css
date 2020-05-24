@@ -18,6 +18,10 @@ body {
     padding: 0;
 }
 
+.game_products{
+    padding:0 15px;
+}
+
 .PageTitle {
     padding: 20px 0;
 }
@@ -55,6 +59,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    padding-top:15px;
 }
 
 #filter_select {
