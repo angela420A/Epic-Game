@@ -31,5 +31,10 @@ namespace Epic_Game.Controllers
         {
             return View();
         }
+
+        public ActionResult ProductMore()
+        {
+            return View();
+        }
     }
 }
