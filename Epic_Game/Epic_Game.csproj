@@ -197,6 +197,7 @@
     <Content Include="Assets\css\dis_img.css" />
     <Content Include="Assets\css\dis_list.css" />
     <Content Include="Assets\css\EpicGameBrowse.css" />
+    <Content Include="Assets\css\EpicGameHant.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\finish.css" />
     <Content Include="Assets\css\gamesnews.css" />
@@ -286,6 +287,7 @@
     <Content Include="Assets\images\EpicGameStoreImg\awhv1-41zak-001.ico" />
     <Content Include="Assets\images\Layout\logo.png" />
     <Content Include="Assets\Js\EpicGameBrowse.js" />
+    <Content Include="Assets\Js\EpicGameHant.js" />
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />
@@ -460,6 +462,7 @@
     <Content Include="Views\News\NewContent.cshtml" />
     <Content Include="Views\Library\Index.cshtml" />
     <Content Include="Views\Pay\Finish.cshtml" />
+    <Content Include="Views\Home\ProductMore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
