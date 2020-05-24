@@ -23,8 +23,8 @@ namespace EpicGameLibrary.Models
         [StringLength(20)]
         public string Title { get; set; }
 
-        public virtual Pack Pack { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
 
-        public virtual Produuct Produuct { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

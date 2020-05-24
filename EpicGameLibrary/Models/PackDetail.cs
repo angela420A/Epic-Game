@@ -6,17 +6,17 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Follow")]
-    public partial class Follow
+    [Table("PackDetail")]
+    public partial class PackDetail
     {
-        public Guid FollowID { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        public Guid PackID { get; set; }
 
+        [Key]
+        [Column(Order = 1)]
         public Guid ProductID { get; set; }
 
-        public string Community { get; set; }
-
-        public string URL { get; set; }
-
-        public virtual Produuct Produuct { get; set; }
+        public virtual Pack Pack { get; set; }
     }
 }

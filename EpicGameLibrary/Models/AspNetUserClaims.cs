@@ -6,23 +6,18 @@ namespace EpicGameLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Library")]
-    public partial class Library
+    public partial class AspNetUserClaims
     {
-        public Guid LibraryID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(128)]
-        public string UserID { get; set; }
+        public string UserId { get; set; }
 
-        public Guid ProductID { get; set; }
+        public string ClaimType { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Condition { get; set; }
+        public string ClaimValue { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
-
-        public virtual Product Product { get; set; }
     }
 }

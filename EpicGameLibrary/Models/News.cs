@@ -26,8 +26,6 @@ namespace EpicGameLibrary.Models
 
         public Guid Img_List { get; set; }
 
-        public virtual N_Img N_Img { get; set; }
-
-        public virtual Produuct Produuct { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
