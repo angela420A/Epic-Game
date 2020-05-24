@@ -282,6 +282,7 @@
     <Content Include="Assets\images\EpicGameStoreImg\asset 9.jpeg" />
     <Content Include="Assets\images\EpicGameStoreImg\awhv1-41zak-001.ico" />
     <Content Include="Assets\images\Layout\logo.png" />
+    <Content Include="Assets\Js\EpicGameBrowse.js" />
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />

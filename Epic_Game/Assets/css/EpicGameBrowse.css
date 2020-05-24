@@ -10,7 +10,7 @@ body{
 
 /* ===============以下曾莞婷=================== */
 
-.navbar{
+/*.navbar{
     padding: 0rem 0rem;
 }
 
@@ -59,9 +59,16 @@ body{
 }
 .checkBoxlabel{
     color: #e7e7e7;
+}*/
+
+._stickyTop{
+    position:sticky;
+    top:0;
+    background-color:#151515;
+    z-index:0;
 }
 
-.itemList{
+.itemList {
     background-color: #151515;
 }
 
@@ -82,7 +89,100 @@ body{
 .fa-chevron-down{
     color: #e7e7e7;
 }
+/* 導覽列 */
+.NavListArea {
+    display: flex;
+    align-content: center;
+    height: 80px;
+}
+
+.checkBoxlabel {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavList {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_itemlist {
+    position: absolute;
+    bottom: -99%;
+    width: 100%;
+    background-color: #151515;
+    text-align: center;
+}
+
+.div_itemlist, .check_control {
+    display: none;
+}
+
+    .check_control:checked ~ .div_itemlist {
+        display: initial;
+    }
+
+.checkBoxlabel {
+    color: #e7e7e7;
+}
+
+.itemList a {
+    text-decoration: none;
+    color: #e7e7e7;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.itemList li {
+    color: #e7e7e7;
+    font-size: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.fa-chevron-down {
+    color: #e7e7e7;
+}
+/* 搜尋 */
+.navbar input {
+    background-color: #151515;
+    color: white;
+}
+
+.navbar {
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+
+    .navbar .form-control {
+        display: none;
+    }
+
+.searchbtn {
+    background-color: #151515;
+    color: #e7e7e7;
+    border: none;
+    margin-left: 4px;
+    position: absolute;
+    right: 0;
+}
+
+.form-inline {
+    display: contents;
+}
 @media screen and (min-width: 1024PX) {
+    ._stickyTop {
+        position: sticky;
+        background-color: #151515;
+        z-index: 1;
+        padding-left:25px
+    }
 
     .carousel-inner  iframe{
         height: 500px;
@@ -124,6 +224,11 @@ body{
         background-color:black;
         color:white;
     }
+    
+    .navbar {
+        width:20%;
+    }
+
 }
 
 

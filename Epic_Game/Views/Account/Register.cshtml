@@ -7,7 +7,7 @@
     <link href="~/Assets/css/Register/Register.css" rel="stylesheet" />
 }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "registered-root", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal registered-root", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <div class="col-12 col-md-12 col-lg-12">
@@ -64,13 +64,13 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="r-h-inputtext-password text-center">
                 @*<input type="password" placeholder="  *Your Password">*@
-                @Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "  *Your Password" })
+                @Html.PasswordFor(m => m.Password, new { @placeholder = "  *Your Password" })
             </div>
         </div>
         <div class="col-12 col-md-12 col-lg-12">
             <div class="r-h-inputtext-confirmpassword text-center">
                 @*<input type="password" placeholder="  *ConfirmPassword">*@
-                @Html.TextBoxFor(m => m.ConfirmPassword, new { @type = "password", @placeholder = "  *ConfirmPassword" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "  *ConfirmPassword" })
             </div>
         </div>
         <div class="col-12 col-md-12 col-lg-12">
@@ -82,7 +82,7 @@
         </div>
         <div class="col-12 col-md-12 col-lg-12">
             <div class="r-h-inputtext-button text-center">
-                <input type="submit" value="Let Play !">
+                <input type="submit" value="Let's Play !">
             </div>
         </div>
     </div>

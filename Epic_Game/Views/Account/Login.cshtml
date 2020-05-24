@@ -8,9 +8,15 @@
 }
 
 <div class="body-login-root">
+    <div class="singin-google">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal signin-root", role = "form" }))
     {
         @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="s-header-text text-center">
             <div class="col-12 col-md-12 col-lg-12">
                 <img class="s-h-text-img" src="~/Assets/images/Layout/logo.png" alt="">
@@ -33,7 +39,7 @@
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="s-header-input2 text-center">
                         @*<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">*@
-                        @Html.TextBoxFor(m => m.Password, new { @type = "passwor", @class = "form-control", @id = "exampleInputPassword1", @placeholder = "Password" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "exampleInputPassword1", @placeholder = "Password" })
                     </div>
                 </div>
             </div>
@@ -51,7 +57,8 @@
             </div>
             <div class="s-header-button md-3">
                 <div class="col-12 col-md-12 col-lg-12">
-                    <button type="submit" class="signin-btn">Sign In</button>
+                    @*<button type="submit" class="signin-btn">Sign In</button>*@
+                    <input type="submit" class="signin-btn" value="Sign In">
                 </div>
                 <div class="s-h-button-p">
                     <p>Don't have a Little Happy Sheep account?</p>
@@ -116,6 +123,8 @@
         </div>
     </div>*@
 
-@section Scripts {
+
+@section endJS{
     @Scripts.Render("~/bundles/jqueryval")
 }
+
