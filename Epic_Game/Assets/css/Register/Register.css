@@ -43,10 +43,18 @@ body {
     display: none;
 }
 
+.registered-root-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
 .registered-root {
     display: block;
     /* padding: 100px 0px; */
     padding-top: 20px;
+    width: 500px;
 }
 
 .r-header-logo {
@@ -70,6 +78,16 @@ body {
     border: none;
     padding: 10px 10px;
     color: #F4F4F4;
+}
+
+.r-header-inputtext label{
+    color: white;
+    padding-left: 10px;
+}
+
+.r-header-inputtext i{
+    font-size: 18px;
+    margin: 0px 10px;
 }
 
 .r-h-inputtext-nickname {
