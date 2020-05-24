@@ -172,6 +172,8 @@ body {
 .navbar {
     position: absolute;
     right: 0;
+    padding-left: 0;
+    padding-right: 1.8rem;
 }
 
     .navbar .form-control {
@@ -692,10 +694,6 @@ body {
         color: white;
     }
 
-    .navbar {
-        width: 20%;
-        margin-right: 30px;
-    }
     /* 產品描述 */
     .pic_img {
         display: flex;
