@@ -13,89 +13,103 @@ namespace EpicGameLibrary.Models
         }
 
         public virtual DbSet<Activity> Activity { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
-        public virtual DbSet<Editions> Editions { get; set; }
-        public virtual DbSet<Follow> Follow { get; set; }
+        public virtual DbSet<Image> Image { get; set; }
         public virtual DbSet<Library> Library { get; set; }
-        public virtual DbSet<N_Img> N_Img { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<P_Img> P_Img { get; set; }
         public virtual DbSet<Pack> Pack { get; set; }
-        public virtual DbSet<Produuct> Produuct { get; set; }
-        public virtual DbSet<Specifications> Specifications { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Social_Media> Social_Media { get; set; }
+        public virtual DbSet<PackDetail> PackDetail { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Editions>()
-                .Property(e => e.Price)
-                .HasPrecision(6, 2);
+            modelBuilder.Entity<AspNetRoles>()
+                .HasMany(e => e.AspNetUsers)
+                .WithMany(e => e.AspNetRoles)
+                .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));
 
-            modelBuilder.Entity<N_Img>()
-                .HasMany(e => e.News)
-                .WithRequired(e => e.N_Img)
-                .HasForeignKey(e => e.Img_List)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<AspNetUsers>()
+                .HasMany(e => e.AspNetUserClaims)
+                .WithRequired(e => e.AspNetUsers)
+                .HasForeignKey(e => e.UserId);
 
-            modelBuilder.Entity<P_Img>()
-                .HasMany(e => e.Produuct)
-                .WithRequired(e => e.P_Img)
-                .HasForeignKey(e => e.Img_ListID)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<AspNetUsers>()
+                .HasMany(e => e.AspNetUserLogins)
+                .WithRequired(e => e.AspNetUsers)
+                .HasForeignKey(e => e.UserId);
 
-            modelBuilder.Entity<Pack>()
-                .Property(e => e.Price)
-                .HasPrecision(6, 2);
-
-            modelBuilder.Entity<Pack>()
-                .HasMany(e => e.Order)
-                .WithRequired(e => e.Pack)
-                .HasForeignKey(e => e.ProductID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Produuct>()
-                .Property(e => e.Price)
-                .HasPrecision(6, 2);
-
-            modelBuilder.Entity<Produuct>()
+            modelBuilder.Entity<AspNetUsers>()
                 .HasMany(e => e.Comment)
-                .WithRequired(e => e.Produuct)
+                .WithRequired(e => e.AspNetUsers)
+                .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Produuct>()
-                .HasMany(e => e.Editions)
-                .WithRequired(e => e.Produuct)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Produuct>()
-                .HasMany(e => e.Follow)
-                .WithRequired(e => e.Produuct)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Produuct>()
+            modelBuilder.Entity<AspNetUsers>()
                 .HasMany(e => e.Library)
-                .WithRequired(e => e.Produuct)
+                .WithRequired(e => e.AspNetUsers)
+                .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Produuct>()
-                .HasMany(e => e.News)
-                .WithRequired(e => e.Produuct)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Produuct>()
+            modelBuilder.Entity<AspNetUsers>()
                 .HasMany(e => e.Order)
-                .WithRequired(e => e.Produuct)
+                .WithRequired(e => e.AspNetUsers)
+                .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Produuct>()
+            modelBuilder.Entity<Pack>()
+                .Property(e => e.Price)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Pack>()
+                .HasMany(e => e.PackDetail)
+                .WithRequired(e => e.Pack)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Price)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Comment)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Image)
+                .WithRequired(e => e.Product)
+                .HasForeignKey(e => e.ProductOrPack)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Library)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.News)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Order)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
                 .HasMany(e => e.Pack)
-                .WithRequired(e => e.Produuct)
+                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Produuct>()
-                .HasMany(e => e.Specifications)
-                .WithRequired(e => e.Produuct)
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Social_Media)
+                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
         }
     }
