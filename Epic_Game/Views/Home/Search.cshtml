@@ -9,6 +9,8 @@
 }
 
 @section endJS{
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script>
     <script src="~/Assets/Js/EpicGameBrowse.js"></script>
 }
 
@@ -31,7 +33,7 @@
                         <form class="form-inline">
                             <input class="form-control  bg-outline-dark col-12 col-xl-12" type="search" placeholder="搜尋"
                                    aria-label="Search" />
-                            <button class="searchbtn" type="none" disabled>
+                            <button class="searchbtn" disabled>
                                 <svg class="bi bi-search" width="1em"
                                      height="1em" viewBox="0 0 16 16" fill="currentColor"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -292,9 +294,31 @@
 
 
             <div class="mvc">
-                <ul>
+                <ul class="mtree transit">
                     <li>
-
+                        <a href="#">CATEGORIES</a>
+                        <ul>
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Adventure</a></li>
+                            <li><a href="#">Editors</a></li>
+                            <li><a href="#">Puzzle</a></li>
+                            <li><a href="#">Racing</a></li>
+                            <li><a href="#">RPG</a></li>
+                            <li><a href="#">Shooter</a></li>
+                            <li><a href="#">Strategy</a></li>
+                            <li><a href="#">Survival</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Features</a>
+                        <ul>
+                            <li><a href="#">Controller Support</a></li>
+                            <li><a href="#">Co-op</a></li>
+                            <li><a href="#">Single Player</a></li>
+                            <li><a href="#">Multiplayer</a></li>
+                            <li><a href="#">Windows</a></li>
+                            <li><a href="#">Mac OS</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
