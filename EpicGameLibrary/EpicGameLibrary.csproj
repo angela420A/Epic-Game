@@ -51,19 +51,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Editions.cs" />
     <Compile Include="Models\EGContext.cs" />
-    <Compile Include="Models\Follow.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\News.cs" />
-    <Compile Include="Models\N_Img.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Pack.cs" />
-    <Compile Include="Models\Produuct.cs" />
-    <Compile Include="Models\P_Img.cs" />
-    <Compile Include="Models\Specifications.cs" />
+    <Compile Include="Models\PackDetail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Social_Media.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EGRepository.cs" />
   </ItemGroup>
@@ -71,5 +73,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

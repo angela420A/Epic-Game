@@ -19,8 +19,15 @@ p, label, * {
     list-style: none;
 }
 
+.wishList-Controll p,
+.wishList-Controll label,
+.wishListArea p {
+    font-size: 14px;
+    white-space: nowrap;
+}
 
-.backLink, .PageTitleText{
+
+.backLink, .PageTitleText {
     display: inline-block;
 }
 
@@ -33,6 +40,7 @@ p, label, * {
     text-align: center;
     padding: 20px 0 20px;
     position: relative;
+    margin-top: 0;
 }
 
 .PageTitle a{
@@ -44,21 +52,21 @@ p, label, * {
     color:#e7e7e7;
 }
 
-.PageTitle::after{
+.PageTitle::after {
     content: '';
     border: 0.01em solid rgb(75,75,75);
-    width: 120%;
-    left: -10%;
+    width: 100%;
+    left: 0;
     bottom: 0;
-    position:absolute;
+    position: absolute;
 }
 
 
 .wishList-Controll{
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .sortArea{
@@ -69,6 +77,12 @@ p, label, * {
 .sort_label{
     font-weight: 200;
     color: #ccc;
+}
+
+.sortSelectArea,
+.sortLabelText {
+    display: flex;
+    align-items: center;
 }
 
 .sortSelectArea{
@@ -104,7 +118,12 @@ p, label, * {
     font-weight: 300;
 }
 
-.sort_list button{
+.wishCount {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sort_list button {
     border: none;
     background-color: transparent;
     width: 100%;
@@ -187,60 +206,108 @@ a:hover{
     color: #e7e7e7
 }
 
-@media screen and (min-width: 576px){
+.search_div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.search_text {
+    padding-left: 10px;
+    height: 30px;
+    border: none;
+    background-color: #323232;
+    color: #777;
+}
+
+.searchArea{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media screen and (min-width: 576px) {
     .wishItem-ImgArea img{
         display: initial;
     }
 
-    .container{
-        padding-left: 58px;
-        padding-right: 58px;
-    }
-}
-
-@media screen and (min-width: 768px){
-    .wishItem-infoArea{
+    .wishItem-infoArea {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .container{
-        padding-left: 32px;
-        padding-right: 32px;
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
     }
 }
 
-@media screen and (min-width: 1024px){
-    .container{
-        padding-left: 140px;
-        padding-right: 140px;
+@media screen and (min-width: 768px) {
+    .PageTitle {
+        margin-top: 60px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .wishItem-infoArea {
+        justify-content: space-between;
+        flex-direction: row;
     }
 
-    .PageTitle::after{
+    .container {
+        max-width: initial;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .wishList-Controll p,
+    .wishListArea p {
+        font-size: 16px;
+    }
+
+    .PageTitle::after {
         display: none;
     }
 
-    .PageTitle a{
+    .PageTitle a {
         display: initial;
     }
 
-    .PageTitle{
+    .PageTitle {
         display: flex;
     }
-    .NavList{
+
+    .NavList {
         display: flex;
         font-size: 18px;
     }
-    
-    .NavList li{
+
+    .NavList li {
         position: relative;
     }
-    
-    .NavList li+li{
+
+    .NavList li + li {
         margin-left: 40px;
     }
-    
-    .NavList li+li::before{
+
+    .NavList li + li::before {
         content: '';
         border-left: 1px solid rgb(75,75,75);
         height: 60%;

@@ -77,11 +77,11 @@ namespace Epic_Game
             //};
             //app.UseFacebookAuthentication(options);
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "794208778530-uanhp7o44cppf08nschv29kfvuda3ksh.apps.googleusercontent.com",
+                ClientSecret = "N3f6LCzWA1kWngPwJxrHmfLC"
+            });
         }
     }
 }
