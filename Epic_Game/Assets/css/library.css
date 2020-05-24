@@ -11,35 +11,38 @@ body {
 
 .container {
     padding: 0 140px;
-    margin:0;
+    margin: 0;
 }
 
 .row {
     padding: 0;
 }
 
-.game_products{
-    padding:0 15px;
+.game_products {
+    padding: 0 15px;
 }
 
 .PageTitle {
     padding: 20px 0;
+    display: flex;
 }
 
 .NavList {
     display: flex;
     font-size: 18px;
-    margin-bottom:0;
-    margin-top:0;
-    margin-left:0;
-    margin-right:0;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
     .NavList li {
         position: relative;
+        align-items: center;
     }
-        .NavList li p{
-            margin :0;
+
+        .NavList li p {
+            margin: 0;
         }
 
         .NavList li + li {
@@ -56,10 +59,13 @@ body {
             }
 
 .filter_div {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    padding-top:15px;
+    padding-top: 15px;
+}
+
+.filter_btn {
+    display: flex;
+    padding-top: 15px;
 }
 
 #filter_select {
@@ -72,8 +78,25 @@ body {
     border: none;
 }
 
+.sortArea p {
+    margin: 0;
+    text-align: center;
+}
+
+.sortList-Controll,
+.filterList-Controll {
+    height: 100%;
+}
+.filterLabel,
+.sortLabel,
+.filter_label,
+.sort_label{
+    margin:0;
+    height:100%;
+}
+
 .NavList {
-    width: 50%;
+    width: 100%;
 }
 
     .NavList a {
@@ -111,14 +134,8 @@ body {
 
 .search_div {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: flex-end;
     margin: 0;
 }
@@ -137,14 +154,10 @@ body {
 }
 
 .sortList-Controll {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .sortArea {
@@ -220,8 +233,8 @@ body {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .filterArea {
@@ -284,4 +297,32 @@ body {
 .filter_checked:checked ~ .filter_list {
     display: initial;
 }
-/*# sourceMappingURL=library.css.map */
+@media screen and (max-width: 1200px){
+    .search_div {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 0 44px;
+    }
+
+    .PageTitle {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .sortList-Controll,
+    .filterList-Controll{
+        height:50%;
+    }
+
+    .filter_div {
+        padding:15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

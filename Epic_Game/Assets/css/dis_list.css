@@ -1,20 +1,11 @@
-.pic_div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+#game_div img {
+    max-width: 97px
 }
 
-    .pic_div img {
-        max-width: 97px
-    }
-
-.row{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #game_div {
@@ -31,7 +22,8 @@
         margin-left: 10%;
         text-align: center;
     }
+
 .download_icon {
-    margin-right10%
+    margin-right10 %
 }
 /*# sourceMappingURL=dis_list.css.map */
