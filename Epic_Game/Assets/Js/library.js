@@ -8,7 +8,8 @@ download.addEventListener('click', () => {
 })
 dis_img.addEventListener('click', () => {
     dis_style.href = "/Assets/css/dis_img.css";
-    game_div.classList.add("col-md-3");
+    game_div.classList.add("col-xl-4");
+    game_div.classList.add("col-md-6");
 })
 dis_list.addEventListener('click', () => {
     dis_style.href = "/Assets/css/dis_list.css";
