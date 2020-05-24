@@ -63,6 +63,17 @@ body{
     display:none;
 }
 
+.singin-google i {
+    cursor: pointer;
+    color: white;
+    background-color: #E44134;
+    font-size: 40px;
+    margin: 0px 5px;
+    width: 100px;
+    color: white;
+    border-radius: 3px;
+}
+
 .signin-root {
     display: block;
     background-color: #202020;
@@ -84,28 +95,14 @@ body{
     padding: 10px 0px;
 }
 
-.s-header-text p{
-    font-family: sans-serif;
-    font-weight: normal;
-    color: white;
-}
-
-.fa-facebook-f{
+.fa-facebook-f {
     cursor: pointer;
     color: white;
     background-color: rgb(66, 103, 178);
     font-size: 40px;
     margin: 0px 5px;
     width: 50px;
-}
-
-.fa-google{
-    cursor: pointer;
     color: white;
-    background-color: #E44134;
-    font-size: 40px;
-    margin: 0px 5px;
-    width: 50px;
 }
 
 .form-control{
