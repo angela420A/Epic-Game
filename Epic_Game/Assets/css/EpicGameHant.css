@@ -70,15 +70,24 @@ body{
 .fa-chevron-down{
     color: #e7e7e7;
 }
+
+._stick {
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+    background-color: #151515;
+}
 /* 搜尋 */
 .navbar input {
     background-color: #151515;
-    color:white;
+    color: white;
 }
 .navbar{
     position: absolute;
     right: 0;
-    width: 100%;
+    padding:0em;
+    margin:0;
+    padding-right:1.8em;
 }
 .navbar .form-control{
     display: none;
@@ -96,7 +105,20 @@ body{
     display: contents;
 }
 
-@media screen and (min-width: 1024px){
+.rowpadding{
+    padding-left:15px;
+}
+
+@media screen and (min-width: 768px){
+    ._stick {
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+        background-color: #151515;
+    }
+}
+
+@media screen and (min-width: 1024px) {
     .div_itemlist{
         position: initial;
         display: flex;
@@ -137,9 +159,6 @@ body{
     .navbar input {
         background-color:black;
         color:white;
-    }
-    .navbar{
-        width: 30%;
     }
 }
 
