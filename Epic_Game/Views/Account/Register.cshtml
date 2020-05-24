@@ -7,86 +7,123 @@
     <link href="~/Assets/css/Register/Register.css" rel="stylesheet" />
 }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal registered-root", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <div class="col-12 col-md-12 col-lg-12">
-        <div class="r-header-logo text-center">
-            <img src="~/Assets/images/Layout/logo.png" alt="">
-            <h3>Happy Little Sheep</h3>
-        </div>
-    </div>
-    <div class="r-header-inputtext">
+<div class="registered-root-div">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal registered-root", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
         <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-nickname text-center">
-                @*<input type="text" placeholder="  *Your Nickname">*@
-                @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "  *Your Nickname" })
+            <div class="r-header-logo text-center">
+                <img src="~/Assets/images/Layout/logo.png" alt="">
+                <h3>Happy Little Sheep</h3>
             </div>
         </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-country-city text-center">
-                @*<input type="text" placeholder="  *Country">*@
-                @Html.TextBoxFor(m => m.Country, new { @type = "text", @placeholder = "  *Country" })
-                @*<input type="text" placeholder="  *City">*@
-                @Html.TextBoxFor(m => m.City, new { @type = "text", @placeholder = "  *City" })
+        <div class="r-header-inputtext">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-nickname-label text-left">
+                    <label for="nickname">Your NickName</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-nickname text-center">
+                    @*<input type="text" placeholder="  *Your Nickname">*@
+                    @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "  *聖殿祭司", @id = "nickname" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-country-city-label text-left">
+                    <label for="">Your Country and City Address</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-country-city text-center">
+                    @*<input type="text" placeholder="  *Country">*@
+                    @Html.TextBoxFor(m => m.Country, new { @type = "text", @placeholder = "  *Country" })
+                    @*<input type="text" placeholder="  *City">*@
+                    @Html.TextBoxFor(m => m.City, new { @type = "text", @placeholder = "  *City" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-address text-center">
+                    @*<input type="text" placeholder="  *Address">*@
+                    @Html.TextBoxFor(m => m.Address, new { @type = "text", @placeholder = "  *Address" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-postalcode-label text-left">
+                    <label for="postalcode">Your Country PostalCode</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-postalcode text-center">
+                    @*<input type="text" placeholder="  *postalcode">*@
+                    @Html.TextBoxFor(m => m.PostalCode, new { @type = "nunber", @placeholder = "  *postalcode", @id = "postalcode" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-birthday-label text-left">
+                    <label for="birthday">Your Birthday</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-birthday text-center">
+                    @*<input type="date" placeholder="  *Your Birthday">*@
+                    @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "  *Your Birthday", @id = "birthday" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-phone-label text-left">
+                    <label for="phone">Your Phone Number</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-phone text-center">
+                    @*<input type="text" placeholder="  *Your Phone Number">*@
+                    @Html.TextBoxFor(m => m.Phone, new { @type = "text", @placeholder = "  *Your Phone Number", @id = "phone" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-email-label text-left">
+                    <label for="email">Your Email Address</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-email text-center">
+                    @*<input type="email" placeholder="  *Your Email">*@
+                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "  *Your Email", @id = "email" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-password-label text-left">
+                    <label for="">Enter Your Password and ConfirmPassword</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-password text-center">
+                    @*<input type="password" placeholder="  *Your Password">*@
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "  *Your Password" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-confirmpassword text-center">
+                    @*<input type="password" placeholder="  *ConfirmPassword">*@
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "  *ConfirmPassword" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-checkbox text-center form-check">
+                    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                    <label class="form-check-label" for="materialUnchecked">I Have Read </label>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="r-h-inputtext-button text-center">
+                    <input type="submit" value="Let's Play !">
+                </div>
             </div>
         </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-address text-center">
-                @*<input type="text" placeholder="  *Address">*@
-                @Html.TextBoxFor(m => m.Address, new { @type = "text", @placeholder = "  *Address" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-postalcode text-center">
-                @*<input type="text" placeholder="  *postalcode">*@
-                @Html.TextBoxFor(m => m.PostalCode, new { @type = "nunber", @placeholder = "  *postalcode" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-birthday text-center">
-                @*<input type="date" placeholder="  *Your Birthday">*@
-                @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "  *Your Birthday" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-phone text-center">
-                @*<input type="text" placeholder="  *Your Phone Number">*@
-                @Html.TextBoxFor(m => m.Phone, new { @type = "text", @placeholder = "  *Your Phone Number" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-email text-center">
-                @*<input type="email" placeholder="  *Your Email">*@
-                @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "  *Your Email" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-password text-center">
-                @*<input type="password" placeholder="  *Your Password">*@
-                @Html.PasswordFor(m => m.Password, new { @placeholder = "  *Your Password" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-confirmpassword text-center">
-                @*<input type="password" placeholder="  *ConfirmPassword">*@
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "  *ConfirmPassword" })
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-checkbox text-center form-check">
-                <input type="checkbox" class="form-check-input" id="materialUnchecked">
-                <label class="form-check-label" for="materialUnchecked">I Have Read </label>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-12">
-            <div class="r-h-inputtext-button text-center">
-                <input type="submit" value="Let's Play !">
-            </div>
-        </div>
-    </div>
-}
+    }
+</div>
 
 @*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
