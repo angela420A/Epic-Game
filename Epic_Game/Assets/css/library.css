@@ -9,8 +9,8 @@ body {
     background-color: #0f0f0f;
 }
 
-.container {
-    padding: 0 140px;
+.library-container {
+    padding: 0 59px;
     margin: 0;
 }
 
@@ -23,6 +23,7 @@ body {
 }
 
 .PageTitle {
+    margin-top: 60px;
     padding: 20px 0;
     display: flex;
 }
@@ -306,11 +307,8 @@ body {
 
 @media screen and (max-width: 768px) {
 
-    .container {
-        padding: 0 44px;
-    }
-
     .PageTitle {
+        margin-top: 0;
         flex-wrap: wrap;
         align-items: center;
     }
