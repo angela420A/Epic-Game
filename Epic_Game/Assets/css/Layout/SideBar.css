@@ -178,7 +178,7 @@ body {
     .m-footer-pointword a:hover {
         text-decoration: none;
         color: rgb(94, 150, 255);
-        transform: .3s;
+        transition: .3s;
     }
 
 @media screen and (min-width: 1024px){
