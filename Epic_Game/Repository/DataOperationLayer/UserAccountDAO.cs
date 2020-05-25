@@ -11,8 +11,8 @@ namespace Epic_Game.Repository.DataOperationLayer
 {
     public class UserAccountDAO
     {
-        EGRepository<AspNetUsers> repo;
-        EGContext context;
+        public EGRepository<AspNetUsers> repo;
+        public EGContext context;
 
         public UserAccountDAO()
         {
@@ -20,7 +20,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             repo = new EGRepository<AspNetUsers>(context);
         }
 
-        public AspNetUsers getUserById(string UserId)
+        public AspNetUsers GetUserById(string UserId)
         {
             return context.AspNetUsers.Single(x => x.Id == UserId);
         }
