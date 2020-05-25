@@ -214,6 +214,7 @@
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
     <Content Include="Assets\css\UserAccount\account_security.css" />
     <Content Include="Assets\css\wishList.css" />
+    <Content Include="Assets\ExternalLogin\External_login.css" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add1.jpg" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add2.jpg" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add3.jpg" />
