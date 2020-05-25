@@ -17,13 +17,13 @@ namespace Epic_Game.ViewModels
         public string City { get; set; }
         public string Postalcode { get; set; }
         public string Country { get; set; }
-
+        public string Birthday { get; set; }
     }
 
     public class UserHistoryViewModel
     {
         public DateTime PurchaseDate { get; set; }
         public string ProductName { get; set; }
-        public decimal price { get; set;}
+        public decimal Price { get; set;}
     }
 }

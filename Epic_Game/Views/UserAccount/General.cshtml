@@ -12,23 +12,18 @@
 
 @section endJS{
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
-    @*<script>
-        let button = document.querySelector('#desgardBtn');
-        $("#desgardBtn").click(function () {
-            let ddd = {
-                id: "123",
-                text: "12313"
-            };
-            $.ajax({
-                url: "/UserAccount/DesgardChanges",
-                type: "post",
-                data: { jdata: JSON.stringify(ddd) },
-                success: function () {
-                    alert("success");
-                }
-            })
-        })
-    </script>*@
+    <script src="~/Assets/Js/UserAccountGeneral.js"></script>
+
+    <script>
+    @*set desgard changes function to btn*@
+    let desgardBtn = document.querySelector('#desgardBtn');
+    desgardBtn.addEventListener('click', function () {
+        document.querySelector('#userAddressI').value = "@Model.AddressLine";
+        document.querySelector('#userCity').value = "@Model.City";
+        document.querySelector('#userPostalCode').value = "@Model.Postalcode";
+        document.querySelector('#userCountry').value = "@Model.Country";
+    })
+    </script>
 }
 
 <div class="container">
@@ -110,17 +105,36 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-12">
                                 <div class="formArea row">
                                     <div class="col">
-                                        <select id="userPreferLang" selected="@m.PreferLang">
-                                            <option name="tch" id="0">繁體中文</option>
-                                            <option name="eng" id="1">English</option>
-                                            <option name="jap" id="2">日本語</option>
-                                        </select>
+                                        <p class="smallText">Birthday</p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <select id="BD_year"></select>
+                                            </div>
+                                            <div class="col-3">
+                                                <select id="BD_month"></select>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <select id="BD_date"></select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>*@
+                            </div>
+                            @*<div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <select id="userPreferLang" selected="@m.PreferLang">
+                                                <option name="tch" id="0">繁體中文</option>
+                                                <option name="eng" id="1">English</option>
+                                                <option name="jap" id="2">日本語</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -171,7 +185,7 @@
                                     </div>
                                     <div class="col-6 col-lg-3">
                                         <div class="btnArea">
-                                            <button class="blue-button">Save Changes</button>
+                                            <button class="blue-button" id="saveBtn">Save Changes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -180,98 +194,98 @@
                     </div>
                 </div>
                 @*<div class="row companySection nextSection">
-                    <div class="col">
-                        <div class="personalInfoArea">
-                            <p class="textTitle">Company</p>
-                            <p class="text-gray">
-                                Manage your company information used for business VAT receipts for
-                                your purchase(s). Learn more
-                            </p>
-                        </div>
-                        <div class="companyInfo row">
-                            <div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <p class="smallText">Company Name</p>
-                                        <input type="text" id="userCompanyName" calss="col" value=""
-                                               placeholder="Company Name">
-                                    </div>
-                                </div>
+                        <div class="col">
+                            <div class="personalInfoArea">
+                                <p class="textTitle">Company</p>
+                                <p class="text-gray">
+                                    Manage your company information used for business VAT receipts for
+                                    your purchase(s). Learn more
+                                </p>
                             </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <p class="smallText">Company Vat Number</p>
-                                        <input type="text" id="userCompanyName" calss="col" value=""
-                                               placeholder="Company Vat Number">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row companyAddressSection">
-                    <div class="col">
-                        <div class="personalInfoArea">
-                            <p class="textTitle">Company address</p>
-                        </div>
-                        <div class="row companyAddressInfo">
-                            <div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="CompanyAddressI" calss="col" value=""
-                                               placeholder="Address line i">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="CompanyAddressII" calss="col" value=""
-                                               placeholder="Address line ii">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="CompanyCity" calss="col" value="" placeholder="city">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="CompanyRegion" calss="col" value=""
-                                               placeholder="region">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <input type="text" id="CompanyPostalCode" calss="col" value=""
-                                               placeholder="postal code">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12">
-                                <div class="row">
-                                    <div class="col-6 col-lg-3">
-                                        <div class="btnArea">
-                                            <button class="gray-button">Desgard Changes</button>
+                            <div class="companyInfo row">
+                                <div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <p class="smallText">Company Name</p>
+                                            <input type="text" id="userCompanyName" calss="col" value=""
+                                                   placeholder="Company Name">
                                         </div>
                                     </div>
-                                    <div class="col-6 col-lg-3">
-                                        <div class="btnArea">
-                                            <button class="blue-button">Save Changes</button>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <p class="smallText">Company Vat Number</p>
+                                            <input type="text" id="userCompanyName" calss="col" value=""
+                                                   placeholder="Company Vat Number">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>*@
+                    <div class="row companyAddressSection">
+                        <div class="col">
+                            <div class="personalInfoArea">
+                                <p class="textTitle">Company address</p>
+                            </div>
+                            <div class="row companyAddressInfo">
+                                <div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <input type="text" id="CompanyAddressI" calss="col" value=""
+                                                   placeholder="Address line i">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <input type="text" id="CompanyAddressII" calss="col" value=""
+                                                   placeholder="Address line ii">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <input type="text" id="CompanyCity" calss="col" value="" placeholder="city">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <input type="text" id="CompanyRegion" calss="col" value=""
+                                                   placeholder="region">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3">
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <input type="text" id="CompanyPostalCode" calss="col" value=""
+                                                   placeholder="postal code">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <div class="row">
+                                        <div class="col-6 col-lg-3">
+                                            <div class="btnArea">
+                                                <button class="gray-button">Desgard Changes</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-lg-3">
+                                            <div class="btnArea">
+                                                <button class="blue-button">Save Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
                 <div class="row parentalSection nextSection">
                     <div class="col">
                         <div class="parentalArea">

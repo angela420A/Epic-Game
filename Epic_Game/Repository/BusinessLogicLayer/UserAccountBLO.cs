@@ -16,9 +16,13 @@ namespace Epic_Game.Repository.BusinessLayer
             UserAccountDAO = new UserAccountDAO();
         }
 
-        public UserInfoViewModel getUserById(string UserID)
+        public UserInfoViewModel GetUserById(string UserID)
         {
-            AspNetUsers u = UserAccountDAO.getUserById(UserID);
+            AspNetUsers u = UserAccountDAO.GetUserById(UserID);
+            string[] s = new string[3] { "","","" };
+            if (u.Birthday != null) { 
+                s = u.Birthday.ToString("yyyy.mm.dd").Split('.');
+            }
             UserInfoViewModel viewmModel = new UserInfoViewModel
             {
                 UserID = u.Id,
@@ -29,7 +33,8 @@ namespace Epic_Game.Repository.BusinessLayer
                 AddressLine = u.Address,
                 City = u.City,
                 Postalcode = u.PostalCode == null ? "" : u.PostalCode.ToString(),
-                Country = u.Country
+                Country = u.Country,
+                Birthday = u.Birthday.ToString("yyyy.MM.dd")
             };
             return viewmModel;
         }

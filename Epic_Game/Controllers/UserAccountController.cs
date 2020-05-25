@@ -19,7 +19,7 @@ namespace Epic_Game.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            var UserView = new UserAccountBLO().getUserById(UserId);
+            var UserView = new UserAccountBLO().GetUserById(UserId);
             return View(UserView);
         }
 
