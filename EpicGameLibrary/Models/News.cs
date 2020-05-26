@@ -24,8 +24,6 @@ namespace EpicGameLibrary.Models
         [StringLength(2000)]
         public string Description { get; set; }
 
-        public Guid Img_List { get; set; }
-
-        public virtual Product Product { get; set; }
+        public Guid NewsImg { get; set; }
     }
 }

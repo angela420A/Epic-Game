@@ -15,7 +15,6 @@ namespace EpicGameLibrary.Models
             Comment = new HashSet<Comment>();
             Image = new HashSet<Image>();
             Library = new HashSet<Library>();
-            News = new HashSet<News>();
             Order = new HashSet<Order>();
             Pack = new HashSet<Pack>();
             Social_Media = new HashSet<Social_Media>();
@@ -38,7 +37,7 @@ namespace EpicGameLibrary.Models
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-        public int Discount { get; set; }
+        public decimal Discount { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -57,7 +56,6 @@ namespace EpicGameLibrary.Models
         public int OS { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -68,9 +66,6 @@ namespace EpicGameLibrary.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Library> Library { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<News> News { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

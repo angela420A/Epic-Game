@@ -77,6 +77,10 @@ namespace EpicGameLibrary.Models
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Product>()
+                .Property(e => e.Discount)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Product>()
                 .HasMany(e => e.Comment)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
@@ -89,11 +93,6 @@ namespace EpicGameLibrary.Models
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Library)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.News)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
