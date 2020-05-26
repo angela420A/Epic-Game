@@ -10,20 +10,16 @@ namespace Epic_Game.Repository.BusinessLayer
 {
     public class UserAccountBLO
     {
-        public UserAccountDAO UserAccountDAO { get; set; }
-        public UserAccountBLO()
+        private UserAccountDAO userAccountDAO { get; set; }
+
+        public UserAccountBLO(string UserId)
         {
-            UserAccountDAO = new UserAccountDAO();
+            userAccountDAO = new UserAccountDAO(UserId);
         }
 
-        public UserInfoViewModel GetUserById(string UserID)
+        public UserInfoViewModel UserToView(AspNetUsers u)
         {
-            AspNetUsers u = UserAccountDAO.GetUserById(UserID);
-            string[] s = new string[3] { "","","" };
-            if (u.Birthday != null) { 
-                s = u.Birthday.ToString("yyyy.mm.dd").Split('.');
-            }
-            UserInfoViewModel viewmModel = new UserInfoViewModel
+            var viewModel = new UserInfoViewModel
             {
                 UserID = u.Id,
                 DisplayName = u.UserName,
@@ -36,7 +32,19 @@ namespace Epic_Game.Repository.BusinessLayer
                 Country = u.Country,
                 Birthday = u.Birthday.ToString("yyyy.MM.dd")
             };
-            return viewmModel;
+            return viewModel;
+        }
+
+        public UserInfoViewModel GetUser(string UserID)
+        {
+            var u = userAccountDAO.GetUser();
+            return UserToView(u);
+        }
+
+        public UserInfoViewModel ChangeDisplayName(string newName)
+        {
+            var u = userAccountDAO.EditDisplayName(newName);
+            return UserToView(u);
         }
     }
 }
