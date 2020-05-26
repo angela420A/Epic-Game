@@ -9,7 +9,7 @@
 @section endJS{
     <script src="~/Assets/Js/product_js.js"></script>
 }
-
+<!-- 導覽列------------------------------- -->
 <div class="container shopback">
     <div class="row">
         <div class="col">
@@ -49,6 +49,7 @@
         </div>
     </div>
 </div>
+<!-- 影片------------------------------- -->
 <div id="carouselExampleIndicators" class="carousel slide allblock" data-ride="carousel" data-interval="false">
     <div class="container">
         <ol class="carousel-indicators" style="margin-bottom: -25px; color: tomato;">
@@ -86,7 +87,7 @@
         </a>
     </div>
 </div>
-
+<!-- 產品描述------------------------------- -->
 <div class="container allblock" id="game_pic">
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3 pic_img">
@@ -132,8 +133,7 @@
     </div>
 </div>
 
-
-
+<!-- 關於遊戲------------------------------- -->
 <div class="container allblock" id="aboutgame">
     <div class="row">
         <div class="col-12 col-xl-3">
@@ -204,156 +204,17 @@
                         </div>
                     </div>
                 </span>
-                <button onclick="SHOWMORE()" id="myBtn">SHOW MORE</button>
+                <button onclick="SHOWMORE()" class="myBtn" id="Btn_showmore">SHOW MORE</button>
             </div>
         </div>
     </div>
 </div>
 
+@Html.Partial("_Editions")
 
-<div class="container allblock" id="version">
-    <div class="row">
-        <div class="col-12 col-xl-3 title_bg">
-            <h3 class="title_name">Editions</h3>
-        </div>
-        <a href="#" class="col-12 col-xl-9" style="text-decoration: none;">
-            <div class="cversion_content">
-                <div class="version_pictext">
-                    <div class="col-xl-6 content_image" style=" background-color: black;">
-                        <div class="version_pic" style="text-align: center;">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_version2.jpg" alt="" class="w-100">
-                        </div>
-                    </div>
-                    <div class="col-xl-6 title_text">
-                        <div class="span_top">
-                            <div class="span_tag" style="font-size: 10px;">
-                                <span>EDITION</span>
-                            </div>
-                            <div class="span_title">
-                                <span>Borderlands 3</span>
-                            </div>
-                        </div>
-                        <div class="text_description">
-                            <div class="version_description_text">
-                                <span class="span_context" style="display: block; overflow: hidden;">
-                                    The original
-                                    shooter-looter returns, packing bazillions of guns and a mayhem-fueled
-                                    adventure! Blast through new worlds & enemies and save your home from the
-                                    most...
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="version_know col-12">
-                    <div class="version_know_right">
-                        <div class="version_know_rightrow">
-                            <div class="pricewrapper">
-                                <div class="version_price">
-                                    <div class="version_pricecontainer col-12">
-                                        <span class="price_original" style="color: #e7e7e7;">US$59.9</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="version_btn">
-                                <div class="btn_left col-12">
-                                    <div type="button" class="btn_buy">
-                                        <span class="btn_buy_span">BUY NOW</span>
-                                    </div>
-                                    <div class="version_btn_right">
-                                        <div class="version_btn_container">
-                                            <div class="version_btn_content">
-                                                <div class="btn_love">
-                                                    <span>
-                                                        <i class="far fa-heart"
-                                                           style="font-size: 15px; padding: 0 5px;"></i>
-                                                    </span>
+@Html.Partial("_AddOns")
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-<div class="container allblock" id="additional">
-    <div class="row">
-        <div class="col-12 col-xl-3">
-            <h3 class="title_name">Add-Ons</h3>
-        </div>
-        <a href="#" class="col-12 col-xl-9" style="text-decoration: none;">
-            <div class="additional_content">
-                <div class="additional_pictext">
-                    <div class="col-xl-6 content_image" style=" background-color: black;">
-                        <div class="additional_pic">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="" class="w-100" >
-                        </div>
-                    </div>
-                    <div class="col-xl-6 title_text">
-                        <div class="span_top">
-                            <div class="span_tag" style="font-size: 10px;">
-                                <span>ADDON</span>
-                            </div>
-                            <div class="span_title">Borderlands 3 Guns,Love,and Tentacles</div>
-                        </div>
-                        <div class="text_description">
-                            <div class="additional_description_text">
-                                <span class="span_context" style="display: block; overflow: hidden;">
-                                    Hammerlock and
-                                    Wainwright's engagement party has been interrupted by deranged occultists.
-                                    Reunite with old friends and team up with eerie new characters to help true
-                                    love
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="additional_know col-12">
-                    <div class="additional_know_right">
-                        <div class="additional_know_rightrow">
-                            <div class="pricewrapper">
-                                <div class="additional_price">
-                                    <div class="additional_pricecontainer col-12">
-                                        <span class="price_original" style="color: #e7e7e7;">US$59.9</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="additional_btn">
-                                <div class="btn_left col-12">
-                                    <div type="button" class="btn_buy">
-                                        <span class="btn_buy_span">BUY NOW</span>
-                                    </div>
-                                    <div class="additional_btn_right">
-                                        <div class="additional_btn_container">
-                                            <div class="additional_btn_content">
-                                                <div class="btn_love">
-                                                    <span>
-                                                        <i class="far fa-heart"
-                                                           style="font-size: 15px; padding: 0 5px;"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-
-<!-- ------------------------------- -->
+<!-- 追蹤------------------------------- -->
 <div class="container allblock" id="trackus">
     <div class="row">
         <div class="col-12 col-xl-3">
@@ -381,120 +242,10 @@
     </div>
 </div>
 
-<!-- ---------------- -->
-<div class="container allblock" id="grading">
-    <div class="row">
-        <div class="col-12 col-xl-3">
-            <h3 class="title_name">Comments</h3>
-        </div>
-        <div class="col-12 col-xl-9 grading_content">
-            <div>
-                <div class="grading_circle col-12">
-                    <div class="star-rating">
-                        <span class="fa fa-star-o" data-rating="1"></span>
-                        <span class="fa fa-star-o" data-rating="2"></span>
-                        <span class="fa fa-star-o" data-rating="3"></span>
-                        <span class="fa fa-star-o" data-rating="4"></span>
-                        <span class="fa fa-star-o" data-rating="5"></span>
-                        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                    </div>
-                </div>
-                <div class="grading_comment">
-                    <div class="col-12 col-xl-12 pl-0 pr-0">
-                        <ul class="grading_ul">
-                            <li class="grading_li col-12 col-md-4">
-                                <div class="grading_padding">
-                                    <a href="#" class="grading_a" style="text-decoration: none; color: #e7e7e7;">
-                                        <div class="author_content">
-                                            <p style="font-size: 15px;">Game informer</p>
-                                            <p class="author_card_content">
-                                                <span>by </span><span>Matt Miller</span>
-                                            </p>
-                                        </div>
-                                        <div class="author_card">
-                                            <div class="autor_card_date" style="font-size: 15px;">8/10</div>
-                                            <p class="author_card_content">
-                                                A lot has changed in the FPS game scene
-                                                since
-                                                2012, when the last numbered entry of Borderlands arrived in our
-                                                gaming
-                                                machines. In all the ways that matter, the sequel
-                                                blueprint established in that well-loved release,
-                                            </p>
-
-                                        </div>
-                                        <div class="author_card_link">
-                                            <span>READ FULL REVIEW</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </li>
-                            <li class="grading_li col-12 col-md-4">
-                                <div class="grading_padding">
-                                    <a href="#" class="grading_a" style="text-decoration: none; color: #e7e7e7;">
-                                        <div class="author_content">
-                                            <p style="font-size: 15px;">Game informer</p>
-                                            <p class="author_card_content">
-                                                <span>by </span><span>James Duggan</span>
-                                            </p>
-                                        </div>
-                                        <div class="author_card">
-                                            <div class="autor_card_date" style="font-size: 15px;">8/10</div>
-                                            <p class="author_card_content">
-                                                A lot has changed in the FPS game scene
-                                                since 2012, when the last numbered entry of Borderlands arrived in
-                                                our
-                                                gaming machines. In all established in that well-loved release,
-                                            </p>
-
-                                        </div>
-                                        <div class="author_card_link">
-                                            <span>READ FULL REVIEW</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </li>
-                            <li class="grading_li col-12 col-md-4">
-                                <div class="grading_padding">
-                                    <a href="#" class="grading_a" style="text-decoration: none; color: #e7e7e7;">
-                                        <div class="author_content">
-                                            <p style="font-size: 15px;">Game informer</p>
-                                            <p class="author_card_content">
-                                                <span>by </span><span>
-                                                    Daniel
-                                                    Bloodworth
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="author_card">
-                                            <div class="author_card_date" style="font-size: 15px;">8/10</div>
-                                            <p class="author_card_content">
-                                                A lot has changed in the FPS game scene
-                                                since 2012, when the last numbered entry of Borderlands arrived in
-                                                our
-                                                gaming machines. In all
-                                                closely to
-                                                the blueprint established in that well-loved release,
-                                            </p>
-                                        </div>
-                                        <div class="author_card_link">
-                                            <span>READ FULL REVIEW</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_Comments")
 
 
-<!-- ------------------- -->
+<!--規格 ------------------- -->
 <div class="container allblock" id="specification">
     <div class="row">
         <div class="col-12 col-xl-3">

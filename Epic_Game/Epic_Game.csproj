@@ -467,6 +467,9 @@
     <Content Include="Views\Pay\Finish.cshtml" />
     <Content Include="Views\Home\ProductMore.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\_Editions.cshtml" />
+    <Content Include="Views\Product\_AddOns.cshtml" />
+    <Content Include="Views\Product\_Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

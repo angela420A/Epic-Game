@@ -43,7 +43,7 @@ $(document).ready(function () {
 function SHOWMORE() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
+    var btnText = document.getElementById("Btn_showmore");
 
     if (dots.style.display === "none") {
         dots.style.display = "inline";
