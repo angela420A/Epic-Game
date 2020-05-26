@@ -17,10 +17,10 @@ namespace Epic_Game.Repository.DataOperationLayer
         public OperationResult result;
         public UserAccountDAO(string UserId)
         {
-            User = context.AspNetUsers.Single(x => x.Id == UserId);
             context = new EGContext();
             repo = new EGRepository<AspNetUsers>(context);
             result = new OperationResult();
+            User = context.AspNetUsers.Single(x => x.Id == UserId);
         }
 
         public AspNetUsers GetUser()
