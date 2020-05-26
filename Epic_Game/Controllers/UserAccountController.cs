@@ -11,23 +11,46 @@ namespace Epic_Game.Controllers
     {
         public ActionResult General()
         {
-            var t = ViewData;
             var UserId = User.Identity.GetUserId();
-
             if (UserId == null)
             {
                 return RedirectToAction("Login", "Account");
             }
-
-            var UserView = new UserAccountBLO().GetUserById(UserId);
-            return View(UserView);
+            else
+            {
+                return GetUserInfo(UserId);
+            }
         }
 
         [HttpPost]
-        public ActionResult DesgardChanges(string jdata)
+        //Update
+        public ActionResult General(UserInfoViewModel ViewModel)
         {
-            var t = ViewData;
-            return View(ViewData);
+            return View(ViewModel);
+        }
+
+        public ActionResult GetUserInfo(string UserId)
+        {
+            var userAccountBLO = new UserAccountBLO(UserId);
+            return View(userAccountBLO.GetUser(UserId));
+        }
+
+        [HttpPost]
+        public void ChangeDisplayName(string jdata)
+        {
+            var UserId = User.Identity.GetUserId();
+            var userAccountBLO = new UserAccountBLO(UserId);
+            var ViewModel = userAccountBLO.ChangeDisplayName(jdata);
+            General(ViewModel);
+        }
+
+        [HttpPost]
+        public void ChangeEmail(string jdata)
+        {
+            var UserId = User.Identity.GetUserId();
+            var userAccountBLO = new UserAccountBLO(UserId);
+            var ViewModel = userAccountBLO.ChangeDisplayName(jdata);
+            General(ViewModel);
         }
 
         public ActionResult History()
