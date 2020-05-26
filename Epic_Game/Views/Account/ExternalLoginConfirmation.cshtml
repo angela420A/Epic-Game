@@ -2,88 +2,214 @@
 @{
     ViewBag.Title = "註冊";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>關聯您的 @ViewBag.LoginProvider 帳戶。</h3>
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-
-    <h4>關聯表單</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <p class="text-info">
-        您已成功向下列單位驗證: <strong>@ViewBag.LoginProvider</strong>。
-        請在下面輸入此網站的使用者名稱，然後按一下 [註冊] 按鈕完成
-        登入。
-    </p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Birthday, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "生日" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="註冊" />
-        </div>
-    </div>
+@section topCSS{
+    <link href="~/Assets/ExternalLogin/External_login.css" rel="stylesheet" />
 }
+
+<div class="extermal-login-root">
+    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "e-login-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="el-form-header text-center">
+            <div class="el-f-h-title">
+                <img src="~/Assets/images/Layout/logo.png" alt="">
+                <h3>You have logged in with <strong>@ViewBag.LoginProvider</strong> account please enter your identity as login !</h3>
+            </div>
+        </div>
+        <div class="el-form-input text-left">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-name">
+                    <label for="neme">Your Name</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-namedata">
+                    @*<input type="text" placeholder="   *聖殿祭司" id="neme">*@
+                    @Html.TextBoxFor(m => m.Name, new { @type = "text", @class = "external-name", @placeholder = "   *聖殿祭司", @id = "neme" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-address">
+                    <label for="address">Your Country and City Address</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-country-citydata">
+                    @*<input type="text" placeholder="   *Country">*@
+                    @Html.TextBoxFor(m => m.Country, new { @type = "text", @class = "external-country", @placeholder = "   *Country" })
+                    @*<input type="text" placeholder="   *City">*@
+                    @Html.TextBoxFor(m => m.City, new { @type = "text", @class = "external-city", @placeholder = "   *City" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-addressdata">
+                    @*<input type="text" placeholder="   *Address">*@
+                    @Html.TextBoxFor(m => m.Address, new { @type = "text", @class = "external-address", @placeholder = "   *Address" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-postalcode">
+                    <label for="postalcode">Your Postal Code</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-postalcodedata">
+                    @*<input type="text" placeholder="   *PostalCode" id="postalcode">*@
+                    @Html.TextBoxFor(m => m.PostalCode, new { @type = "text", @class = "external-postalcode", @placeholder = "   *PostalCode", @id = "postalcode" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-birthday">
+                    <label for="birthday">Your Birthday</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-birthdaydata">
+                    @*<input type="date" id="birthday">*@
+                    @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @class = "external-birthday", @id = "birthday" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-phone">
+                    <label for="phone">Your Phone Number</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-phonedata">
+                    @*<input type="text" placeholder="   *Phone" id="phone">*@
+                    @Html.TextBoxFor(m => m.Phone, new { @type = "text", @class = "external-phone", @placeholder = "   *Phone", @id = "phone" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-email">
+                    <label for="email">Your Email Address</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-emaildata">
+                    @*<input type="email" placeholder="   *Email Address" id="email">*@
+                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "external-email", @placeholder = "   *Email Address", @id = "email" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-password">
+                    <label for="password">Your Password</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-passworddata">
+                    @*<input type="password" placeholder="   *paddword" id="password">*@
+                    @Html.PasswordFor(m => m.Password, new { @class = "external-password", @placeholder = "   *paddword", @id = "password" })
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-confirmpassword">
+                    <label for="confirmpassword">Enter angin your password</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="el-f-input-confirmpasswordata">
+                    @*<input type="password" placeholder="   *Confirm PassWord">*@
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "external-confirmpassword", @placeholder = "   *Confirm PassWord" })
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="el-form-text text-center">
+                <input type="checkbox" id="external-check">
+                <label for="external-check">I Have Read</label>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="el-form-button text-center">
+                <input type="submit" value="Let's Start">
+            </div>
+        </div>
+    }
+</div>
+
+
+@*@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h4>關聯表單</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p class="text-info">
+            您已成功向下列單位驗證: <strong>@ViewBag.LoginProvider</strong>。
+            請在下面輸入此網站的使用者名稱，然後按一下 [註冊] 按鈕完成
+            登入。
+        </p>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostalCode, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Birthday, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @placeholder = "生日" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="註冊" />
+            </div>
+        </div>
+    }*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

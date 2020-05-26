@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-color: rgb(15, 15, 15);
+}
+
+.extermal-login-root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.e-login-form{
+    width: 500px;
+    display: block;
+}
+
+.el-form-header{
+    margin-bottom: 20px;
+}
+
+.el-f-h-title img{
+    width: 80px;
+    height: 80px;
+    margin: 5px 0px;
+}
+
+.el-f-h-title h3{
+    color: rgb(0, 174, 255);
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Microsoft JhengHei;
+}
+
+.el-form-input{
+    margin-bottom: 20px;
+}
+
+.el-form-input label{
+    color: white;
+    font-family: Microsoft JhengHei;
+    font-size: 15px;
+}
+/* 
+.el-form-input input{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+} */
+
+.el-f-input-namedata{
+    margin-bottom: 10px;
+}
+
+.external-name{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-country-citydata{
+    margin-bottom: 10px;
+}
+
+.el-f-input-country-citydata input{
+    width: 225px;
+    display: inline;
+}
+
+.el-f-input-addressdata{
+    margin-bottom: 10px;
+}
+
+.external-country{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.external-city{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.external-address{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-postalcodedata{
+    margin-bottom: 10px;
+}
+
+.external-postalcode{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-birthdaydata{
+    margin-bottom: 10px;
+}
+
+.external-birthday{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-birthdaydata input::-webkit-clear-button{
+    cursor: pointer;
+}
+
+.el-f-input-birthdaydata input::-webkit-inner-spin-button{
+    display: none;
+}
+
+.el-f-input-birthdaydata input::-webkit-calendar-picker-indicator{
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.el-f-input-birthdaydata input::-webkit-calendar-picker-indicator:hover{
+    background-color: rgb(255, 255, 255, .2);
+    color: rgb(15, 15, 15);
+}
+
+.el-f-input-phonedata{
+    margin-bottom: 10px;
+}
+
+.external-phone{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-emaildata{
+    margin-bottom: 10px;
+}
+
+.external-email{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-f-input-passworddata{
+    margin-bottom: 10px;
+}
+
+.external-password{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.external-confirmpassword{
+    background-color: rgb(61, 59, 59);
+    border: none;
+    padding: 10px 10px;
+    color: #F4F4F4;
+    width: 450px;
+}
+
+.el-form-text{
+    margin-bottom: 10px;
+}
+
+.el-form-text input, label, a{
+    display: inline;
+}
+
+.el-form-text label, a{
+    color: white;
+}
+
+.el-form-text a{
+    text-decoration: underline;
+    font-weight: bold;
+}   
+
+.el-form-text a:hover{
+    color: white;
+}
+
+.el-form-button input{
+    background-color: rgb(4, 113, 216);
+    padding: 10px 20px;
+    border: none;
+    color: white;
+}
+
+.el-form-button input:hover{
+    background-color: rgb(7, 86, 160);
+}

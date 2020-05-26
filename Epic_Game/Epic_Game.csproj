@@ -215,6 +215,7 @@
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
     <Content Include="Assets\css\UserAccount\account_security.css" />
     <Content Include="Assets\css\wishList.css" />
+    <Content Include="Assets\ExternalLogin\External_login.css" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add1.jpg" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add2.jpg" />
     <Content Include="Assets\images\EpicGameProduct\borderlands_add3.jpg" />
@@ -465,6 +466,10 @@
     <Content Include="Views\Library\Index.cshtml" />
     <Content Include="Views\Pay\Finish.cshtml" />
     <Content Include="Views\Home\ProductMore.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\_Editions.cshtml" />
+    <Content Include="Views\Product\_AddOns.cshtml" />
+    <Content Include="Views\Product\_Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

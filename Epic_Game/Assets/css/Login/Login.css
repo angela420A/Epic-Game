@@ -51,25 +51,36 @@ body{
     margin: 10px 0px;
 }
 
-.singin-google p{
+/*.singin-external p {
     margin-bottom: 0;
-}
+}*/
 
-.singin-google h4 {
+.singin-external h4 {
     display: none;
 }
 
-.singin-google hr{
-    display:none;
+.singin-external hr {
+    display: none;
 }
 
-.singin-google i {
+.singin-external #Google {
     cursor: pointer;
     color: white;
     background-color: #E44134;
     font-size: 40px;
     margin: 0px 5px;
-    width: 100px;
+    width: 200px;
+    color: white;
+    border-radius: 3px;
+}
+
+.singin-external #Facebook {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(59, 89, 152);
+    font-size: 40px;
+    margin: 0px 5px;
+    width: 200px;
     color: white;
     border-radius: 3px;
 }

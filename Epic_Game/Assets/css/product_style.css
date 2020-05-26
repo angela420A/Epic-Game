@@ -17,7 +17,7 @@ body {
 
 .span_tag {
     color: #e7e7e7;
-    font-size: 15px;
+    font-size: 12px;
     padding-top: 3px;
     padding-right: 5px;
 }
@@ -30,7 +30,6 @@ body {
 
 .span_top {
     display: inline-block;
-    /* position: relative;  */
 }
 
 .span_title {
@@ -52,6 +51,7 @@ body {
 
 .price_original {
     font-size: 15px;
+    margin-right: 10px;
 }
 
 .title_name {
@@ -65,7 +65,6 @@ body {
 .btn_left {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
 }
 
 .btn_buy {
@@ -77,7 +76,13 @@ body {
     border: none;
     color: #151515;
     text-decoration: none;
+    padding: 5px 20px;
 }
+
+    .btn_buy:hover,
+    .btn_love:hover {
+        background-color: #f5be18;
+    }
 
 .btn_buy_span {
     font-size: 14px;
@@ -90,6 +95,16 @@ body {
     border: none;
     text-decoration: none;
 }
+
+.price {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0;
+}
+
+    .price .col-12 {
+        padding: 0;
+    }
 /* 導覽列 */
 .NavListArea {
     display: flex;
@@ -105,17 +120,15 @@ body {
     z-index: 1;
 }
 
-.shopback ul {
-    padding: 0;
-    margin-left: 20px;
-}
+    .shopback ul {
+        padding: 0;
+    }
 
 .checkBoxlabel {
     margin: 0;
     justify-content: center;
     align-items: center;
 }
-
 
 .NavList {
     position: relative;
@@ -193,7 +206,6 @@ body {
     display: contents;
 }
 /* 幻燈片 */
-
 #carouselExampleIndicators .carousel-item iframe {
     width: 100%;
 }
@@ -204,6 +216,11 @@ body {
     width: 50px;
     height: 50px;
     margin: auto;
+    z-index: 0;
+}
+
+#carouselExampleIndicators .carousel-control-prev {
+    position: absolute;
 }
 
 .carousel-control-prev-icon {
@@ -270,7 +287,7 @@ body {
     margin-bottom: 13px;
 }
 
-#game_pic .game_pic_give {
+.game_pic_give {
     background-color: #e80000;
     width: 100%;
     border: none;
@@ -279,6 +296,12 @@ body {
     color: #e7e7e7;
     text-align: center;
 }
+
+    .game_pic_btn_love:hover,
+    .game_pic_give:hover {
+        background-color: #c90b0b;
+        color: #e7e7e7;
+    }
 /* 關於遊戲 */
 #aboutgame .col-4 {
     padding-bottom: 30px;
@@ -315,7 +338,11 @@ body {
     margin-bottom: 10px;
 }
 
-#myBtn {
+#aboutgame span, p {
+    font-size: 14px;
+}
+
+.myBtn {
     width: 100%;
     font-size: 14px;
     background-color: #353535;
@@ -326,7 +353,7 @@ body {
     color: #e7e7e7;
 }
 
-    #myBtn:hover {
+    .myBtn:hover {
         width: 100%;
         font-size: 14px;
         background-color: #ffcc33;
@@ -334,11 +361,6 @@ body {
         padding: 10px 0;
         border: none;
         border-radius: 0rem;
-    }
-
-    #myBtn i {
-        color: #151515;
-        font-size: 10%;
     }
 
 #more {
@@ -362,6 +384,7 @@ body {
     text-align: center;
 }
 
+
 /* 附加內容 */
 #additional {
     background-color: #151515;
@@ -383,14 +406,6 @@ body {
         text-align: center;
     }
 
-.additional_btn .additional_btn_buy {
-    margin: auto;
-    width: 100%;
-    margin-right: 3px;
-    padding: 5px 0;
-    background-color: #ffcc33;
-    border: none;
-}
 /* 追蹤我們 */
 #trackus .trackus_i {
     background-color: black;
@@ -416,8 +431,28 @@ body {
         transform: scale(1.1, 1.1);
         transition: transform 0.5s ease;
     }
-/* 分級 */
+/*評論*/
+.modal-title {
+    color: #e7e7e7;
+    font-size: 20px;
+}
 
+.modal_btn {
+    padding: 5px 10px;
+    width: 100px;
+    color: #e7e7e7;
+    background-color: #353535;
+    border: none;
+}
+
+.btn_yellow:hover {
+    background-color: #ffcc33;
+    color: #151515;
+}
+
+.modal-content {
+    background-color: #151515;
+}
 .star-rating {
     line-height: 32px;
     font-size: 1.25em;
@@ -471,6 +506,15 @@ body {
     font-size: 14px;
     color: #757575;
 }
+
+#grading .grading_number {
+    text-align: end;
+}
+
+#grading .grading_text {
+    font-size: 30px;
+    margin-right: 10px;
+}
 /* 規格 */
 #specification .specification_table {
     display: flex;
@@ -494,14 +538,13 @@ body {
 }
 
 #specification .span_text {
-    color: #e7e7e7;
     font-size: 14px;
 }
 
 #specification .li_text {
     color: #e7e7e7;
     display: inline;
-    font-size:12px;
+    font-size: 12px;
 }
 
 #specification .title_div {
@@ -540,7 +583,19 @@ body {
     font-size: 10px;
 }
 
+
 @media screen and (min-width: 768PX) {
+    .price_original {
+        margin-right: 0px;
+    }
+
+    .price {
+        margin: 0;
+    }
+
+    .pricewrapper {
+        margin-top: 5px;
+    }
 
     /* 影片 */
     #carouselExampleIndicators .carousel-item iframe {
@@ -589,15 +644,19 @@ body {
         justify-content: flex-end;
     }
 
-    #version .version_price {
-        display: flex;
-        justify-content: flex-end;
-    }
-
     #version .version_btn {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 10px;
+    }
+
+    #version .version_know_rightrow {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .version_price .col-12 {
+        padding: 0;
     }
     /* 附加 */
     .additional_pictext {
@@ -621,15 +680,15 @@ body {
         justify-content: flex-end;
     }
 
-    #additional .additional_price {
-        display: flex;
-        justify-content: flex-end;
-    }
-
     #additional .additional_btn {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 10px;
+    }
+
+    #additional .additional_know_rightrow {
+        display: flex;
+        justify-content: flex-end;
     }
     /* comment */
     #grading .grading_ul {
@@ -689,11 +748,14 @@ body {
         border-right: 1px solid #e7e7e7;
         right: -10px
     }
+
     .navbar input {
         background-color: black;
         color: white;
     }
-
+    /* .navbar{
+        padding-left: 0;
+    } */
     /* 產品描述 */
     .pic_img {
         display: flex;
