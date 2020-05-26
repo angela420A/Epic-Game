@@ -35,7 +35,7 @@ namespace Epic_Game.Repository.BusinessLayer
             return viewModel;
         }
 
-        public UserInfoViewModel GetUser(string UserID)
+        public UserInfoViewModel GetUser()
         {
             var u = userAccountDAO.GetUser();
             return UserToView(u);
@@ -44,6 +44,12 @@ namespace Epic_Game.Repository.BusinessLayer
         public UserInfoViewModel ChangeDisplayName(string newName)
         {
             var u = userAccountDAO.EditDisplayName(newName);
+            return UserToView(u);
+        }
+
+        public UserInfoViewModel ChangeEmail(string Email)
+        {
+            var u = userAccountDAO.EditEmail(Email);
             return UserToView(u);
         }
     }

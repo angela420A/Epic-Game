@@ -32,7 +32,7 @@ namespace Epic_Game.Controllers
         public ActionResult GetUserInfo(string UserId)
         {
             var userAccountBLO = new UserAccountBLO(UserId);
-            return View(userAccountBLO.GetUser(UserId));
+            return View(userAccountBLO.GetUser());
         }
 
         [HttpPost]
@@ -49,13 +49,12 @@ namespace Epic_Game.Controllers
         {
             var UserId = User.Identity.GetUserId();
             var userAccountBLO = new UserAccountBLO(UserId);
-            var ViewModel = userAccountBLO.ChangeDisplayName(jdata);
+            var ViewModel = userAccountBLO.ChangeEmail(jdata);
             General(ViewModel);
         }
 
         public ActionResult History()
         {
-            var UserId = User.Identity.GetUserId();
             return View();
         }
 
