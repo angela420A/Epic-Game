@@ -10,8 +10,6 @@ namespace EpicGameLibrary.Models
     {
         public Guid NewsID { get; set; }
 
-        public Guid ProductID { get; set; }
-
         [StringLength(100)]
         public string Author { get; set; }
 
@@ -24,6 +22,6 @@ namespace EpicGameLibrary.Models
         [StringLength(2000)]
         public string Description { get; set; }
 
-        public Guid NewsImg { get; set; }
+        public string NewsImg { get; set; }
     }
 }
