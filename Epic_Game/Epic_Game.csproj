@@ -472,6 +472,7 @@
     <Content Include="Views\Product\_Editions.cshtml" />
     <Content Include="Views\Product\_AddOns.cshtml" />
     <Content Include="Views\Product\_Comments.cshtml" />
+    <Content Include="Views\Product\_Trackus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

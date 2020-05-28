@@ -223,31 +223,7 @@ body {
 
 .swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
     bottom: 40px !important;
-}/*
-#carouselExampleIndicators .carousel-item iframe {
-    width: 100%;
 }
-
-#carouselExampleIndicators .carousel-control-prev,
-.carousel-control-next {
-    background-color: #e80000;
-    width: 50px;
-    height: 50px;
-    margin: auto;
-    z-index: 0;
-}
-
-#carouselExampleIndicators .carousel-control-prev {
-    position: absolute;
-}
-
-.carousel-control-prev-icon {
-    padding: 0;
-}
-
-.carousel-inner iframe {
-    height: 400px;
-}*/
 /* 產品描述 */
 #game_pic .col-12 {
     padding: 15px;
