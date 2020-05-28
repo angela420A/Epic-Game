@@ -12,10 +12,10 @@ namespace EpicGameLibrary.Models
 
         public Guid ProductID { get; set; }
 
-        [StringLength(20)]
+        [StringLength(100)]
         public string Author { get; set; }
 
-        [StringLength(20)]
+        [StringLength(100)]
         public string NewsTitle { get; set; }
 
         public DateTime Date { get; set; }
