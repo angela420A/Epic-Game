@@ -27,11 +27,11 @@ namespace EpicGameLibrary.Models
         public string ContentType { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string ProductName { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(300)]
         public string Title { get; set; }
 
         [Column(TypeName = "money")]
@@ -40,11 +40,11 @@ namespace EpicGameLibrary.Models
         public decimal Discount { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string Developer { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string Publisher { get; set; }
 
         public DateTime ReleaseDate { get; set; }

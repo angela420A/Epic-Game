@@ -13,11 +13,11 @@ namespace EpicGameLibrary.Models
         public int ActivityID { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string Description { get; set; }
 
         public Guid IMG { get; set; }

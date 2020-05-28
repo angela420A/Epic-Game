@@ -17,7 +17,7 @@ namespace EpicGameLibrary.Models
 
         public Guid ProductID { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Title { get; set; }
 
         public DateTime Date { get; set; }

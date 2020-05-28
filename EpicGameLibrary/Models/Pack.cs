@@ -24,7 +24,7 @@ namespace EpicGameLibrary.Models
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
 
-        public int? Discount { get; set; }
+        public decimal? Discount { get; set; }
 
         public virtual Product Product { get; set; }
 
