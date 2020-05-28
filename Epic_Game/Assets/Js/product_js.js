@@ -58,3 +58,82 @@ function SHOWMORE() {
 
     }
 }
+//¼v¤ù¤Á´«
+let lastSlideIndex = 0;
+var mySwiper = new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+    
+    observer: true,
+    observeParents: true,
+    on: {
+        init: function () {
+            const self = this;
+            const activeIndex = self.activeIndex;
+
+            setTimeout(function () {
+                playPauseVideo(self, self.activeIndex, "play");
+            }, 1000);
+
+            lastSlideIndex = activeIndex;
+        },
+        slideNextTransitionEnd: function () {
+            const self = this;
+            const activeIndex = self.activeIndex;
+
+            playPauseVideo(self, lastSlideIndex, "pause");
+            playPauseVideo(self, activeIndex, "play");
+
+            lastSlideIndex = activeIndex;
+        },
+        slidePrevTransitionEnd: function () {
+            const self = this;
+            const activeIndex = self.activeIndex;
+
+            playPauseVideo(self, lastSlideIndex, "pause");
+            playPauseVideo(self, activeIndex, "play");
+
+            lastSlideIndex = activeIndex;
+        }
+    }
+});
+
+
+function postMessageToPlayer(player, command) {
+    if (player == null || command == null) return;
+    player.contentWindow.postMessage(JSON.stringify(command), "*");
+}
+
+function playPauseVideo(swiper, activeIndex, control) {
+    var currentSlide, player;
+    currentSlide = swiper.slides[activeIndex];
+    player = currentSlide.querySelector('iframe');
+    switch (control) {
+        case "play":
+            postMessageToPlayer(player, {
+                "event": "command",
+                "func": "mute"
+            });
+            postMessageToPlayer(player, {
+                "event": "command",
+                "func": "playVideo"
+            });
+            break;
+        case "pause":
+            postMessageToPlayer(player, {
+                "event": "command",
+                "func": "pauseVideo"
+            });
+            break;
+    }
+}

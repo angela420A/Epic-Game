@@ -206,6 +206,24 @@ body {
     display: contents;
 }
 /* 幻燈片 */
+.swiper-container .rwd-iframe {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+    .swiper-container .rwd-iframe .rwd-iframe__target {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+.swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 40px !important;
+}/*
 #carouselExampleIndicators .carousel-item iframe {
     width: 100%;
 }
@@ -229,7 +247,7 @@ body {
 
 .carousel-inner iframe {
     height: 400px;
-}
+}*/
 /* 產品描述 */
 #game_pic .col-12 {
     padding: 15px;
