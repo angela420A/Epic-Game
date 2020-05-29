@@ -208,6 +208,7 @@
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\product_style.css" />
     <Content Include="Assets\css\Layout\SideBar.css" />
+    <Content Include="Assets\css\swiper.min.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\Register\Register.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
@@ -293,6 +294,7 @@
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />
+    <Content Include="Assets\Js\swiper.min.js" />
     <Content Include="Assets\Js\UserAccountGeneral.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -470,6 +472,7 @@
     <Content Include="Views\Product\_Editions.cshtml" />
     <Content Include="Views\Product\_AddOns.cshtml" />
     <Content Include="Views\Product\_Comments.cshtml" />
+    <Content Include="Views\Product\_Trackus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
