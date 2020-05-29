@@ -1,6 +1,7 @@
 ﻿
 window.onload = initiate();
 let displayName = document.querySelector('#accountDisplayName').value;
+let email = document.querySelector('#accountEmail').value;
 
 //add options to birthday select form
 
@@ -32,7 +33,6 @@ function enableDisplayNameEdit() {
 
 function changeDisplayName() {
     let newName = document.querySelector('#accountDisplayName').value;
-    debugger;
     if (!(newName == displayName)) {
         $.ajax({
             url: "/UserAccount/ChangeDisplayName",
@@ -51,8 +51,43 @@ function changeDisplayName() {
             
         })
     }
-
 }
+
+function enableEmailEdit() {
+    let input = document.querySelector('#accountEmail');
+    debugger;
+    if (input.disabled == true) {
+        input.disabled = false;
+    } else {
+        changeEmail();
+        input.disabled = true;
+    }
+}
+
+function changeEmail() {
+    debugger;
+    let newEmail = document.querySelector('#accountEmail').value;
+    if (!(newEmail == email)) {
+        $.ajax({
+            url: "/UserAccount/ChangeEmail",
+            type: "post",
+            data: { jdata: newEmail },
+            success: function () {
+                alert('You have changed your e-mail address.');
+                email = document.querySelector('#accountEmail').value;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+                document.querySelector('#accountEmail').disabled = false;
+            }
+
+        })
+    }
+}
+
+
 
 
 function setBirthdaySelection() {
