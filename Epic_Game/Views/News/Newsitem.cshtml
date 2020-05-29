@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<EpicGameLibrary.Models.News>
+@{
+    ViewBag.Title = "Newsitem";
+}
+
+<div class="Allgroups">
+    <div class="Allcardgroup">
+        <div class="Titleclass">
+            <h3>新聞</h3>
+        </div>
+        <div class="Cardgroup">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 newsitemgroup">
+                            <div class="newsitem">
+                                <a href="@Url.Action("Newscontent","News",new { id = item.NewsID})">
+                                    <img class="card-img-top" src="@Url.Content(item.NewsImg)">
+                                    <h2 class="card-text">
+                                        @item.NewsTitle
+                                    </h2>
+                                    <p class="Announcer">
+                                        Epic Games 。1天前
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Onlinefirendgroup">
+        <div class="Onlinefirend">
+            <div class="Start">
+                <div class="Titlestartclass">
+                    <h3 class="Gamesfriendtxt">快速啟動</h3>
+                </div>
+                <div class="Startgroup">
+                    <div class="startimg">
+                        <img src="https://hmk1.azurewebsites.net/gamesimg/fortiniteimg.jpg" alt="">
+                    </div>
+                    <span class="imgtxt">檢視</span>
+                </div>
+            </div>
+            <div class="Friend">
+                <h3 class="Gamesfriendtxt">在線好友 0</h3>
+                <div class="Fbgroup">
+                    <span class="Fbtxt">尋找其他平台上的好友一同遊玩</span>
+                    <span><i class="fab fa-facebook"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section topCSS
+{
+    <link href="~/Assets/css/gamesnews.css" rel="stylesheet" />
+}
+
