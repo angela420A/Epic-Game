@@ -187,10 +187,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\ProductBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserAccountBLO.cs" />
+    <Compile Include="Repository\DataOperationLayer\ProductDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\UserAccountDAO.cs" />
     <Compile Include="Service\OperationResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
