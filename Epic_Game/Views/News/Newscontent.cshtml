@@ -4,30 +4,32 @@
     ViewBag.Title = "Newscontent";
 }
 
-<header>
-    <div class="Headimg" style="background-image:url('@Model.NewsImg')">
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <h2>@Model.NewsTitle</h2>
-                <p class="Datetxt">@Model.Date</p>
-                <p class="Authortxt">@Model.Author</p>
+    <div class="Groupnewscontent ">
+        <header>
+            <div class="Headimg" style="background-image:url('@Model.NewsImg')">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <h2>@Model.NewsTitle</h2>
+                        <p class="Datetxt">@Model.Date</p>
+                        <p class="Authortxt">@Model.Author</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <main>
+                        <article>
+                            <p>@Html.Raw(Model.Description)</p>
+                        </article>
+                    </main>
+                </div>
             </div>
         </div>
     </div>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <main>
-                <article>
-                    <p>@Html.Raw(Model.Description)</p>
-                </article>
-            </main>
-        </div>
-    </div>
-</div>
 
 
 

@@ -20,7 +20,7 @@ namespace Epic_Game.Controllers
         {
             return View(db.News.ToList());
         }
-        public ActionResult Newscontent(int? id)
+        public ActionResult Newscontent(Guid id)
         {
             if (id == null)
             {

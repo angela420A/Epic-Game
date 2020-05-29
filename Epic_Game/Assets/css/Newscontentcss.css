@@ -59,10 +59,10 @@ article img {
     text-decoration: none;
 }
 
-.col-xl-12,
-.col-lg-12,
-.col-sm-12,
-.col-md-12 {
+.Groupnewscontent .col-xl-12,
+.Groupnewscontent .col-lg-12,
+.Groupnewscontent .col-sm-12,
+.Groupnewscontent .col-md-12 {
     padding: 0;
 }
 
