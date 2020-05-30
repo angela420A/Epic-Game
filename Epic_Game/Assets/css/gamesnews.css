@@ -15,7 +15,9 @@ body {
 .Cardgroup .container .row .col-sm-12, .Cardgroup .container .row .col-md-12 {
     padding: 0;
 }
-
+.newsitemgroup {
+    margin-bottom: 28px;
+}
 .Allcardgroup {
     background-color: #151515;
     width: 100%;
@@ -57,6 +59,9 @@ body {
         color: white;
         margin-top: 0;
         margin-bottom: 0;
+        display: inline-block;
+        height: 100%;
+        transition: 0.5s;
     }
 
     .newsitem:hover .card-img-top {
@@ -68,20 +73,21 @@ body {
     margin-bottom: 0;
     box-sizing: border-box;
     padding: 0 7%;
-    transition: 0.5s;
 }
-
-.newsitem:hover .card-text {
+.newsitem a:hover {
     background-color: rgb(56, 55, 55);
 }
-
-.newsitem:hover .Announcer {
+/*.newsitem:hover .card-text {
     background-color: rgb(56, 55, 55);
-}
+}*/
+
+/*.newsitem:hover .Announcer {
+    background-color: rgb(56, 55, 55);
+}*/
 
 .newsitem .card-text {
     padding-top: 7%;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .newsitem .Announcer {
@@ -180,7 +186,7 @@ body {
     display: flex;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1199px) {
     .newsitem {
         margin: 15px 0;
     }
@@ -195,11 +201,15 @@ body {
     .Cardgroup {
         margin-top: -23px;
     }
+    .newsitemgroup {
+        margin-bottom: 0;
+    }
 }
 
 @media screen and (min-width:1200px) {
     .newsitem {
         margin: 2%;
+        height: 100%;
     }
 }
 
@@ -244,6 +254,6 @@ body {
     }
 
     .newsitem .Announcer {
-        font-size: 10px;
+        font-size: 15px;
     }
 }
