@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Epic_Game.Repository.BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace Epic_Game.Controllers
 {
     public class HomeController : Controller
     {
+        private ProductBLO _rbp;
+        public HomeController()
+        {
+            _rbp = new ProductBLO();
+        }
         public ActionResult Index()
         {
-            return View();
+            var result = _rbp.getHomeProduct();
+            return View(result);
         }
 
         public ActionResult About()
