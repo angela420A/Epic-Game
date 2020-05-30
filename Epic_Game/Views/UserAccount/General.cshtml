@@ -13,33 +13,10 @@
 @section endJS{
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
     <script src="~/Assets/Js/UserAccountGeneral.js"></script>
-
     <script>
-    //set desgard changes function to btn
-        let desgardBtn = document.querySelector('#desgardBtn');
-        desgardBtn.addEventListener('click', function () {
-            document.querySelector('#userAddressI').value = "@Model.AddressLine";
-            document.querySelector('#userCity').value = "@Model.City";
-            document.querySelector('#userPostalCode').value = "@Model.Postalcode";
-            document.querySelector('#userCountry').value = "@Model.Country";
-        })
-
     //set birthday selected option
-
         let BD = "@Model.Birthday".split(".");
-        let yy = parseInt(BD[0]);
-        let y = new Date().getFullYear();
-
-        let BD_Select_y = document.querySelector('#BD_year');
-        BD_Select_y.selectedIndex = y - yy;
-
-        let BD_Select_m = document.querySelector('#BD_month');
-        BD_Select_m.selectedIndex = parseInt(BD[1]) - 1;
-
-        setDateSelect();
-
-        let BD_Select_d = document.querySelector('#BD_date');
-        BD_Select_d.selectedIndex = parseInt(BD[2]) - 1;;
+        setBirthday(BD);
     </script>
 }
 
@@ -71,24 +48,31 @@
                             </div>
                         </div>
                         <div class="nameAndEmail row">
+                            @*@using (Html.BeginForm("ChangeDisplayName", "UserAccount", FormMethod.Post, new { @class = "col" }))
+                                {
+                                    @Html.AntiForgeryToken()*@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea formArea-btn row">
                                     <div class="col">
+                                        @*@Html.TextBoxFor(model => model.DisplayName, htmlAttributes: new { @class = "col", id = "accountDisplayName", placeholder = "DISPLAY NAME" })*@
                                         <input type="text" id="accountDisplayName" calss="col" value="@m.DisplayName"
                                                placeholder="DISPLAY NAME" disabled>
                                     </div>
-                                    <button class="editBtn" id="editDisplayNameBtn">
+                                    @*<div id="SquareBtnArea_EditDisplayName">*@
+                                    <button class="editBtn" type="submit" id="editDisplayNameBtn">
                                         <i class="fas fa-pen"></i>
                                     </button>
+                                    @*</div>*@
                                 </div>
                             </div>
+                            @*}*@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea formArea-btn row">
                                     <div class="col">
                                         <input type="text" id="accountEmail" calss="col" value="@m.Email"
-                                               placeholder="EMAIL EDDRESS">
+                                               placeholder="EMAIL EDDRESS" disabled>
                                     </div>
-                                    <button class="editBtn">
+                                    <button class="editBtn" id="editEmailBtn">
                                         <i class="fas fa-pen"></i>
                                     </button>
                                 </div>
@@ -141,17 +125,31 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<div class="col-12 col-lg-6">
-                                    <div class="formArea row">
-                                        <div class="col">
-                                            <select id="userPreferLang" selected="@m.PreferLang">
-                                                <option name="tch" id="0">繁體中文</option>
-                                                <option name="eng" id="1">English</option>
-                                                <option name="jap" id="2">日本語</option>
-                                            </select>
+                            <div class="col-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="gray-button" id="desgardBtn_Personal">Desgard Changes</button>
                                         </div>
                                     </div>
-                                </div>*@
+                                    <div class="col-6 col-lg-3">
+                                        <div class="btnArea">
+                                            <button class="blue-button" id="saveBtn_Personal">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-12 col-lg-6">
+                                <div class="formArea row">
+                                    <div class="col">
+                                        <select id="userPreferLang" selected="@m.PreferLang">
+                                            <option name="tch" id="0">繁體中文</option>
+                                            <option name="eng" id="1">English</option>
+                                            <option name="jap" id="2">日本語</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -197,12 +195,12 @@
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
                                         <div class="btnArea">
-                                            <button class="gray-button" id="desgardBtn">Desgard Changes</button>
+                                            <button class="gray-button" id="desgardBtn_Address">Desgard Changes</button>
                                         </div>
                                     </div>
                                     <div class="col-6 col-lg-3">
                                         <div class="btnArea">
-                                            <button class="blue-button" id="saveBtn">Save Changes</button>
+                                            <button class="blue-button" id="saveBtn_Address">Save Changes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +335,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Account Management Contents -->
             </div>
         </div>
     </div>

@@ -2,23 +2,30 @@
 using System.Web.Mvc;
 using Epic_Game.ViewModels;
 using Epic_Game.Repository.BusinessLayer;
+using Epic_Game.Service;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Newtonsoft.Json.Linq;
 
 namespace Epic_Game.Controllers
 {
     public class UserAccountController : Controller
     {
+        public UserAccountBLO CreateBLO()
+        {
+            return new UserAccountBLO(User.Identity.GetUserId());
+        }
+
         public ActionResult General()
         {
-            var UserId = User.Identity.GetUserId();
-            if (UserId == null)
+            
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
             else
             {
-                return GetUserInfo(UserId);
+                return GetUserInfo();
             }
         }
 
@@ -29,38 +36,57 @@ namespace Epic_Game.Controllers
             return View(ViewModel);
         }
 
-        public ActionResult GetUserInfo(string UserId)
+        public ActionResult GetUserInfo()
+        { 
+            return View(CreateBLO().GetUser());
+        }
+
+        public ActionResult GetUserInfoJSON()
         {
-            var userAccountBLO = new UserAccountBLO(UserId);
-            return View(userAccountBLO.GetUser());
+            return Json(CreateBLO().GetUser(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public void ChangeDisplayName(string jdata)
         {
-            var UserId = User.Identity.GetUserId();
-            var userAccountBLO = new UserAccountBLO(UserId);
-            var ViewModel = userAccountBLO.ChangeDisplayName(jdata);
+            var ViewModel = CreateBLO().ChangeDisplayName(jdata);
             General(ViewModel);
         }
+
+        //public ActionResult ChangeDisplayName(UserInfoViewModel vm)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        General();
+        //    }
+        //    var UserId = User.Identity.GetUserId();
+        //    var userAccountBLO = new UserAccountBLO(UserId);
+        //    var ViewModel = userAccountBLO.ChangeDisplayName(vm.DisplayName);
+        //    return RedirectToAction("General");
+        //}
 
         [HttpPost]
         public void ChangeEmail(string jdata)
         {
-            var UserId = User.Identity.GetUserId();
-            var userAccountBLO = new UserAccountBLO(UserId);
-            var ViewModel = userAccountBLO.ChangeEmail(jdata);
+            var ViewModel = CreateBLO().ChangeEmail(jdata);
             General(ViewModel);
         }
 
-        public ActionResult History()
+        [HttpPost]
+        public void ChangePersonalInfo(string jdata)
         {
-            return View();
+            var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
+            var ViewModel = CreateBLO().ChangeUserInfo(convertor.Obj);
+            General(ViewModel);
         }
 
-        public ActionResult Security()
+        [HttpPost]
+        public void ChangeAddress(string jdata)
         {
-            return View();
+            var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
+            var ViewModel = CreateBLO().ChangeAddress(convertor.Obj);
+            General(ViewModel);
         }
     }
 }
