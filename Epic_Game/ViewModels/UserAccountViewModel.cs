@@ -33,9 +33,9 @@ namespace Epic_Game.ViewModels
         public string Birthday { get; set; }
     }
 
-    public class UserHistoryViewModel
+    public class TransactionHistoryViewModel
     {
-        public DateTime PurchaseDate { get; set; }
+        public string PurchaseDate { get; set; }
         public string ProductName { get; set; }
         public decimal Price { get; set;}
     }

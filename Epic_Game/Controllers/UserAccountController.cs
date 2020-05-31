@@ -1,19 +1,15 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Epic_Game.ViewModels;
-using Epic_Game.Repository.BusinessLayer;
 using Epic_Game.Service;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Newtonsoft.Json.Linq;
-using System;
+using Epic_Game.Repository.BusinessLogicLayer;
 using System.Net;
 
 namespace Epic_Game.Controllers
 {
     public class UserAccountController : Controller
     {
-        public UserAccountBLO CreateBLO()
+        public UserAccountBLO CreateUserBLO()
         {
             return new UserAccountBLO(User.Identity.GetUserId());
         }
@@ -40,13 +36,13 @@ namespace Epic_Game.Controllers
 
         public ActionResult GetUserInfo()
         { 
-            return View(CreateBLO().GetUser());
+            return View(CreateUserBLO().GetUser());
         }
 
         public ActionResult GetUserInfoJSON()
         {
             //if (!User.Identity.IsAuthenticated)
-                return Json(CreateBLO().GetUser(), JsonRequestBehavior.AllowGet);
+                return Json(CreateUserBLO().GetUser(), JsonRequestBehavior.AllowGet);
             //else
             //    throw new Exception("Unknow user access.");
         }
@@ -68,7 +64,7 @@ namespace Epic_Game.Controllers
             }
             else
             {
-                var ViewModel = CreateBLO().ChangeDisplayName(jdata);
+                var ViewModel = CreateUserBLO().ChangeDisplayName(jdata);
                 General(ViewModel);
             }
         }
@@ -95,7 +91,7 @@ namespace Epic_Game.Controllers
             }
             else
             {
-                var ViewModel = CreateBLO().ChangeEmail(jdata);
+                var ViewModel = CreateUserBLO().ChangeEmail(jdata);
                 General(ViewModel);
             }
         }
@@ -105,7 +101,7 @@ namespace Epic_Game.Controllers
         public void ChangePersonalInfo(string jdata)
         {
             var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
-            var ViewModel = CreateBLO().ChangeUserInfo(convertor.Obj);
+            var ViewModel = CreateUserBLO().ChangeUserInfo(convertor.Obj);
             General(ViewModel);
         }
 
@@ -114,8 +110,30 @@ namespace Epic_Game.Controllers
         public void ChangeAddress(string jdata)
         {
             var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
-            var ViewModel = CreateBLO().ChangeAddress(convertor.Obj);
+            var ViewModel = CreateUserBLO().ChangeAddress(convertor.Obj);
             General(ViewModel);
+        }
+
+        public TransactionHistoryBLO CreateHisBLO()
+        {
+            return new TransactionHistoryBLO(User.Identity.GetUserId());
+        }
+
+        public ActionResult History()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            GetTransHistory();
+            return View();
+        }
+
+        public void GetTransHistory()
+        {
+            var vm = (CreateHisBLO().GetOrders());
+            ViewData.Model = vm;
+            RedirectToAction("History");
         }
     }
 }

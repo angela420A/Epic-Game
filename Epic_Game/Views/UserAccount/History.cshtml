@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Epic_Game.ViewModels.TransactionHistoryViewModel>
 @{
     ViewBag.Title = "History";
 }
@@ -41,19 +41,25 @@
                         <table class="historyTable">
                             <thead>
                                 <tr>
-                                    <th>date</th>
+                                    <th>puchase date</th>
                                     <th>description</th>
-                                    <th>price</th>
-                                    <th>status</th>
+                                    <th>payment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2020/05/12</td>
-                                    <td>Assassin's Creed</td>
-                                    <td>$199.00</td>
-                                    <td>Complete</td>
-                                </tr>
+                                @if (Model.Count() <= 0)
+                                {
+                                    <tr class="text-gray">
+                                        <td colspan="3">You have no transaction records.</td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        @Html.Partial("_TransactionHistoryPartial", item)
+                                    }
+                                }
                             </tbody>
                         </table>
                     </div>
