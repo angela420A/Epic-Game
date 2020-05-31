@@ -9,10 +9,10 @@ namespace Epic_Game.Controllers
 {
     public class HomeController : Controller
     {
-        private ProductBLO _rbp;
+        private HomeBLO _rbp;
         public HomeController()
         {
-            _rbp = new ProductBLO();
+            _rbp = new HomeBLO();
         }
         public ActionResult Index()
         {

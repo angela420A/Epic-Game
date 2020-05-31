@@ -7,17 +7,17 @@ using System.Web;
 
 namespace Epic_Game.Repository.BusinessLogicLayer
 {
-    public class ProductBLO
+    public class HomeBLO
     {
-        private ProductDAO ProductDAO;
-        public ProductBLO()
+        private HomeDAO HomeDAO;
+        public HomeBLO()
         {
-            ProductDAO = new ProductDAO();
+            HomeDAO = new HomeDAO();
         }
 
         public IEnumerable<HomeViewModels> getHomeProduct()
         {
-            var data = ProductDAO.getProducts();
+            var data = HomeDAO.getProducts();
             data.OrderBy(x => x.Discount).Take(5);
             List<HomeViewModels> homeViews = new List<HomeViewModels>();
             foreach(var item in data)

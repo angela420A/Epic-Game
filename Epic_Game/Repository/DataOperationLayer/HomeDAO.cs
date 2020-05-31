@@ -7,12 +7,12 @@ using EpicGameLibrary.Models;
 
 namespace Epic_Game.Repository.DataOperationLayer
 {
-    public class ProductDAO
+    public class HomeDAO
     {
         
         public EGContext context;
 
-        public ProductDAO()
+        public HomeDAO()
         {
             context = new EGContext();
 
