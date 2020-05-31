@@ -6,6 +6,8 @@ using Epic_Game.Service;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Net;
 
 namespace Epic_Game.Controllers
 {
@@ -43,15 +45,32 @@ namespace Epic_Game.Controllers
 
         public ActionResult GetUserInfoJSON()
         {
-            return Json(CreateBLO().GetUser(), JsonRequestBehavior.AllowGet);
+            //if (!User.Identity.IsAuthenticated)
+                return Json(CreateBLO().GetUser(), JsonRequestBehavior.AllowGet);
+            //else
+            //    throw new Exception("Unknow user access.");
+        }
+
+        public ActionResult ErrorOccured()
+        {
+            Response.TrySkipIisCustomErrors = true;
+            Response.StatusCode = 400;
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public void ChangeDisplayName(string jdata)
         {
-            var ViewModel = CreateBLO().ChangeDisplayName(jdata);
-            General(ViewModel);
+            if (jdata.Equals(""))
+            {
+                ErrorOccured();
+            }
+            else
+            {
+                var ViewModel = CreateBLO().ChangeDisplayName(jdata);
+                General(ViewModel);
+            }
         }
 
         //public ActionResult ChangeDisplayName(UserInfoViewModel vm)
@@ -67,13 +86,22 @@ namespace Epic_Game.Controllers
         //}
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public void ChangeEmail(string jdata)
         {
-            var ViewModel = CreateBLO().ChangeEmail(jdata);
-            General(ViewModel);
+            if (!jdata.isEmail())
+            {
+                ErrorOccured();
+            }
+            else
+            {
+                var ViewModel = CreateBLO().ChangeEmail(jdata);
+                General(ViewModel);
+            }
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public void ChangePersonalInfo(string jdata)
         {
             var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
@@ -82,6 +110,7 @@ namespace Epic_Game.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public void ChangeAddress(string jdata)
         {
             var convertor = new JsonToViewModel<UserInfoViewModel>(new UserInfoViewModel(), jdata);
