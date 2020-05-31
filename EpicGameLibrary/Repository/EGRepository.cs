@@ -38,7 +38,7 @@ namespace EpicGameLibrary.Repository
             _context.Entry(value).State = EntityState.Deleted;
         }
 
-        public IQueryable<T> GetAll(T value)
+        public IQueryable<T> GetAll()
         {
             return _context.Set<T>();
         }

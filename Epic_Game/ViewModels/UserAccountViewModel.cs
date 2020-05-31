@@ -12,7 +12,6 @@ namespace Epic_Game.ViewModels
         public string Email { get; set; } 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PreferLang { get; set; }
         public string AddressLine { get; set; }
         public string City { get; set; }
         public string Postalcode { get; set; }

@@ -22,6 +22,12 @@ input:focus, button:focus, select:focus{
     font-size: 14px;
 }
 
+/*form .col-12,
+form .col-lg-6 {
+    padding-left: 0;
+    padding-right: 0;
+}*/
+
 .text-red{
     color: #dc5353;
     font-weight: 700;
@@ -134,6 +140,7 @@ input:focus, button:focus, select:focus{
     text-transform: uppercase;
 }
 
-#accountDisplayName:disabled{
+#accountDisplayName:disabled,
+#accountEmail:disabled {
     color: rgba(255,255,255,0.5);
 }
