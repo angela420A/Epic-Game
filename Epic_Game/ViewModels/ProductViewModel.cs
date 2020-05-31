@@ -8,6 +8,11 @@ namespace Epic_Game.ViewModels
 {
     public class ProductViewModel
     {
+        public List<string> Slider { get; set; }
+        public Dictionary<string, string> SoicalMedia { get; set; }
+        public int Status { get; set; }
+
+
         public string Image_URL { get; set; }
         public Guid PD_ProductID { get; set; }
         public string PD_ProductName { get; set; }
@@ -23,7 +28,7 @@ namespace Epic_Game.ViewModels
         public string PD_Description { get; set; }
         public string SM_URL { get; set; }
         public string SM_Community { get; set; }
-        public Image Pack_image { get; set; }
+        public string Pack_image { get; set; }
         public decimal Pack_Price { get; set; }
         public decimal Pack_Discount { get; set; }
         public string Library_Condition { get; set; }
