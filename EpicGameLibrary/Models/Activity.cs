@@ -24,6 +24,6 @@ namespace EpicGameLibrary.Models
         [StringLength(100)]
         public string Information { get; set; }
 
-        public Guid IMG { get; set; }
+        public string IMG { get; set; }
     }
 }
