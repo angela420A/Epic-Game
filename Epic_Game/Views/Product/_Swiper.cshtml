@@ -1,0 +1,14 @@
+﻿@model Epic_Game.ViewModels.ImageViewModel
+@{
+    ViewBag.Title = "_Swiper";
+}
+    <div class="swiper-slide">
+        <div class="rwd-iframe">
+            <iframe class="rwd-iframe__target"
+                    src="@Model.Image_URL"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="allowfullscreen"></iframe>
+        </div>
+    </div>
+

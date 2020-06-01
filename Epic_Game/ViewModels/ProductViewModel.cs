@@ -8,15 +8,14 @@ namespace Epic_Game.ViewModels
 {
     public class ProductViewModel
     {
-        public List<string> Slider { get; set; }
         public Dictionary<string, string> SoicalMedia { get; set; }
-        public int Status { get; set; }
         public Guid PD_ProductID { get; set; }
         public string PD_ProductName { get; set; }
         public string PD_ContentType { get; set; }
         public string PD_Title { get; set; }
         public decimal PD_Price { get; set; }
         public decimal PD_Discount { get; set; }
+        public string PD_Developer { get; set; }
         public string PD_Publisher { get; set; }
         public string PD_ReleaseDate { get; set; }
         public string PD_Category { get; set; }

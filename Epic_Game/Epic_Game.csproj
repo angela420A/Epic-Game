@@ -488,6 +488,7 @@
     <Content Include="Views\Product\_Trackus.cshtml" />
     <Content Include="Views\News\Newsitem.cshtml" />
     <Content Include="Views\News\Newscontent.cshtml" />
+    <Content Include="Views\Product\_Swiper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
