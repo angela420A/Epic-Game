@@ -4,11 +4,50 @@ using Epic_Game.Service;
 using Microsoft.AspNet.Identity;
 using Epic_Game.Repository.BusinessLogicLayer;
 using System.Net;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Epic_Game.Controllers
 {
     public class UserAccountController : Controller
     {
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
+
+        public UserAccountController()
+        {
+        }
+
+        public UserAccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         public UserAccountBLO CreateUserBLO()
         {
             return new UserAccountBLO(User.Identity.GetUserId());
@@ -134,6 +173,40 @@ namespace Epic_Game.Controllers
             var vm = (CreateHisBLO().GetOrders());
             ViewData.Model = vm;
             RedirectToAction("History");
+        }
+
+        public ActionResult Security()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Security(ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return View();
+            }
+            AddErrors(result);
+            return View(model);
+        }
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
         }
     }
 }

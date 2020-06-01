@@ -39,4 +39,23 @@ namespace Epic_Game.ViewModels
         public string ProductName { get; set; }
         public decimal Price { get; set;}
     }
+
+    public class ChangePasswordViewModel
+    {
+        [Required(ErrorMessage = "Old password is required.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Current password")]
+        public string OldPassword { get; set; }
+
+        [Required(ErrorMessage = "New password is required.")]
+        [StringLength(100, ErrorMessage = "The length of {0} is at least {2}", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string NewPassword { get; set; }
+
+        [Required(ErrorMessage = "You need to confirm new password.")]
+        [Display(Name = "Confirm new password")]
+        [Compare("NewPassword", ErrorMessage = "Confirm password not match to new password。")]
+        public string ConfirmPassword { get; set; }
+    }
 }
