@@ -9,6 +9,17 @@ namespace Epic_Game.ViewModels
 {
     public class HomeViewModels
     {
+        public List<HomeActivityViewModels> Activities { get; set; }
+        public List<StoreItems> TopSales { get; set; } //熱銷
+        public List<StoreItems> BestDiscount { get; set; } //折扣最高
+        public List<StoreItems> MostRelated { get; set; } //最新發售
+        public List<StoreItems> MostPopular { get; set; } //下載量最高
+        public List<StoreItems> BestRank { get; set; } //評價最高
+
+    }
+
+    public class StoreItems
+    {
         public string Url { get; set; }
         public string ProductName { get; set; }
         public string Developer { get; set; }
@@ -17,4 +28,13 @@ namespace Epic_Game.ViewModels
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
     }
+
+    public class HomeActivityViewModels 
+    {
+        public string ActivityName { get; set; }
+        public string Slogan { get; set; }
+        public string Information { get; set; }
+        public string IMG { get; set; }
+    }
+    
 }
