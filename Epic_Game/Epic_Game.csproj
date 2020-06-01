@@ -192,11 +192,13 @@
     <Compile Include="Repository\BusinessLogicLayer\PayBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\LibraryBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\TransactionHistoryBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserAccountBLO.cs" />
     <Compile Include="Repository\DataOperationLayer\HomeDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\LibraryDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\PayDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\ProductDAO.cs" />
+    <Compile Include="Repository\DataOperationLayer\TransactionHistoryDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\UserAccountDAO.cs" />
     <Compile Include="Service\Convertor.cs" />
     <Compile Include="Service\OperationResult.cs" />
@@ -225,7 +227,6 @@
     <Content Include="Assets\css\pay.css" />
     <Content Include="Assets\css\product_style.css" />
     <Content Include="Assets\css\Layout\SideBar.css" />
-    <Content Include="Assets\css\swiper.min.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\Register\Register.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
@@ -312,7 +313,6 @@
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
     <Content Include="Assets\Js\script.js" />
-    <Content Include="Assets\Js\swiper.min.js" />
     <Content Include="Assets\Js\UserAccountGeneral.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -492,6 +492,8 @@
     <Content Include="Views\News\Newsitem.cshtml" />
     <Content Include="Views\News\Newscontent.cshtml" />
     <Content Include="Views\Product\_Swiper.cshtml" />
+    <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
+    <Content Include="Views\UserAccount\_TransactionHistoryPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

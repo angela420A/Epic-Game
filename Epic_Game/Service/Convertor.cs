@@ -81,5 +81,13 @@ namespace Epic_Game.Service
             }
         }
     }
+
+    public static class ValidationHelper
+    {
+        public static bool isEmail(this string str)
+        {
+            return (str.Length <= 256 && str.Length >= 3 && str.Contains("@"));
+        }
+    }
         
 }

@@ -40,7 +40,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             }
             catch (Exception ex)
             {
-                throw ex;
+                return User;
             }
         }
 

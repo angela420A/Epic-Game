@@ -19,9 +19,8 @@ namespace EpicGameLibrary.Models
 
         public DateTime Date { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Title { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? Payment { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
 

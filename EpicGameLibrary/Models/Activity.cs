@@ -14,11 +14,15 @@ namespace EpicGameLibrary.Models
 
         [Required]
         [StringLength(100)]
-        public string Title { get; set; }
+        public string ActivityName { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Description { get; set; }
+        public string Slogan { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Information { get; set; }
 
         public Guid IMG { get; set; }
     }

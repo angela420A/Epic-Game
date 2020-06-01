@@ -20,6 +20,8 @@
     </script>
 }
 
+@Html.AntiForgeryToken()
+
 <div class="container">
     <div class="row">
         @Html.Partial("_NavListPartial")
@@ -48,21 +50,21 @@
                             </div>
                         </div>
                         <div class="nameAndEmail row">
-                            @*@using (Html.BeginForm("ChangeDisplayName", "UserAccount", FormMethod.Post, new { @class = "col" }))
-                                {
-                                    @Html.AntiForgeryToken()*@
+                            @*@using (Html.BeginForm("ChangeDisplayName", "UserAccount", FormMethod.Post, new { @class = "col-12 col-lg-6" }))
+                            {
+                                @Html.AntiForgeryToken()*@
                             <div class="col-12 col-lg-6">
                                 <div class="formArea formArea-btn row">
                                     <div class="col">
-                                        @*@Html.TextBoxFor(model => model.DisplayName, htmlAttributes: new { @class = "col", id = "accountDisplayName", placeholder = "DISPLAY NAME" })*@
+                                        @*@Html.TextBoxFor(model => model.DisplayName, htmlAttributes: new { @class = "col", id = "accountDisplayName", placeholder = "DISPLAY NAME" })
+                                        @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })*@
                                         <input type="text" id="accountDisplayName" calss="col" value="@m.DisplayName"
-                                               placeholder="DISPLAY NAME" disabled>
+                                            placeholder="DISPLAY NAME" disabled>
                                     </div>
-                                    @*<div id="SquareBtnArea_EditDisplayName">*@
+
                                     <button class="editBtn" type="submit" id="editDisplayNameBtn">
                                         <i class="fas fa-pen"></i>
                                     </button>
-                                    @*</div>*@
                                 </div>
                             </div>
                             @*}*@
@@ -140,16 +142,16 @@
                                 </div>
                             </div>
                             @*<div class="col-12 col-lg-6">
-                                <div class="formArea row">
-                                    <div class="col">
-                                        <select id="userPreferLang" selected="@m.PreferLang">
-                                            <option name="tch" id="0">繁體中文</option>
-                                            <option name="eng" id="1">English</option>
-                                            <option name="jap" id="2">日本語</option>
-                                        </select>
+                                    <div class="formArea row">
+                                        <div class="col">
+                                            <select id="userPreferLang" selected="@m.PreferLang">
+                                                <option name="tch" id="0">繁體中文</option>
+                                                <option name="eng" id="1">English</option>
+                                                <option name="jap" id="2">日本語</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>*@
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -339,3 +341,7 @@
         </div>
     </div>
 </div>
+@Html.Partial("_AjaxAntiForgeryPartial")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
