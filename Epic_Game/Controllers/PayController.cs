@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EpicGameLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,8 @@ namespace Epic_Game.Controllers
         // GET: Pay
         public ActionResult Index()
         {
+            var pId = TempData["ProductId"];
+
             return View();
         }
 
