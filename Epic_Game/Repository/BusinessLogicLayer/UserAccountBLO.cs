@@ -52,5 +52,19 @@ namespace Epic_Game.Repository.BusinessLayer
             var u = userAccountDAO.EditEmail(Email);
             return UserToView(u);
         }
+
+        public UserInfoViewModel ChangeUserInfo(UserInfoViewModel Info)
+        {
+            var u = userAccountDAO.EditPersonalInfo(Info);
+            return UserToView(u);
+        }
+
+        public UserInfoViewModel ChangeAddress(UserInfoViewModel Info)
+        {
+            var u = userAccountDAO.EditAddress(Info);
+            return UserToView(u);
+        }
+
+
     }
 }

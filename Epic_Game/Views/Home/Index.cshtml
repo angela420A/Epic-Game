@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Epic_Game.Models.HomeViewModels>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -147,71 +148,23 @@
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="@Url.Action("Index","Product")">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 6.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 6.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 7.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 7.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 8.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 8.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 9.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 9.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 10.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 10.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    
+                    @foreach (var item in Model)
+                    {
+                        <li class="mode_5_li">
+                            <a href="@Url.Action("Index","Product")">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@item.Url');"></div>
+                                    <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 6.jpeg" alt=""> -->
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@item.ProductName</h4>
+                                    <p>@item.Developer |@item.Publisher</p>
+                                    <h4>@item.Price</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

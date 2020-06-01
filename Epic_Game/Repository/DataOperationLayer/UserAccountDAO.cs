@@ -5,6 +5,7 @@ using System.Web;
 using EpicGameLibrary.Models;
 using EpicGameLibrary.Repository;
 using Epic_Game.Service;
+using Epic_Game.ViewModels;
 
 
 namespace Epic_Game.Repository.DataOperationLayer
@@ -54,5 +55,24 @@ namespace Epic_Game.Repository.DataOperationLayer
             User.Email = Email;
             return UpdateUser();
         }
+
+        public AspNetUsers EditPersonalInfo(UserInfoViewModel vm)
+        { 
+            User.FirstName = vm.FirstName;
+            User.LastName = vm.LastName;
+            User.Birthday = vm.Birthday.ToDateTime();
+            return UpdateUser();
+        }
+
+        public AspNetUsers EditAddress(UserInfoViewModel vm)
+        {
+            User.Address = vm.AddressLine;
+            User.PostalCode = vm.Postalcode.ToNullable();
+            User.City = vm.City;
+            User.Country = vm.Country;
+            return UpdateUser();
+        }
+
+
     }
 }
