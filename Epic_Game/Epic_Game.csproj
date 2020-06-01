@@ -54,6 +54,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -195,7 +196,10 @@
     <Compile Include="Service\Convertor.cs" />
     <Compile Include="Service\OperationResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CommentViewModel.cs" />
+    <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\SocialMediaViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
