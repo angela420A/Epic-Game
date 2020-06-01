@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Epic_Game.Repository.DataOperationLayer
 {
-    
+
     public class ProductDAO
     {
         EGContext context;
@@ -53,10 +53,10 @@ namespace Epic_Game.Repository.DataOperationLayer
             return context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID));
 
         }
-        //public List<Image> GetImageModels(string ImgID)
-        //{
-        //    return context.Image.FirstOrDefault(x => x.ImgID.ToString().Equals(ImgID));
-        //}
+        public List<Image> GetImageModels(string ProductOrPack)
+        {
+            return context.Image.Where(x => x.ProductOrPack.ToString().Equals(ProductOrPack)).ToList();
+        }
 
     }
 }

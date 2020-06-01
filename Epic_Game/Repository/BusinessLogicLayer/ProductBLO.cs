@@ -20,7 +20,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
-            //List<Image> img = ProductDAO.GetImageModels();
+            List<Image> img = ProductDAO.GetImageModels(ProductId);
             Library library = ProductDAO.GetLibraryModesl(ProductId);
 
             Pack pack = ProductDAO.GetPackModel(ProductId);
@@ -51,7 +51,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             };
 
             pmv.SM = new List<SocialMediaViewModel>();
-            foreach(var socialMedia in sm)
+            foreach (var socialMedia in sm)
             {
                 var smvm = new SocialMediaViewModel()
                 {
@@ -62,7 +62,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
 
             pmv.PD_Comment = new List<CommentViewModel>();
-            foreach(var Comment in comment)
+            foreach (var Comment in comment)
             {
                 var commentvm = new CommentViewModel()
                 {
@@ -83,7 +83,6 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 };
                 pmv.PD_image.Add(imagevm);
             }
-
             return pmv;
         }
     }
