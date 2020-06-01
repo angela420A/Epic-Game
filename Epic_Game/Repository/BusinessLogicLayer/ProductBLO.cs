@@ -51,7 +51,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             };
 
             pmv.SM = new List<SocialMediaViewModel>();
-            foreach(var socialMedia in sm)
+            foreach (var socialMedia in sm)
             {
                 var smvm = new SocialMediaViewModel()
                 {
@@ -62,7 +62,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
 
             pmv.PD_Comment = new List<CommentViewModel>();
-            foreach(var Comment in comment)
+            foreach (var Comment in comment)
             {
                 var commentvm = new CommentViewModel()
                 {
