@@ -11,9 +11,6 @@ namespace Epic_Game.ViewModels
         public List<string> Slider { get; set; }
         public Dictionary<string, string> SoicalMedia { get; set; }
         public int Status { get; set; }
-
-
-        public string Image_URL { get; set; }
         public Guid PD_ProductID { get; set; }
         public string PD_ProductName { get; set; }
         public string PD_ContentType { get; set; }
@@ -26,16 +23,12 @@ namespace Epic_Game.ViewModels
         public string PD_AgeRestriction { get; set; }
         public int OS { get; set; }
         public string PD_Description { get; set; }
-        public string SM_URL { get; set; }
-        public string SM_Community { get; set; }
+        public List<SocialMediaViewModel> SM { get; set; }
         public string Pack_image { get; set; }
-        public decimal Pack_Price { get; set; }
-        public decimal Pack_Discount { get; set; }
+        public decimal? Pack_Price { get; set; }
+        public decimal? Pack_Discount { get; set; }
         public string Library_Condition { get; set; }
-        public string Comment_Title { get; set; }
-        public DateTime Comment_Date { get; set; }
-        public string Comment_Description { get; set; }
-        public int Comment_Rank { get; set; }
-
+        public List<CommentViewModel> PD_Comment { get;set; }
+        public List<ImageViewModel> PD_image { get; set; }
     }
 }
