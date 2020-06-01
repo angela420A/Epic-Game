@@ -10,17 +10,17 @@ namespace Epic_Game.Repository.DataOperationLayer
     
     public class ProductDAO
     {
-        EGContext context;
+        //EGContext context;
 
-        public ProductDAO()
-        {
-            context = new EGContext();
-        }
-        public Product GetProductModel(string ProductID)
-        {
-            var repo = new EGRepository<Product>(context);
-            return repo.GetAll().Single(x => x.ProductID.ToString().Equals(ProductID));
-        }
+        //public ProductDAO()
+        //{
+        //    context = new EGContext();
+        //}
+        //public Product GetProductModel(string ProductID)
+        //{
+        //    var repo = new EGRepository<Product>(context);
+        //    return repo.GetAll().Single(x => x.ProductID.ToString().Equals(ProductID));
+        //}
         //public Pack GetPackModel(string PackID)
         //{
         //    var repoPack = new EGRepository<Pack>(context);

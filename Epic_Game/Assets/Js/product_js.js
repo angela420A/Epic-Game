@@ -137,3 +137,23 @@ function playPauseVideo(swiper, activeIndex, control) {
             break;
     }
 }
+//³W®æ
+$('#MACOS').on('click', function () {
+    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
+    $('#Windows').attr('style', 'border-bottom: none;');
+    $('.rec').attr('style', 'display: none;');
+    $('#minos').text('10.12.6');
+    $('#mincpu').text('Intel Core i7 @ 4.2 GHZ (4 core)');
+    $('#minram').text('8GB');
+    $('#minhdd').text('500 MB available space');
+});
+
+$('#Windows').on('click', function () {
+    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
+    $('#MACOS').attr('style', 'border-bottom: none;');
+    $('.rec').attr('style', 'display: block;');
+    $('#minos').text('Windows Vista, Windows 7, Windows 10');
+    $('#mincpu').text('Intel i3');
+    $('#minram').text('4 GB RAM');
+    $('#minhdd').text('500 MB available space');
+});
