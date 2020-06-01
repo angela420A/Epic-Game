@@ -15,25 +15,24 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             HomeDAO = new HomeDAO();
         }
 
-        public IEnumerable<HomeViewModels> getHomeProduct()
+        public IEnumerable<HomeViewModels> GetHomeProduct()
         {
-            var data = HomeDAO.getProducts();
+            var data = HomeDAO.GetProducts();
             data.OrderBy(x => x.Discount).Take(5);
             List<HomeViewModels> homeViews = new List<HomeViewModels>();
-            //foreach(var item in data)
-            //{
-            //    homeViews.Add(new HomeViewModels()
-            //    {
-            //        Url = item.Url,
-            //        ProductName = item.ProductName,
-            //        Publisher = item.Publisher,
-            //        Discount = item.Discount,
-            //        Developer = item.Developer,
-            //        Price = item.Price
-            //    });
-            //}
-
-            return homeViews.ToList();
+            foreach (var item in data)
+            {
+                homeViews.Add(new HomeViewModels()
+                {
+                    Url = item.Url,
+                    ProductName = item.ProductName,
+                    Publisher = item.Publisher,
+                    Discount = item.Discount,
+                    Developer = item.Developer,
+                    Price = item.Price
+                });
+            }
+            return homeViews;
         }
     }
 }

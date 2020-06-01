@@ -17,12 +17,12 @@ namespace Epic_Game.Repository.DataOperationLayer
             context = new EGContext();
 
         }
-        public IEnumerable<HomeViewModels> getProducts()
+        public List<HomeViewModels> GetProducts()
         {
             var product = (from p in context.Product
                           join imgs in context.Image on p.ProductID equals imgs.ProductOrPack
-                          where imgs.Location == 3 
-                          select new HomeViewModels() { Url = imgs.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price});
+                          where imgs.Location == 0
+                          select new HomeViewModels() { Url = imgs.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price}).ToList();
             return product;
         }
     }

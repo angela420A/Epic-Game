@@ -12,15 +12,15 @@ namespace Epic_Game.Controllers
     public class ProductController : Controller
     {
         //GET: Product
-        public ActionResult Index(string ProductId)
-        {
-            var UserId = User.Identity.GetUserId();
-            ProductBLO proBLO = new ProductBLO();
+        //public ActionResult Index(string ProductId)
+        //{
+        //    var UserId = User.Identity.GetUserId();
+        //    ProductBLO proBLO = new ProductBLO();
             
-            ProductViewModel VM = proBLO.GetProductViewModel(ProductId, UserId);
+        //    ProductViewModel VM = proBLO.GetProductViewModel(ProductId, UserId);
 
-            return View(VM);
-        }
+        //    return View(VM);
+        //}
 
     }
 }
