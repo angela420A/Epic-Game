@@ -18,6 +18,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         }
         public ProductViewModel GetProductViewModel(string UserId, string ProductId)
         {
+
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
@@ -38,6 +39,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_Title = p.Title,
                 PD_Price = p.Price,
                 PD_Discount = p.Discount,
+                PD_Developer = p.Developer,
                 PD_Publisher = p.Publisher,
                 PD_ReleaseDate = p.ReleaseDate.ToString(),
                 PD_Category = p.Category.ToString(),
@@ -47,7 +49,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 Pack_image = pack.Img,
                 Pack_Price = pack.Price,
                 Pack_Discount = pack.Discount,
-                Library_Condition = library.Condition,
+                Library_Condition = library == null ? null : library.Condition
             };
 
             pmv.SM = new List<SocialMediaViewModel>();
