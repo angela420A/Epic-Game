@@ -488,6 +488,8 @@
     <Content Include="Views\Product\_Trackus.cshtml" />
     <Content Include="Views\News\Newsitem.cshtml" />
     <Content Include="Views\News\Newscontent.cshtml" />
+    <Content Include="Views\Library\Library_Product_Partial.cshtml" />
+    <Content Include="Views\WishList\Wishlist_partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

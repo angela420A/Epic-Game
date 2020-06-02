@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using EpicGameLibrary.Repository;
+using System.Data.Entity;
 
 namespace Epic_Game.Repository.DataOperationLayer
 {
@@ -11,19 +12,32 @@ namespace Epic_Game.Repository.DataOperationLayer
     {
         public Image img;
         public EGContext context;
-        public Product product;
         public Library library;
+        public List<string> img_url = new List<string>();
+        private string UserId;
         public LibraryDAO(string UserId)
         {
-            library = context.Library.Single(x => x.UserID == UserId);
+            library = new Library();
+            context = new EGContext();
+            this.UserId = UserId;
+
+
         }
-        public Library GetLibraryProduct()
+        public List<Library> GetLibraryProduct()
         {
-            return library;
+            return context.Library.Where(x => x.UserID == UserId).ToList();
         }
-        public Image GetImg()
+        public string GetImg(string ProductId)
         {
-            return img;
+            var img = context.Image.FirstOrDefault(x => x.ProductOrPack.ToString().Equals(ProductId) && x.Location == 0);
+            if(img == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return img.Url;
+            }
         }
     }
 }

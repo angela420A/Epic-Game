@@ -18,20 +18,21 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             libraryDAO = new LibraryDAO(UserId);
         }
-        public LibraryViewModel LibraryToView(Library l,Image i)
+        public List<LibraryViewModel> LibraryToView(List<Library> p)
         {
-            var viewModel = new LibraryViewModel
+            var viewModel = new List<LibraryViewModel>();
+            
+            foreach (var item in p)
             {
-                ProductName = l.Product.ProductName,
-                Img_Url = i.Url
-            };
+                viewModel.Add (new LibraryViewModel { ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString())});
+            }
+
             return viewModel;
         }
-        public LibraryViewModel GetLibraryProduct()
+        public List<LibraryViewModel> GetLibraryProduct()
         {
             var l = libraryDAO.GetLibraryProduct();
-            var imgUrl = libraryDAO.GetImg();
-            return LibraryToView(l, imgUrl);
+            return LibraryToView(l);
         }
 
     }

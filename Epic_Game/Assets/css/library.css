@@ -11,7 +11,6 @@ body {
 
 .library-container {
     padding: 0 59px;
-    margin: 0;
 }
 
 .row {
@@ -184,10 +183,10 @@ body {
     display: none;
 }
 
-    .sort_checked .fas {
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-    }
+.sort_checked .fas {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
 
 .sort_list {
     position: absolute;
@@ -298,6 +297,11 @@ body {
 .filter_checked:checked ~ .filter_list {
     display: initial;
 }
+
+#game_div{
+    border:2px solid #0f0f0f;
+}
+
 @media screen and (max-width: 1200px){
     .search_div {
         justify-content: flex-start;

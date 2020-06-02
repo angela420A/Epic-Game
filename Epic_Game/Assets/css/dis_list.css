@@ -1,5 +1,6 @@
 #game_div img {
-    max-width: 97px
+    height:100%;
+    width:100%;
 }
 
 .row {
@@ -23,7 +24,11 @@
         text-align: center;
     }
 
-.download_icon {
-    margin-right10 %
+.product_pic{
+    max-width:120px;
+    height:140px;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-/*# sourceMappingURL=dis_list.css.map */
