@@ -23,15 +23,21 @@ namespace Epic_Game.Controllers
             PayBLO payBLO = new PayBLO();
             PayViewModel VM = payBLO.GetPayViewModel(ProductID,UserId);
             var hasgame = payBLO.GetLibrary(UserId,ProductID);
-            if (hasgame == true)
+            if (UserId == null)
             {
-                return RedirectToAction("Index","Library");
+                return RedirectToAction("Login", "Account");
             }
             else
             {
-                return View(VM);
+                if (hasgame == true)
+                {
+                    return RedirectToAction("Index","Library");
+                }
+                else
+                {
+                    return View(VM);
+                }
             }
-            
         }
 
         public ActionResult Finish()
