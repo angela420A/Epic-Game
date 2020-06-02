@@ -1,4 +1,4 @@
-﻿
+﻿@model Epic_Game.ViewModels.ProductViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -22,13 +22,13 @@
                 <div class="NavList">
                     <input type="checkbox" id="checkControl" class="check_control">
                     <label for="checkControl" class="checkBoxlabel">
-                        Death Coming
+                        @Model.PD_ProductName
                         <i class="fas fa-chevron-down"></i>
                     </label>
                     <div class="div_itemlist">
                         <ul class="itemList">
                             <li><a href="@Url.Action("Index","Home")">Back to Store</a></li>
-                            <li>Death Coming</li>
+                            <li>@Model.PD_ProductName</li>
                         </ul>
                     </div>
                     <nav class="navbar navbar-dark">
@@ -57,33 +57,14 @@
 <!-- 影片------------------------------- -->
 <div class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="rwd-iframe">
-                <iframe class="rwd-iframe__target"
-                        src="https://www.youtube.com/embed/yWnfWUvN3lc?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen="allowfullscreen"></iframe>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="rwd-iframe">
-                <iframe class="rwd-iframe__target"
-                        src="https://www.youtube.com/embed/G_2XCUfBrtU?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen="allowfullscreen"></iframe>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="rwd-iframe">
-                <iframe class="rwd-iframe__target"
-                        src="https://www.youtube.com/embed/QfkDo5HrnfQ?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen="allowfullscreen"></iframe>
-            </div>
-        </div>
+
+        @foreach (var swiper in Model.PD_image)
+        {
+            if (swiper.Image_Location == 2)
+            {
+                @Html.Partial("_Swiper",swiper)
+            }
+        }
     </div>
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
@@ -94,22 +75,19 @@
 <div class="container allblock" id="game_pic">
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3 pic_img">
-            <img src="~/Assets/images/EpicGameProduct/death coming_top.png" alt="" class="d-block  w-100 pic data-pic">
-
+            <img src="@Model.PD_image.FirstOrDefault(x => x.Image_Location == 1).Image_URL" alt="" class="d-block  w-100 pic data-pic">
+            
         </div>
         <div class="col-12 col-md-6 col-xl-6">
             <p class="game_pic_text">
-                'Death Coming' is a non-linear puzzle game where you must harvest human souls
-                ‘Final Destination’ style. However, pesky mortals are not your only problem, as the Agents of Light
-                will do everything they can
-                to stop you.
+                @Model.PD_Title
             </p>
         </div>
         <div class="col-12 col-md-12 col-xl-3" id="game_pic_price">
             <div class="game_pic_know_rightrow">
                 <div class="game_pic_pricewrapper">
                     <div class="game_pic_price">
-                        <span class="price_original" style="color: #e7e7e7;">US$59.9</span>
+                        <span class="price_original" style="color: #e7e7e7;">@Model.PD_Price</span>
                     </div>
                 </div>
                 <div class="game_pic_btn_div">
@@ -146,15 +124,15 @@
             <div class="aboutgame_tag">
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Developer</span>
-                    <p>NExT Studios</p>
+                    <p>@Model.PD_Developer</p>
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Publisher</span>
-                    <p>NExT Studios</p>
+                    <p>@Model.PD_Publisher</p>
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Release Date</span>
-                    <p>Nov 7.2017</p>
+                    <p>@Model.PD_ReleaseDate</p>
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Tages</span>
@@ -162,11 +140,11 @@
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Rating</span>
-                    <p>-</p>
+                    <p>@Model.PD_AgeRestriction</p>
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Platform</span>
-                    <p><i class="fab fa-windows"></i></p>
+                    <p><i class="@Model.OS"></i></p>
                 </div>
             </div>
             <div class="aboutgame_content">

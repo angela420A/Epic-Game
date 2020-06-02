@@ -1,5 +1,6 @@
 ﻿using Epic_Game.Models;
 using Epic_Game.Repository.DataOperationLayer;
+using Epic_Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,24 +16,20 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             HomeDAO = new HomeDAO();
         }
 
-        public IEnumerable<HomeViewModels> GetHomeProduct()
+        public HomeViewModels GetHomeViewModel()
         {
             var data = HomeDAO.GetProducts();
-            data.OrderBy(x => x.Discount).Take(5);
-            List<HomeViewModels> homeViews = new List<HomeViewModels>();
-            foreach (var item in data)
+            return new HomeViewModels
             {
-                homeViews.Add(new HomeViewModels()
-                {
-                    Url = item.Url,
-                    ProductName = item.ProductName,
-                    Publisher = item.Publisher,
-                    Discount = item.Discount,
-                    Developer = item.Developer,
-                    Price = item.Price
-                });
-            }
-            return homeViews;
+                BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
+                Activities = GetHomeActivity().ToList()
+            };
+        }
+        
+        public IEnumerable<HomeActivityViewModels> GetHomeActivity()
+        {
+            var ActivityData = HomeDAO.GetActivity();
+            return ActivityData;
         }
     }
 }

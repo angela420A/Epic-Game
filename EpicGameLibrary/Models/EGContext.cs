@@ -63,6 +63,10 @@ namespace EpicGameLibrary.Models
                 .HasForeignKey(e => e.UserID)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Order>()
+                .Property(e => e.Payment)
+                .HasPrecision(19, 4);
+
             modelBuilder.Entity<Pack>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);

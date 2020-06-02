@@ -1,4 +1,4 @@
-﻿
+﻿@model Epic_Game.ViewModels.PayViewModel
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -6,7 +6,7 @@
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
 
-    <link href="~/Assets/css/pay.css" rel="stylesheet" />
+<link href="~/Assets/css/pay.css" rel="stylesheet" />
 
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -121,18 +121,18 @@
             <h5>訂單摘要</h5>
             <div class="game d-flex">
                 <div class="game_pic">
-                    <img src="~/Assets/images/EpicGamePayImg/EGS_Levelhead_ButterscotchShenanigans_S2-860x1148-b04fcfdf525dd935e68556f031d3b971.png" alt=""
+                    <img src="@Model.ImgUrl" alt=""
                          class="d-block w-100">
                 </div>
                 <div class="game_text">
-                    <h5>Before We Leave</h5>
-                    <span>由 Balancing Monkey Games</span>
+                    <h5>@Model.ProductName</h5>
+                    <span>由 @Model.Publisher</span>
                 </div>
             </div>
             <div class="tp price">
                 <div class="price_price d-flex justify-content-between">
                     <span class="span_color">價格</span>
-                    <span>USD $9.99</span>
+                    <span>USD $@Model.Price</span>
                 </div>
                 <div class="price_text">
                     <span class="span_color">若適用則包括增值稅</span>
@@ -141,11 +141,11 @@
             <div class="tp total">
                 <div class="total_price d-flex justify-content-between">
                     <span class="span_color">總計</span>
-                    <span>USD $9.99</span>
+                    <span>USD $@Model.Price</span>
                 </div>
                 <div class="total_pay d-flex justify-content-between">
                     <span>您的支付</span>
-                    <span>USD $9.99</span>
+                    <span>USD $@Model.Price</span>
                 </div>
             </div>
             <div class="input_creater">

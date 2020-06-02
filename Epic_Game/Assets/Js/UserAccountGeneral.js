@@ -56,18 +56,16 @@ function changeDisplayName() {
         $.ajax({
             url: "/UserAccount/ChangeDisplayName",
             type: "post",
-            data: { jdata: newName },
+            data: AddAntiForgeryToken({ jdata: newName }),
             success: function () {
                 alert('You have changed your display name.');
                 displayName = document.querySelector('#accountDisplayName').value;
             },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
+            error: function () {
+                alert("You need to enter valid nickname.");
+                $('#accountDisplayName').val(displayName);
                 document.querySelector('#accountDisplayName').disabled = false;
             }
-
         })
     }
 }
@@ -88,15 +86,14 @@ function changeEmail() {
         $.ajax({
             url: "/UserAccount/ChangeEmail",
             type: "post",
-            data: { jdata: newEmail },
+            data: AddAntiForgeryToken({ jdata: newEmail }),
             success: function () {
                 alert('You have changed your e-mail address.');
-                displayName = document.querySelector('#accountEmail').value;
+                email = document.querySelector('#accountEmail').value;
             },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
+            error: function () {
+                alert("You need to enter valid e-mail address.");
+                $('#accountEmail').val(email);
                 document.querySelector('#accountEmail').disabled = false;
             }
         })
@@ -118,7 +115,7 @@ function changePersonalInfo() {
     $.ajax({
         url: "/UserAccount/ChangePersonalInfo",
         type: "post",
-        data: { jdata },
+        data: AddAntiForgeryToken({ jdata }),
         success: function () {
             alert('You have changed your personal Information.');
         },
@@ -126,7 +123,6 @@ function changePersonalInfo() {
             alert(XMLHttpRequest.status);
             alert(XMLHttpRequest.readyState);
             alert(textStatus);
-
         }
     })
 }
@@ -144,7 +140,7 @@ function changeAddress() {
     $.ajax({
         url: "/UserAccount/ChangeAddress",
         type: "post",
-        data: { jdata },
+        data: AddAntiForgeryToken({ jdata }),
         success: function () {
             alert('You have changed your address Information.');
         },

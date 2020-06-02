@@ -6,7 +6,7 @@ using EpicGameLibrary.Models;
 using Epic_Game.ViewModels;
 using Epic_Game.Repository.DataOperationLayer;
 
-namespace Epic_Game.Repository.BusinessLayer
+namespace Epic_Game.Repository.BusinessLogicLayer
 {
     public class UserAccountBLO
     {
@@ -64,7 +64,5 @@ namespace Epic_Game.Repository.BusinessLayer
             var u = userAccountDAO.EditAddress(Info);
             return UserToView(u);
         }
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model Epic_Game.ViewModels.ChangePasswordViewModel
 @{
     ViewBag.Title = "Security";
 }
@@ -30,80 +30,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="row chagePasswardSection">
-                    <div class="col-12 col-lg-6 inputSection">
-                        <div class="formArea row">
-                            <div class="col">
-                                <div class="inputArea">
-                                    <p class="text-bold">CURRENT PASSWORD</p>
-                                    <p class="text-gray">REQUIRED</p>
-                                    <input type="text" id="currentPassword" calss="col" value=""
-                                           placeholder="CURRENT PASSWORD">
+                @using (Html.BeginForm("Security", "UserAccount", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row chagePasswardSection">
+                        <div class="col-12 col-lg-6 inputSection">
+                            <div class="formArea row">
+                                <div class="col">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="inputArea form-group">
+                                        @Html.LabelFor(model => model.OldPassword, htmlAttributes: new { @class = "text-bold" })
+                                        @Html.PasswordFor(model => model.OldPassword, new { @class = "col", placeholder = "CURRENT PASSWORD" })
+                                        @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formArea row">
+                                <div class="col">
+                                    <div class="inputArea form-group">
+                                        @Html.LabelFor(model => model.NewPassword, htmlAttributes: new { @class = "text-bold" })
+                                        @Html.PasswordFor(model => model.NewPassword, new { @class = "col", placeholder = "NEW PASSWORD" })
+                                        @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formArea row">
+                                <div class="col">
+                                    <div class="inputArea form-group">
+                                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "text-bold" })
+                                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "col", placeholder = "CONFIRM NEW PASSWORD" })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="formArea row">
-                            <div class="col">
-                                <div class="inputArea">
-                                    <p class="text-bold">NEW PASSWORD</p>
-                                    <p class="text-gray">REQUIRED</p>
-                                    <input type="text" id="newPassword" calss="col" value=""
-                                           placeholder="NEW PASSWORD">
+                        <div class="col-12 col-lg-6 textArea">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="passwardInfoArea">
+                                        <p class="text-bold">YOUR PASSWORD</p>
+                                        <ul>
+                                            <li>
+                                                <p class="text-gray">
+                                                    Your password must not be the same as your last 5
+                                                    passwords used
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p class="text-gray">Your password must have 6+ characters</p>
+                                            </li>
+                                            <li>
+                                                <p class="text-gray">Your password must have at least 1 number</p>
+                                            </li>
+                                            <li>
+                                                <p class="text-gray">Your password must contain no space(s)</p>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="formArea row">
-                            <div class="col">
-                                <div class="inputArea">
-                                    <p class="text-bold">RETYPE PASSWORD</p>
-                                    <p class="text-gray">REQUIRED</p>
-                                    <input type="text" id="retypeNewPassword" calss="col" value=""
-                                           placeholder="RETYPE NEW PASSWORD">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 textArea">
-                        <div class="row">
-                            <div class="col">
-                                <div class="passwardInfoArea">
-                                    <p class="text-bold">YOUR PASSWORD</p>
-                                    <ul>
-                                        <li>
-                                            <p class="text-gray">
-                                                Your password must not be the same as your last 5
-                                                passwords used
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="text-gray">Your password must have 7+ characters</p>
-                                        </li>
-                                        <li>
-                                            <p class="text-gray">Your password must have at least 1 number</p>
-                                        </li>
-                                        <li>
-                                            <p class="text-gray">Your password must contain no space(s)</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-12">
-                        <div class="row">
-                            <div class="col-6 col-lg-3">
-                                <div class="btnArea">
-                                    <button class="gray-button">Desgard Changes</button>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="btnArea">
-                                    <button class="blue-button">Save Changes</button>
+                        <div class="col-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-6 col-lg-3">
+                                    <div class="btnArea">
+                                        <button class="blue-button" type="submit">Save Changes</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
                 <div class="row twoAuthenticationSection nextSection">
                     <div class="pageTitleSection">
                         <div class="col">
@@ -146,5 +144,7 @@
         </div>
     </div>
 </div>
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
