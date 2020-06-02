@@ -17,7 +17,8 @@ namespace Epic_Game.Controllers
         // GET: Pay
         public ActionResult Index()
         {
-            String ProductID = (string)TempData["ProductId"];
+            //string ProductID = (string)TempData["ProductId"];
+            string ProductID = "d75ebeb8-4bc7-44b3-86bf-904ec05a5686";
             var UserId = User.Identity.GetUserId();
             PayBLO payBLO = new PayBLO();
             PayViewModel VM = payBLO.GetPayViewModel(ProductID,UserId);

@@ -33,7 +33,7 @@ namespace Epic_Game.Repository.DataOperationLayer
 
         public string GetImageUrl(string _ProductID)
         {
-            return context.Image.FirstOrDefault(x => x.ProductOrPack.ToString().Equals(_ProductID) && x.Location.Equals("1")).Url;
+            return context.Image.FirstOrDefault(x => x.ProductOrPack.ToString().Equals(_ProductID) && x.Location == 0).Url;
         }
     }
 }
