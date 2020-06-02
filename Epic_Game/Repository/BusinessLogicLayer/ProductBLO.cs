@@ -16,7 +16,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             ProductDAO = new ProductDAO();
         }
-        public ProductViewModel GetProductViewModel(string UserId, string ProductId)
+        public ProductViewModel GetProductViewModel(string ProductId,string UserId )
         {
 
             Product p = ProductDAO.GetProductModel(ProductId);
@@ -46,9 +46,9 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_AgeRestriction = p.AgeRestriction.ToString("yyyy.MM.dd"),
                 OS = p.OS,
                 PD_Description = p.Description,
-                Pack_image = pack.Img,
-                Pack_Price = pack.Price,
-                Pack_Discount = pack.Discount,
+                //Pack_image = pack.Img,
+                //Pack_Price = pack.Price,
+                //Pack_Discount = pack.Discount,
                 Library_Condition = library == null ? null : library.Condition
             };
 

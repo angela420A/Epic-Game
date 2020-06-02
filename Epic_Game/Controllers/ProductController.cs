@@ -17,7 +17,7 @@ namespace Epic_Game.Controllers
             var UserId = User.Identity.GetUserId();
             ProductBLO proBLO = new ProductBLO();
             
-            ProductViewModel VM = proBLO.GetProductViewModel("11f26289-b82e-4bdb-ba56-05c6457bf007", UserId);
+            ProductViewModel VM = proBLO.GetProductViewModel("d75ebeb8-4bc7-44b3-86bf-904ec05a5686", UserId);
 
             return View(VM);
         }
