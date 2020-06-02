@@ -19,8 +19,7 @@ namespace Epic_Game.Repository.DataOperationLayer
 
         public IEnumerable GetOrderModels(string UserId)
         {
-            return context.Order.Select(x => x.UserID.Equals(UserId));
-            
+            return context.Order.Where(x => x.UserID.Equals(UserId)).ToList();
             
             //var result = from o in context.Order
             //             join p in context.Product
