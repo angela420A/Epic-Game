@@ -494,6 +494,7 @@
     <Content Include="Views\Product\_Swiper.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
     <Content Include="Views\UserAccount\_TransactionHistoryPartial.cshtml" />
+    <Content Include="Views\Library\Library_Product_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
