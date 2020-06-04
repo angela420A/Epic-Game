@@ -18,6 +18,7 @@ namespace EpicGameLibrary.Models
             Order = new HashSet<Order>();
             Pack = new HashSet<Pack>();
             Social_Media = new HashSet<Social_Media>();
+            Specifications = new HashSet<Specifications>();
         }
 
         public Guid ProductID { get; set; }
@@ -81,5 +82,8 @@ namespace EpicGameLibrary.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Social_Media> Social_Media { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Specifications> Specifications { get; set; }
     }
 }
