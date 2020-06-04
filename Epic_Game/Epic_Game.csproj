@@ -210,7 +210,6 @@
     <Compile Include="ViewModels\LibraryViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SocialMediaViewModel.cs" />
-    <Compile Include="ViewModels\SpecificationsViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

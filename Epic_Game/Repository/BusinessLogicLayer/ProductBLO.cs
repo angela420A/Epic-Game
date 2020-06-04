@@ -23,13 +23,13 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
             Library library = ProductDAO.GetLibraryModesl(ProductId);
-
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
-            return ModelToViewModel(p, sm, img, library, pack, comment);
+            Specifications spe = ProductDAO.GetSpecificationsModel(ProductId);
+            return ModelToViewModel(p, sm, img, library, pack, comment,spe);
         }
 
-        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment)
+        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment, Specifications spe)
         {
             var pmv = new ProductViewModel
             {
@@ -48,7 +48,10 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_Description = p.Description,
                 PD_Languages = p.LanguagesSupported,
                 PD_Privary = p.PrivacyPolicy,
-                PD_PrivaryUrl = p.PrivacyPolicyUrl,             
+                PD_PrivaryUrl = p.PrivacyPolicyUrl,
+                SPE_OS = spe.OS,
+                
+
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
