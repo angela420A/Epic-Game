@@ -116,8 +116,9 @@ body {
     background-color: #151515;
     justify-content: center;
     position: sticky;
-    top: 0;
-    z-index: 1;
+    top: 60px;
+    z-index: 5;
+    padding: 0 15px;
 }
 
     .shopback ul {
@@ -206,6 +207,9 @@ body {
     display: contents;
 }
 /* 幻燈片 */
+.swiper-container{
+    z-index:0;
+}
 .swiper-container .rwd-iframe {
     position: relative;
     overflow: hidden;
@@ -357,16 +361,70 @@ body {
         border-radius: 0rem;
     }
 
-#more {
-    display: none;
-}
-
 .collapse_pic .col-12 {
     margin: 10px 0 0 0;
 }
 
 .collapse_pic img {
     width: 100%;
+}
+
+.aboutgame_content {
+    position: relative;
+}
+
+    .aboutgame_content .show:hover, .hide:hover {
+        background-color: #ffcc33;
+        color: #151515;
+    }
+
+    .aboutgame_content .show, .hide {
+        position: absolute;
+        width: 100%;
+        bottom: -1em;
+        z-index: 1;
+        text-align: center;
+        background-color: #353535;
+        color: #e7e7e7;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 10px 0;
+        border: none;
+        border-radius: 0rem;
+
+    }
+
+.hide {
+    display: none;
+}
+
+.show:target {
+    display: none;
+}
+
+    .show:target ~ .hide {
+        display: block;
+    }
+
+    .show:target ~ .panel {
+        max-height: 2000px;
+    }
+
+    .show:target ~ .fade {
+        margin-top: 0;
+    }
+
+.panel {
+    position: relative;
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height .5s ease;
+}
+
+.fade {
+    height: 100px;
+    margin-top: -100px;
+    position: relative;
 }
 
 /* 版本 */
@@ -696,6 +754,9 @@ body {
 }
 
 @media screen and (min-width: 1024PX) {
+    .shopback{
+        top:0;
+    }
     /* 影片 */
     .carousel-inner iframe {
         height: 500px;

@@ -15,9 +15,9 @@
     <script src="~/Assets/Js/product_js.js"></script>
 }
 <!-- 導覽列------------------------------- -->
-<div class="container shopback">
+<div class="container-fluid shopback">
     <div class="row">
-        <div class="col">
+        <div class="col" style="padding:0">
             <div class="NavListArea">
                 <div class="NavList">
                     <input type="checkbox" id="checkControl" class="check_control">
@@ -147,29 +147,12 @@
                     <p><i class="@Model.OS"></i></p>
                 </div>
             </div>
-            <div class="aboutgame_content">
-                <div class="aboutgame_text">
-                    <img src="~/Assets/images/EpicGameProduct/death coming_content.jpeg" alt="" class="w-100 data_aboutgame">
-                    <p class="data_text show_text">
-                        New gameplay, unique puzzle. You will play in God's perspective
-                        and help Death complete daily task. Search, click, kill and collect souls. Whether right or
-                        wrong, it is up to you to find!
-                    </p>
-                </div>
-
-                <span id="dots"></span><span id="more">
-                    <div class="aboutgame_text">
-                        <img src="~/Assets/images/EpicGameProduct/death coming_content2.jpeg" alt="" class=" w-100  data_aboutgame">
-                        <p class="data_text show_text">
-                            Half-sandbox mode, nonlinear gameplay. Abundant themes and
-                            various sceneries, hundreds of distinctive dangerous articles are waiting for you! You
-                            can use
-                            objects alone or try to combine them to make sensible “accidents”. make a zealous click
-                            to collect
-                            souls!
-                        </p>
-                    </div>
-
+            <div class="aboutgame_content ">
+                <a href="#show" class="show btn" id="show">SHOW MORE</a>
+                <a href="#hide" class="hide btn" id="hide">SHOW LESS</a>
+                <div class="panel">
+                    @Model.PD_Description
+                   
                     <div class="collapse_pic">
                         <div class="col-12 col-md-6">
                             <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
@@ -178,14 +161,9 @@
                             <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
                         </div>
                     </div>
-                    <div class="collapse_pic">
-                        <div class="col-12">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add3.jpg" alt="">
 
-                        </div>
-                    </div>
-                </span>
-                <button onclick="SHOWMORE()" class="myBtn" id="Btn_showmore">SHOW MORE</button>
+                </div>
+                <div class="fade"></div>
             </div>
         </div>
     </div>
