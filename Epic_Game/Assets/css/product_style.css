@@ -654,14 +654,6 @@ body {
         margin-top: 5px;
     }
 
-    /* 影片 */
-    #carouselExampleIndicators .carousel-item iframe {
-        width: 560px;
-        height: 315px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-    }
     /* 產品描述 */
     .pic {
         width: 50%;
@@ -758,13 +750,9 @@ body {
         top:0;
     }
     /* 影片 */
-    .carousel-inner iframe {
-        height: 500px;
-    }
-
-    .container {
+/*    .container {
         padding: 0 50px;
-    }
+    }*/
     /* 導覽列+搜尋 */
     .div_itemlist {
         position: initial;

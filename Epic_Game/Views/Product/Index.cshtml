@@ -171,11 +171,12 @@
 <!-- 版本------------------------------- -->
 @Html.Partial("_Editions")
 
+
 <!-- 附加------------------------------- -->
 @Html.Partial("_AddOns")
 
 <!-- 追蹤------------------------------- -->
-@Html.Partial("_Trackus")
+@Html.Partial("_Trackus", Model.SM)
 
 <!-- 評論------------------------------- -->
 @Html.Partial("_Comments")
