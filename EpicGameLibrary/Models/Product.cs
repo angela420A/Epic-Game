@@ -58,6 +58,12 @@ namespace EpicGameLibrary.Models
         [Required]
         public string Description { get; set; }
 
+        public string LanguagesSupported { get; set; }
+
+        public string PrivacyPolicy { get; set; }
+
+        public string PrivacyPolicyUrl { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comment { get; set; }
 
