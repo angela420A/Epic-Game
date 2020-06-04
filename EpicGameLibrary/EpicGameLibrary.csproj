@@ -66,6 +66,7 @@
     <Compile Include="Models\PackDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Social_Media.cs" />
+    <Compile Include="Models\Specifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EGRepository.cs" />
   </ItemGroup>

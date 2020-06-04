@@ -27,6 +27,7 @@ namespace EpicGameLibrary.Models
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Social_Media> Social_Media { get; set; }
         public virtual DbSet<PackDetail> PackDetail { get; set; }
+        public virtual DbSet<Specifications> Specifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
