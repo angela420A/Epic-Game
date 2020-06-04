@@ -39,25 +39,6 @@ SetRatingStar();
 $(document).ready(function () {
 
 });
-//SHOW MORE
-function SHOWMORE() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("Btn_showmore");
-
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "SHOW MORE";
-        moreText.style.display = "none";
-
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "SHOW LESS";
-        moreText.style.display = "inline";
-
-
-    }
-}
 //¼v¤ù¤Á´«
 let lastSlideIndex = 0;
 var mySwiper = new Swiper('.swiper-container', {
