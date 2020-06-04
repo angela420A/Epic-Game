@@ -228,18 +228,25 @@
                             <span class="span_text" id="minos">Windows Vista, Windows 7, Windows 10</span>*@
                             <div class="span_text" id="minos">
                                 <span>
-                                    @*@if (Model.SPE_OS != null)
+                                    @if (Model.PD_Specifications[0].SPE_OS != null)
                                     {
-                                        <div class="small_title_span"><span>OS</span></div>                                      
-                                            @Model.SPE_OS.FirstOrDefault(x => x.SPE_Type == 1)
-                                    }*@
+                                        <div class="small_title_span"><span>OS</span></div>
+                                        <span class="span_text" id="minos">@Model.PD_Specifications[0].SPE_OS</span>                                      
+                                    }
                                 </span>
                             </div>
                         </td>
                         <td class="rec">
-                            @*<div class="small_title_span" id="recos"><span>OS</span></div>
-        <span class="span_text">Windows Vista,  Windows 10</span>*@
-                          
+                            <div class="span_text" id="minos">
+                                <span>
+                                    @if (Model.PD_Specifications[1].SPE_OS != null)
+                                    {
+                                        <div class="small_title_span"><span>OS</span></div>
+                                        @Model.PD_Specifications[1].SPE_OS
+                                    }
+                                </span>
+                            </div>
+
                         </td>
                     </tr>
                     <tr>
