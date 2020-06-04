@@ -252,23 +252,16 @@
                     <div class="small_title_span"><span>Languages Supported</span></div>
                     <ul>
                         <li class="li_text">
-                            AUDIO: English, Chinese - Simplified, Chinese - Traditional, Japanese, French,
-                            German,
-                            Spanish - Spain, Russian, Turkish, Polish, Portuguese, Italian, Korean
-                        </li>
-                        <li class="li_text">
-                            TEXT: English, Chinese - Simplified, Chinese - Traditional, Japanese, French,
-                            German,
-                            Italian, Korean, Spanish - Spain, Russian, Turkish, Polish, Portuguese
+                            @Model.PD_Languages
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="privacy_policy">
                 <span class="privacy_policy_content">
-                    Developed by Tencent Technology(Shanghai) Company Limited. All rights reserved.
+                    @Model.PD_Privary
                 </span>
-                <a href="#" class="privacy_policy_a">
+                <a href="@Model.PD_PrivaryUrl" class="privacy_policy_a">
                     <span class="privacy_policy_title">Privacy Policy</span>
                 </a>
             </div>
