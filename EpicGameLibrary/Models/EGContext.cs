@@ -119,6 +119,11 @@ namespace EpicGameLibrary.Models
                 .HasMany(e => e.Social_Media)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Specifications)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
         }
     }
 }
