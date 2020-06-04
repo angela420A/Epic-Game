@@ -144,7 +144,22 @@
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Platform</span>
-                    <p><i class="@Model.OS"></i></p>
+                <p>
+                    @if (Model.OS == 1)
+                    {
+                        <i class="fab fa-windows"></i>
+                    }
+                    else if (Model.OS == 2)
+                    {
+                        <i class="fab fa-apple"></i>
+                    }
+                    else if (Model.OS == 3)
+                    {
+                        <i class="fab fa-windows"></i>
+                        <i class="fab fa-apple"></i>
+
+                    }
+                </p>
                 </div>
             </div>
             <div class="aboutgame_content ">
