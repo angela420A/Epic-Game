@@ -205,7 +205,7 @@
         </div>
         <div class="col-12 col-xl-9">
             <div class="specification_table">
-                <table>
+                <table width="100%" style="table-layout:fixed">
                     <div class="title_div">
                         <div class="title_div_div" id="Windows">
                             <span class="span_text">WINDOWS</span>
@@ -224,12 +224,22 @@
                     </tr>
                     <tr>
                         <td class="recup">
-                            <div class="small_title_span"><span>OS</span></div>
-                            <span class="span_text" id="minos">Windows Vista, Windows 7, Windows 10</span>
+                            @*<div class="small_title_span"><span>OS</span></div>
+                            <span class="span_text" id="minos">Windows Vista, Windows 7, Windows 10</span>*@
+                            <div class="span_text" id="minos">
+                                <span>
+                                    @*@if (Model.SPE_OS != null)
+                                    {
+                                        <div class="small_title_span"><span>OS</span></div>                                      
+                                            @Model.SPE_OS.FirstOrDefault(x => x.SPE_Type == 1)
+                                    }*@
+                                </span>
+                            </div>
                         </td>
                         <td class="rec">
-                            <div class="small_title_span" id="recos"><span>OS</span></div>
-                            <span class="span_text">Windows Vista,  Windows 10</span>
+                            @*<div class="small_title_span" id="recos"><span>OS</span></div>
+        <span class="span_text">Windows Vista,  Windows 10</span>*@
+                          
                         </td>
                     </tr>
                     <tr>
