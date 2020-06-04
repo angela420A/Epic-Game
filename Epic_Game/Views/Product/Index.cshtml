@@ -62,7 +62,7 @@
         {
             if (swiper.Image_Location == 2)
             {
-                @Html.Partial("_Swiper",swiper)
+                @Html.Partial("_Swiper", swiper)
             }
         }
     </div>
@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3 pic_img">
             <img src="@Model.PD_image.FirstOrDefault(x => x.Image_Location == 1).Image_URL" alt="" class="d-block  w-100 pic data-pic">
-            
+
         </div>
         <div class="col-12 col-md-6 col-xl-6">
             <p class="game_pic_text">
@@ -152,7 +152,7 @@
                 <a href="#hide" class="hide btn" id="hide">SHOW LESS</a>
                 <div class="panel">
                     @Model.PD_Description
-                   
+
                     <div class="collapse_pic">
                         <div class="col-12 col-md-6">
                             <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
@@ -201,34 +201,34 @@
                     </div>
                     <tr>
                         <td>
-                            <div><span class="big_title_span">Minimum</span></div>
+                            <div class="recup"><span class="big_title_span">Minimum</span></div>
                         </td>
                         <td>
                             <div class="rec"><span class="big_title_span">Recommended</span></div>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="recup">
                             <div class="small_title_span"><span>OS</span></div>
                             <span class="span_text" id="minos">Windows Vista, Windows 7, Windows 10</span>
                         </td>
                         <td class="rec">
                             <div class="small_title_span" id="recos"><span>OS</span></div>
-                            <span class="span_text">Windows Vista, Windows 7, Windows 10</span>
+                            <span class="span_text">Windows Vista,  Windows 10</span>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="recup">
                             <div class="small_title_span"><span>Processor</span></div>
                             <span class="span_text" id="mincpu">Intel i3</span>
                         </td>
                         <td class="rec">
                             <div class="small_title_span"><span>Processor</span></div>
-                            <span class="span_text" id="reccpu">Intel i3</span>
+                            <span class="span_text" id="reccpu">Intel i5</span>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="recup">
                             <div class="small_title_span"><span>Memory</span></div>
                             <span class="span_text" id="minram">4 GB RAM</span>
                         </td>
@@ -238,13 +238,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="recup">
                             <div class="small_title_span"><span>Storage</span></div>
                             <span class="span_text" id="minhdd">500 MB available space</span>
                         </td>
                         <td class="rec">
                             <div class="small_title_span"><span>Storage</span></div>
-                            <span class="span_text" id="rechdd">500 MB available space</span>
+                            <span class="span_text" id="rechdd">770 MB available space</span>
                         </td>
                     </tr>
                 </table>

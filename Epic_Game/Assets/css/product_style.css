@@ -576,7 +576,7 @@ body {
     padding: 35px 50px;
 }
 
-#specification td {
+#specification .recup, .rec {
     height: 80px;
 }
 
