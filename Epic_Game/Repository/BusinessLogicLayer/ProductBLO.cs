@@ -50,8 +50,16 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_Privary = p.PrivacyPolicy,
                 PD_PrivaryUrl = p.PrivacyPolicyUrl,
                 SPE_OS = spe.OS,
-                
-
+                SPE_CPU = spe.CPU,
+                SPE_GPU = spe.GPU,
+                SPE_Processor = spe.Processor,
+                SPE_RAM = spe.RAM,
+                SPE_Memory = spe.Memory,
+                SPE_Storage = spe.Storage,
+                SPE_GraphiceCard = spe.GraphiceCard,
+                SPE_HDD = spe.HDD,
+                SPE_DirectX = spe.DirectX,
+                SPE_Additional = spe.Additional_Features,
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
