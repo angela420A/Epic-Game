@@ -36,7 +36,7 @@
             </div>
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="confirm-button">
-                    <a href="@Html.ActionLink("Click Me To Start It !", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })"></a>
+                    <a href="@Url.Action("Login", "Account",new { id = 123, name = "name"})">Click Me To Start It !</a>
                 </div>
             </div>
             <hr class="hr">
