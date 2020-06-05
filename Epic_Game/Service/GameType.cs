@@ -41,16 +41,10 @@ namespace Epic_Game.Service
             return res;
         }
 
-        public bool searchGameType(int n, int type)
+        public bool searchGameType(int SearchType, int ProductType)
         {
-            int i = 1;
-            while (n != 0)
-            {
-                if ((n & (~n + 1)) == 1 && i == type) return true;
-                i *= 2;
-                n = n >> 1;
-            }
-            return false;
+            return (SearchType & ProductType) == SearchType;
+
         }
     }
 }
