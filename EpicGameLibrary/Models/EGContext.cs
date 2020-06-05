@@ -20,12 +20,12 @@ namespace EpicGameLibrary.Models
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
         public virtual DbSet<Image> Image { get; set; }
-        public virtual DbSet<Library> Library { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Pack> Pack { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Social_Media> Social_Media { get; set; }
+        public virtual DbSet<Library> Library { get; set; }
         public virtual DbSet<PackDetail> PackDetail { get; set; }
         public virtual DbSet<Specifications> Specifications { get; set; }
 
@@ -74,7 +74,7 @@ namespace EpicGameLibrary.Models
 
             modelBuilder.Entity<Pack>()
                 .Property(e => e.Discount)
-                .HasPrecision(16, 2);
+                .HasPrecision(4, 2);
 
             modelBuilder.Entity<Pack>()
                 .HasMany(e => e.PackDetail)
@@ -87,7 +87,7 @@ namespace EpicGameLibrary.Models
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Discount)
-                .HasPrecision(16, 2);
+                .HasPrecision(4, 2);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Comment)
@@ -98,11 +98,6 @@ namespace EpicGameLibrary.Models
                 .HasMany(e => e.Image)
                 .WithRequired(e => e.Product)
                 .HasForeignKey(e => e.ProductOrPack)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Library)
-                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
@@ -117,6 +112,11 @@ namespace EpicGameLibrary.Models
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Social_Media)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Library)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
