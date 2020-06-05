@@ -1,6 +1,12 @@
 ﻿@model Epic_Game.ViewModels.ProductViewModel
 @{
     ViewBag.Title = "Index";
+
+    var discountprice = Model.PD_Discount * Model.PD_Price;
+
+
+
+
 }
 @section topCSS{
     <link href="~/Assets/css/product_style.css" rel="stylesheet" />
@@ -87,22 +93,27 @@
             <div class="game_pic_know_rightrow">
                 <div class="game_pic_pricewrapper">
                     <div class="game_pic_price">
-                        <span class="price_original" style="color: #e7e7e7;">@Model.PD_Price</span>
+                        <span class="discount">
+                            @if (Model.PD_Discount < 1)
+                            {
+                                @Model.PD_Discount
+                            }
+
+                        %</span>
+                        <span class="cost">TWD$@Model.PD_Price</span>
+                        <span class="price_original" style="color: #e7e7e7;">TWD$@discountprice</span>
                     </div>
                 </div>
                 <div class="game_pic_btn_div">
                     <div class="game_pic_btn_left">
-                        <a href="@Url.Action("Index","Pay")" type="button" class="game_pic_give" style="text-decoration: none;">
+                        <a href="@Url.Action("Index","Pay")" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
                             <span style="font-size: 16px;">BUY NOW</span>
                         </a>
                         <div class="game_pic_btn_right">
                             <div class="game_pic_btn_container">
                                 <div class="game_pic_btn_content">
-                                    <button class="game_pic_btn_love">
-                                        <span>
-                                            <i class="far fa-heart"
-                                               style="font-size: 15px; padding: 0 5px;"></i>
-                                        </span>
+                                    <button class="game_pic_btn_love btn_love" id="btnheart">
+                                        <span><i id="fa" class="far fa-heart"></i></span>
                                     </button>
                                 </div>
                             </div>
@@ -157,7 +168,6 @@
                     {
                         <i class="fab fa-windows"></i>
                         <i class="fab fa-apple"></i>
-
                     }
                 </p>
                 </div>
@@ -185,8 +195,6 @@
 </div>
 <!-- 版本------------------------------- -->
 @Html.Partial("_Editions")
-
-
 <!-- 附加------------------------------- -->
 @Html.Partial("_AddOns")
 
