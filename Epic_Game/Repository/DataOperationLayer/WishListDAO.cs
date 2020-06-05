@@ -23,7 +23,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
         public List<Library> GetWishListProduct()
         {
-            return context.Library.Where(x => x.UserID == UserId && x.Condition == "願望清單").ToList();
+            return context.Library.Where(x => x.UserID == UserId && x.Condition == 1).ToList();
         }
         public string GetImg(string ProductId)
         {

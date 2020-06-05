@@ -19,7 +19,7 @@ namespace EpicGameLibrary.Models
 
         [Required]
         [StringLength(20)]
-        public string Condition { get; set; }
+        public int Condition { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
 
