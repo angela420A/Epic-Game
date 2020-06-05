@@ -57,6 +57,10 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.Image.Where(x => x.ProductOrPack.ToString().Equals(ProductOrPack)).ToList();
         }
+        public List<Specifications> GetSpecificationsModel(string ProductID)
+        {
+            return context.Specifications.Where(x => x.ProductID.ToString().Equals(ProductID)).ToList();
 
+        }
     }
 }

@@ -22,7 +22,8 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return new HomeViewModels
             {
                 BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
-                Activities = GetHomeActivity().ToList()
+                Activities = GetHomeActivity().ToList(),
+ 
             };
         }
         
@@ -31,5 +32,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             var ActivityData = HomeDAO.GetActivity();
             return ActivityData;
         }
+
+        //public IEnumerable<>
     }
 }

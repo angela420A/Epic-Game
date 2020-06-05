@@ -22,6 +22,9 @@ namespace Epic_Game.ViewModels
         public string PD_AgeRestriction { get; set; }
         public int OS { get; set; }
         public string PD_Description { get; set; }
+        public string PD_Languages { get; set; }
+        public string PD_Privary { get; set; }
+        public string PD_PrivaryUrl { get; set; }
         public List<SocialMediaViewModel> SM { get; set; }
         public string Pack_image { get; set; }
         public decimal? Pack_Price { get; set; }
@@ -29,5 +32,7 @@ namespace Epic_Game.ViewModels
         public string Library_Condition { get; set; }
         public List<CommentViewModel> PD_Comment { get;set; }
         public List<ImageViewModel> PD_image { get; set; }
+        public List<SpecificationsViewModel> PD_Specifications { get; set; }
+
     }
 }

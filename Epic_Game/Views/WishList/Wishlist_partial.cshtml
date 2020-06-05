@@ -1,15 +1,16 @@
-﻿<li class="wishList-ListItem">
+﻿@model Epic_Game.ViewModels.WishListViewModel
+<li class="wishList-ListItem">
     <div class="wishItem">
         <a href="@Url.Action("Index","Product")" class="col itemInfo">
             <div class="wishItem-ImgArea">
-                <img src="~/Assets/images/EpicGameProduct/borderlands_version3.jpg">
+                <img src="@Model.Img_Url">
             </div>
             <div class="wishItem-infoArea col">
                 <div class="infoArea-productName">
-                    <p>Assassins' Creed</p>
+                    <p>@Model.ProductName</p>
                 </div>
                 <div class="infoArea-productPrice">
-                    <p>1799 TWD</p>
+                    <p>@Model.Price</p>
                 </div>
             </div>
         </a>
