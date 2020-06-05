@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using WebGrease.Css.Extensions;
 
 namespace Epic_Game.Repository.BusinessLogicLayer
 {
@@ -23,13 +23,13 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
             Library library = ProductDAO.GetLibraryModesl(ProductId);
-
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
-            return ModelToViewModel(p, sm, img, library, pack, comment);
+            List<Specifications> spe = ProductDAO.GetSpecificationsModel(ProductId);
+            return ModelToViewModel(p, sm, img, library, pack, comment,spe);
         }
 
-        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment)
+        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment, List<Specifications> spe)
         {
             var pmv = new ProductViewModel
             {
@@ -46,6 +46,10 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_AgeRestriction = p.AgeRestriction.ToString(),
                 OS = p.OS,
                 PD_Description = p.Description,
+                PD_Languages = p.LanguagesSupported,
+                PD_Privary = p.PrivacyPolicy,
+                PD_PrivaryUrl = p.PrivacyPolicyUrl,
+
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
@@ -75,6 +79,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 };
                 pmv.PD_Comment.Add(commentvm);
             }
+
             pmv.PD_image = new List<ImageViewModel>();
             foreach (var Image in img)
             {
@@ -84,6 +89,27 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                     Image_Location = Image.Location
                 };
                 pmv.PD_image.Add(imagevm);
+            }
+
+            pmv.PD_Specifications = new List<SpecificationsViewModel>();
+            foreach (var Specifications in spe)
+            {
+                var spevm = new SpecificationsViewModel()
+                {
+                    SPE_OS = Specifications.OS,
+                    SPE_CPU = Specifications.CPU,
+                    SPE_GPU = Specifications.GPU,
+                    SPE_Processor = Specifications.Processor,
+                    SPE_RAM = Specifications.RAM,
+                    SPE_Memory = Specifications.Memory,
+                    SPE_Storage = Specifications.Storage,
+                    SPE_GraphiceCard = Specifications.GraphiceCard,
+                    SPE_HDD = Specifications.HDD,
+                    SPE_DirectX = Specifications.DirectX,
+                    SPE_Additional = Specifications.Additional_Features,
+                    SPE_Type = Specifications.Type.ToString()
+                };
+                pmv.PD_Specifications.Add(spevm);
             }
             return pmv;
         }

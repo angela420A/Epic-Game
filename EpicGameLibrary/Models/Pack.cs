@@ -17,6 +17,10 @@ namespace EpicGameLibrary.Models
 
         public Guid PackID { get; set; }
 
+        [Required]
+        [StringLength(100)]
+        public string PackName { get; set; }
+
         public Guid ProductID { get; set; }
 
         public string Img { get; set; }
@@ -25,6 +29,15 @@ namespace EpicGameLibrary.Models
         public decimal? Price { get; set; }
 
         public decimal? Discount { get; set; }
+
+        [Required]
+        [StringLength(300)]
+        public string Title { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        public DateTime ReleaseDate { get; set; }
 
         public virtual Product Product { get; set; }
 

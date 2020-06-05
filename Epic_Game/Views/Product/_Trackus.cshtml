@@ -1,31 +1,26 @@
-﻿
+﻿@model IEnumerable<Epic_Game.ViewModels.SocialMediaViewModel>
 @{
     ViewBag.Title = "_trackus";
 }
-    <div class="container allblock" id="trackus">
-        <div class="row">
-            <div class="col-12 col-xl-3">
-                <h3 class="title_name">Follow Us</h3>
-            </div>
-            <div class="col-12 col-xl-9">
-                <ul class="trackus_i" id="data_trackus_i">
+<div class="container allblock" id="trackus">
+    <div class="row">
+        <div class="col-12 col-xl-3">
+            <h3 class="title_name">Follow Us</h3>
+        </div>
+        <div class="col-12 col-xl-9">
+            <ul class="trackus_i" id="data_trackus_i">
+
+                @foreach (var track in Model)
+                {
                     <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-@track.SM_Community"></i></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                </ul>
-            </div>
+                }
+
+            </ul>
         </div>
     </div>
+</div>
+
+
 
