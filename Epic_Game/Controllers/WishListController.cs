@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Epic_Game.Repository.BusinessLogicLayer;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,21 @@ namespace Epic_Game.Controllers
         // GET: WishList
         public ActionResult Index()
         {
-            return View();
+            var UserId = User.Identity.GetUserId();
+            if (UserId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                return GetWishList(UserId);
+            }
+        }
+
+        private ActionResult GetWishList(string userId)
+        {
+            var wishlistBLO = new WishListBLO(userId);
+            return View(wishlistBLO.GetWishListProduct());
         }
 
         public ActionResult Delete()

@@ -63,36 +63,19 @@ body {
     padding-top: 15px;
 }
 
-.filter_btn {
-    display: flex;
-    padding-top: 15px;
-}
-
-#filter_select {
-    margin-right: 50px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: #0f0f0f;
-    color: #fff;
-    border: none;
-}
-
 .sortArea p {
     margin: 0;
     text-align: center;
 }
 
-.sortList-Controll,
-.filterList-Controll {
+.sortList-Controll, {
     height: 100%;
 }
-.filterLabel,
+
 .sortLabel,
-.filter_label,
-.sort_label{
-    margin:0;
-    height:100%;
+.sort_label {
+    margin: 0;
+    height: 100%;
 }
 
 .NavList {
@@ -183,10 +166,10 @@ body {
     display: none;
 }
 
-.sort_checked .fas {
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
+    .sort_checked .fas {
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+    }
 
 .sort_list {
     position: absolute;
@@ -197,6 +180,10 @@ body {
     background-color: #232323;
     padding: 10px;
     z-index: 2;
+}
+
+.sort_list li p {
+    margin-top:5px;
 }
 
 .sortLabel {
@@ -221,88 +208,16 @@ body {
     display: initial;
 }
 
-.download_icon:hover {
+.link_icon:hover {
     color: rgb(9,83,210);
     cursor: pointer;
 }
 
-.filterList-Controll {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+#game_div {
+    border: 2px solid #0f0f0f;
 }
 
-.filterArea {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: start;
-}
-
-.filter_label {
-    font-weight: 200;
-    color: #ccc;
-}
-
-.filterSelectArea {
-    position: relative;
-    margin-left: 15px;
-}
-
-.filter_checked {
-    display: none;
-}
-
-    .filter_checked .fas {
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-    }
-
-.filter_list {
-    position: absolute;
-    display: none;
-    left: 0;
-    top: 30px;
-    width: 160px;
-    background-color: #232323;
-    padding: 10px;
-    z-index: 2;
-}
-
-.filterLabel {
-    width: 100px;
-}
-
-    .filterLabel p,
-    .filterLabel .wishCount p {
-        display: inline-block;
-        font-weight: 300;
-    }
-
-.filter_list button {
-    border: none;
-    background-color: transparent;
-    width: 100%;
-    text-align: left;
-    color: #e7e7e7;
-}
-
-.filter_checked:checked ~ .filter_list {
-    display: initial;
-}
-
-#game_div{
-    border:2px solid #0f0f0f;
-}
-
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
     .search_div {
         justify-content: flex-start;
         margin-bottom: 15px;
@@ -318,12 +233,12 @@ body {
     }
 
     .sortList-Controll,
-    .filterList-Controll{
-        height:50%;
+    .filterList-Controll {
+        height: 50%;
     }
 
     .filter_div {
-        padding:15px;
+        padding: 15px;
         display: flex;
         flex-wrap: wrap;
     }

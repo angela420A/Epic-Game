@@ -172,6 +172,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Backstage\BackstageController.cs" />
+    <Compile Include="Controllers\Backstage\ProductManageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -194,13 +196,16 @@
     <Compile Include="Repository\BusinessLogicLayer\ProductBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\TransactionHistoryBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserAccountBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\WishListBLO.cs" />
     <Compile Include="Repository\DataOperationLayer\HomeDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\LibraryDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\PayDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\ProductDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\TransactionHistoryDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\UserAccountDAO.cs" />
+    <Compile Include="Repository\DataOperationLayer\WishListDAO.cs" />
     <Compile Include="Service\Convertor.cs" />
+    <Compile Include="Service\GameType.cs" />
     <Compile Include="Service\OperationResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
@@ -212,6 +217,7 @@
     <Compile Include="ViewModels\SocialMediaViewModel.cs" />
     <Compile Include="ViewModels\SpecificationsViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
+    <Compile Include="ViewModels\WishListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\all.css" />
@@ -495,11 +501,14 @@
     <Content Include="Views\Product\_Swiper.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
     <Content Include="Views\UserAccount\_TransactionHistoryPartial.cshtml" />
+    <Content Include="Views\ProductManage\Create.cshtml" />
     <Content Include="Views\Library\Library_Product_Partial.cshtml" />
+    <Content Include="Views\WishList\Wishlist_partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Backstage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
