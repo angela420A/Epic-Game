@@ -14,10 +14,10 @@ namespace EpicGameLibrary.Models
         {
             Comment = new HashSet<Comment>();
             Image = new HashSet<Image>();
-            Library = new HashSet<Library>();
             Order = new HashSet<Order>();
             Pack = new HashSet<Pack>();
             Social_Media = new HashSet<Social_Media>();
+            Library = new HashSet<Library>();
             Specifications = new HashSet<Specifications>();
         }
 
@@ -72,9 +72,6 @@ namespace EpicGameLibrary.Models
         public virtual ICollection<Image> Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Library> Library { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -82,6 +79,9 @@ namespace EpicGameLibrary.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Social_Media> Social_Media { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Library> Library { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Specifications> Specifications { get; set; }
