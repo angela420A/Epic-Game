@@ -2,10 +2,9 @@
 @{
     ViewBag.Title = "Index";
 
-    var discountprice = Model.PD_Discount * Model.PD_Price;
+    var discountprice = decimal.Round(Model.PD_Discount * Model.PD_Price);
 
-
-
+   
 
 }
 @section topCSS{
@@ -93,14 +92,9 @@
             <div class="game_pic_know_rightrow">
                 <div class="game_pic_pricewrapper">
                     <div class="game_pic_price">
-                        <span class="discount">
-                            @if (Model.PD_Discount < 1)
-                            {
-                                @Model.PD_Discount
-                            }
-
-                        %</span>
-                        <span class="cost">TWD$@Model.PD_Price</span>
+                        <span class="discount">                          
+                                @decimal.Round(Model.PD_Discount*100)%</span>
+                        <span class="cost">TWD$@decimal.Round(@Model.PD_Price)</span>
                         <span class="price_original" style="color: #e7e7e7;">TWD$@discountprice</span>
                     </div>
                 </div>
@@ -232,8 +226,6 @@
                     </tr>
                     <tr>
                         <td class="recup">
-                            @*<div class="small_title_span"><span>OS</span></div>
-                            <span class="span_text" id="minos">Windows Vista, Windows 7, Windows 10</span>*@
                             <div class="span_text" id="minos">
                                 <span>
                                     @if (Model.PD_Specifications[0].SPE_OS != null)
