@@ -35,29 +35,25 @@ namespace Epic_Game.Repository.DataOperationLayer
             return Activity;
         }
 
-        //public List<test> GetTopSales()
-        //{
-        //    //var Sales = context.Order.GroupJoin(context.Product,
-        //    //                            o => o.ProductID,
-        //    //                            p => p.ProductID,
-        //    //                            (o, p) => new
-        //    //                            {
-                                            
-        //    //                            });
-        //    return null;
-        //}
+        public List<StoreItems> GetTopSales()
+        {
+            var Sales = (from o in context.Order
+                         join p in context.Product on o.ProductID equals p.ProductID
+                         join i in context.Image on p.ProductID equals i.ProductOrPack
+                         select new StoreItems() { ProductID = o.ProductID, Url = i.Url, ProductName = p.ProductName, Developer = p.Developer,Publisher = p.Publisher,Discount = p.Discount, Price = p.Price}).ToList();
 
-        //public class test
-        //{
-        //    public string Url { get; set; }
-        //    public string ProductName { get; set; }
-        //    public string Developer { get; set; }
-        //    public string Publisher { get; set; }
-        //    public decimal Discount { get; set; }
-        //    [Column(TypeName = "money")]
-        //    public decimal Price { get; set; }
+            return Sales;
+            //var Sales = context.Order.GroupJoin(context.Product,
+            //                            o => o.ProductID,
+            //                            p => p.ProductID,
+            //                            (o, p) => new
+            //                            {
+            //                                ProductID = p.ProductID,
 
-        //    public int Count { get; set; }
-        //}
+            //                            });
+            //return null;
+        }
+
+       
     }
 }

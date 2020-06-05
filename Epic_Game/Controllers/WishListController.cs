@@ -26,8 +26,8 @@ namespace Epic_Game.Controllers
 
         private ActionResult GetWishList(string userId)
         {
-            var wishlistBLO = new WishListBLO(userId);
-            return View(wishlistBLO.GetWishListProduct());
+            //var wishlistBLO = new WishListBLO(userId);
+            return View();
         }
 
         public ActionResult Delete()

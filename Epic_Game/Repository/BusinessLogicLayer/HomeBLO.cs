@@ -23,7 +23,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             {
                 BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
                 Activities = GetHomeActivity().ToList(),
- 
+                TopSales = HomeDAO.GetTopSales()
             };
         }
         
