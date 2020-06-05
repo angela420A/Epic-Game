@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = null;
+    var Price =  string.Format("{0:####.#}", Model.Price);
 }
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
@@ -10,7 +11,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="pay col-12 col-md-6 col-lg-6">
+        @*<div class="pay col-12 col-md-6 col-lg-6">
             <div class="checkout d-flex">
                 <p>付款方式</p>
                 <P>結帳</P>
@@ -116,7 +117,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="detail col-12 col-md-3 col-lg-3">
             <h5>訂單摘要</h5>
             <div class="game d-flex">
@@ -132,7 +133,7 @@
             <div class="tp price">
                 <div class="price_price d-flex justify-content-between">
                     <span class="span_color">價格</span>
-                    <span>USD $@Model.Price</span>
+                    <span>USD $@Price</span>
                 </div>
                 <div class="price_text">
                     <span class="span_color">若適用則包括增值稅</span>
@@ -141,11 +142,11 @@
             <div class="tp total">
                 <div class="total_price d-flex justify-content-between">
                     <span class="span_color">總計</span>
-                    <span>USD $@Model.Price</span>
+                    <span>USD $@Price</span>
                 </div>
                 <div class="total_pay d-flex justify-content-between">
                     <span>您的支付</span>
-                    <span>USD $@Model.Price</span>
+                    <span>USD $@Price</span>
                 </div>
             </div>
             <div class="input_creater">
@@ -162,7 +163,7 @@
                 <span>需要幫助嗎？ <a href="">聯絡我們</a></span>
             </div>
             <div class="confirm-container col-xs-12">
-                <button class="btn btn-primary" onclick="location.href='@Url.Action("Finish","Pay")'">
+                <button class="btn btn-primary" id="SendRequest">
                     <span>結帳</span>
                 </button>
             </div>
@@ -172,3 +173,18 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    var productid = "@Model.ProductId";
+
+    $('#SendRequest').click(function () {
+        $.ajax({
+            url: "/Pay/ToECpay",
+            type: "post",
+            data: { jdata: productid },
+            success: function (data) {
+                window.location.href = data;
+            }
+        })
+    })
+</script>

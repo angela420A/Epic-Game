@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ECPay.Payment.Integration">
+      <HintPath>..\..\網頁\epicgames_chentse\ECPay\ECPayAIO_Net-master\ECPay.Payment.Integration.dll</HintPath>
+    </Reference>
     <Reference Include="EpicGameLibrary">
       <HintPath>..\EpicGameLibrary\bin\Debug\EpicGameLibrary.dll</HintPath>
     </Reference>
@@ -181,6 +184,13 @@
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="EpicGameCheckOut.aspx.cs">
+      <DependentUpon>EpicGameCheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EpicGameCheckOut.aspx.designer.cs">
+      <DependentUpon>EpicGameCheckOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -320,6 +330,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EpicGameCheckOut.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
