@@ -71,12 +71,11 @@ body {
     margin: auto;
     width: 100%;
     margin-right: 3px;
-    padding: 5px 0;
     background-color: #ffcc33;
     border: none;
     color: #151515;
     text-decoration: none;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .btn_buy:hover,
