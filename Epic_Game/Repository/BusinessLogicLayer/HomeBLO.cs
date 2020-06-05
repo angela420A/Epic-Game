@@ -3,6 +3,7 @@ using Epic_Game.Repository.DataOperationLayer;
 using Epic_Game.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -23,10 +24,17 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             {
                 BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
                 Activities = GetHomeActivity().ToList(),
-                TopSales = HomeDAO.GetTopSales()
+                TopSales = TopSales()
             };
         }
         
+        public List<StoreItems> TopSales()
+        {
+            var sales = HomeDAO.GetSales().GroupBy(x => x.ProductID).Select(s => new GroupList() { Key = s.Key, Count = s.Count() }).OrderByDescending(o => o.Count).ToList();
+            var topSales = HomeDAO.getTop5Sale(sales);
+            return topSales;
+        }
+
         public IEnumerable<HomeActivityViewModels> GetHomeActivity()
         {
             var ActivityData = HomeDAO.GetActivity();
@@ -34,5 +42,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         }
 
         //public IEnumerable<>
+
+
     }
 }

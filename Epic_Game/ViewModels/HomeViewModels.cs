@@ -37,5 +37,11 @@ namespace Epic_Game.ViewModels
         public string Information { get; set; }
         public string IMG { get; set; }
     }
+
+    public class GroupList
+    {
+        public Guid Key { get; set; }
+        public int Count { get;set; }
+    }
     
 }
