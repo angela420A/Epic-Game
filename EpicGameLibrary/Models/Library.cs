@@ -19,7 +19,7 @@ namespace EpicGameLibrary.Models
 
         [Key]
         [Column(Order = 2)]
-        [StringLength(20)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Condition { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
