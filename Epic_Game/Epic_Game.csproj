@@ -193,6 +193,7 @@
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ConfirmEmail\ConfirmEmail.css" />
     <Content Include="Assets\css\all.css" />
     <Content Include="Assets\css\dis_img.css" />
     <Content Include="Assets\css\dis_list.css" />
