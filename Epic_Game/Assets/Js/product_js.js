@@ -134,7 +134,7 @@ $('#Windows').on('click', function () {
     $('#MACOS').attr('style', 'border-bottom: none;');
     $('.rec').attr('style', 'display: block;');
     $('.rec').attr('style', 'height: 80px;');
-    $('#minos').text('Windows Vista, Windows 7, Windows 10');
+    $('#minos').text('Windows Vista, Windows 7, Windows 10 ');
     $('#mincpu').text('Intel i3');
     $('#minram').text('4 GB RAM');
     $('#minhdd').text('500 MB available space');

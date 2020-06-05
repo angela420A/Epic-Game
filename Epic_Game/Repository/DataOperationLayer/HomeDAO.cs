@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using Epic_Game.Models;
@@ -33,5 +34,30 @@ namespace Epic_Game.Repository.DataOperationLayer
                             select new HomeActivityViewModels() { ActivityName = a.ActivityName, Slogan = a.Slogan, Information = a.Information, IMG = a.IMG }).ToList();
             return Activity;
         }
+
+        //public List<test> GetTopSales()
+        //{
+        //    //var Sales = context.Order.GroupJoin(context.Product,
+        //    //                            o => o.ProductID,
+        //    //                            p => p.ProductID,
+        //    //                            (o, p) => new
+        //    //                            {
+                                            
+        //    //                            });
+        //    return null;
+        //}
+
+        //public class test
+        //{
+        //    public string Url { get; set; }
+        //    public string ProductName { get; set; }
+        //    public string Developer { get; set; }
+        //    public string Publisher { get; set; }
+        //    public decimal Discount { get; set; }
+        //    [Column(TypeName = "money")]
+        //    public decimal Price { get; set; }
+
+        //    public int Count { get; set; }
+        //}
     }
 }
