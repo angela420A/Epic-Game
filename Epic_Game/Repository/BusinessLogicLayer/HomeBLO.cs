@@ -33,6 +33,6 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return ActivityData;
         }
 
-        public IEnumerable<>
+        //public IEnumerable<>
     }
 }
