@@ -17,7 +17,7 @@ namespace Epic_Game.ViewModels
         public string PD_Developer { get; set; }
         public string PD_Publisher { get; set; }
         public string PD_ReleaseDate { get; set; }
-        public string PD_Category { get; set; }
+        public List<string> PD_Category { get; set; }
         public string PD_AgeRestriction { get; set; }
         public int OS { get; set; }
         public string PD_Description { get; set; }

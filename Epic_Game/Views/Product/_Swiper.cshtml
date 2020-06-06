@@ -4,11 +4,19 @@
 }
     <div class="swiper-slide">
         <div class="rwd-iframe">
+            @if (Model.Media_Type == 2) 
+            { 
             <iframe class="rwd-iframe__target"
-                    src="@Model.Image_URL"
+                    src="                   
+                    @Model.Image_URL"
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen="allowfullscreen"></iframe>
+            }
+            else
+            {
+                <img class="rwd-iframe__target" src="@Model.Image_URL">
+            }
         </div>
     </div>
 
