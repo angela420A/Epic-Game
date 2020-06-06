@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Epic_Game.Models;
@@ -11,13 +13,21 @@ namespace Epic_Game.Repository.DataOperationLayer
 {
     public class HomeDAO
     {
-
+        public static string connString;
+        public SqlConnection conn;
         public EGContext context;
 
         public HomeDAO()
         {
             context = new EGContext();
-
+            if (string.IsNullOrEmpty(connString))
+            {
+                connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            }
+            if (conn == null)
+            {
+                conn = new SqlConnection(connString);
+            }
         }
         public List<StoreItems> GetProducts()
         {
@@ -35,32 +45,34 @@ namespace Epic_Game.Repository.DataOperationLayer
             return Activity;
         }
 
-        public List<StoreItems> GetSales()
-        {
-            var Sales = (from o in context.Order
-                         join p in context.Product on o.ProductID equals p.ProductID
-                         join i in context.Image on p.ProductID equals i.ProductOrPack
-                         where i.Location == 0
-                         select new StoreItems() { ProductID = o.ProductID, Url = i.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price }).ToList();
 
-            return Sales;
-        }
 
-        public List<StoreItems> getTop5Sale(List<GroupList> groupLists)
-        {
-            List<StoreItems> storeItems = new List<StoreItems>();
+        //public List<StoreItems> GetSales()
+        //{
+        //    var Sales = (from o in context.Order
+        //                 join p in context.Product on o.ProductID equals p.ProductID
+        //                 join i in context.Image on p.ProductID equals i.ProductOrPack
+        //                 where i.Location == 0
+        //                 select new StoreItems() { ProductID = o.ProductID, Url = i.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price }).ToList();
 
-            for (int i = 0; i < (groupLists.Count >= 5 ? 5 : groupLists.Count); i++)
-            {
-                var s = groupLists[i].Key;
-                var storeItem =  from p in context.Product
-                                 join img in context.Image on p.ProductID equals img.ProductOrPack
-                                 where p.ProductID == groupLists[i].Key && img.Location == 0
-                                 select new StoreItems() { ProductID = p.ProductID, Url = img.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price };
-                storeItems.Add(storeItem.FirstOrDefault());
-            }
+        //    return Sales;
+        //}
 
-            return storeItems;
-        }
+        //public List<StoreItems> getTop5Sale(List<GroupList> groupLists)
+        //{
+        //    List<StoreItems> storeItems = new List<StoreItems>();
+
+        //    for (int i = 0; i < (groupLists.Count >= 5 ? 5 : groupLists.Count); i++)
+        //    {
+        //        var s = groupLists[i].Key;
+        //        var storeItem =  from p in context.Product
+        //                         join img in context.Image on p.ProductID equals img.ProductOrPack
+        //                         where p.ProductID == groupLists[i].Key && img.Location == 0
+        //                         select new StoreItems() { ProductID = p.ProductID, Url = img.Url, ProductName = p.ProductName, Developer = p.Developer, Publisher = p.Publisher, Discount = p.Discount, Price = p.Price };
+        //        storeItems.Add(storeItem.FirstOrDefault());
+        //    }
+
+        //    return storeItems;
+        //}
     }
 }
