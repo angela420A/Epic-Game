@@ -67,5 +67,22 @@ namespace Epic_Game.Controllers
 
             return "../EpicGameCheckOut.aspx";
         }
+
+        //public ActionResult ECPay()
+        //{
+        //    var tradeInfo = new AllInOne()
+        //    {
+        //        /* 服務參數 */
+        //        ServiceMethod = HttpMethod.HttpPOST,//介接服務時，呼叫 API 的方法
+        //        ServiceURL = "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5",//要呼叫介接服務的網址
+        //        HashKey = "5294y06JbISpM5x9",//ECPay提供的Hash Key
+        //        HashIV = "v77hoKGq4kWxNNIS",//ECPay提供的Hash IV
+        //        MerchantID = "2000132",//ECPay提供的特店編號
+        //    };
+
+        //    var postData = tradeInfo.CheckOut();
+
+        //    return PartialView();
+        //}
     }
 }
