@@ -36,5 +36,18 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             wishlistDAO.DeleteWishListProduct(jdata);
         }
+        public void RemoveWish(string ProductID)
+        {
+            wishlistDAO.DeleteWishProduct(ProductID);
+        }
+        public void addWish(string ProductID)
+        {
+            wishlistDAO.AddWish(ProductID);
+        }
+        public bool ifWish(string productID)
+        {
+            var list = wishlistDAO.GetWishListProduct();
+            return list.Any(x => x.ProductID.ToString().Equals(productID));
+        }
     }
 }

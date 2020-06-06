@@ -35,7 +35,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             var pmv = new ProductViewModel
             {
                 PD_ProductName = p.ProductName,
-                PD_ProductID = p.ProductID,
+                PD_ProductID = p.ProductID.ToString(),
                 PD_ContentType = p.ContentType,
                 PD_Title = p.Title,
                 PD_Price = p.Price,

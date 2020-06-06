@@ -8,7 +8,7 @@ namespace Epic_Game.ViewModels
 {
     public class ProductViewModel
     {
-        public Guid PD_ProductID { get; set; }
+        public string PD_ProductID { get; set; }
         public string PD_ProductName { get; set; }
         public string PD_ContentType { get; set; }
         public string PD_Title { get; set; }
