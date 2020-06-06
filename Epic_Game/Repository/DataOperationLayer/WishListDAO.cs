@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EpicGameLibrary.Models;
 using System.Web;
+using System.Data.Entity;
 
 namespace Epic_Game.Repository.DataOperationLayer
 {
@@ -36,6 +37,23 @@ namespace Epic_Game.Repository.DataOperationLayer
             {
                 return img.Url;
             }
+        }
+        public void DeleteWishProduct(string productId)
+        {
+            var lib = context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(productId));
+            context.Library.Remove(lib);
+            context.SaveChanges();
+        }
+        public void AddWish(string ProductId)
+        {
+            var lib = new Library
+            {
+                ProductID = Guid.Parse(ProductId),
+                UserID = UserId,
+                Condition = 1
+            };
+            context.Library.Add(lib);
+            context.SaveChanges();
         }
     }
 }

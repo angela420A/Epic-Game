@@ -141,17 +141,50 @@ $('#Windows').on('click', function () {
 });
 
 //¦¬ÂÃ®w
-let btns = document.querySelectorAll('#btnheart');
+//let btns = document.querySelectorAll('#btnheart');
+//btns.forEach(btn => {
+//    btn.addEventListener('click', setEvent);
+//});
+//function setEvent(btn) {
+//    let span = this.getElementsByClassName('fa-heart')[0];
+//    let className = span.getAttribute('class');
+
+//    if (className.includes('far')) {
+//        span.setAttribute('class', 'fas fa-heart');
+//    } else {
+//        span.setAttribute('class', 'far fa-heart');
+//    }
+//}
+
+let btns = document.querySelectorAll('.btn_love');
 btns.forEach(btn => {
-    btn.addEventListener('click', setEvent);
+    btn.addEventListener('click', Wish);
 });
-function setEvent(btn) {
+
+function Wish() {
+    let productID = this.id;
+    let redirectTo = "Product";
     let span = this.getElementsByClassName('fa-heart')[0];
     let className = span.getAttribute('class');
-
-    if (className.includes('far')) {
-        span.setAttribute('class', 'fas fa-heart');
-    } else {
-        span.setAttribute('class', 'far fa-heart');
+    let data = {
+        ProductID: productID,
+        redirectTo: redirectTo
     }
+    $.ajax({
+        url: "/WishList/ChangeWish",
+        type: "post",
+        data: { jdata: JSON.stringify(data) },
+        success: function () {
+            if (className.includes('far')) {
+                span.setAttribute('class', 'fas fa-heart');
+            } else {
+                span.setAttribute('class', 'far fa-heart');
+            }
+        },
+        error: function () {
+            alert("Error!!");
+        }
+    });
 }
+ 
+
