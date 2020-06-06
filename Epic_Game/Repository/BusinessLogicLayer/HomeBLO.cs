@@ -17,29 +17,36 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             HomeDAO = new HomeDAO();
         }
 
-        public HomeViewModels GetHomeViewModel()
-        {
-            var data = HomeDAO.GetProducts();
-            return new HomeViewModels
-            {
-                BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
-                Activities = GetHomeActivity().ToList(),
-                
-            };
-        }
-        
-        //public List<StoreItems> TopSales()
+        //public HomeViewModels GetHomeViewModel()
         //{
-        //    var sales = HomeDAO.GetSales().GroupBy(x => x.ProductID).Select(s => new GroupList() { Key = s.Key, Count = s.Count() }).OrderByDescending(o => o.Count).ToList();
-        //    var topSales = HomeDAO.getTop5Sale(sales);
-        //    return topSales;
+        //    var data = HomeDAO.GetProducts();
+        //    return new HomeViewModels
+        //    {
+        //        BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
+        //        Activities = GetHomeActivity().ToList(),
+        //    };
         //}
 
-        public IEnumerable<HomeActivityViewModels> GetHomeActivity()
+        public HomeViewModels getHomeViewModel()
         {
-            var ActivityData = HomeDAO.GetActivity();
-            return ActivityData;
+            //var sales = HomeDAO.GetSales().GroupBy(x => x.ProductID).Select(s => new GroupList() { Key = s.Key, Count = s.Count() }).OrderByDescending(o => o.Count).ToList();
+            //var topSales = HomeDAO.getTop5Sale(sales);
+            HomeViewModels homeViewModels = new HomeViewModels();
+
+            homeViewModels.TopSales = HomeDAO.getTopSales(); ;
+            homeViewModels.BestDiscount = HomeDAO.getProducts().OrderBy(x => x.Discount).Take(5).ToList();
+            homeViewModels.Activities = HomeDAO.getActivity();
+            homeViewModels.MostRelated = HomeDAO.getTopMostRelated();
+            homeViewModels.BestRank = HomeDAO.getTopBestRank();
+            return homeViewModels;
         }
+
+
+        //public IEnumerable<HomeActivityViewModels> GetHomeActivity()
+        //{
+        //    var ActivityData = HomeDAO.GetActivity();
+        //    return ActivityData;
+        //}
 
         //public IEnumerable<>
 

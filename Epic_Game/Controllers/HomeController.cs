@@ -16,7 +16,7 @@ namespace Epic_Game.Controllers
         }
         public ActionResult Index()
         {
-            var result = _rbp.GetHomeViewModel();
+            var result = _rbp.getHomeViewModel();
             return View(result);
         }
 
