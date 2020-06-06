@@ -22,7 +22,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
 
             foreach (var item in p)
             {
-                viewModel.Add(new WishListViewModel { ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = item.Product.Price });
+                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = item.Product.Price });
             }
 
             return viewModel;
@@ -31,6 +31,10 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             var l = wishlistDAO.GetWishListProduct();
             return WishListToView(l);
+        }
+        public void DeleteWishListProduct(string jdata)
+        {
+            wishlistDAO.DeleteWishListProduct(jdata);
         }
     }
 }

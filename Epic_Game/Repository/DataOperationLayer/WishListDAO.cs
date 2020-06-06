@@ -37,5 +37,11 @@ namespace Epic_Game.Repository.DataOperationLayer
                 return img.Url;
             }
         }
+        public void DeleteWishListProduct(string jdata)
+        {
+            var delete_item = context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(jdata) && x.Condition == 1);
+            context.Library.Remove(delete_item);
+            context.SaveChanges();
+        }
     }
 }

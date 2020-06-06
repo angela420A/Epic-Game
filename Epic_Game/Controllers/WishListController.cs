@@ -10,11 +10,13 @@ namespace Epic_Game.Controllers
 {
     public class WishListController : Controller
     {
+        public WishListBLO wishlistBLO;
+
         // GET: WishList
         public ActionResult Index()
         {
             var UserId = User.Identity.GetUserId();
-            if (UserId == null)
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
@@ -26,13 +28,15 @@ namespace Epic_Game.Controllers
 
         private ActionResult GetWishList(string userId)
         {
-            var wishlistBLO = new WishListBLO(userId);
+            wishlistBLO = new WishListBLO(userId);
             return View(wishlistBLO.GetWishListProduct());
         }
 
-        public ActionResult Delete()
+        public void Delete(string jdata)
         {
-            return View();
+            
+            new WishListBLO(User.Identity.GetUserId()).DeleteWishListProduct(jdata);
+            GetWishList(User.Identity.GetUserId());
         }
     }
 }

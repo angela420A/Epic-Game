@@ -9,6 +9,31 @@
 }
 
 @section endJS{
+    <script>
+        window.onload = AddEven();
+
+        function AddEven() {
+            document.querySelectorAll(".changeHeart").forEach((item) => {
+                item.addEventListener('click', DeleteWish);
+            });
+        }
+
+        function DeleteWish() {
+            var productID = this.id;
+            debugger;
+            $.ajax({
+                url: '/WishList/Delete',
+                type: 'post',
+                data: { jdata: productID },
+                success: function () {
+                    alert("remove successfully.");
+                },
+                error: function () {
+                    alert("remove failed.");
+                }
+            });
+        }
+    </script>
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
 }
 <div class="container">
@@ -61,7 +86,7 @@
                         <ul class="wishlist-List">
                             @foreach (var item in Model)
                             {
-                                @Html.Partial("Wishlist_partial",item)
+                                @Html.Partial("Wishlist_partial", item)
                             }
                         </ul>
                     </div>
