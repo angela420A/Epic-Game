@@ -38,12 +38,7 @@ namespace Epic_Game.Repository.DataOperationLayer
                 return img.Url;
             }
         }
-        public void DeleteWishProduct(string productId)
-        {
-            var lib = context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(productId));
-            context.Library.Remove(lib);
-            context.SaveChanges();
-        }
+
         public void AddWish(string ProductId)
         {
             var lib = new Library
@@ -55,6 +50,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             context.Library.Add(lib);
             context.SaveChanges();
         }
+        //阿寶
         public void DeleteWishListProduct(string jdata)
         {
             var delete_item = context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(jdata) && x.Condition == 1);

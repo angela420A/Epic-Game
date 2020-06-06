@@ -32,14 +32,13 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             var l = wishlistDAO.GetWishListProduct();
             return WishListToView(l);
         }
+        //阿寶
         public void DeleteWishListProduct(string jdata)
         {
             wishlistDAO.DeleteWishListProduct(jdata);
         }
-        public void RemoveWish(string ProductID)
-        {
-            wishlistDAO.DeleteWishProduct(ProductID);
-        }
+
+        //ting
         public void addWish(string ProductID)
         {
             wishlistDAO.AddWish(ProductID);

@@ -33,16 +33,6 @@ namespace Epic_Game.Controllers
             wishlistBLO = new WishListBLO(userId);
             return View(wishlistBLO.GetWishListProduct());
         }
-        public void removeWish(string jdata)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                Index();
-            }
-            var UserId = User.Identity.GetUserId();
-            new WishListBLO(UserId).DeleteWishListProduct(jdata);
-        }
-
         public void addWish(string ProductId)
         {
             var UserId = User.Identity.GetUserId();
