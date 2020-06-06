@@ -40,7 +40,7 @@ namespace Epic_Game.Controllers
                 Index();
             }
             var UserId = User.Identity.GetUserId();
-            new WishListBLO(UserId).RemoveWish(jdata);
+            new WishListBLO(UserId).DeleteWishListProduct(jdata);
         }
 
         public void addWish(string ProductId)
@@ -55,7 +55,7 @@ namespace Epic_Game.Controllers
             WishListBLO blo = new WishListBLO(User.Identity.GetUserId());
             if (blo.ifWish(data.ProductId))
             {
-                removeWish(data.ProductId);
+                Delete(data.ProductId);
             }
             else
             {
@@ -63,10 +63,8 @@ namespace Epic_Game.Controllers
             }
             RedirectToAction("Index", data.RedirectTo);
         }
-        public ActionResult Delete()
         public void Delete(string jdata)
         {
-            
             new WishListBLO(User.Identity.GetUserId()).DeleteWishListProduct(jdata);
             GetWishList(User.Identity.GetUserId());
         }
