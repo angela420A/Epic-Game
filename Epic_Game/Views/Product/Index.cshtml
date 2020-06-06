@@ -12,10 +12,6 @@
     //tags = tags.Substring(2, tags.Length);
     tags = tags.TrimStart(',').Trim();
 
-
-
-
-
 }
 @section topCSS{
     <link href="~/Assets/css/product_style.css" rel="stylesheet" />
@@ -164,9 +160,7 @@
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Tags</span>
-                    <p>
-                        @tags 
-                    </p>
+                    <p>@tags</p>
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Rating</span>
@@ -233,7 +227,6 @@
 
 <!-- 評論------------------------------- -->
 @Html.Partial("_Comments")
-
 
 <!--規格 ------------------- -->
 <div class="container allblock" id="specification">
