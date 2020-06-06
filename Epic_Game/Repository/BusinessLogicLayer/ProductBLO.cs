@@ -22,7 +22,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
-            Library library = ProductDAO.GetLibraryModesl(ProductId);
+            Library library = ProductDAO.GetLibraryModesl(ProductId, UserId);
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
             List<Specifications> spe = ProductDAO.GetSpecificationsModel(ProductId);
@@ -53,7 +53,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
-                Library_Condition = library == null ? null : library.Condition
+                //Library_Condition = library == null ? null : library.Condition
             };
 
             pmv.SM = new List<SocialMediaViewModel>();

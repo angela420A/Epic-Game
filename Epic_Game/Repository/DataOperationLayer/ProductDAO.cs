@@ -48,10 +48,9 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.Comment.Where(x => x.ProductID.ToString().Equals(ProductID)).ToList();
         }
-        public Library GetLibraryModesl(string ProductID)
+        public Library GetLibraryModesl(string ProductID, string UserId)
         {
-            return context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID));
-
+            return context.Library.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID) && x.UserID.Equals(UserId));
         }
         public List<Image> GetImageModels(string ProductOrPack)
         {

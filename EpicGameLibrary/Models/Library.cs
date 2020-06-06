@@ -9,17 +9,18 @@ namespace EpicGameLibrary.Models
     [Table("Library")]
     public partial class Library
     {
-        public Guid LibraryID { get; set; }
-
-        [Required]
-        [StringLength(128)]
+        [Key]
+        [Column(Order = 0)]
         public string UserID { get; set; }
 
+        [Key]
+        [Column(Order = 1)]
         public Guid ProductID { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Condition { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Condition { get; set; }
 
         public virtual AspNetUsers AspNetUsers { get; set; }
 
