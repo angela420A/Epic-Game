@@ -38,7 +38,7 @@ namespace Epic_Game.Repository.DataOperationLayer
                 return img.Url;
             }
         }
-
+        //ting
         public void AddWish(string ProductId)
         {
             var lib = new Library
