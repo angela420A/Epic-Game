@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Epic_Game.ViewModels;
-using Epic_Game.Service;
+using EpicGameLibrary.Service;
 using Microsoft.AspNet.Identity;
 using Epic_Game.Repository.BusinessLogicLayer;
 using System.Net;
