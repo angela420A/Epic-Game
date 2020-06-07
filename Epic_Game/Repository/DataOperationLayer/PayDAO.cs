@@ -18,7 +18,7 @@ namespace Epic_Game.Repository.DataOperationLayer
 
         public bool hasgame(string _UserID,string _ProductID)
         {
-            return context.Library.Any(x => x.ProductID.ToString().Equals(_ProductID) && x.UserID.ToString().Equals(_UserID) && x.Condition.Equals("0"));
+            return context.Library.Any(x => x.ProductID.ToString().Equals(_ProductID) && x.UserID.ToString().Equals(_UserID) && x.Condition == 0);
         }
 
         public Product GetProduct(string _ProductID)

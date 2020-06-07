@@ -20,6 +20,7 @@ namespace Epic_Game.ViewModels
 
     public class StoreItems
     {
+        public Guid ProductID { get; set; }
         public string Url { get; set; }
         public string ProductName { get; set; }
         public string Developer { get; set; }
@@ -36,5 +37,4 @@ namespace Epic_Game.ViewModels
         public string Information { get; set; }
         public string IMG { get; set; }
     }
-    
 }

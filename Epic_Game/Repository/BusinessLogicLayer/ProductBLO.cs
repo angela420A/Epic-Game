@@ -3,6 +3,7 @@ using Epic_Game.ViewModels;
 using EpicGameLibrary.Models;
 using System;
 using System.Collections.Generic;
+using Epic_Game.Service;
 using System.Linq;
 using System.Web;
 using WebGrease.Css.Extensions;
@@ -34,7 +35,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             var pmv = new ProductViewModel
             {
                 PD_ProductName = p.ProductName,
-                PD_ProductID = p.ProductID,
+                PD_ProductID = p.ProductID.ToString(),
                 PD_ContentType = p.ContentType,
                 PD_Title = p.Title,
                 PD_Price = p.Price,
@@ -42,7 +43,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_Developer = p.Developer,
                 PD_Publisher = p.Publisher,
                 PD_ReleaseDate = p.ReleaseDate.ToString("yyyy.MM.dd"),
-                PD_Category = p.Category.ToString(),
+                PD_Category = new GameType().getGameType(p.Category),
                 PD_AgeRestriction = p.AgeRestriction.ToString(),
                 OS = p.OS,
                 PD_Description = p.Description,
@@ -86,7 +87,8 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 var imagevm = new ImageViewModel()
                 {
                     Image_URL = Image.Url,
-                    Image_Location = Image.Location
+                    Image_Location = Image.Location,
+                    Media_Type = Image.Type
                 };
                 pmv.PD_image.Add(imagevm);
             }

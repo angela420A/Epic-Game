@@ -2,11 +2,7 @@ let dis_img = document.querySelector(".dis_img");
 let dis_list = document.querySelector(".dis_list");
 let game_div = document.querySelectorAll("#game_div");
 let dis_style = document.querySelector("#dis_style");
-let download = document.querySelector(".download_icon");
-
-download.addEventListener('click', () => {
-    $('#exampleModal').modal('toggle');
-})
+let link = document.querySelector(".link_icon");
 
 dis_img.addEventListener('click', () => {
     dis_style.href = "/Assets/css/dis_img.css";
@@ -25,6 +21,10 @@ dis_list.addEventListener('click', () => {
 
 let recent = document.querySelector(".recent");
 let alphabetical = document.querySelector(".alphabetical");
+
+link.addEventListener('click', () => {
+
+})
 
 alphabetical.addEventListener('click', () => {
     

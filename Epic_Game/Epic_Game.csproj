@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EpicGameLibrary">
       <HintPath>..\EpicGameLibrary\bin\Debug\EpicGameLibrary.dll</HintPath>
     </Reference>
@@ -187,6 +190,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\WishChangeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\HomeBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\PayBLO.cs" />
@@ -500,6 +504,7 @@
     <Content Include="Views\UserAccount\_TransactionHistoryPartial.cshtml" />
     <Content Include="Views\Library\Library_Product_Partial.cshtml" />
     <Content Include="Views\WishList\Wishlist_partial.cshtml" />
+    <Content Include="Views\Product\_SpecificationTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
