@@ -190,7 +190,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\WishChangeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\HomeBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\PayBLO.cs" />

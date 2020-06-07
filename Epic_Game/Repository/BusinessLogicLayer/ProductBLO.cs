@@ -3,7 +3,7 @@ using Epic_Game.ViewModels;
 using EpicGameLibrary.Models;
 using System;
 using System.Collections.Generic;
-using Epic_Game.Service;
+using EpicGameLibrary.Service;
 using System.Linq;
 using System.Web;
 using WebGrease.Css.Extensions;
