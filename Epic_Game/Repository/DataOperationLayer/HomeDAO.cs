@@ -23,7 +23,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             context = new EGContext();
             if (string.IsNullOrEmpty(connString))
             {
-                connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                connString = ConfigurationManager.ConnectionStrings["EGContext"].ConnectionString;
             }
             if (conn == null)
             {
