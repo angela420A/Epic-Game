@@ -201,6 +201,7 @@
     <Content Include="Assets\css\EpicGameHant.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\finish.css" />
+    <Content Include="Assets\css\ForgotPasswordConfirmation\ForgotPasswordConfirmation.css" />
     <Content Include="Assets\css\ForgotPassword\ForgotPassword.css" />
     <Content Include="Assets\css\gamesnews.css" />
     <Content Include="Assets\css\library.css" />
