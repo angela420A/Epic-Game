@@ -23,6 +23,12 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return p;
         }
 
+        public bool Collect(string UserID, string ProductID)
+        {
+            var c = PayDAO.Collect(UserID, ProductID);
+            return c;
+        }
+
         public PayViewModel GetPayViewModel(string ProductID)
         {
             Product product = PayDAO.GetProduct(ProductID);

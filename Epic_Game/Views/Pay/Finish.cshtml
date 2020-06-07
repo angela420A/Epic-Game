@@ -20,3 +20,12 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    $(function () {
+        $.ajax({
+            url: "/Pay/CreatOrder"
+        })
+    });
+    setTimeout("location.href ='@Url.Action("Index","Library")'", 1000);
+</script>

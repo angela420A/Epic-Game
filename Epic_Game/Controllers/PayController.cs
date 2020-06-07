@@ -14,6 +14,9 @@ namespace Epic_Game.Controllers
 {
     public class PayController : Controller
     {
+
+        EGContext context = new EGContext();
+
         private PayBLO PayBLO { get; set; }
 
         public PayController()
@@ -28,7 +31,7 @@ namespace Epic_Game.Controllers
             string ProductID = "d75ebeb8-4bc7-44b3-86bf-904ec05a5686";
             var UserId = User.Identity.GetUserId();
             PayViewModel VM = PayBLO.GetPayViewModel(ProductID);
-            var hasgame = PayBLO.GetLibrary(UserId,ProductID);
+            var hasgame = PayBLO.GetLibrary(UserId, ProductID);
             if (UserId == null)
             {
                 return RedirectToAction("Login", "Account");
@@ -37,7 +40,7 @@ namespace Epic_Game.Controllers
             {
                 if (hasgame == true)
                 {
-                    return RedirectToAction("Index","Library");
+                    return RedirectToAction("Index", "Library");
                 }
                 else
                 {
@@ -51,38 +54,32 @@ namespace Epic_Game.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Finish([Bind(Include = "ProductId,ProductName")] PayViewModel info)
-        //{
-        //    return View();
-        //}
+        public void CreatOrder()
+        {
+            string ProductID = "d75ebeb8-4bc7-44b3-86bf-904ec05a5686";
+            var UserId = User.Identity.GetUserId();
+            var collect = PayBLO.Collect(UserId, ProductID);
+            Guid g = Guid.NewGuid();
+
+
+            Order order = new Order { OrderID = g, UserID = UserId, ProductID = Guid.Parse(ProductID), Date = DateTime.Now };
+            Library library = new Library { UserID = UserId, ProductID = Guid.Parse(ProductID), Condition = 0 };
+            context.Order.Add(order);
+            context.Library.Add(library);
+            context.SaveChanges();
+
+        }
 
 
         public string ToECpay(string jdata)
         {
             PayViewModel VM = PayBLO.GetPayViewModel(jdata);
             Session["Name"] = VM.ProductName;
-            Session["P"] = string.Format("{0:####.#}", Session["Price"]= VM.Price);
+            Session["P"] = string.Format("{0:####.#}", Session["Price"] = VM.Price);
 
             return "../EpicGameCheckOut.aspx";
         }
 
-        //public ActionResult ECPay()
-        //{
-        //    var tradeInfo = new AllInOne()
-        //    {
-        //        /* 服務參數 */
-        //        ServiceMethod = HttpMethod.HttpPOST,//介接服務時，呼叫 API 的方法
-        //        ServiceURL = "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5",//要呼叫介接服務的網址
-        //        HashKey = "5294y06JbISpM5x9",//ECPay提供的Hash Key
-        //        HashIV = "v77hoKGq4kWxNNIS",//ECPay提供的Hash IV
-        //        MerchantID = "2000132",//ECPay提供的特店編號
-        //    };
 
-        //    var postData = tradeInfo.CheckOut();
-
-        //    return PartialView();
-        //}
     }
 }

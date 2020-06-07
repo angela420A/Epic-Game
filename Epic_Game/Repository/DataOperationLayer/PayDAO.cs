@@ -21,6 +21,11 @@ namespace Epic_Game.Repository.DataOperationLayer
             return context.Library.Any(x => x.ProductID.ToString().Equals(_ProductID) && x.UserID.ToString().Equals(_UserID) && x.Condition == 0);
         }
 
+        public bool Collect(string _UserID, string _ProductID)
+        {
+            return context.Library.Any(x => x.ProductID.ToString().Equals(_ProductID) && x.UserID.ToString().Equals(_UserID) && x.Condition == 1);
+        }
+
         public Product GetProduct(string _ProductID)
         {
             return context.Product.FirstOrDefault(x => x.ProductID.ToString().Equals(_ProductID));
