@@ -220,6 +220,7 @@
     <Compile Include="ViewModels\WishListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ConfirmEmail\ConfirmEmail.css" />
     <Content Include="Assets\css\all.css" />
     <Content Include="Assets\css\dis_img.css" />
     <Content Include="Assets\css\dis_list.css" />
@@ -227,6 +228,8 @@
     <Content Include="Assets\css\EpicGameHant.css" />
     <Content Include="Assets\css\EpicGameStore.css" />
     <Content Include="Assets\css\finish.css" />
+    <Content Include="Assets\css\ForgotPasswordConfirmation\ForgotPasswordConfirmation.css" />
+    <Content Include="Assets\css\ForgotPassword\ForgotPassword.css" />
     <Content Include="Assets\css\gamesnews.css" />
     <Content Include="Assets\css\library.css" />
     <Content Include="Assets\css\Login\Login.css" />
@@ -236,6 +239,8 @@
     <Content Include="Assets\css\Layout\SideBar.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\Register\Register.css" />
+    <Content Include="Assets\css\ResetPasswordConfirmation\ResetPasswordConfirmation.css" />
+    <Content Include="Assets\css\ResetPassword\ResetPassword.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
     <Content Include="Assets\css\UserAccount\account_Layout.css" />
