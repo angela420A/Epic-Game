@@ -212,6 +212,7 @@
     <Content Include="Assets\css\Layout\SideBar.css" />
     <Content Include="Assets\css\redeem.css" />
     <Content Include="Assets\css\Register\Register.css" />
+    <Content Include="Assets\css\ResetPasswordConfirmation\ResetPasswordConfirmation.css" />
     <Content Include="Assets\css\ResetPassword\ResetPassword.css" />
     <Content Include="Assets\css\UserAccount\account_general.css" />
     <Content Include="Assets\css\UserAccount\account_history.css" />
