@@ -333,6 +333,7 @@ body {
 
 #aboutgame .aboutgame_about {
     margin: 10px 0;
+    padding-left: 0;
 }
 
 .aboutgame_text {
