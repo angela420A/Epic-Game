@@ -3,6 +3,7 @@ using Epic_Game.Repository.DataOperationLayer;
 using Epic_Game.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,23 +17,18 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             HomeDAO = new HomeDAO();
         }
 
-        public HomeViewModels GetHomeViewModel()
+
+        public HomeViewModels getHomeViewModel()
         {
-            var data = HomeDAO.GetProducts();
-            return new HomeViewModels
-            {
-                BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList(),
-                Activities = GetHomeActivity().ToList(),
- 
-            };
-        }
-        
-        public IEnumerable<HomeActivityViewModels> GetHomeActivity()
-        {
-            var ActivityData = HomeDAO.GetActivity();
-            return ActivityData;
+            HomeViewModels homeViewModels = new HomeViewModels();
+
+            homeViewModels.TopSales = HomeDAO.getTopSales(); ;
+            homeViewModels.BestDiscount = HomeDAO.getProducts().OrderBy(x => x.Discount).Take(5).ToList();
+            homeViewModels.Activities = HomeDAO.getActivity();
+            homeViewModels.MostRelated = HomeDAO.getTopMostRelated();
+            homeViewModels.BestRank = HomeDAO.getTopBestRank();
+            return homeViewModels;
         }
 
-        //public IEnumerable<>
     }
 }
