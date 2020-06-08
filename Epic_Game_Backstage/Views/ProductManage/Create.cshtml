@@ -4,144 +4,242 @@
     ViewBag.Title = "Create";
 }
 
+@section topCSS{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Assets/css/ProductCreate.css" rel="stylesheet" />
+}
+
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContentType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContentType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContentType, "", new { @class = "text-danger" })
+<div id='app'>
+    @*<div class="row justify-content-center">
+            <div class="col-6">
+                <ul class="nav navbar">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="ProductInfo">Product Information</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="UploadInmage">Upload Image</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" id="SeeProduct">See Product</button>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+    <div class="container ProductInfoPage">
+        <h2>Basic Information:</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" id="inputGroup-sizing-lg">Product Name</label>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing input"
+                           aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="input-group-prepend">
+                    <label class="input-group-text"
+                           style="border-bottom-right-radius: 0px; border-top-right-radius: 0px; border-right: none;">
+                        Product
+                        Type
+                    </label>
+                    <select class="custom-select"
+                            style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;">
+                        <option value="Game">Game</option>
+                        <option value="DLC">DLC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" id="inputGroup-sizing-default">Publisher</label>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing input"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" id="inputGroup-sizing-default">Developer</label>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing input"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="ProductIntro">Product Introduction:</label>
+                    <textarea class="form-control" id="ProductIntro" rows="3"></textarea>
+                </div>
+                <div class="Categories">
+                    <div>
+                        <label id="inputGroup-sizing-lg">Product's categories:</label>
+                    </div>
+                    <!-- btn Area -->
+                    <div>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Action" value="1"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Action">Action</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Adventure" value="2"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Adventure">Adventure</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Editors" value="4"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Editors">Editors</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Puzzle" value="8"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Puzzle">Puzzle</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Racing" value="16"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Racing">Racing</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_RPG" value="32"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_RPG">RPG</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Shooter" value="64"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Shooter">Shooter</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Strategy" value="128"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Strategy">Strategy</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Survival" value="256"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Survival">Survival</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_ControllerSupport" value="512"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary"
+                               for="Ctgy_ControllerSupport">Controller Support</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_CoOp" value="1024"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_CoOp">Co-Op</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_SinglePlayer" value="2048"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_SinglePlayer">
+                            Single
+                            Player
+                        </label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Multiplayer" value="4096"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary"
+                               for="Ctgy_Multiplayer">Multi-player</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Windows" value="8192"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Windows">Windows</label>
+
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_MacOS" value="16384"
+                               style="display: none;">
+                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_MacOS">Mac OS</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="ProductIntro">Privacy Policy:</label>
+                    <textarea class="form-control" id="ProductIntro" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ProductIntro">Privacy Policy Link:</label>
+                    <div class="input-group-prepend">
+                        <label class="input-group-text"
+                               style="border-bottom-right-radius: 0px; border-top-right-radius: 0px; border-right: none;">URL</label>
+                        <input type="text" class="form-control" aria-label="Sizing input"
+                               aria-describedby="inputGroup-sizing-default"
+                               style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ProductIntro">Age restriction:</label>
+                    <div class="input-group-prepend">
+                        <label class="input-group-text"
+                               style="border-bottom-right-radius: 0px; border-top-right-radius: 0px; border-right: none;">Ages</label>
+                        <input type="text" class="form-control" aria-label="Sizing input"
+                               aria-describedby="inputGroup-sizing-default"
+                               style="border-bottom-left-radius: 0px; border-top-left-radius: 0px;">
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+        <h2 style="margin: 40px 0 20px;">Product's Images:</h2>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <label for="ProductIntro">Store Image:</label>
+                <div style="border: 1px solid #999;">
+                    <div id="storeImg" style="padding-bottom: calc(4/3 * 100%); position: relative">
+                        @*<div class="imgArea"
+                             style="background-image: url('');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;">
+                        </div>*@
+                    </div>
+                </div>
+                <form action="" style="margin-top: 15px;">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" v-on:change="showFile">
+                        <label class="custom-file-label" for="customFile">Upload image</label>
+                    </div>
+                </form>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            <div class="col-4" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <label for="ProductIntro">Game Logo:</label>
+                <div style="border: 1px solid #999;">
+                    <div style="padding-bottom: calc(3/5 * 100%); position: relative">
+                        <div class="imgArea"
+                             style="background-image: url('');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;">
+                        </div>
+                    </div>
+                </div>
+                <form action="">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload image</label>
+                    </div>
+                </form>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            <div class="col-9 mt-5">
+                <label for="ProductIntro">Swiper Image:</label>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="rwd-iframe">
+                                <iframe class="rwd-iframe__target" src="" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Developer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Developer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developer, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Publisher, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReleaseDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AgeRestriction, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AgeRestriction, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AgeRestriction, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OS, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OS, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LanguagesSupported, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LanguagesSupported, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LanguagesSupported, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrivacyPolicy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrivacyPolicy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PrivacyPolicy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrivacyPolicyUrl, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrivacyPolicyUrl, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PrivacyPolicyUrl, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-3 mt-5">
+                <form action="">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload image</label>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-}
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -149,4 +247,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+@section endJS{
+    <script src="~/Assets/js/ProductManageCreate.js"></script>
 }
