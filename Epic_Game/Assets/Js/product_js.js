@@ -145,7 +145,6 @@ let btns = document.querySelectorAll('.btn_love');
 btns.forEach(btn => {
     btn.addEventListener('click', Wish);
 });
-
 function Wish() {
     let productID = this.id;
     let redirectTo = "Product";
