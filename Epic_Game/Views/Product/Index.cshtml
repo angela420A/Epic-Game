@@ -4,12 +4,12 @@
 
     var discountprice = decimal.Round(Model.PD_Discount * Model.PD_Price);
     var tags = string.Empty;
-    foreach(var tag in Model.PD_Category)
+    foreach (var tag in Model.PD_Category)
     {
-        tags += ("," + " " + tag );
+        tags += ("," + " " + tag);
         //tags += tag;
     }
-  tags = tags.TrimStart(',').Trim();
+    tags = tags.TrimStart(',').Trim();
 
 }
 @section topCSS{
@@ -105,6 +105,10 @@
                             </span>
 
                         }
+                        else if (Model.PD_Discount == 1)
+                        {
+                            <span class="price_original" style="color: #e7e7e7;">TWD$@discountprice</span>
+                        }
                         else
                         {
                             <span class="discount">
@@ -127,21 +131,23 @@
                             {
                                 <span style="font-size: 16px;">BUY NOW</span>
                             }
-                                
+
                         </a>
                         <div class="game_pic_btn_right">
                             <div class="game_pic_btn_container">
                                 <div class="game_pic_btn_content">
-                                    <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
-                                        @if (Model.Library_Condition == 2)
-                                        {
-                                            <span><i id="fa" class="far fa-heart"></i></span>
-                                        }
-                                        else if(Model.Library_Condition == 1)//願望清單
-                                        {
-                                            <span><i id="fa" class="fas fa-heart"></i></span>
-                                        }
-                                    </button>
+                                    @if (Model.Library_Condition == 2)
+                                    {
+                                        <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
+                                        <span><i id="fa" class="far fa-heart"></i></span>
+                                        </button>
+                                    }
+                                    else if (Model.Library_Condition == 1)//願望清單
+                                    {
+                                        <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
+                                        <span><i id="fa" class="fas fa-heart"></i></span>
+                                        </button>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -193,21 +199,21 @@
                 </div>
                 <div class="col-6 col-md-4 aboutgame_about">
                     <span>Platform</span>
-                <p>
-                    @if (Model.OS == 1)
-                    {
-                        <i class="fab fa-windows"></i>
-                    }
-                    else if (Model.OS == 2)
-                    {
-                        <i class="fab fa-apple"></i>
-                    }
-                    else if (Model.OS == 3)
-                    {
-                        <i class="fab fa-windows"></i>
-                        <i class="fab fa-apple"></i>
-                    }
-                </p>
+                    <p>
+                        @if (Model.OS == 1)
+                        {
+                            <i class="fab fa-windows"></i>
+                        }
+                        else if (Model.OS == 2)
+                        {
+                            <i class="fab fa-apple"></i>
+                        }
+                        else if (Model.OS == 3)
+                        {
+                            <i class="fab fa-windows"></i>
+                            <i class="fab fa-apple"></i>
+                        }
+                    </p>
                 </div>
             </div>
             <div class="aboutgame_content ">
@@ -217,13 +223,13 @@
                     @Model.PD_Description
 
                     @*<div class="collapse_pic">
-                        <div class="col-12 col-md-6">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
-                        </div>
-                    </div>*@
+                            <div class="col-12 col-md-6">
+                                <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
+                            </div>
+                        </div>*@
 
                 </div>
                 <div class="fade"></div>
@@ -254,13 +260,13 @@
                     <div class="title_div">
                         <div class="title_div_div" id="Windows">
                             @*@if (Model.OS == 1)
-                            {
-                                <span class="span_text">WINDOWS </span >
-                            }
-                            else if(Model.OS == 3)
-                            {
+                                {
+                                    <span class="span_text">WINDOWS </span >
+                                }
+                                else if(Model.OS == 3)
+                                {
 
-                            }*@
+                                }*@
 
                         </div>
                         <div class="title_div_div" id="MACOS">
@@ -300,22 +306,22 @@
                         </td>
                     </tr>
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_Processor != null)
-                            {
-                                <div class="small_title_span"><span>Processor</span></div>
-                                <span class="span_text" id="mincpu"> @Model.PD_Specifications[0].SPE_Processor</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_Processor != null)
+                                {
+                                    <div class="small_title_span"><span>Processor</span></div>
+                                    <span class="span_text" id="mincpu"> @Model.PD_Specifications[0].SPE_Processor</span>
+                                }
 
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_Processor != null)
-                            {
-                                <div class="small_title_span"><span>Processor</span></div>
-                                <span class="span_text" id="reccpu">@Model.PD_Specifications[1].SPE_Processor</span>
-                            }
-                        </td>
-                    </tr>*@
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_Processor != null)
+                                {
+                                    <div class="small_title_span"><span>Processor</span></div>
+                                    <span class="span_text" id="reccpu">@Model.PD_Specifications[1].SPE_Processor</span>
+                                }
+                            </td>
+                        </tr>*@
                     <tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_CPU != null)
@@ -351,22 +357,22 @@
                         </td>
                     </tr>
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_RAM != null)
-                            {
-                                <div class="small_title_span"><span>RAM</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_RAM</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_RAM != null)
-                            {
-                                <div class="small_title_span"><span>Memory</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_RAM</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_RAM != null)
+                                {
+                                    <div class="small_title_span"><span>RAM</span></div>
+                                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_RAM</span>
+                                }
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_RAM != null)
+                                {
+                                    <div class="small_title_span"><span>Memory</span></div>
+                                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_RAM</span>
+                                }
 
-                        </td>
-                    </tr>*@
+                            </td>
+                        </tr>*@
                     <tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_Storage != null)
@@ -385,73 +391,73 @@
                         </td>
                     </tr>
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_GraphiceCard != null)
-                            {
-                                <div class="small_title_span"><span>GraphiceCard</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_GraphiceCard</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_GraphiceCard != null)
-                            {
-                                <div class="small_title_span"><span>GraphiceCard</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_GraphiceCard</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_GraphiceCard != null)
+                                {
+                                    <div class="small_title_span"><span>GraphiceCard</span></div>
+                                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_GraphiceCard</span>
+                                }
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_GraphiceCard != null)
+                                {
+                                    <div class="small_title_span"><span>GraphiceCard</span></div>
+                                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_GraphiceCard</span>
+                                }
 
-                        </td>
-                    </tr>*@
+                            </td>
+                        </tr>*@
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_HDD != null)
-                            {
-                                <div class="small_title_span"><span>HDD</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_HDD</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_HDD != null)
-                            {
-                                <div class="small_title_span"><span>HDD</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_HDD</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_HDD != null)
+                                {
+                                    <div class="small_title_span"><span>HDD</span></div>
+                                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_HDD</span>
+                                }
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_HDD != null)
+                                {
+                                    <div class="small_title_span"><span>HDD</span></div>
+                                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_HDD</span>
+                                }
 
-                        </td>
-                    </tr>*@
+                            </td>
+                        </tr>*@
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_DirectX != null)
-                            {
-                                <div class="small_title_span"><span>DirectX</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_DirectX</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_DirectX != null)
-                            {
-                                <div class="small_title_span"><span>DirectX</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_DirectX</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_DirectX != null)
+                                {
+                                    <div class="small_title_span"><span>DirectX</span></div>
+                                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_DirectX</span>
+                                }
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_DirectX != null)
+                                {
+                                    <div class="small_title_span"><span>DirectX</span></div>
+                                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_DirectX</span>
+                                }
 
-                        </td>
-                    </tr>*@
+                            </td>
+                        </tr>*@
                     @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_Additional != null)
-                            {
-                                <div class="small_title_span"><span>Additional</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Additional</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_Additional != null)
-                            {
-                                <div class="small_title_span"><span>Additional</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Additional</span>
-                            }
+                            <td class="recup">
+                                @if (Model.PD_Specifications[0].SPE_Additional != null)
+                                {
+                                    <div class="small_title_span"><span>Additional</span></div>
+                                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Additional</span>
+                                }
+                            </td>
+                            <td class="rec">
+                                @if (Model.PD_Specifications[1].SPE_Additional != null)
+                                {
+                                    <div class="small_title_span"><span>Additional</span></div>
+                                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Additional</span>
+                                }
 
-                        </td>
-                    </tr>*@
+                            </td>
+                        </tr>*@
 
                 </table>
                 @*@Html.Partial("__SpecificationTable")*@
