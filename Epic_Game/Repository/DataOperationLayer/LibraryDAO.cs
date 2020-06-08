@@ -25,7 +25,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
         public List<Library> GetLibraryProduct()
         {
-            return context.Library.Where(x => x.UserID == UserId && x.Condition == 1).ToList();
+            return context.Library.Where(x => x.UserID == UserId && x.Condition == 0).ToList();
         }
         public string GetImg(string ProductId)
         {
