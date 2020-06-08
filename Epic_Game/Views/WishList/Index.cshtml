@@ -19,20 +19,34 @@
         }
 
         function DeleteWish() {
-            var productID = this.id;
-            debugger;
+            let redirectTo = "Product";
+            let productID = this.id;
+            let span = this.getElementsByClassName('fas')[0];
+            let className = span.getAttribute('class');
+            let data = {
+                ProductID: productID,
+                redirectTo: redirectTo
+            }
             $.ajax({
-                url: '/WishList/Delete',
+                url: '/WishList/ChangeWish',
                 type: 'post',
-                data: { jdata: productID },
+                data: { jdata: JSON.stringify(data) },
                 success: function () {
-                    alert("remove successfully.");
+                    if (className.includes('fa-undo')) {
+                        span.setAttribute('class', 'fas fa-heart');
+                    }
+                    else {
+                        span.setAttribute('class', 'fas fa-undo');
+                    }
                 },
                 error: function () {
                     alert("remove failed.");
                 }
             });
         }
+
+        let wishCount_text = document.querySelector(".wishCount_text");
+        wishCount_text.innerText = `${document.querySelectorAll(".changeHeart").length} items`;
     </script>
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
 }
@@ -76,7 +90,7 @@
             <div class="row">
                 <div class="col">
                     <div class="wishCount">
-                        <p>2 items</p>
+                        <p class="wishCount_text"></p>
                     </div>
                 </div>
             </div>
