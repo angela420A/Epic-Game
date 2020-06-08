@@ -16,6 +16,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         public ProductBLO()
         {
             ProductDAO = new ProductDAO();
+            
         }
         public ProductViewModel GetProductViewModel(string ProductId,string UserId )
         {
@@ -50,7 +51,6 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 PD_Languages = p.LanguagesSupported,
                 PD_Privary = p.PrivacyPolicy,
                 PD_PrivaryUrl = p.PrivacyPolicyUrl,
-
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
@@ -90,6 +90,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                     Image_Location = Image.Location,
                     Media_Type = Image.Type
                 };
+                IsVideo(imagevm);
                 pmv.PD_image.Add(imagevm);
             }
 
@@ -115,5 +116,14 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
             return pmv;
         }
+
+        public void IsVideo(ImageViewModel vm)
+        {
+            if (vm.Media_Type == 2)
+            {
+                vm.Image_URL += "?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3";               
+            }
+        }
+
     }
 }
