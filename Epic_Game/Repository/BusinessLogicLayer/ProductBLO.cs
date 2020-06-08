@@ -54,7 +54,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_image = pack.Img,
                 //Pack_Price = pack.Price,
                 //Pack_Discount = pack.Discount,
-                //Library_Condition = library == null ? null : library.Condition
+                Library_Condition = library == null ? 2 : library.Condition
             };
 
             pmv.SM = new List<SocialMediaViewModel>();

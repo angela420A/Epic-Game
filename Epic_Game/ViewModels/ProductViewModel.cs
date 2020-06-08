@@ -28,7 +28,7 @@ namespace Epic_Game.ViewModels
         public string Pack_image { get; set; }
         public decimal? Pack_Price { get; set; }
         public decimal? Pack_Discount { get; set; }
-        public string Library_Condition { get; set; }
+        public int Library_Condition { get; set; }
         public List<CommentViewModel> PD_Comment { get;set; }
         public List<ImageViewModel> PD_image { get; set; }
         public List<SpecificationsViewModel> PD_Specifications { get; set; }
