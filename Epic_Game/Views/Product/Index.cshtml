@@ -9,8 +9,7 @@
         tags += ("," + " " + tag );
         //tags += tag;
     }
-    //tags = tags.Substring(2, tags.Length);
-    tags = tags.TrimStart(',').Trim();
+  tags = tags.TrimStart(',').Trim();
 
 }
 @section topCSS{
@@ -120,13 +119,28 @@
                 <div class="game_pic_btn_div">
                     <div class="game_pic_btn_left">
                         <a href="@Url.Action("Index","Pay")" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
-                            <span style="font-size: 16px;">BUY NOW</span>
+                            @if (Model.Library_Condition == 0)
+                            {
+                                <span style="font-size: 16px;">Aready Purchased</span>
+                            }
+                            else
+                            {
+                                <span style="font-size: 16px;">BUY NOW</span>
+                            }
+                                
                         </a>
                         <div class="game_pic_btn_right">
                             <div class="game_pic_btn_container">
                                 <div class="game_pic_btn_content">
                                     <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
-                                        <span><i id="fa" class="far fa-heart"></i></span>
+                                        @if (Model.Library_Condition == 2)
+                                        {
+                                            <span><i id="fa" class="far fa-heart"></i></span>
+                                        }
+                                        else if(Model.Library_Condition == 1)//願望清單
+                                        {
+                                            <span><i id="fa" class="fas fa-heart"></i></span>
+                                        }
                                     </button>
                                 </div>
                             </div>
@@ -239,7 +253,15 @@
                 <table width="100%" style="table-layout:fixed">
                     <div class="title_div">
                         <div class="title_div_div" id="Windows">
-                            <span class="span_text">WINDOWS</span>
+                            @*@if (Model.OS == 1)
+                            {
+                                <span class="span_text">WINDOWS </span >
+                            }
+                            else if(Model.OS == 3)
+                            {
+
+                            }*@
+
                         </div>
                         <div class="title_div_div" id="MACOS">
                             <span class="span_text">MAC OS</span>
