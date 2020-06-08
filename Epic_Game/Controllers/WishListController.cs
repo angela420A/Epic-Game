@@ -1,20 +1,24 @@
 ﻿using Epic_Game.Repository.BusinessLogicLayer;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Epic_Game.Models;
 
 namespace Epic_Game.Controllers
 {
     public class WishListController : Controller
     {
+        public WishListBLO wishlistBLO;
+
         // GET: WishList
         public ActionResult Index()
         {
             var UserId = User.Identity.GetUserId();
-            if (UserId == null)
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
@@ -26,13 +30,37 @@ namespace Epic_Game.Controllers
 
         private ActionResult GetWishList(string userId)
         {
-            var wishlistBLO = new WishListBLO(userId);
+            wishlistBLO = new WishListBLO(userId);
             return View(wishlistBLO.GetWishListProduct());
         }
-
-        public ActionResult Delete()
+        //ting
+        public void addWish(string ProductId)
         {
-            return View();
+            var UserId = User.Identity.GetUserId();
+            var blo = new WishListBLO(UserId);
+            blo.addWish(ProductId);
         }
+        //ting
+        public void ChangeWish(string jdata)
+        {
+            var data = JsonConvert.DeserializeObject<WishChangeModel>(jdata);
+            WishListBLO blo = new WishListBLO(User.Identity.GetUserId());
+            if (blo.ifWish(data.ProductId))
+            {
+                Delete(data.ProductId);
+            }
+            else
+            {
+                addWish(data.ProductId);
+            }
+            RedirectToAction("Index", data.RedirectTo);
+        }
+        //阿寶
+        public void Delete(string jdata)
+        {
+            new WishListBLO(User.Identity.GetUserId()).DeleteWishListProduct(jdata);
+            GetWishList(User.Identity.GetUserId());
+        }
+       
     }
 }

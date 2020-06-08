@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+body{
+    background-color: rgb(15, 15, 15);
+}
+
+.confirm-root{
+    text-align: center;
+    padding: 60px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-border{
+    background-color: #202020;
+    width: 500px;
+    height: 300px;
+    padding: 40px 0px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.confirm-img{
+    margin-bottom: 10px;
+}
+
+.confirm-img img{
+    width: 80px;
+    height: 80px;
+}
+
+.confirm-text{
+    margin-bottom: 20px;
+}
+
+.confirm-text h3{
+    font-family: Microsoft JhengHei;
+    font-weight: normal;
+    font-size: 20px;
+    color:  rgba(255,255,255,0.5);
+}
+
+.confirm-button{
+    margin-bottom: 10px;
+}
+
+.confirm-button a{
+    color: white;
+    font-family: Microsoft JhengHei;
+    font-size: 30px;
+    font-weight: 800;
+    /* text-decoration: underline; */
+}
+
+.hr{
+    background-color: rgba(255,255,255,0.5);
+    margin: 0px 15px;
+    margin-bottom: 10px;
+}
+
+.confirm-footer p{
+    color:  rgba(255,255,255,0.5);
+    font-family: Microsoft JhengHei;
+    font-size: 13px;
+}

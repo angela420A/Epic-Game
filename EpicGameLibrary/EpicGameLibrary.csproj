@@ -69,11 +69,13 @@
     <Compile Include="Models\Specifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EGRepository.cs" />
+    <Compile Include="Service\Convertor.cs" />
+    <Compile Include="Service\GameType.cs" />
+    <Compile Include="Service\OperationResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
