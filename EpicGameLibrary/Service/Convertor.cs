@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace Epic_Game.Service
+namespace EpicGameLibrary.Service
 {
     public class JsonToViewModel<T> where T : class
     {

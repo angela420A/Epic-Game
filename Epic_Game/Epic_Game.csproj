@@ -175,8 +175,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Backstage\BackstageController.cs" />
-    <Compile Include="Controllers\Backstage\ProductManageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -192,7 +190,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\WishChangeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\HomeBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\PayBLO.cs" />
@@ -208,9 +205,6 @@
     <Compile Include="Repository\DataOperationLayer\TransactionHistoryDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\UserAccountDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\WishListDAO.cs" />
-    <Compile Include="Service\Convertor.cs" />
-    <Compile Include="Service\GameType.cs" />
-    <Compile Include="Service\OperationResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModels.cs" />
@@ -221,6 +215,7 @@
     <Compile Include="ViewModels\SocialMediaViewModel.cs" />
     <Compile Include="ViewModels\SpecificationsViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
+    <Compile Include="Models\WishChangeModel.cs" />
     <Compile Include="ViewModels\WishListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -363,6 +358,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -510,7 +506,6 @@
     <Content Include="Views\Product\_Swiper.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
     <Content Include="Views\UserAccount\_TransactionHistoryPartial.cshtml" />
-    <Content Include="Views\ProductManage\Create.cshtml" />
     <Content Include="Views\Library\Library_Product_Partial.cshtml" />
     <Content Include="Views\WishList\Wishlist_partial.cshtml" />
     <Content Include="Views\Product\_SpecificationTable.cshtml" />
@@ -530,6 +525,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epic_Game_Backstage\Epic_Game_Backstage.csproj">
+      <Project>{546d0e47-68bd-4c0a-9f98-61511ed655dd}</Project>
+      <Name>Epic_Game_Backstage</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

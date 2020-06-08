@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using EpicGameLibrary.Models;
 using EpicGameLibrary.Repository;
-using Epic_Game.Service;
+using EpicGameLibrary.Service;
 using Epic_Game.ViewModels;
 
 
