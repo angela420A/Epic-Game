@@ -135,8 +135,8 @@ $('#Windows').on('click', function () {
     $('.rec').attr('style', 'display: block;');
     $('.rec').attr('style', 'height: 80px;');
     $('#minos').text('Windows Vista, Windows 7, Windows 10 ');
-    $('#mincpu').text('Intel i3');
-    $('#minram').text('4 GB RAM');
+    $('#mincpu').text('Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940');
+    $('#minram').text('8 GB');
     $('#minhdd').text('500 MB available space');
 });
 

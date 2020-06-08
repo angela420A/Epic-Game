@@ -202,14 +202,14 @@
                 <div class="panel">
                     @Model.PD_Description
 
-                    <div class="collapse_pic">
+                    @*<div class="collapse_pic">
                         <div class="col-12 col-md-6">
                             <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
                         </div>
                         <div class="col-12 col-md-6">
                             <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
                         </div>
-                    </div>
+                    </div>*@
 
                 </div>
                 <div class="fade"></div>
@@ -236,7 +236,7 @@
         </div>
         <div class="col-12 col-xl-9">
             <div class="specification_table">
-                @*<table width="100%" style="table-layout:fixed">
+                <table width="100%" style="table-layout:fixed">
                     <div class="title_div">
                         <div class="title_div_div" id="Windows">
                             <span class="span_text">WINDOWS</span>
@@ -277,7 +277,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_Processor != null)
                             {
@@ -293,7 +293,7 @@
                                 <span class="span_text" id="reccpu">@Model.PD_Specifications[1].SPE_Processor</span>
                             }
                         </td>
-                    </tr>
+                    </tr>*@
                     <tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_CPU != null)
@@ -328,7 +328,7 @@
 
                         </td>
                     </tr>
-                    <tr>
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_RAM != null)
                             {
@@ -344,7 +344,7 @@
                             }
 
                         </td>
-                    </tr>
+                    </tr>*@
                     <tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_Storage != null)
@@ -362,7 +362,7 @@
 
                         </td>
                     </tr>
-                    <tr>
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_GraphiceCard != null)
                             {
@@ -378,8 +378,8 @@
                             }
 
                         </td>
-                    </tr>
-                    <tr>
+                    </tr>*@
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_HDD != null)
                             {
@@ -395,8 +395,8 @@
                             }
 
                         </td>
-                    </tr>
-                    <tr>
+                    </tr>*@
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_DirectX != null)
                             {
@@ -412,8 +412,8 @@
                             }
 
                         </td>
-                    </tr>
-                    <tr>
+                    </tr>*@
+                    @*<tr>
                         <td class="recup">
                             @if (Model.PD_Specifications[0].SPE_Additional != null)
                             {
@@ -429,9 +429,9 @@
                             }
 
                         </td>
-                    </tr>
+                    </tr>*@
 
-                </table>*@
+                </table>
                 @*@Html.Partial("__SpecificationTable")*@
                 <div>
                     <div class="small_title_span"><span>Languages Supported</span></div>
