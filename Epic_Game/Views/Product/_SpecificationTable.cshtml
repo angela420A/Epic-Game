@@ -28,7 +28,7 @@
                         @if (Model.PD_Specifications[0].SPE_OS != null)
                         {
                             <div class="small_title_span"><span>OS</span></div>
-                            <span class="span_text" id="minos">@Model.PD_Specifications[0].SPE_OS</span>
+                            <span class="span_text" id="minOS">@Model.PD_Specifications[0].SPE_OS</span>
                         }
                     </span>
                 </div>
@@ -50,7 +50,7 @@
                 @if (Model.PD_Specifications[0].SPE_Processor != null)
                 {
                     <div class="small_title_span"><span>Processor</span></div>
-                    <span class="span_text" id="mincpu"> @Model.PD_Specifications[0].SPE_Processor</span>
+                    <span class="span_text" id="minPro"> @Model.PD_Specifications[0].SPE_Processor</span>
                 }
 
             </td>
@@ -58,7 +58,7 @@
                 @if (Model.PD_Specifications[1].SPE_Processor != null)
                 {
                     <div class="small_title_span"><span>Processor</span></div>
-                    <span class="span_text" id="reccpu">@Model.PD_Specifications[1].SPE_Processor</span>
+                    <span class="span_text" id="recPro">@Model.PD_Specifications[1].SPE_Processor</span>
                 }
             </td>
         </tr>
@@ -67,14 +67,14 @@
                 @if (Model.PD_Specifications[0].SPE_CPU != null)
                 {
                     <div class="small_title_span"><span>CPU</span></div>
-                    <span class="span_text" id="minram"> @Model.PD_Specifications[0].SPE_CPU</span>
+                    <span class="span_text" id="minCPU"> @Model.PD_Specifications[0].SPE_CPU</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_CPU != null)
                 {
                     <div class="small_title_span"><span>CPU</span></div>
-                    <span class="span_text" id="recram"> @Model.PD_Specifications[1].SPE_CPU</span>
+                    <span class="span_text" id="recCPU"> @Model.PD_Specifications[1].SPE_CPU</span>
                 }
             </td>
         </tr>
@@ -84,14 +84,14 @@
                 @if (Model.PD_Specifications[0].SPE_Memory != null)
                 {
                     <div class="small_title_span"><span>Memory</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Memory</span>
+                    <span class="span_text" id="minMem"> @Model.PD_Specifications[0].SPE_Memory</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_Memory != null)
                 {
                     <div class="small_title_span"><span>Memory</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Memory</span>
+                    <span class="span_text" id="recMem"> @Model.PD_Specifications[1].SPE_Memory</span>
                 }
 
             </td>
@@ -101,14 +101,14 @@
                 @if (Model.PD_Specifications[0].SPE_RAM != null)
                 {
                     <div class="small_title_span"><span>RAM</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_RAM</span>
+                    <span class="span_text" id="minRAM"> @Model.PD_Specifications[0].SPE_RAM</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_RAM != null)
                 {
-                    <div class="small_title_span"><span>Memory</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_RAM</span>
+                    <div class="small_title_span"><span>RAM</span></div>
+                    <span class="span_text" id="recRAM"> @Model.PD_Specifications[1].SPE_RAM</span>
                 }
 
             </td>
@@ -118,14 +118,14 @@
                 @if (Model.PD_Specifications[0].SPE_Storage != null)
                 {
                     <div class="small_title_span"><span>Storage</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Storage</span>
+                    <span class="span_text" id="minSto"> @Model.PD_Specifications[0].SPE_Storage</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_Storage != null)
                 {
                     <div class="small_title_span"><span>Storage</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Storage</span>
+                    <span class="span_text" id="recSto"> @Model.PD_Specifications[1].SPE_Storage</span>
                 }
 
             </td>
@@ -135,14 +135,14 @@
                 @if (Model.PD_Specifications[0].SPE_GraphiceCard != null)
                 {
                     <div class="small_title_span"><span>GraphiceCard</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_GraphiceCard</span>
+                    <span class="span_text" id="minGra"> @Model.PD_Specifications[0].SPE_GraphiceCard</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_GraphiceCard != null)
                 {
                     <div class="small_title_span"><span>GraphiceCard</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_GraphiceCard</span>
+                    <span class="span_text" id="recGra"> @Model.PD_Specifications[1].SPE_GraphiceCard</span>
                 }
 
             </td>
@@ -152,14 +152,14 @@
                 @if (Model.PD_Specifications[0].SPE_HDD != null)
                 {
                     <div class="small_title_span"><span>HDD</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_HDD</span>
+                    <span class="span_text" id="minHDD"> @Model.PD_Specifications[0].SPE_HDD</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_HDD != null)
                 {
                     <div class="small_title_span"><span>HDD</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_HDD</span>
+                    <span class="span_text" id="recHDD"> @Model.PD_Specifications[1].SPE_HDD</span>
                 }
 
             </td>
@@ -169,14 +169,14 @@
                 @if (Model.PD_Specifications[0].SPE_DirectX != null)
                 {
                     <div class="small_title_span"><span>DirectX</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_DirectX</span>
+                    <span class="span_text" id="minDir"> @Model.PD_Specifications[0].SPE_DirectX</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_DirectX != null)
                 {
                     <div class="small_title_span"><span>DirectX</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_DirectX</span>
+                    <span class="span_text" id="recDir"> @Model.PD_Specifications[1].SPE_DirectX</span>
                 }
 
             </td>
@@ -186,14 +186,14 @@
                 @if (Model.PD_Specifications[0].SPE_Additional != null)
                 {
                     <div class="small_title_span"><span>Additional</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Additional</span>
+                    <span class="span_text" id="minAdd"> @Model.PD_Specifications[0].SPE_Additional</span>
                 }
             </td>
             <td class="rec">
                 @if (Model.PD_Specifications[1].SPE_Additional != null)
                 {
                     <div class="small_title_span"><span>Additional</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Additional</span>
+                    <span class="span_text" id="recAdd"> @Model.PD_Specifications[1].SPE_Additional</span>
                 }
 
             </td>

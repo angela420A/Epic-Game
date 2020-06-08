@@ -37,7 +37,6 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             wishlistDAO.DeleteWishListProduct(jdata);
         }
-
         //ting
         public void addWish(string ProductID)
         {
