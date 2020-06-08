@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Epic_Game_Backstage.ViewModels.OrderManageViewModel>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("UserID", "ordersearchsort", new { sort = "UserID", nowsort = ViewBag.Nowsort })
+        </th>
+        <th>
+            @Html.ActionLink("ProductID", "ordersearchsort", new { sort = "ProductID", nowsort = ViewBag.Nowsort })
+        </th>
+        <th>
+            @Html.ActionLink("Date", "ordersearchsort", new { sort = "Date", nowsort = ViewBag.Nowsort })
+        </th>
+        <th>
+            @Html.ActionLink("Payment", "ordersearchsort", new { sort = "Payment", nowsort = ViewBag.Nowsort })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+            </td>
+        </tr>
+    }
+
+</table>
