@@ -99,7 +99,7 @@ namespace Epic_Game
 
                     #region 分期付款
 
-                    oPayment.SendExtend.CreditInstallment = "3,6";//刷卡分期期數
+                    //oPayment.SendExtend.CreditInstallment = "3,6";//刷卡分期期數
 
                     #endregion 分期付款
 
