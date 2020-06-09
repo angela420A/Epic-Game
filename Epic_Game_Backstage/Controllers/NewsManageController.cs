@@ -2,6 +2,7 @@
 using Epic_Game_Backstage.Repository.DataAccessLayer;
 using Epic_Game_Backstage.ViewModels;
 using EpicGameLibrary.Models;
+using EpicGameLibrary.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,83 +36,94 @@ namespace Epic_Game_Backstage.Controllers
                 NewsManageViewModel vm = newsManageBLO.Getnewsdata(item.NewsID.ToString());
                 newsVMlist.Add(vm);
             }
-            switch (sort)
+
+            if (sort.Equals(nowsort))
             {
-                case "Author":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.Author).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.Author).ToList();
-                    }
-                    break;
-
-                case "NewsTitle":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.NewsTitle).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.NewsTitle).ToList();
-                    }
-                    break;
-
-                case "Date":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.Date).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.Date).ToList();
-                    }
-                    break;
-                case "Description":
-                    if (sort.Equals(nowsort))
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.Description).ToList();
-                        ViewBag.Nowsort = null;
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.Description).ToList();
-                    }
-                    break;
-                case "NewsImg":
-                    if (sort.Equals(nowsort))
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.NewsImg).ToList();
-                        ViewBag.Nowsort = null;
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.NewsImg).ToList();
-                    }
-                    break;             
-                default:
-                    if (sort.Equals(nowsort))
-                    {
-                        newsVMlist = newsVMlist.OrderByDescending(s => s.NewsTitle).ToList();
-                        ViewBag.Nowsort = null;
-                    }
-                    else
-                    {
-                        newsVMlist = newsVMlist.OrderBy(s => s.NewsTitle).ToList();
-                    }
-                    break;
+                newsVMlist = newsVMlist.OrderByPropertyName(sort, false).ToList();
+                ViewBag.Nowsort = null;
             }
+            else
+            {
+                newsVMlist = newsVMlist.OrderByPropertyName(sort).ToList();
+            }
+
+            //switch (sort)
+            //{
+            //    case "Author":
+            //        if (sort.Equals(nowsort))
+            //        //看sort有沒有跟現在的sort有沒有一樣
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.Author).ToList();
+            //            ViewBag.Nowsort = null;
+            //            //將目前的清空，這樣才可以迴圈正反序
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.Author).ToList();
+            //        }
+            //        break;
+
+            //    case "NewsTitle":
+            //        if (sort.Equals(nowsort))
+            //        //看sort有沒有跟現在的sort有沒有一樣
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.NewsTitle).ToList();
+            //            ViewBag.Nowsort = null;
+            //            //將目前的清空，這樣才可以迴圈正反序
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.NewsTitle).ToList();
+            //        }
+            //        break;
+
+            //    case "Date":
+            //        if (sort.Equals(nowsort))
+            //        //看sort有沒有跟現在的sort有沒有一樣
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.Date).ToList();
+            //            ViewBag.Nowsort = null;
+            //            //將目前的清空，這樣才可以迴圈正反序
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.Date).ToList();
+            //        }
+            //        break;
+            //    case "Description":
+            //        if (sort.Equals(nowsort))
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.Description).ToList();
+            //            ViewBag.Nowsort = null;
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.Description).ToList();
+            //        }
+            //        break;
+            //    case "NewsImg":
+            //        if (sort.Equals(nowsort))
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.NewsImg).ToList();
+            //            ViewBag.Nowsort = null;
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.NewsImg).ToList();
+            //        }
+            //        break;             
+            //    default:
+            //        if (sort.Equals(nowsort))
+            //        {
+            //            newsVMlist = newsVMlist.OrderByDescending(s => s.NewsTitle).ToList();
+            //            ViewBag.Nowsort = null;
+            //        }
+            //        else
+            //        {
+            //            newsVMlist = newsVMlist.OrderBy(s => s.NewsTitle).ToList();
+            //        }
+            //        break;
+            //}
             return View(newsVMlist);
         }
 
