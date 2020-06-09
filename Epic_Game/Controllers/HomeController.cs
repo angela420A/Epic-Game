@@ -24,34 +24,31 @@ namespace Epic_Game.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
         public ActionResult Search()
         {
-            return View();
+            var result = _rbp.GetAll();
+            return View(result);
         }
 
-        public ActionResult Search(SearchViewModel vm)
+        [HttpPost]
+        public ActionResult Search(List<SearchViewModel> vm)
         {
             return View(vm);
         }
-
-
         public void Filter(string num)
         {
             var result = _rbp.Flit(int.Parse(num));
             Search(result);
         }
-
 
         public ActionResult ProductMore()
         {
