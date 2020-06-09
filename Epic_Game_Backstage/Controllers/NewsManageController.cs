@@ -153,9 +153,9 @@ namespace Epic_Game_Backstage.Controllers
                 }
                 else
                 {
-                    search = "Author";
+                    //search = "Author";
                     //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
-                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.Author.ToString().Contains(Author));
+                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.Author.Contains(Author));
                 }
                 if (newsVMlistiqu1 == null)
                 {
@@ -163,7 +163,7 @@ namespace Epic_Game_Backstage.Controllers
                 }
             }
             NewsTitle = search;
-            if (option == " NewsTitle")
+            if (option == "NewsTitle")
             {
                 if (string.IsNullOrEmpty(NewsTitle))
                 {
@@ -178,7 +178,7 @@ namespace Epic_Game_Backstage.Controllers
                 else
                 {
                     //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
-                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.NewsTitle.ToString().Contains(NewsTitle));
+                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.NewsTitle.Contains(NewsTitle));
                 }
                 if (newsVMlistiqu1 == null)
                 {
@@ -209,7 +209,7 @@ namespace Epic_Game_Backstage.Controllers
                 }
             }
             Description = search;
-            if (option == "Payment")
+            if (option == "Description")
             {
                 if (string.IsNullOrEmpty(Description))
                 {
@@ -224,14 +224,14 @@ namespace Epic_Game_Backstage.Controllers
                 else
                 {
                     //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
-                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.Description.ToString().Contains(Description));
+                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.Description.Contains(Description));
                 }
                 if (newsVMlistiqu1 == null)
                 {
                     return Content("找不到資料");
                 }
             }
-            Description = NewsImg;
+            NewsImg = search;
             if (option == "NewsImg")
             {
                 if (string.IsNullOrEmpty(NewsImg))
@@ -247,7 +247,7 @@ namespace Epic_Game_Backstage.Controllers
                 else
                 {
                     //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
-                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.NewsImg.ToString().Contains(NewsImg));
+                    newsVMlistiqu1 = newsVMlistiqu.Where(x => x.NewsImg.Contains(NewsImg));
                 }
                 if (newsVMlistiqu1 == null)
                 {
@@ -281,7 +281,7 @@ namespace Epic_Game_Backstage.Controllers
             NewsManageBLO newsManageBLO = new NewsManageBLO();
             if (newsManageBLO.addnews(data))
             {
-                return RedirectToAction("index");
+                return RedirectToAction("searchsort");
             }
             else
             {
@@ -308,7 +308,7 @@ namespace Epic_Game_Backstage.Controllers
             NewsManageBLO newsManageBLO = new NewsManageBLO();
             if (newsManageBLO.updatenews(data))
             {
-                return RedirectToAction("index");
+                return RedirectToAction("searchsort");
             }
             else
             {
@@ -330,7 +330,7 @@ namespace Epic_Game_Backstage.Controllers
             {
                 ViewBag.Status = false;
             }
-            return RedirectToAction("index");
+            return RedirectToAction("searchsort");
         }
 
 
