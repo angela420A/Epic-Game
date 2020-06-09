@@ -292,7 +292,7 @@ namespace Epic_Game_Backstage.Controllers
 
 
 
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(string id)
         {
             NewsManageBLO newsManageBLO = new NewsManageBLO();
             return View(newsManageBLO.getdata(id));
