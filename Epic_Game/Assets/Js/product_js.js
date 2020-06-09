@@ -118,28 +118,6 @@ function playPauseVideo(swiper, activeIndex, control) {
             break;
     }
 }
-//規格
-$('#MACOS').on('click', function () {
-    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
-    $('#Windows').attr('style', 'border-bottom: none;');
-    $('.rec').attr('style', 'display: none;');
-    $('#minos').text('10.12.6');
-    $('#mincpu').text('Intel Core i7 @ 4.2 GHZ (4 core)');
-    $('#minram').text('8GB');
-    $('#minhdd').text('500 MB available space');
-});
-
-$('#Windows').on('click', function () {
-    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
-    $('#MACOS').attr('style', 'border-bottom: none;');
-    $('.rec').attr('style', 'display: block;');
-    $('.rec').attr('style', 'height: 80px;');
-    $('#minos').text('Windows Vista, Windows 7, Windows 10 ');
-    $('#mincpu').text('Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940');
-    $('#minram').text('8 GB');
-    $('#minhdd').text('500 MB available space');
-});
-
 //收藏庫
 let btns = document.querySelectorAll('.btn_love');
 btns.forEach(btn => {
@@ -170,5 +148,29 @@ function Wish() {
         }
     });
 }
+
+//規格
+//$('#MACOS').on('click', function () {
+//    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
+//    $('#Windows').attr('style', 'border-bottom: none;');
+//    $('.rec').attr('style', 'display: none;');
+//    $('#minos').text('10.12.6');
+//    $('#mincpu').text('Intel Core i7 @ 4.2 GHZ (4 core)');
+//    $('#minram').text('8GB');
+//    $('#minhdd').text('500 MB available space');
+//});
+
+//$('#Windows').on('click', function () {
+//    this.setAttribute('style', 'border-bottom: 3px solid rgba(255, 255, 255, 1);');
+//    $('#MACOS').attr('style', 'border-bottom: none;');
+//    $('.rec').attr('style', 'display: block;');
+//    $('.rec').attr('style', 'height: 80px;');
+//    $('#minos').text('Windows Vista, Windows 7, Windows 10 ');
+//    $('#mincpu').text('Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940');
+//    $('#minram').text('8 GB');
+//    $('#minhdd').text('500 MB available space');
+//});
+
+
  
 

@@ -15,13 +15,18 @@ namespace Epic_Game.Controllers
         public ActionResult Index(string ProductId)
         {
             var UserId = User.Identity.GetUserId();
-            ProductBLO proBLO = new ProductBLO();
-            
-            ProductViewModel VM = proBLO.GetProductViewModel("d75ebeb8-4bc7-44b3-86bf-904ec05a5686", UserId);
-
-            return View(VM);
+            //如果使用者沒有登入,則會回傳到登入介面
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            { 
+                ProductBLO proBLO = new ProductBLO();           
+                ProductViewModel VM = proBLO.GetProductViewModel("d75ebeb8-4bc7-44b3-86bf-904ec05a5686", UserId);
+                return View(VM);
+            }
+          
         }
-
-
     }
 }

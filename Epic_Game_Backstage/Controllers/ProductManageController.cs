@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Epic_Game_Backstage.Repository.BusinessLogicLayer;
+using Imgur.API.Authentication.Impl;
+using Imgur.API.Endpoints.Impl;
+using Imgur.API.Models;
 
 namespace Epic_Game_Backstage.Controllers
 {
@@ -92,6 +95,18 @@ namespace Epic_Game_Backstage.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public void UploadImg(string id)
+        {
+            var client = new ImgurClient("9d370c1d1eacb51", "379fb3b22df582883d16ce0d9bf3ad99878c390f");
+            var endpoint = new ImageEndpoint(client);
+            var test = Request.Files[0];
+            IImage image;
+            var sm = test.InputStream;
+            image = endpoint.UploadImageStreamAsync(sm).GetAwaiter().GetResult();
+            Response.Write(image.Link);
         }
     }
 }
