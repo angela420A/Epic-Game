@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Epic_Game_Backstage.Controllers
 {
-    public class HomeController : Controller
+    public class BackstageHomeController : Controller
     {
         // GET: Home
         public ActionResult Index()
