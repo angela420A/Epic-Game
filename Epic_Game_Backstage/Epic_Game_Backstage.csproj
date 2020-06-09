@@ -187,6 +187,7 @@
     <Content Include="Assets\js\plugins\bootstrap-notify.js" />
     <Content Include="Assets\js\plugins\chartjs.min.js" />
     <Content Include="Assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assets\Js\test\test.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Assets\css\ProductCreate.css" />

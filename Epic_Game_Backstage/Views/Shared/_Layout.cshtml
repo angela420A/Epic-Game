@@ -1,7 +1,6 @@
 ﻿
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="~/Assets/img/apple-icon.png">
@@ -45,47 +44,47 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active ">
-                        <a href="./dashboard.html">
+                        <a href="@Url.Action("Index", "BackstageHome")">
                             <i class="nc-icon nc-bank"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    @*<li>
-                        <a href="./icons.html">
+                    <li>
+                        <a href="@Url.Action("ordersearchsort", "OrderManage")">
                             <i class="nc-icon nc-diamond"></i>
-                            <p>Icons</p>
+                            <p>Order Manage</p>
                         </a>
                     </li>
                     <li>
                         <a href="./map.html">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Maps</p>
+                            <p>News Manage</p>
                         </a>
                     </li>
                     <li>
                         <a href="./notifications.html">
                             <i class="nc-icon nc-bell-55"></i>
-                            <p>Notifications</p>
+                            <p>Product Manage</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="./user.html">
-                            <i class="nc-icon nc-single-02"></i>
-                            <p>User Profile</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./tables.html">
-                            <i class="nc-icon nc-tile-56"></i>
-                            <p>Table List</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./typography.html">
-                            <i class="nc-icon nc-caps-small"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>*@
+                    @*<li>
+                            <a href="./user.html">
+                                <i class="nc-icon nc-single-02"></i>
+                                <p>User Profile</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./tables.html">
+                                <i class="nc-icon nc-tile-56"></i>
+                                <p>Table List</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./typography.html">
+                                <i class="nc-icon nc-caps-small"></i>
+                                <p>Typography</p>
+                            </a>
+                        </li>*@
                     <li class="active-pro">
                         <a href="./upgrade.html">
                             <i class="nc-icon nc-spaceship"></i>
@@ -121,13 +120,6 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-
-    @RenderSection("endJS", required: false)
-    @RenderSection("endCSS", required: false)
     <script src="~/Assets/js/core/jquery.min.js"></script>
     <script src="~/Assets/js/core/popper.min.js"></script>
     <script src="~/Assets/js/core/bootstrap.min.js"></script>
@@ -141,6 +133,21 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="~/Assets/demo/demo.js"></script>
+    @*<script>
+            $(document).ready(function () {
+                // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+                demo.initChartsPages();
+            });
+        </script>*@
+    <script src="~/Assets/Js/test/test.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    @RenderSection("endJS", required: false)
+    @RenderSection("endCSS", required: false)
 </body>
 
 </html>
