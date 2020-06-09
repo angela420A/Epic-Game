@@ -1,4 +1,5 @@
 ﻿using Epic_Game.Repository.BusinessLogicLayer;
+using Epic_Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,19 @@ namespace Epic_Game.Controllers
         {
             return View();
         }
+
+        public ActionResult Search(SearchViewModel vm)
+        {
+            return View(vm);
+        }
+
+
+        public void Filter(string num)
+        {
+            var result = _rbp.Flit(int.Parse(num));
+            Search(result);
+        }
+
 
         public ActionResult ProductMore()
         {
