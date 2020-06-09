@@ -133,7 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\NewsManageController.cs" />
     <Compile Include="Controllers\OrderManageController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BackstageHomeController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -382,7 +382,7 @@
     <Content Include="Views\OrderManage\OrderPartial.cshtml" />
     <Content Include="Views\OrderManage\Edit.cshtml" />
     <Content Include="Views\OrderManage\Delete.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BackstageHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
