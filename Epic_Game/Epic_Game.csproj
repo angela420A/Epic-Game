@@ -334,6 +334,7 @@
     <Content Include="Assets\Js\EpicGameHant.js" />
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
+    <Content Include="Assets\Js\product_vue.js" />
     <Content Include="Assets\Js\script.js" />
     <Content Include="Assets\Js\UserAccountGeneral.js" />
     <Content Include="Content\bootstrap-grid.css" />

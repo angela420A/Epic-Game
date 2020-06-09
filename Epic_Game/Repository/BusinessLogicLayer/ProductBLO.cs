@@ -94,25 +94,25 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 pmv.PD_image.Add(imagevm);
             }
 
-            pmv.PD_Specifications = new List<SpecificationsViewModel>();
-            foreach (var Specifications in spe)
+            pmv.PD_Specificatoin = new SpecificationsViewModel[4];
+            foreach (var specifications in spe)
             {
-                var spevm = new SpecificationsViewModel()
+                int i = specifications.Type;
+                pmv.PD_Specificatoin[i] = new SpecificationsViewModel()
                 {
-                    SPE_OS = Specifications.OS,
-                    SPE_CPU = Specifications.CPU,
-                    SPE_GPU = Specifications.GPU,
-                    SPE_Processor = Specifications.Processor,
-                    SPE_RAM = Specifications.RAM,
-                    SPE_Memory = Specifications.Memory,
-                    SPE_Storage = Specifications.Storage,
-                    SPE_GraphiceCard = Specifications.GraphiceCard,
-                    SPE_HDD = Specifications.HDD,
-                    SPE_DirectX = Specifications.DirectX,
-                    SPE_Additional = Specifications.Additional_Features,
-                    SPE_Type = Specifications.Type.ToString()
+                    SPE_OS = specifications.OS,
+                    SPE_CPU = specifications.CPU,
+                    SPE_GPU = specifications.GPU,
+                    SPE_Processor = specifications.Processor,
+                    SPE_RAM = specifications.RAM,
+                    SPE_Memory = specifications.Memory,
+                    SPE_Storage = specifications.Storage,
+                    SPE_GraphiceCard = specifications.GraphiceCard,
+                    SPE_HDD = specifications.HDD,  
+                    SPE_DirectX = specifications.DirectX,
+                    SPE_Additional = specifications.Additional_Features,
+                    SPE_Type = specifications.Type
                 };
-                pmv.PD_Specifications.Add(spevm);
             }
             return pmv;
         }
