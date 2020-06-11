@@ -46,9 +46,9 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
 
 
 
-        public NewsManageViewModel getdata(Guid guid)
+        public NewsManageViewModel getdata(string guid)
         {
-            var result = db.News.FirstOrDefault(x => x.NewsID == guid);
+            var result = newsDAO.Getnewsdata(guid);
             if (result != null)
             {
                 return new NewsManageViewModel()
