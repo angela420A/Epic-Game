@@ -72,6 +72,7 @@
     <Compile Include="Service\Convertor.cs" />
     <Compile Include="Service\GameType.cs" />
     <Compile Include="Service\OperationResult.cs" />
+    <Compile Include="Service\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
