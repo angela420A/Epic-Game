@@ -64,28 +64,44 @@ namespace Epic_Game.Controllers
             var UserId = User.Identity.GetUserId();
             var collect = PayBLO.Collect(UserId, ProductID);
             Guid g = Guid.NewGuid();
-
-            if( collect == true)
+            using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                int affectedRow = 0;
-                using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
-                {
-                    string sql = "Update Library set Condition= 0 Where UserID=@UserID, ProductID=@ProductID";
-                    affectedRow = conn.Execute(sql, new
-                    {
-                        ProductID = ProductID
-                    });
+                string sql1 = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)";
+                var dates = new { OID = g, UID = UserId, PID = ProductID, DATE = DateTime.Now };
+                conn.Execute(sql1, dates);
+                if (collect == true) 
+                { 
+                    string sql = "Update Library set Condition= 0 Where UserID=@UID and ProductID=@PID";
+                    var datas = new { UID = UserId, PID = ProductID };
+                    conn.Execute(sql, datas);
                 }
+                else
+                {
+                    string sql = "Insert into Library(UserID, ProductID, Condition) value (@UID, @PID , 0)";
+                    var datas = new { UID = UserId, PID = ProductID };
+                    conn.Execute(sql, datas);
+                }
+                conn.Close();
             }
-            else
-            {
-                Order order = new Order { OrderID = g, UserID = UserId, ProductID = Guid.Parse(ProductID), Date = DateTime.Now };
-                Library library = new Library { UserID = UserId, ProductID = Guid.Parse(ProductID), Condition = 0 };
-                context.Order.Add(order);
-                context.Library.Add(library);
-            }
-            
-            context.SaveChanges();
+
+            //if (collect == true)
+            //{
+            //    //int affectedRow = 0;
+            //    using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
+            //    {
+                    
+            //        conn.Close();
+            //    }
+            //}
+            //else
+            //{
+            //    Order order = new Order { OrderID = g, UserID = UserId, ProductID = Guid.Parse(ProductID), Date = DateTime.Now };
+            //    Library library = new Library { UserID = UserId, ProductID = Guid.Parse(ProductID), Condition = 0 };
+            //    context.Order.Add(order);
+            //    context.Library.Add(library);
+            //}
+
+            //context.SaveChanges();
 
         }
 
