@@ -1,6 +1,7 @@
 ﻿using Epic_Game_Backstage.Repository.BusinessLogicLayer;
 using Epic_Game_Backstage.ViewModels;
 using EpicGameLibrary.Models;
+using EpicGameLibrary.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,72 +39,15 @@ namespace Epic_Game_Backstage.Controllers
                 OrderManageViewModel vm = orderBLO.GetOrderdata(item.OrderID.ToString());
                 orderVMlist.Add(vm);
             }
-            switch (sort)
+            if (sort.Equals(nowsort))
             {
-                case "UserID":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        orderVMlist = orderVMlist.OrderByDescending(s => s.UserID).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        orderVMlist = orderVMlist.OrderBy(s => s.UserID).ToList();
-                    }
-                    break;
-
-                case "ProductID":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        orderVMlist = orderVMlist.OrderByDescending(s => s.ProductID).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        orderVMlist = orderVMlist.OrderBy(s => s.ProductID).ToList();
-                    }
-                    break;
-                case "Date":
-                    if (sort.Equals(nowsort))
-                    {
-                        orderVMlist = orderVMlist.OrderByDescending(s => s.Date).ToList();
-                        ViewBag.Nowsort = null;
-                    }
-                    else
-                    {
-                        orderVMlist = orderVMlist.OrderBy(s => s.Date).ToList();
-                    }
-                    break;
-
-                case "money":
-                    if (sort.Equals(nowsort))
-                    //看sort有沒有跟現在的sort有沒有一樣
-                    {
-                        orderVMlist = orderVMlist.OrderByDescending(s => s.Payment).ToList();
-                        ViewBag.Nowsort = null;
-                        //將目前的清空，這樣才可以迴圈正反序
-                    }
-                    else
-                    {
-                        orderVMlist = orderVMlist.OrderBy(s => s.Payment).ToList();
-                    }
-                    break;           
-                default:
-                    if (sort.Equals(nowsort))
-                    {
-                        orderVMlist = orderVMlist.OrderByDescending(s => s.ProductID).ToList();
-                        ViewBag.Nowsort = null;
-                    }
-                    else
-                    {
-                        orderVMlist = orderVMlist.OrderBy(s => s.ProductID).ToList();
-                    }
-                    break;
+                orderVMlist = orderVMlist.OrderByPropertyName(sort, false).ToList();
+                ViewBag.Nowsort = null;
             }
+            else
+            {
+                orderVMlist = orderVMlist.OrderByPropertyName(sort).ToList();
+            }    
             return View(orderVMlist);
         }
 

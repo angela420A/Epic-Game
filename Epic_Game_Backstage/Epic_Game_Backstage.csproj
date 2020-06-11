@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
     <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
     <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
