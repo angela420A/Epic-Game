@@ -48,3 +48,50 @@
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+label.input-group-text {
+    border-right: none;
+}
+
+uploadLinkBtn {
+    padding: 0 14px;
+    font-size: 14px;
+    background-color: #eee;
+}
+
+.uploadLink::first-letter {
+    outline: 5px solid #0094ff
+}
+
+.input-group-prepend .input-group-text {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.custom-select,
+.form-control {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.mg-75{
+    margin-top: 75px
+}
+
+.swiper-wrap {
+    position: relative;
+    border: 1px solid #999;
+}
+
+.swiper-border {
+    padding-bottom: calc(3/5 * 100%);
+    position: relative;
+}
+
+.DeleteSwiper {
+    position: absolute;
+    width:20px;
+    height:20px;
+    right:0;
+    top:0;
+    background-color:rgba(0,0,0,0.3);
+}

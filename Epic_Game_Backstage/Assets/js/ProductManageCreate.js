@@ -1,4 +1,4 @@
-﻿
+﻿//Vue
 var a = new Vue({
     el: '#app',
     data: {
@@ -20,8 +20,12 @@ var a = new Vue({
             "8192": "Windows",
             "16384": "MacOS"
         },
-        UploadList: [],
-        ImgArray: []
+        URL:"https://i.imgur.com/vh0O9SP.jpg",
+        storeImage: {},
+        logoImage: {},
+        swiperList: [],
+        screenShot: [],
+        UploadList: []
     },
     methods: {
         changeColor: function () {
@@ -34,6 +38,8 @@ var a = new Vue({
         },
         showFile(e) {
             var t = e.target.files;
+            var input = e.target.id;
+            debugger;
             for (let i = 0; i < t.length; i++) {
                 let item = t[i];
                 let data = {
@@ -46,15 +52,12 @@ var a = new Vue({
                     },
                     title: item.name, // 圖片標題
                 }
-                debugger;
                 this.UploadList.push(data);
             }
-
-            //demo
-            this.submit();
-        },
-        submit: async function () {
             debugger;
+            this.submit(input);
+        },
+        submit: function (input) {
             let settings = {
                 async: false,
                 crossDomain: true,
@@ -64,8 +67,8 @@ var a = new Vue({
                 url: '/ProductManage/UploadImg',
                 mimeType: 'multipart/form-data'
             };
-            let array = [];
             debugger;
+            let array = [];
             this.UploadList.forEach(item => {
                 let form = new FormData();
                 form.append('image', item.file);
@@ -78,41 +81,68 @@ var a = new Vue({
                     array.push(res);
                 });
             });
+            this.UploadList = [];
+            this.addToImgList(array, input);
+        },
+        addToImgList: function (array, input) {
+            debugger;
             array.forEach(element => {
-                this.ImgArray.push(element);
+                switch (input) {
+                    case "StoreImage":
+                        this.storeImage = element;
+                        break;
+                    case "LogoImage":
+                        this.logoImage = element;
+                        break;
+                    case "SwiperImage":
+                        this.swiperList.push(element);
+                        break;
+                }
             })
             debugger;
-            this.UploadList = [];
 
-            //demo
-            setTimeout(this.showImage(), 5000);
-            
+            this.showImage(array, input);
         },
-        showImage: function () {
+        //https://i.imgur.com/ycGq26p.jpg
+        showImage: function (array, input) {
             debugger;
-            this.ImgArray.forEach(Image => {
+            let father = '#' + input + 'Area';
+            if (input != 'SwiperImage') {
                 let u = $('<div></div>').attr('class', 'ImgArea');
-                $('#storeImg').append(u);
-                u.attr('style', 'background-image: url("' + Image + '");');
-
-                //let y = $('<img>').attr('src', Image);
-                //$('#storeImg').append(y);
-
-            });
+                $(father).append(u);
+                u.attr('style', 'background-image: url("' + array[0] + '");');
+            } else {
+                array.forEach(element => {
+                    let swiper = this.swiperComponent(element);
+                    $(father).append(swiper);
+                });
+            }
+        },
+        swiperComponent: function (URL) {
+            let col = $('<li></li>').attr('class', 'col-3');
+            let wrap = $('<div></div>').attr('class', 'swiper-wrap');
+            let DeleteSwiper = $('<div></div>').attr('class', 'DeleteSwiper');
+            let span1 = $('<span></span>');
+            let span2 = $('<span></span>');
+            let border = $('<div></div>').attr('class', 'swiper-border');
+            let ImgArea = $('<div></div>').attr('class', 'ImgArea');
+            col.append(wrap.append(DeleteSwiper.append(span1).append(span2)).append(border.append(ImgArea)));
+            ImgArea.attr('style', 'background-image: url("' + URL + '");');
+            return col;
         }
-    },
-    computed: {
-        // showCategories: function () {
-        //     let area = document.querySelector('#showCtgy');
-        //     let frag = document.createDocumentFragment();
-        //     area.innerHTML = "";
-        //     this.CategoriesGroup.forEach(element => {
-        //         let node = document.createElement('label');
-        //         node.setAttribute('class', 'btn btn-success')
-        //         node.innerHTML = this.CategoriesText[element];
-        //         frag.appendChild(node);
-        //     });
-        //     area.appendChild(frag);
-        // }
+        //< li class= "col-3" >
+        //    <div style="border: 1px solid #999;" class="swiper-wrap">
+        //        <div class="DeleteSwiper" id="DeleteSwiper">
+        //            <span></span>
+        //            <span></span>
+        //        </div>
+        //        <div style="padding-bottom: calc(3/5 * 100%); position: relative">
+        //            <div class="ImgArea">
+        //                <img src="" alt="swiper" />
+        //            </div>
+        //        </div>
+        //    </div>
+        //            </li >
     }
 })
+
