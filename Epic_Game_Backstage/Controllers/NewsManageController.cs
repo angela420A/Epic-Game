@@ -193,23 +193,11 @@ namespace Epic_Game_Backstage.Controllers
             return n.Searchmethod1(search, option, searchname, option);
 
         }
-
-
-
-
-
-
-
-        // GET: orders1/Create
         public ActionResult Create()
         {
             NewsManageViewModel data = new NewsManageViewModel();
             return View(data);
         }
-
-        // POST: orders1/Create
-        // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
-        // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(NewsManageViewModel data)
@@ -225,18 +213,11 @@ namespace Epic_Game_Backstage.Controllers
                 return View(data);
             }
         }
-
-
-
         public ActionResult Edit(string id)
         {
             NewsManageBLO newsManageBLO = new NewsManageBLO();
             return View(newsManageBLO.getdata(id));
         }
-
-        // POST: orders1/Edit/5
-        // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
-        // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(NewsManageViewModel data)
@@ -252,9 +233,6 @@ namespace Epic_Game_Backstage.Controllers
                 return View(data);
             }
         }
-
-
-        // GET: orders1/Delete/5
         public ActionResult Delete(Guid id)
         {
             NewsManageBLO newsManageBLO = new NewsManageBLO();
@@ -268,8 +246,6 @@ namespace Epic_Game_Backstage.Controllers
             }
             return RedirectToAction("searchsort");
         }
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
