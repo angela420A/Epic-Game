@@ -19,15 +19,15 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         }
 
 
-        public HomeViewModels getHomeViewModel()
+        public HomeViewModels GetHomeViewModel()
         {
             HomeViewModels homeViewModels = new HomeViewModels();
 
-            homeViewModels.TopSales = HomeDAO.getTopSales();
-            homeViewModels.BestDiscount = HomeDAO.getProducts().OrderBy(x => x.Discount).Take(5).ToList();
-            homeViewModels.Activities = HomeDAO.getActivity();
-            homeViewModels.MostRelated = HomeDAO.getTopMostRelated();
-            homeViewModels.BestRank = HomeDAO.getTopBestRank();
+            homeViewModels.TopSales = HomeDAO.GetTopSales();
+            homeViewModels.BestDiscount = HomeDAO.GetProducts().OrderBy(x => x.Discount).Take(5).ToList();
+            homeViewModels.Activities = HomeDAO.GetActivity();
+            homeViewModels.MostRelated = HomeDAO.GetTopMostRelated();
+            homeViewModels.BestRank = HomeDAO.GetTopBestRank();
             return homeViewModels;
         }
 
