@@ -18,14 +18,14 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>order</h4>
+        <h4>News</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         <div class="form-group">
 
-            <text>Author</text>@Html.RadioButton("option", "Author", htmlAttributes: new { @class = "Radioclass" })
+            <text>Author</text>@Html.RadioButton("option", "Author", htmlAttributes: new { @class = "Radioclass" ,@checked = true })
             <text>NewsTitle</text>@Html.RadioButton("option", "NewsTitle", htmlAttributes: new { @class = "Radioclass" })
             <text>Date</text>@Html.RadioButton("option", "Date", htmlAttributes: new { @class = "Radioclass" })
             <text>Description</text>@Html.RadioButton("option", "Description", htmlAttributes: new { @class = "Radioclass" })
@@ -44,8 +44,6 @@
     }
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 

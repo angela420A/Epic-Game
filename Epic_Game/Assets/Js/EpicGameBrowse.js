@@ -176,5 +176,15 @@ $(document).ready(function () {
 
 // ===================================一上篩選器====================================
 
-  
 
+
+// ===================================以下EnumFlag=================================
+
+let label_checkbox = document.getElementById("checkbox");
+
+label_checkbox.addEventListener('click', () => {
+    console.log(label_checkbox);
+    });
+
+
+// ===================================以上EnumFlag=================================

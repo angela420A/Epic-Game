@@ -25,12 +25,12 @@
                 <div class="NavList">
                     <input type="checkbox" id="checkControl" class="check_control">
                     <label for="checkControl" class="checkBoxlabel">
-                        探索<i class="fas fa-chevron-down"></i>
+                        Discover<i class="fas fa-chevron-down"></i>
                     </label>
                     <div class="div_itemlist">
                         <ul class="itemList">
-                            <li><a href="#">探索</a></li>
-                            <li><a href="@Url.Action("Search","Home")">瀏覽</a></li>
+                            <li><a href="#">Discover</a></li>
+                            <li><a href="@Url.Action("Search","Home")">Browse</a></li>
                         </ul>
                     </div>
                     <nav class="navbar navbar-dark">
@@ -106,7 +106,7 @@
     <div class="row">
         <div class="col-12">
             <div class="new_title">
-                <h3>全新發行</h3>
+                <h3>BestDiscount</h3>
             </div>
         </div>
         <div class="col-12 ">
@@ -124,7 +124,7 @@
                                 <div class="mode_5_text">
                                     <h4>@item.ProductName</h4>
                                     <p>@item.Developer |@item.Publisher</p>
-                                    <h4>@item.Price</h4>
+                                    <h4>US$@decimal.Round(item.Price, 2)</h4>
                                 </div>
                             </a>
                         </li>
@@ -161,78 +161,28 @@
     <div class="row">
         <div class="col-12">
             <div class="best">
-                <h3 class="best_text">暢銷</h3>
+                <h3 class="best_text">TopSales</h3>
                 <a class="best_more" href="">查看更多項目</a>
             </div>
         </div>
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 14.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 14.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 16.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 16.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 17.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 17.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 18.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 18.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    @foreach (var topsales in Model.TopSales)
+                    {
+                        <li class="mode_5_li">
+                            <a href="">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@topsales.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@topsales.ProductName</h4>
+                                    <p>@topsales.Developer | @topsales.Publisher</p>
+                                    <h4>US$@decimal.Round(topsales.Price, 2)</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -240,77 +190,27 @@
     <div class="row">
         <div class="col-12">
             <div class="coming_soon_title">
-                <h3 class="coming_soon_text">即將推出</h3>
+                <h3 class="coming_soon_text">MostRelated</h3>
             </div>
         </div>
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 20.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 20.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 21.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 21.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 23.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 23.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 24.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 24.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 25.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 25.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    @foreach (var related in Model.MostRelated)
+                    {
+                        <li class="mode_5_li">
+                            <a href="">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@related.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@related.ProductName</h4>
+                                    <p>@related.Developer | @related.Publisher</p>
+                                    <h4>US$@decimal.Round(related.Price, 2)</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -318,77 +218,27 @@
     <div class="row">
         <div class="col-12">
             <div class="update_title">
-                <h3 class="update_text">最近更新</h3>
+                <h3 class="update_text">BestRank</h3>
             </div>
         </div>
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 27.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 27.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 29.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 29.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 30.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 30.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 31.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 31.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    @foreach (var best in Model.BestRank)
+                    {
+                        <li class="mode_5_li">
+                            <a href="">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@best.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@best.ProductName</h4>
+                                    <p>@best.Developer | @best.Publisher</p>
+                                    <h4>US$@decimal.Round(best.Price, 2)</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
