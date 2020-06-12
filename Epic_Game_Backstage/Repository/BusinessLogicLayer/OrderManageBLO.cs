@@ -25,9 +25,9 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         }
 
 
-        public OrderManageViewModel getdata(Guid guid)
+        public OrderManageViewModel getdata(string guid)
         {
-            var result = db.Order.FirstOrDefault(x => x.OrderID == guid);
+            var result = orderDAO.GetOrderdata(guid);
             if (result != null)
             {
                 return new OrderManageViewModel()
