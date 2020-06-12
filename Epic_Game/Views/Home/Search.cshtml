@@ -88,7 +88,7 @@
                 <div>
                     <div class="col-12 ">
                         <div class="new_mode_4">
-                            <ul class="mode_4_ul">
+                            <ul id="search_ul" class="mode_4_ul">
                                 @foreach (var search in Model)
                                 {
                                     <li class="col-6 col-md-3 mode_4_li">
@@ -99,7 +99,7 @@
                                             <div class="mode_4_text">
                                                 <h4>@search.ProductName</h4>
                                                 <p>@search.Developer | @search.Publisher</p>
-                                                <h4>US$@decimal.Round(search.Price, 2)</h4>
+                                                <h4>US$@decimal.Round(search.Price,0)</h4>
                                             </div>
                                         </a>
                                     </li>
@@ -110,8 +110,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="mvc">
                 <section class="content gametyp">
                     <ul class="list">
@@ -123,85 +121,85 @@
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="2">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="2">
                                 Adventure
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="4">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="4">
                                 Editors
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="8">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="8">
                                 Puzzle
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="16">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="16">
                                 Racing
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="32">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="32">
                                 RPG
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="64">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="64">
                                 Shooter
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="128">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="128">
                                 Strategy
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="256">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="256">
                                 Survival
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="512">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="512">
                                 ControllerSupport
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="1024">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="1024">
                                 CoOp
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="2048">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="2048">
                                 SinglePlayer
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="4096">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="4096">
                                 Multiplayer
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="8192">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="8192">
                                 Windows
                             </label>
                         </li>
                         <li class="list__item">
                             <label class="label--checkbox">
-                                <input type="checkbox" class="checkbox" value="16384">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="16384">
                                 MacOS
                             </label>
                         </li>
