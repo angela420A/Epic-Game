@@ -3,10 +3,11 @@
     width: 100%;
 }
 
-#game_div {
+.game_div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom:20px;
 }
 
 .game_div_insidebox {
