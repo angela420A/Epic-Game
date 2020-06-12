@@ -176,5 +176,65 @@ $(document).ready(function () {
 
 // ===================================一上篩選器====================================
 
-  
 
+
+// ===================================以下EnumFlag=================================
+
+let label_checkbox = document.querySelectorAll("#checkbox");
+
+label_checkbox.forEach(element => {
+    element.addEventListener('click', test)
+
+})
+
+function getTotal() {
+    let label_checkbox = document.querySelectorAll("#checkbox");
+    let total = 0;
+    label_checkbox.forEach(element => {
+        if (element.checked == true) {
+            total += parseInt(element.value);
+        }
+    })
+    return total;
+}   
+
+function test() {
+    let total = getTotal();
+    $.ajax({
+        url: "/Home/Filter",
+        type: "get",
+        data: { num: total },
+        success: function (data) {
+            let ul = $('#search_ul');
+            ul.empty();
+            data.forEach(element => {
+                let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
+                let a = $('<a></a>').attr('src', '/Product/Index/' + element.ProductID);
+                let div = $('<div></div>').attr('class', 'mode_4_img-2');
+                let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + element.Url + ')');
+                let div2 = $('<div></div>').attr('class', 'mode_4_text');
+
+                let h4 = $('<h4></h4>').html(element.ProductName);
+                let p = $('<p></p>').html(element.Developer + '|' + element.Publisher);
+                let h41 = $('<h4></h4>').html('TWD$' + element.Price);
+
+                li.append(a);
+                a.append(div).append(div2);
+                div.append(div1);
+                div2.append(h4).append(p).append(h41);
+                ul.append(li);
+            })
+            let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li').append($('<a></a>').attr('src','/Product/Index/'+data.ProductId))
+            
+            //畫面清空 
+            //在seach頁面取出資料
+        },
+        error: function () {
+            
+        }
+
+    })
+
+}
+
+// ===================================以上EnumFlag=================================

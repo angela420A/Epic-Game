@@ -17,7 +17,7 @@ namespace Epic_Game.Controllers
         }
         public ActionResult Index()
         {
-            var result = _rbp.getHomeViewModel();
+            var result = _rbp.GetHomeViewModel();
             return View(result);
         }
 
@@ -44,10 +44,10 @@ namespace Epic_Game.Controllers
         {
             return View(vm);
         }
-        public void Filter(string num)
+        public ActionResult Filter(string num)
         {
             var result = _rbp.Flit(int.Parse(num));
-            Search(result);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ProductMore()
