@@ -18,13 +18,17 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             libraryDAO = new LibraryDAO(UserId);
         }
+        public LibraryBLO(string UserId,string key)
+        {
+            libraryDAO = new LibraryDAO(UserId,key);
+        }
         public List<LibraryViewModel> LibraryToView(List<Library> p)
         {
             var viewModel = new List<LibraryViewModel>();
             
             foreach (var item in p)
             {
-                viewModel.Add (new LibraryViewModel { ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString())});
+                viewModel.Add (new LibraryViewModel { ProductId = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString())});
             }
 
             return viewModel;

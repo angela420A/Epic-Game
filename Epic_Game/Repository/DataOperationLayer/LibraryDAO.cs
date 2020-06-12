@@ -21,6 +21,12 @@ namespace Epic_Game.Repository.DataOperationLayer
             context = new EGContext();
             this.UserId = UserId;
 
+        }
+        public LibraryDAO(string UserId,string key)
+        {
+            library = new Library();
+            context = new EGContext();
+            this.UserId = UserId;
 
         }
         public List<Library> GetLibraryProduct()

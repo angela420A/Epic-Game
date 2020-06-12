@@ -29,6 +29,11 @@ namespace Epic_Game.Controllers
             var libraryBLO = new LibraryBLO(userId);
             return View(libraryBLO.GetLibraryProduct());
         }
-        
+        private ActionResult GrderLibraryItem(string Key)
+        {
+            var UserId = User.Identity.GetUserId();
+            var libraryBLO = new LibraryBLO(UserId,Key);
+            return View(libraryBLO.GetLibraryProduct());
+        }
     }
 }
