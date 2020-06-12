@@ -28,10 +28,15 @@ link.addEventListener('click', () => {
 
 alphabetical.addEventListener('click', () => {
     $.ajax({
-        url: '/Library/OrderLibraryItem',
+        url: '/Library/ShowOrder',
         data: { Key: "ProductName" },
-        type: 'get',
-        success: function () { },
+        type: 'post',
+        success: function (jdata) {
+            var r = jdata;
+            debugger;
+
+
+        },
         error: function () { alert("error"); }
     });
 })

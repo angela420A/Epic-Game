@@ -5,19 +5,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Epic_Game.Repository.BusinessLogicLayer;
+using EpicGameLibrary.Models;
+using System.ComponentModel;
+using Epic_Game.ViewModels;
+using Newtonsoft.Json;
 
 namespace Epic_Game.Controllers
 {
     public class LibraryController : Controller
     {
         // GET: Library
-        public ActionResult Index()
+        public ActionResult Index(string Key)
         {
             var UserId = User.Identity.GetUserId();
             if (UserId == null)
             {
                 return RedirectToAction("Login", "Account");
             }
+            //else if (Key != null)
+            //{
+            //    return ShowOrder(Key);
+            //}
             else
             {
                 return GetLibrary(UserId);
@@ -29,15 +37,18 @@ namespace Epic_Game.Controllers
             var libraryBLO = new LibraryBLO(userId);
             return View(libraryBLO.GetLibraryProduct());
         }
-        private ActionResult ShowOrderLibrary(object OrderItem)
-        {
-            return View(OrderItem);
-        }
-        public void OrderLibraryItem(string Key)
+
+        [HttpPost]
+        public ActionResult ShowOrder(string Key)
         {
             var UserId = User.Identity.GetUserId();
-            var libraryBLO = new LibraryBLO(UserId,Key);
-            ShowOrderLibrary(libraryBLO.OrderLibraryProduct());
+            var libraryBLO = new LibraryBLO(UserId, Key);
+            return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
+        }
+
+        public void OrderLibraryItem(string Key)
+        {
+            Index(Key);
         }
     }
 }

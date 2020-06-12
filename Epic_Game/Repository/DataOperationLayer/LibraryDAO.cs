@@ -16,7 +16,6 @@ namespace Epic_Game.Repository.DataOperationLayer
         public Library library;
         public List<string> img_url = new List<string>();
         private string UserId;
-        private string Key;
         public LibraryDAO(string UserId)
         {
             library = new Library();
