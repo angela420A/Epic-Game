@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using EpicGameLibrary.Repository;
 using System.Data.Entity;
+using EpicGameLibrary.Service;
 
 namespace Epic_Game.Repository.DataOperationLayer
 {
@@ -15,14 +16,8 @@ namespace Epic_Game.Repository.DataOperationLayer
         public Library library;
         public List<string> img_url = new List<string>();
         private string UserId;
+        private string Key;
         public LibraryDAO(string UserId)
-        {
-            library = new Library();
-            context = new EGContext();
-            this.UserId = UserId;
-
-        }
-        public LibraryDAO(string UserId,string key)
         {
             library = new Library();
             context = new EGContext();

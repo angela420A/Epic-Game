@@ -20,7 +20,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         }
         public LibraryBLO(string UserId,string key)
         {
-            libraryDAO = new LibraryDAO(UserId,key);
+            libraryDAO = new LibraryDAO(UserId);
         }
         public List<LibraryViewModel> LibraryToView(List<Library> p)
         {
@@ -34,6 +34,11 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return viewModel;
         }
         public List<LibraryViewModel> GetLibraryProduct()
+        {
+            var l = libraryDAO.GetLibraryProduct();
+            return LibraryToView(l);
+        }
+        public List<LibraryViewModel> OrderLibraryProduct()
         {
             var l = libraryDAO.GetLibraryProduct();
             return LibraryToView(l);

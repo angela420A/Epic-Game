@@ -28,8 +28,8 @@ link.addEventListener('click', () => {
 
 alphabetical.addEventListener('click', () => {
     $.ajax({
-        url: '/Library/Index',
-        data: 'ProductName'[0],
+        url: '/Library/OrderLibraryItem',
+        data: { Key: "ProductName" },
         type: 'get',
         success: function () { },
         error: function () { alert("error"); }
