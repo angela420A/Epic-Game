@@ -15,17 +15,13 @@ namespace Epic_Game.Controllers
     public class LibraryController : Controller
     {
         // GET: Library
-        public ActionResult Index(string Key)
+        public ActionResult Index()
         {
             var UserId = User.Identity.GetUserId();
             if (UserId == null)
             {
                 return RedirectToAction("Login", "Account");
             }
-            //else if (Key != null)
-            //{
-            //    return ShowOrder(Key);
-            //}
             else
             {
                 return GetLibrary(UserId);
@@ -44,11 +40,6 @@ namespace Epic_Game.Controllers
             var UserId = User.Identity.GetUserId();
             var libraryBLO = new LibraryBLO(UserId, Key);
             return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
-        }
-
-        public void OrderLibraryItem(string Key)
-        {
-            Index(Key);
         }
     }
 }

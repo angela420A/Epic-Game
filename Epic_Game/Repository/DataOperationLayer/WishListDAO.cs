@@ -38,6 +38,16 @@ namespace Epic_Game.Repository.DataOperationLayer
                 return img.Url;
             }
         }
+        public long GetProductCount(string ProductId)
+        {
+            var product = context.Order.Where(x => x.ProductID.ToString().Equals(ProductId)).LongCount();
+            return product;
+        }
+        public string GetDate(string ProductId)
+        {
+            var product = context.Product.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductId));
+            return product.ReleaseDate.ToString("yyyy-MM-dd");
+        }
         //ting
         public void AddWish(string ProductId)
         {
