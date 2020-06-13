@@ -31,7 +31,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             
             foreach (var item in p)
             {
-                viewModel.Add (new LibraryViewModel { ProductId = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString())});
+                viewModel.Add (new LibraryViewModel { ProductId = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString()), Date = libraryDAO.GetDate(item.ProductID.ToString()) });
             }
 
             return viewModel;
@@ -42,7 +42,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
 
             foreach (var item in p)
             {
-                viewModel.Add(new LibraryViewModel { ProductId = item.ProductID.ToString(), ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString()) });
+                viewModel.Add(new LibraryViewModel { ProductId = item.ProductID.ToString(), ProductName = item.Product.ProductName, Img_Url = libraryDAO.GetImg(item.ProductID.ToString()), Date = libraryDAO.GetDate(item.ProductID.ToString())});
             }
             var result = viewModel.OrderByPropertyName(Key).ToList();
             return result;
