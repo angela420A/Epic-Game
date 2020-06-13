@@ -1,6 +1,7 @@
 ﻿//Vue
 Vue.component('swiper-compo', {
-    template:'<li class="col-3" v-on:click="getUid"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" /></div></div></div></li>',
+    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
+    //template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea" style="background-image: url({{swiper}})"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -129,12 +130,13 @@ var a = new Vue({
                 let u = $('<div></div>').attr('class', 'ImgArea');
                 $(father).append(u);
                 u.attr('style', 'background-image: url("' + array[0] + '");');
-            } else {
-                array.forEach(element => {
-                    let swiper = this.swiperComponent(element);
-                    $(father).append(swiper);
-                });
             }
+            //else {
+            //    array.forEach(element => {
+            //        let swiper = this.swiperComponent(element);
+            //        $(father).append(swiper);
+            //    });
+            //}
         },
         swiperComponent: function (URL) {
             let col = $('<li></li>').attr('class', 'col-3');
