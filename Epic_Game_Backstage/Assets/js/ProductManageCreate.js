@@ -1,4 +1,5 @@
-﻿//Vue
+﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
+//Vue
 Vue.component('swiper-compo', {
     template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
     props: ['swiper'],
@@ -6,14 +7,27 @@ Vue.component('swiper-compo', {
     methods: {
         deleteUrl: function (e) {
             var url = e.path[1].querySelector('img').currentSrc;
-            var index = a.swiperList.indexOf(url);
-            a.swiperList.splice(index, 1);
+            var index = ImgVue.swiperList.indexOf(url);
+            ImgVue.swiperList.splice(index, 1);
         }
     }
 })
 
-var a = new Vue({
-    el: '#app',
+Vue.component('screen-compo', {
+    template: '<li class="col-10" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
+    props: ['swiper'],
+    name: 'screen-compo',
+    methods: {
+        deleteUrl: function (e) {
+            var url = e.path[1].querySelector('img').currentSrc;
+            var index = PInfoVue.swiperList.indexOf(url);
+            PInfoVue.swiperList.splice(index, 1);
+        }
+    }
+})
+
+var CatVue = new Vue({
+    el: '#CategoryVue',
     data: {
         CategoriesGroup: [],
         CategoriesText: {
@@ -32,32 +46,33 @@ var a = new Vue({
             "4096": "Multiplayer",
             "8192": "Windows",
             "16384": "MacOS"
-        },
-        URL:"https://i.imgur.com/vh0O9SP.jpg",
-        storeImage: {},
-        logoImage: {},
-        //swiperList: [
-        //    { id: 1, url:"https://i.imgur.com/LqiqP3y.jpg"},
-        //    { id: 2, url:"https://i.imgur.com/YflgSCT.png"},
-        //    { id: 3, url:"https://i.imgur.com/W0E2fcs.jpg" },
-        //],
-        swiperList: ["https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png","https://i.imgur.com/W0E2fcs.jpg"],
-        screenShot: [],
-        UploadList: []
+        }
     },
     methods: {
-        changeColor: function () {
+        changeColor: function (event) {
             let inputTarget = event.target;
             if (inputTarget.className.includes('primary')) {
                 inputTarget.setAttribute('class', 'btn btn-secondary')
             } else {
                 inputTarget.setAttribute('class', 'btn btn-primary')
             }
-        },
+        }
+    }
+})
+
+var ImgVue = new Vue({
+    el: '#app',
+    data: {
+        storeImage: {},
+        logoImage: {},
+        swiperList: ["https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg"],
+        UploadList: []
+    },
+    methods: {
         showFile(e) {
+            debugger;
             var t = e.target.files;
             var input = e.target.id;
-            debugger;
             for (let i = 0; i < t.length; i++) {
                 let item = t[i];
                 let data = {
@@ -72,7 +87,6 @@ var a = new Vue({
                 }
                 this.UploadList.push(data);
             }
-            debugger;
             this.submit(input);
         },
         submit: function (input) {
@@ -115,15 +129,15 @@ var a = new Vue({
                     case "SwiperImage":
                         this.swiperList.push(element);
                         break;
+                    case "screenShot":
+                        PInfoVue.swiperList.push(element);
+                        break;
                 }
             })
-            debugger;
-
             this.showImage(array, input);
         },
         //https://i.imgur.com/ycGq26p.jpg
         showImage: function (array, input) {
-            debugger;
             let father = '#' + input + 'Area';
             if (input != 'SwiperImage') {
                 let u = $('<div></div>').attr('class', 'ImgArea');
@@ -136,19 +150,19 @@ var a = new Vue({
             //        $(father).append(swiper);
             //    });
             //}
-        },
-        swiperComponent: function (URL) {
-            let col = $('<li></li>').attr('class', 'col-3');
-            let wrap = $('<div></div>').attr('class', 'swiper-wrap');
-            let DeleteSwiper = $('<div></div>').attr('class', 'DeleteSwiper');
-            let span1 = $('<span></span>');
-            let span2 = $('<span></span>');
-            let border = $('<div></div>').attr('class', 'swiper-border');
-            let ImgArea = $('<div></div>').attr('class', 'ImgArea');
-            col.append(wrap.append(DeleteSwiper.append(span1).append(span2)).append(border.append(ImgArea)));
-            ImgArea.attr('style', 'background-image: url("' + URL + '");');
-            return col;
         }
+        //swiperComponent: function (URL) {
+        //    let col = $('<li></li>').attr('class', 'col-3');
+        //    let wrap = $('<div></div>').attr('class', 'swiper-wrap');
+        //    let DeleteSwiper = $('<div></div>').attr('class', 'DeleteSwiper');
+        //    let span1 = $('<span></span>');
+        //    let span2 = $('<span></span>');
+        //    let border = $('<div></div>').attr('class', 'swiper-border');
+        //    let ImgArea = $('<div></div>').attr('class', 'ImgArea');
+        //    col.append(wrap.append(DeleteSwiper.append(span1).append(span2)).append(border.append(ImgArea)));
+        //    ImgArea.attr('style', 'background-image: url("' + URL + '");');
+        //    return col;
+        //}
         //< li class= "col-3" >
         //    <div style="border: 1px solid #999;" class="swiper-wrap">
         //        <div class="DeleteSwiper" id="DeleteSwiper">
@@ -165,3 +179,17 @@ var a = new Vue({
     }
 })
 
+var PInfoVue = new Vue({
+    el: '#ProductInfo',
+    data:{
+        swiperList: ["https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/W0E2fcs.jpg"],
+    },
+    methods: {
+        getInfo: function () {
+            var r = CKEDITOR.instances.editor1.getData();
+        },
+        submit: function (e) {
+            ImgVue.showFile(e);
+        }
+    }
+});

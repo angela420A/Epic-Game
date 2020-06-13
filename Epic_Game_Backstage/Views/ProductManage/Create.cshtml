@@ -10,8 +10,7 @@
     <link href="~/Assets/css/ProductCreate.css" rel="stylesheet" />
 }
 
-
-<div id='app'>
+<div>
     @*<div class="row justify-content-center">
             <div class="col-6">
                 <ul class="nav navbar">
@@ -91,7 +90,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="Categories  mg-75">
+                <div class="Categories mg-75" id="CategoryVue">
                     <div>
                         <label id="inputGroup-sizing-lg">Product's categories:</label>
                     </div>
@@ -167,7 +166,7 @@
         </div>
 
         <h2 style="margin: 40px 0 20px;">Product's Images:</h2>
-        <div class="row justify-content-center mg-75">
+        <div class="row justify-content-center mg-75" id="app">
             <div class="col-4 card">
                 <div class="card-body" style="display:flex; flex-direction: column; align-items:center">
                     <h4 style="text-align:center">Store Image</h4>
@@ -198,24 +197,22 @@
                     </div>
                 </div>
             </div>
-            @*<button v-on:click="test">test</button>*@
             <div class="col-12 card">
                 <div class="card-body">
                     <h4 style="text-align:center">Swiper</h4>
                     <ul id="SwiperImageArea" class="row">
                         <Swiper-Compo v-for="item in swiperList" v-bind:swiper="item" v-bind:key="item.id"></Swiper-Compo>
-                        @*<Swiper-Compo v-for="item in swiperList" v-bind:swiper="item"></Swiper-Compo>*@
                         @*<li class="col-3">
-                            <div style="border: 1px solid #999;" class="swiper-wrap">
-                                <div class="DeleteSwiper" id="DeleteSwiper">
-                                </div>
-                                <div style="padding-bottom: calc(3/5 * 100%); position: relative">
-                                    <div class="ImgArea">
-                                        <img src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover" />
+                                <div style="border: 1px solid #999;" class="swiper-wrap">
+                                    <div class="DeleteSwiper" id="DeleteSwiper">
+                                    </div>
+                                    <div style="padding-bottom: calc(3/5 * 100%); position: relative">
+                                        <div class="ImgArea">
+                                            <img src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>*@
+                            </li>*@
                     </ul>
                 </div>
                 <div class="card-footer">
@@ -227,9 +224,33 @@
             </div>
         </div>
 
-        <h2 style="margin: 40px 0 20px;">Product's Introduction:</h2>
-
-
+        <h2 style="margin: 40px 0 20px;">
+            Product's Introduction:
+        </h2>
+        <div class="row justify-content-center mg-75">
+            <div class="col-7">
+                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                <b>Introduce the product!</b>
+                </textarea>
+            </div>
+            <div class="col-5" id="ProductInfo">
+                <div class="card">
+                    <div class="card-header UploadScreenShot_CardHeader" style="padding-bottom:15px">
+                        <label class="w-100 btn btn-primary" style="text-align:center; color:antiquewhite" for="screenShot">Upload Image</label>
+                        <input type="file" class="custom-file-input" id="screenShot" style="display:none" v-on:change="submit">
+                    </div>
+                    <div class="card-body">
+                        <div style="height:500px; overflow-y: scroll; overflow-x:hidden">
+                            <ul id="SwiperImageArea" class="row justify-content-center">
+                                <screen-compo v-for="item in swiperList" v-bind:swiper="item" v-bind:key="item.id"></screen-compo>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer"></div>
+                    <button v-on:click="getInfo">123</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -243,5 +264,6 @@
 
 }
 @section endJS{
+    <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
     <script src="~/Assets/js/ProductManageCreate.js"></script>
 }
