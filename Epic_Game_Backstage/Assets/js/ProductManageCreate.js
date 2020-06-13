@@ -1,4 +1,17 @@
 ﻿//Vue
+Vue.component('swiper-compo', {
+    template:'<li class="col-3" v-on:click="getUid"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" /></div></div></div></li>',
+    props: ['swiper'],
+    name: 'siwper-compo',
+    methods: {
+        deleteUrl: function (e) {
+            var url = e.target.currentSrc;
+            var index = a.swiperList.indexOf(url);
+            a.swiperList.splice(index, 1);
+        }
+    }
+})
+
 var a = new Vue({
     el: '#app',
     data: {
@@ -23,7 +36,12 @@ var a = new Vue({
         URL:"https://i.imgur.com/vh0O9SP.jpg",
         storeImage: {},
         logoImage: {},
-        swiperList: [],
+        //swiperList: [
+        //    { id: 1, url:"https://i.imgur.com/LqiqP3y.jpg"},
+        //    { id: 2, url:"https://i.imgur.com/YflgSCT.png"},
+        //    { id: 3, url:"https://i.imgur.com/W0E2fcs.jpg" },
+        //],
+        swiperList: ["https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png","https://i.imgur.com/W0E2fcs.jpg"],
         screenShot: [],
         UploadList: []
     },
