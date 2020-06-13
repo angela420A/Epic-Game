@@ -61,6 +61,13 @@ namespace Epic_Game.Controllers
             new WishListBLO(User.Identity.GetUserId()).DeleteWishListProduct(jdata);
             GetWishList(User.Identity.GetUserId());
         }
-       
+
+        [HttpPost]
+        public ActionResult ShowOrder(string Key, bool boolean)
+        {
+            var UserId = User.Identity.GetUserId();
+            var WishListBLO = new WishListBLO(UserId, Key, boolean);
+            return Json(WishListBLO.OrderWishListProduct(), JsonRequestBehavior.AllowGet);
+        }
     }
 }

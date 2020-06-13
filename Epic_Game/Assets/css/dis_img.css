@@ -7,10 +7,14 @@
 }
 
     .game_div_insidebox img {
-        width: 100%;
+        position: absolute;
+        top: 0;
+        left:0;
         height: 100%;
-        max-width: 224px;
-        max-height: 240px;
+        width: 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
     }
 
     .game_div_insidebox h3 {
@@ -19,10 +23,12 @@
     }
 
 .product_pic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 70%;
-    overflow:hidden;
+    position: relative;
+    padding-bottom: calc(4/3 * 100%);
+}
+
+@media screen and (min-width : 768px){
+    .game_div_insidebox{
+        padding:30px;
+    }
 }
