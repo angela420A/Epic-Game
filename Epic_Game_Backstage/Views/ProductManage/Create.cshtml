@@ -203,17 +203,15 @@
                 <div class="card-body">
                     <h4 style="text-align:center">Swiper</h4>
                     <ul id="SwiperImageArea" class="row">
-                        @*<Swiper-Compo v-for="item in swiperList" v-bind:swiper="item" v-bind:key="item.id"></Swiper-Compo>*@
-                        <Swiper-Compo v-for="item in swiperList" v-bind:swiper="item"></Swiper-Compo>
+                        <Swiper-Compo v-for="item in swiperList" v-bind:swiper="item" v-bind:key="item.id"></Swiper-Compo>
+                        @*<Swiper-Compo v-for="item in swiperList" v-bind:swiper="item"></Swiper-Compo>*@
                         @*<li class="col-3">
                             <div style="border: 1px solid #999;" class="swiper-wrap">
                                 <div class="DeleteSwiper" id="DeleteSwiper">
-                                    <span></span>
-                                    <span></span>
                                 </div>
                                 <div style="padding-bottom: calc(3/5 * 100%); position: relative">
                                     <div class="ImgArea">
-                                        <img src="" alt="swiper" />
+                                        <img src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover" />
                                     </div>
                                 </div>
                             </div>

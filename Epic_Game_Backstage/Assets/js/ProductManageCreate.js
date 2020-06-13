@@ -1,12 +1,11 @@
 ﻿//Vue
 Vue.component('swiper-compo', {
-    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
-    //template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"><span></span><span></span></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea" style="background-image: url({{swiper}})"></div></div></div></li>',
+    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
         deleteUrl: function (e) {
-            var url = e.target.currentSrc;
+            var url = e.path[1].querySelector('img').currentSrc;
             var index = a.swiperList.indexOf(url);
             a.swiperList.splice(index, 1);
         }
