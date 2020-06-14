@@ -31,7 +31,6 @@ namespace Epic_Game.ViewModels
         public int Library_Condition { get; set; }
         public List<CommentViewModel> PD_Comment { get;set; }
         public List<ImageViewModel> PD_image { get; set; }
-        public List<SpecificationsViewModel> PD_Specifications { get; set; }
-
+        public SpecificationsViewModel[] PD_Specificatoin { get; set; }
     }
 }

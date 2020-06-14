@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Epic_Game.ViewModels
 {
-    public class CommentViewModel
+    public class CommentPushViewModel
     {
-        public string Comment_Title { get; set; }
-        public Guid Comment_ProductID { get; set; }
         public string Comment_Date { get; set; }
+        public string Comment_Title { get; set; }
         public string Comment_Description { get; set; }
-        public int Comment_Rank { get; set; }
+        public string Comment_UserName { get; set; }
+        public int Comment_Rank { get; set; }  
     }
 }
