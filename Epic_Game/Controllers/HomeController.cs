@@ -50,6 +50,14 @@ namespace Epic_Game.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public ActionResult SearchOrder(string key)
+        {
+            var result = _rbp.SearchOrde(key);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult ProductMore()
         {
             return View();
