@@ -9,45 +9,7 @@
 }
 
 @section endJS{
-    <script>
-        window.onload = AddEven();
-
-        function AddEven() {
-            document.querySelectorAll(".changeHeart").forEach((item) => {
-                item.addEventListener('click', DeleteWish);
-            });
-        }
-
-        function DeleteWish() {
-            let redirectTo = "Product";
-            let productID = this.id;
-            let span = this.getElementsByClassName('fas')[0];
-            let className = span.getAttribute('class');
-            let data = {
-                ProductID: productID,
-                redirectTo: redirectTo
-            }
-            $.ajax({
-                url: '/WishList/ChangeWish',
-                type: 'post',
-                data: { jdata: JSON.stringify(data) },
-                success: function () {
-                    if (className.includes('fa-undo')) {
-                        span.setAttribute('class', 'fas fa-heart');
-                    }
-                    else {
-                        span.setAttribute('class', 'fas fa-undo');
-                    }
-                },
-                error: function () {
-                    alert("remove failed.");
-                }
-            });
-        }
-
-        let wishCount_text = document.querySelector(".wishCount_text");
-        wishCount_text.innerText = `${document.querySelectorAll(".changeHeart").length} items`;
-    </script>
+    <script src="~/Assets/Js/WishList.js"></script>
     <script src="https://kit.fontawesome.com/05f083f1a4.js" crossorigin="anonymous"></script>
 }
 <div class="container">
@@ -73,11 +35,11 @@
                             <i class="fas fa-chevron-up"></i>
                         </label>
                         <ul class="sort_list">
-                            <li><button><p>Hot Sales</p></button></li>
-                            <li><button><p>Recently</p></button></li>
-                            <li><button><p>Alphabet</p></button></li>
-                            <li><button><p>Price: Ascendent</p></button></li>
-                            <li><button><p>Price: Descendent</p></button></li>
+                            <li><button id="hot_sale"><p>Hot Sales</p></button></li>
+                            <li><button id="recently"><p>Recently</p></button></li>
+                            <li><button id="alphabet"><p>Alphabet</p></button></li>
+                            <li><button id="price_true"><p>Price: Ascendent</p></button></li>
+                            <li><button id="price_false"><p>Price: Descendent</p></button></li>
                         </ul>
                     </div>
                 </div>

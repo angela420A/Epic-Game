@@ -9,5 +9,6 @@ namespace Epic_Game.ViewModels
     {
         public string SM_URL { get; set; }
         public string SM_Community { get; set; }
+        public string SM_ProductID { get; set; }
     }
 }

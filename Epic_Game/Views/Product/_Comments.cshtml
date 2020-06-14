@@ -1,4 +1,4 @@
-﻿
+﻿@model Epic_Game.ViewModels.CommentViewModel
 @{
     ViewBag.Title = "_Comments";
 }
@@ -21,7 +21,7 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                <div class="modal faded" id="exampleModal" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered ">
                         <div class="modal-content">
@@ -32,8 +32,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <textarea name="Text1" cols="40" rows="5" style="width: 100%;"></textarea>
-                                <div class="grading_circle">
+                                <div class="modal_title">
+                                    <span>Title: </span><input v-model="title" type="text" style="width:100%" >
+                                </div>
+                                
+                                <textarea v-model="content" name="Text1" cols="40" rows="5" style="width: 100%;"></textarea>
+                                @*<div class="grading_circle">
                                     <div class="star-rating">
                                         <span class="fa fa-star-o" data-rating="1"></span>
                                         <span class="fa fa-star-o" data-rating="2"></span>
@@ -42,11 +46,11 @@
                                         <span class="fa fa-star-o" data-rating="5"></span>
                                         <input type="hidden" name="whatever1" class="rating-value" value="2.56">
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="modal_btn " data-dismiss="modal">Abort</button>
-                                <button type="button" class="modal_btn btn_yellow">Comment</button>
+                                <button v-on:click="upload" ype="button" class="modal_btn btn_yellow" id="@Model.Comment_ProductID">Comment</button>
                             </div>
                         </div>
                     </div>

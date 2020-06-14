@@ -217,6 +217,7 @@
     <Compile Include="Repository\DataOperationLayer\UserAccountDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\WishListDAO.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CommentPushViewModel.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModels.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
@@ -335,8 +336,10 @@
     <Content Include="Assets\Js\EpicGameHant.js" />
     <Content Include="Assets\Js\library.js" />
     <Content Include="Assets\Js\product_js.js" />
+    <Content Include="Assets\Js\product_vue.js" />
     <Content Include="Assets\Js\script.js" />
     <Content Include="Assets\Js\UserAccountGeneral.js" />
+    <Content Include="Assets\Js\WishList.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -454,6 +457,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -14,41 +14,46 @@ namespace Epic_Game.Controllers
 {
     public class LibraryController : Controller
     {
-        // GET: Library
-        public ActionResult Index(string Key)
+        LibraryBLO blo;
+        public LibraryController()
         {
-            var UserId = User.Identity.GetUserId();
-            if (UserId == null)
+        }
+        // GET: Library
+        public ActionResult Index()
+        {
+            blo = new LibraryBLO(User.Identity.GetUserId());
+
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
-            //else if (Key != null)
-            //{
-            //    return ShowOrder(Key);
-            //}
             else
             {
-                return GetLibrary(UserId);
+                if (TempData["Order"] != null)
+                {
+                    ViewData.Model = (List<LibraryViewModel>)TempData["Order"];
+                    return View();
+                }
+                else
+                {
+                    ViewData.Model = blo.GetLibraryProduct();
+                    return View();
+                }
             }
         }
 
-        private ActionResult GetLibrary(string userId)
-        {
-            var libraryBLO = new LibraryBLO(userId);
-            return View(libraryBLO.GetLibraryProduct());
-        }
-
+        //private ActionResult GetLibrary()
+        //{
+        //    return View(blo.GetLibraryProduct());
+        //}
         [HttpPost]
         public ActionResult ShowOrder(string Key)
         {
             var UserId = User.Identity.GetUserId();
             var libraryBLO = new LibraryBLO(UserId, Key);
+            TempData["Order"] = libraryBLO.OrderLibraryProduct();
+            //return RedirectToAction("Index");
             return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
-        }
-
-        public void OrderLibraryItem(string Key)
-        {
-            Index(Key);
         }
     }
 }

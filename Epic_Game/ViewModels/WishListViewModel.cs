@@ -11,5 +11,8 @@ namespace Epic_Game.ViewModels
         public string ProductName { get; set; }
         public string Img_Url { get; set; }
         public decimal Price { get; set; }
+        public long ProductCount { get; set; }
+        public string Date { get; set; }
+
     }
 }
