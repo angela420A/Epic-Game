@@ -149,6 +149,31 @@ function Wish() {
     });
 }
 //comment
+var connent = new Vue({
+    el: "#exampleModal",
+    data: {
+        title: "",
+        content: "",
+        rank: 0
+    },
+    methods: {
+        upload: function (e) {
+            let t = this.title;
+            let c = this.content;
+            let r = this.rank;
+            debugger;
+
+            let object = {
+                Comment_Title: this.title,
+                Comment_ProductID: e,
+                Comment_Date: "",
+                Comment_Description: this.content,
+                Comment_Rank: this.rank
+            }
+        }
+    }
+});
+
 
 
  

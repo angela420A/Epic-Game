@@ -24,10 +24,11 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
-            Library library = ProductDAO.GetLibraryModesl(ProductId, UserId);
+            Library library = ProductDAO.GetLibraryModels(ProductId, UserId);
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
             List<Specifications> spe = ProductDAO.GetSpecificationsModel(ProductId);
+            
             return ModelToViewModel(p, sm, img, library, pack, comment,spe);
         }
 
@@ -56,7 +57,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_Discount = pack.Discount,
                 Library_Condition = library == null ? 2 : library.Condition
             };
-
+            //SocialMediaViewModel
             pmv.SM = new List<SocialMediaViewModel>();
             foreach (var socialMedia in sm)
             {
@@ -68,20 +69,24 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 };
                 pmv.SM.Add(smvm);
             }
+            //CommentViewModel
+            var _Comment = new CommentViewModel();
+            _Comment.Comment_ProductID = p.ProductID.ToString();
 
-            pmv.PD_Comment = new List<CommentViewModel>();
-            foreach (var Comment in comment)
+            foreach (var item in comment)
             {
-                var commentvm = new CommentViewModel()
+                var commentvm = new CommentItem()
                 {
-                    Comment_ProductID = Comment.ProductID,
-                    Comment_Date = Comment.Date.ToString(),
-                    Comment_Description = Comment.Description,
-                    Comment_Rank = Comment.Rank
+                    Comment_Title = item.Title,
+                    Comment_Description = item.Description,
+                    Comment_Rank = item.Rank,
+                    Comment_Date = item.Date.ToString("yyyy,MM,dd"),
+                    Comment_UserName = ProductDAO.GetUserModels(item.UserID)
                 };
-                pmv.PD_Comment.Add(commentvm);
+                _Comment.Comments.Add(commentvm);
             }
-
+            pmv.PD_Comment = _Comment;
+            //ImageViewModel
             pmv.PD_image = new List<ImageViewModel>();
             foreach (var Image in img)
             {
@@ -94,7 +99,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 IsVideo(imagevm);
                 pmv.PD_image.Add(imagevm);
             }
-
+            //SpecificationsViewModel
             pmv.PD_Specificatoin = new SpecificationsViewModel[4];
             foreach (var specifications in spe)
             {
