@@ -26,7 +26,7 @@ namespace EpicGameLibrary.Models
         public string Description { get; set; }
 
         public int Rank { get; set; }
-
+          
         public virtual AspNetUsers AspNetUsers { get; set; }
 
         public virtual Product Product { get; set; }

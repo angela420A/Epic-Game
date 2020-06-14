@@ -18,6 +18,6 @@ namespace Epic_Game.ViewModels
         public string SPE_HDD { get; set; }
         public string SPE_DirectX { get; set; }
         public string SPE_Additional { get; set; }
-        public string SPE_Type { get; set; }
+        public int SPE_Type { get; set; }
     }
 }

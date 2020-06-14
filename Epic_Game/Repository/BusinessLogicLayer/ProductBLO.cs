@@ -24,10 +24,11 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
-            Library library = ProductDAO.GetLibraryModesl(ProductId, UserId);
+            Library library = ProductDAO.GetLibraryModels(ProductId, UserId);
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
             List<Specifications> spe = ProductDAO.GetSpecificationsModel(ProductId);
+            
             return ModelToViewModel(p, sm, img, library, pack, comment,spe);
         }
 
@@ -56,31 +57,36 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_Discount = pack.Discount,
                 Library_Condition = library == null ? 2 : library.Condition
             };
-
+            //SocialMediaViewModel
             pmv.SM = new List<SocialMediaViewModel>();
             foreach (var socialMedia in sm)
             {
                 var smvm = new SocialMediaViewModel()
                 {
                     SM_URL = socialMedia.URL,
-                    SM_Community = socialMedia.Community
+                    SM_Community = socialMedia.Community,
+                    SM_ProductID = socialMedia.ProductID.ToString()
                 };
                 pmv.SM.Add(smvm);
             }
+            //CommentViewModel
+            var _Comment = new CommentViewModel();
+            _Comment.Comment_ProductID = p.ProductID.ToString();
 
-            pmv.PD_Comment = new List<CommentViewModel>();
-            foreach (var Comment in comment)
+            foreach (var item in comment)
             {
-                var commentvm = new CommentViewModel()
+                var commentvm = new CommentItem()
                 {
-                    Comment_Title = Comment.Title,
-                    Comment_Date = Comment.Date,
-                    Comment_Description = Comment.Description,
-                    Comment_Rank = Comment.Rank
+                    Comment_Title = item.Title,
+                    Comment_Description = item.Description,
+                    Comment_Rank = item.Rank,
+                    Comment_Date = item.Date.ToString("yyyy,MM,dd"),
+                    Comment_UserName = ProductDAO.GetUserModels(item.UserID)
                 };
-                pmv.PD_Comment.Add(commentvm);
+                _Comment.Comments.Add(commentvm);
             }
-
+            pmv.PD_Comment = _Comment;
+            //ImageViewModel
             pmv.PD_image = new List<ImageViewModel>();
             foreach (var Image in img)
             {
@@ -93,26 +99,26 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 IsVideo(imagevm);
                 pmv.PD_image.Add(imagevm);
             }
-
-            pmv.PD_Specifications = new List<SpecificationsViewModel>();
-            foreach (var Specifications in spe)
+            //SpecificationsViewModel
+            pmv.PD_Specificatoin = new SpecificationsViewModel[4];
+            foreach (var specifications in spe)
             {
-                var spevm = new SpecificationsViewModel()
+                int i = specifications.Type;
+                pmv.PD_Specificatoin[i] = new SpecificationsViewModel()
                 {
-                    SPE_OS = Specifications.OS,
-                    SPE_CPU = Specifications.CPU,
-                    SPE_GPU = Specifications.GPU,
-                    SPE_Processor = Specifications.Processor,
-                    SPE_RAM = Specifications.RAM,
-                    SPE_Memory = Specifications.Memory,
-                    SPE_Storage = Specifications.Storage,
-                    SPE_GraphiceCard = Specifications.GraphiceCard,
-                    SPE_HDD = Specifications.HDD,
-                    SPE_DirectX = Specifications.DirectX,
-                    SPE_Additional = Specifications.Additional_Features,
-                    SPE_Type = Specifications.Type.ToString()
+                    SPE_OS = specifications.OS,
+                    SPE_CPU = specifications.CPU,
+                    SPE_GPU = specifications.GPU,
+                    SPE_Processor = specifications.Processor,
+                    SPE_RAM = specifications.RAM,
+                    SPE_Memory = specifications.Memory,
+                    SPE_Storage = specifications.Storage,
+                    SPE_GraphiceCard = specifications.GraphiceCard,
+                    SPE_HDD = specifications.HDD,  
+                    SPE_DirectX = specifications.DirectX,
+                    SPE_Additional = specifications.Additional_Features,
+                    SPE_Type = specifications.Type
                 };
-                pmv.PD_Specifications.Add(spevm);
             }
             return pmv;
         }

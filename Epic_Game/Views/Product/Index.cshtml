@@ -11,6 +11,9 @@
     }
     tags = tags.TrimStart(',').Trim();
 
+    string JsonSpec = Json.Encode(Model.PD_Specificatoin);
+    bool b = Model.PD_Specificatoin[0] == null;
+
 }
 @section topCSS{
     <link href="~/Assets/css/product_style.css" rel="stylesheet" />
@@ -22,6 +25,7 @@
 }
 
 @section endJS{
+    <script src="~/Assets/Js/product_vue.js"></script>
     <script src="~/Assets/Js/product_js.js"></script>
 }
 <!-- 導覽列------------------------------- -->
@@ -139,13 +143,13 @@
                                     @if (Model.Library_Condition == 2)
                                     {
                                         <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
-                                        <span><i id="fa" class="far fa-heart"></i></span>
+                                            <span><i id="fa" class="far fa-heart"></i></span>
                                         </button>
                                     }
                                     else if (Model.Library_Condition == 1)//願望清單
                                     {
                                         <button class="game_pic_btn_love btn_love " id="@Model.PD_ProductID">
-                                        <span><i id="fa" class="fas fa-heart"></i></span>
+                                            <span><i id="fa" class="fas fa-heart"></i></span>
                                         </button>
                                     }
                                 </div>
@@ -238,15 +242,23 @@
     </div>
 </div>
 <!-- 版本------------------------------- -->
-@Html.Partial("_Editions")
+@*@Html.Partial("_Editions")*@
 <!-- 附加------------------------------- -->
-@Html.Partial("_AddOns")
+@*@Html.Partial("_AddOns")*@
 
 <!-- 追蹤------------------------------- -->
-@Html.Partial("_Trackus", Model.SM)
+@if (Model.SM.Count() > 0)
+{
+    @Html.Partial("_Trackus", Model.SM)
+}
+
 
 <!-- 評論------------------------------- -->
-@Html.Partial("_Comments")
+@*@if (Model.PD_Comment.Count() > 0)
+{*@
+    @Html.Partial("_Comments", Model.PD_Comment)
+@*}*@
+
 
 <!--規格 ------------------- -->
 <div class="container allblock" id="specification">
@@ -256,251 +268,245 @@
         </div>
         <div class="col-12 col-xl-9">
             <div class="specification_table">
-                <table width="100%" style="table-layout:fixed">
-                    @if (Model.OS == 1)
-                    {
-                        <div class="title_div">
-                            <div class="title_div_div" id="Windows">
-                                <span class="span_text">WINDOWS </span>
-                            </div>
+                @if (Model.OS == 1)
+                {
+                    <div class="title_div" style="padding-left: 15px;">
+                        <div class="title_div_div" id="Windows">
+                            <span class="span_text">WINDOWS </span>
                         </div>
-                    }
-                    else if (Model.OS == 2)
-                    {
-                        <div class="title_div">
-                            <div class="title_div_div" id="MACOS">
-                                <span class="span_text">MAC OS</span>
-                            </div>
+                    </div>
+                }
+                else if (Model.OS == 2)
+                {
+                    <div class="title_div" style="padding-left: 15px;">
+                        <div class="title_div_div" id="MACOS">
+                            <span class="span_text">MAC OS</span>
                         </div>
-                    }
+                    </div>
+                }
 
-                    else if (Model.OS == 3)
-                    {
-                        <div class="title_div">
-                            <div class="title_div_div" id="Windows">
-                                <span class="span_text">WINDOWS </span>
-                            </div>
-                            <div class="title_div_div" id="MACOS">
-                                <span class="span_text">MAC OS</span>
-                            </div>
+                else if (Model.OS == 3)
+                {
+                    <div class="title_div" style="padding-left: 15px;">
+                        <div class="title_div_div" id="Windows" v-on:click="changeWin">
+                            <span class="span_text">WINDOWS </span>
                         </div>
-                    }
-
-                    <tr>
-                        <td>
-                            <div class="recup"><span class="big_title_span">Minimum</span></div>
-                        </td>
-                        <td>
-                            <div class="rec"><span class="big_title_span">Recommended</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="recup">
-                            <div class="span_text" id="minos">
-                                <span>
-                                    @if (Model.PD_Specifications[0].SPE_OS != null)
-                                    {
-                                        <div class="small_title_span"><span>OS</span></div>
-                                        <span class="span_text" id="minos">@Model.PD_Specifications[0].SPE_OS</span>
-                                    }
-                                    else if (Model.PD_Specifications[0].SPE_CPU != null)
-                                    {
-                                        <div class="small_title_span"><span>CPU</span></div>
-                                        <span class="span_text" id="minram"> @Model.PD_Specifications[0].SPE_CPU</span>
-                                    }
-                                </span>
-                            </div>
-                        </td>
-                        <td class="rec">
-                            <div class="span_text" id="minos">
-                                <span>
-                                    @if (Model.PD_Specifications[1].SPE_OS != null)
-                                    {
-                                        <div class="small_title_span"><span>OS</span></div>
-                                        <span class="span_text">@Model.PD_Specifications[1].SPE_OS</span>
-                                    }
-                                    else if (Model.PD_Specifications[1].SPE_CPU != null)
-                                    {
-                                        <div class="small_title_span"><span>CPU</span></div>
-                                        <span class="span_text" id="recram"> @Model.PD_Specifications[1].SPE_CPU</span>
-                                    }
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_Processor != null)
-                {
-                    <div class="small_title_span"><span>Processor</span></div>
-                    <span class="span_text" id="mincpu"> @Model.PD_Specifications[0].SPE_Processor</span>
+                        <div class="title_div_div" id="MACOS" v-on:click="changeOS">
+                            <span class="span_text">MAC OS</span>
+                        </div>
+                    </div>
                 }
-
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_Processor != null)
-                {
-                    <div class="small_title_span"><span>Processor</span></div>
-                    <span class="span_text" id="reccpu">@Model.PD_Specifications[1].SPE_Processor</span>
-                }
-            </td>
-        </tr>*@
-                    @*<tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_CPU != null)
-                            {
-                                <div class="small_title_span"><span>CPU</span></div>
-                                <span class="span_text" id="minram"> @Model.PD_Specifications[0].SPE_CPU</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_CPU != null)
-                            {
-                                <div class="small_title_span"><span>CPU</span></div>
-                                <span class="span_text" id="recram"> @Model.PD_Specifications[1].SPE_CPU</span>
-                            }
-                        </td>
-                    </tr>*@
-
-                    <tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_Memory != null)
-                            {
-                                <div class="small_title_span"><span>Memory</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Memory</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_Memory != null)
-                            {
-                                <div class="small_title_span"><span>Memory</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Memory</span>
-                            }
-
-                        </td>
-                    </tr>
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_RAM != null)
-                {
-                    <div class="small_title_span"><span>RAM</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_RAM</span>
-                }
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_RAM != null)
-                {
-                    <div class="small_title_span"><span>Memory</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_RAM</span>
-                }
-
-            </td>
-        </tr>*@
-                    <tr>
-                        <td class="recup">
-                            @if (Model.PD_Specifications[0].SPE_Storage != null)
-                            {
-                                <div class="small_title_span"><span>Storage</span></div>
-                                <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Storage</span>
-                            }
-                        </td>
-                        <td class="rec">
-                            @if (Model.PD_Specifications[1].SPE_Storage != null)
-                            {
-                                <div class="small_title_span"><span>Storage</span></div>
-                                <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Storage</span>
-                            }
-
-                        </td>
-                    </tr>
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_GraphiceCard != null)
-                {
-                    <div class="small_title_span"><span>GraphiceCard</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_GraphiceCard</span>
-                }
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_GraphiceCard != null)
-                {
-                    <div class="small_title_span"><span>GraphiceCard</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_GraphiceCard</span>
-                }
-
-            </td>
-        </tr>*@
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_HDD != null)
-                {
-                    <div class="small_title_span"><span>HDD</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_HDD</span>
-                }
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_HDD != null)
-                {
-                    <div class="small_title_span"><span>HDD</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_HDD</span>
-                }
-
-            </td>
-        </tr>*@
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_DirectX != null)
-                {
-                    <div class="small_title_span"><span>DirectX</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_DirectX</span>
-                }
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_DirectX != null)
-                {
-                    <div class="small_title_span"><span>DirectX</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_DirectX</span>
-                }
-
-            </td>
-        </tr>*@
-                    @*<tr>
-            <td class="recup">
-                @if (Model.PD_Specifications[0].SPE_Additional != null)
-                {
-                    <div class="small_title_span"><span>Additional</span></div>
-                    <span class="span_text" id="minhdd"> @Model.PD_Specifications[0].SPE_Additional</span>
-                }
-            </td>
-            <td class="rec">
-                @if (Model.PD_Specifications[1].SPE_Additional != null)
-                {
-                    <div class="small_title_span"><span>Additional</span></div>
-                    <span class="span_text" id="rechdd"> @Model.PD_Specifications[1].SPE_Additional</span>
-                }
-
-            </td>
-        </tr>*@
-
-                </table>
-                @*@Html.Partial("__SpecificationTable")*@
                 <div>
-                    <div class="small_title_span"><span>Languages Supported</span></div>
-                    <ul>
-                        <li class="li_text">
-                            @Model.PD_Languages
-                        </li>
-                    </ul>
+                    <div v-show="isOS == false" class="table win col-12">
+                        <div class="speci col-6" v-if="specArray[0] != null">
+                            <div class="win_min"><span class="big_title_span">Minimum</span></div>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_OS != null"><span>OS</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_OS != null">{{specArray[0].SPE_OS}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_CPU != null"><span>CPU</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_CPU != null">{{specArray[0].SPE_CPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_GPU != null"><span>GPU</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_GPU != null">{{specArray[0].SPE_GPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_Memory != null"><span>Memory</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_Memory != null">{{specArray[0].SPE_Memory}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_Storage != null"><span>Storage</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">{{specArray[0].SPE_Storage}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_Processor != null"><span>Processor</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_Processor != null">{{specArray[0].SPE_Processor}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_RAM != null"><span>RAM</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_RAM != null">{{specArray[0].SPE_RAM}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_Storag != null"><span>Storag</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_Storag != null">{{specArray[0].SPE_Storag}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_GraphiceCard != null">{{specArray[0].SPE_GraphiceCard}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_HDD != null"><span>HDD</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_HDD != null">{{specArray[0].SPE_HDD}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_DirectX != null"><span>DirectX</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_DirectX != null">{{specArray[0].SPE_DirectX}}</span>
+
+                            <div class="small_title_span" v-if="specArray[0].SPE_Additional != null"><span>Additional</span></div>
+                            <span class="span_text" v-if="specArray[0].SPE_Additional != null">{{specArray[0].SPE_Additional}}</span>
+                        </div>
+
+                        <div class="speci col-6" v-if="specArray[1] != null">
+                            <div class="win_min"><span class="big_title_span">Recommended</span></div>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_OS != null"><span>OS</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_OS != null">{{specArray[1].SPE_OS}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_CPU != null"><span>CPU</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_CPU != null">{{specArray[1].SPE_CPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_GPU != null"><span>GPU</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_GPU != null">{{specArray[1].SPE_GPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_Memory != null"><span>Memory</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_Memory != null">{{specArray[1].SPE_Memory}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_Storage != null"><span>Storage</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_Storage != null">{{specArray[1].SPE_Storage}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_Processor != null"><span>Processor</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_Processor != null">{{specArray[1].SPE_Processor}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_RAM != null"><span>RAM</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_RAM != null">{{specArray[1].SPE_RAM}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_Storag != null"><span>Storag</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_Storag != null">{{specArray[1].SPE_Storag}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_GraphiceCard != null">{{specArray[1].SPE_GraphiceCard}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_HDD != null"><span>HDD</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_HDD != null">{{specArray[1].SPE_HDD}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_DirectX != null"><span>DirectX</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_DirectX != null">{{specArray[1].SPE_DirectX}}</span>
+
+                            <div class="small_title_span" v-if="specArray[1].SPE_Additional != null"><span>Additional</span></div>
+                            <span class="span_text" v-if="specArray[1].SPE_Additional != null">{{specArray[1].SPE_Additional}}</span>
+                        </div>
+                    </div>
+                    <div v-show="isOS == true" class="table mac col-12">
+                        <div class="speci col-6" v-if="specArray[2] != null">
+                            <div class="win_min"><span class="big_title_span">Minimum</span></div>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_OS != null"><span>OS</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_OS != null">{{specArray[2].SPE_OS}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_CPU != null"><span>CPU</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_CPU != null">{{specArray[2].SPE_CPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_GPU != null"><span>GPU</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_GPU != null">{{specArray[2].SPE_GPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_Memory != null"><span>Memory</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_Memory != null">{{specArray[2].SPE_Memory}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_Storage != null"><span>Storage</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_Storage != null">{{specArray[2].SPE_Storage}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_Processor != null"><span>Processor</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_Processor != null">{{specArray[2].SPE_Processor}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_RAM != null"><span>RAM</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_RAM != null">{{specArray[2].SPE_RAM}} </span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_Storag != null"><span>Storag</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_Storag != null"> {{specArray[2].SPE_Storag}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_GraphiceCard != null"> {{specArray[2].SPE_GraphiceCard}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_HDD != null"><span>HDD</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_HDD != null"> {{specArray[2].SPE_HDD}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_DirectX != null"><span>DirectX</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_DirectX != null"> {{specArray[2].SPE_DirectX}}</span>
+
+                            <div class="small_title_span" v-if="specArray[2].SPE_Additional != null"><span>Additional</span></div>
+                            <span class="span_text" v-if="specArray[2].SPE_Additional != null">{{specArray[2].SPE_Additional}}</span>
+                        </div>
+
+
+                        <div class="speci col-6" v-if="specArray[3] != null">
+                            <div class="win_min"><span class="big_title_span">Recommended</span></div>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_OS != null"><span>OS</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_OS != null">{{specArray[3].SPE_OS}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_CPU != null"><span>CPU</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_CPU != null">{{specArray[3].SPE_CPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_GPU != null"><span>GPU</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_GPU != null">{{specArray[3].SPE_GPU}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_Memory != null"><span>Memory</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_Memory != null">{{specArray[3].SPE_Memory}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_Storage != null"><span>Storage</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_Storage != null">{{specArray[3].SPE_Storage}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_Processor != null"><span>Processor</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_Processor != null"> {{specArray[3].SPE_Processor}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_RAM != null"><span>RAM</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_RAM != null">{{specArray[3].SPE_RAM}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_Storag != null"><span>Storag</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_Storag != null">{{specArray[3].SPE_Storag}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_GraphiceCard != null">{{specArray[3].SPE_GraphiceCard}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_HDD != null"><span>HDD</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_HDD != null">{{specArray[3].SPE_HDD}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_DirectX != null"><span>DirectX</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_DirectX != null">{{specArray[3].SPE_DirectX}}</span>
+
+                            <div class="small_title_span" v-if="specArray[3].SPE_Additional != null"><span>Additional</span></div>
+                            <span class="span_text" v-if="specArray[3].SPE_Additional != null"> {{specArray[3].SPE_Additional}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small_title_span" style="padding-left: 15px;">
+                            <span>Languages Supported</span>
+                        </div>
+                        <ul style="padding-left: 15px;">
+                            <li class="li_text">
+                                @Model.PD_Languages
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="privacy_policy">
-                <span class="privacy_policy_content">
-                    @Model.PD_Privary
-                </span>
-                <a href="@Model.PD_PrivaryUrl" class="privacy_policy_a">
-                    <span class="privacy_policy_title">Privacy Policy</span>
-                </a>
+
+                <div class="privacy_policy" style="margin: 0 15px;">
+                    <span class="privacy_policy_content">
+                        @Model.PD_Privary
+                    </span>
+                    <a href="@Model.PD_PrivaryUrl" class="privacy_policy_a">
+                        <span class="privacy_policy_title">Privacy Policy</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+@Scripts.Render("~/bundles/vue")
+
+<script>
+    var a = new Vue({
+        el: '#specification',
+        data: {
+            isOS: false,
+            specArray: @Html.Raw(JsonSpec)
+        },
+        methods: {
+            changeWin: function () {
+                isOS = false;
+                alert(isOS);
+            },
+            changeOS: function () {
+
+                isOS = true;
+                alert(isOS);
+            }
+        },
+    })
+
+
+</script>

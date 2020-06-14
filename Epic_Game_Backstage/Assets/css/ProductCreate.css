@@ -48,3 +48,94 @@
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+label.input-group-text {
+    border-right: none;
+}
+
+uploadLinkBtn {
+    padding: 0 14px;
+    font-size: 14px;
+    background-color: #eee;
+}
+
+.uploadLink::first-letter {
+    outline: 5px solid #0094ff
+}
+
+.input-group-prepend .input-group-text {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.custom-select,
+.form-control {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.mg-75{
+    margin-top: 75px
+}
+
+.swiper-wrap {
+    position: relative;
+    border: 1px solid #999;
+}
+
+.swiper-border {
+    padding-bottom: calc(3/5 * 100%);
+    position: relative;
+}
+
+.DeleteSwiper {
+    position: absolute;
+    width:100%;
+    height:100%;
+    right:0;
+    top:0;
+    background-color:rgba(0,0,0,0.5);
+    display:none;
+    z-index: 99;
+    transition-duration: 0.3s;
+}
+
+    .DeleteSwiper::after,
+    .DeleteSwiper::before {
+        position: absolute;
+        content: '';
+        border: solid 2px antiquewhite;
+        background-color: antiquewhite;
+        width: 30px;
+        height: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        border-radius: 5px;
+    }
+    .DeleteSwiper::after {
+        transform: rotate(45deg);
+    }
+    .DeleteSwiper::before {
+        transform: rotate(315deg);
+    }
+
+#SwiperImageArea li:hover .DeleteSwiper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.UploadScreenShot_CardHeader {
+    position: relative;
+}
+
+.UploadScreenShot_CardHeader::after{
+    content:'';
+    width:100%;
+    left:0;
+    border: 1px solid rgba(0,0,0,0.4);
+    bottom: 0;
+    position: absolute;
+}

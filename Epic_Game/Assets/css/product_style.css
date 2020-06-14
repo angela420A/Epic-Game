@@ -489,6 +489,9 @@ body {
     transition: transform 0.5s ease;
 }
 /*評論*/
+.modal_title{
+    margin-bottom:20px;
+}
 .modal-title {
     color: #e7e7e7;
     font-size: 20px;
@@ -580,11 +583,6 @@ body {
     background-color: black;
     padding: 35px 50px;
 }
-
-#specification .recup, .rec {
-    height: 80px;
-}
-
 #specification .big_title_span, .small_title_span {
     color: #757575;
     font-size: 14px;
@@ -596,6 +594,7 @@ body {
 
 #specification .span_text {
     font-size: 14px;
+    color: #e7e7e7;
 }
 
 #specification .li_text {
@@ -618,7 +617,25 @@ body {
     cursor: pointer;
     margin-right: 20px;
 }
+#specification .speci {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
 
+#specification .table {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+#specification .col-6 {
+    padding-right: 0;
+}
+
+.small_title_span {
+    margin-top: 10px;
+}
 #Windows {
     border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
