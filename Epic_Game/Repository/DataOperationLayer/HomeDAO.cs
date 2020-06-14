@@ -122,10 +122,10 @@ namespace Epic_Game.Repository.DataOperationLayer
             List<SearchViewModel> searches;
             using (conn = new SqlConnection(connString))
             {
-                string sql = @"select p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category
-                            from Product p 
-                            inner join [Image] img on p.ProductID = img.ProductOrPack
-                            where img.Location = 0";
+                string sql = @"select p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category,CONVERT(varchar(12) ,p.ReleaseDate, 111 ) As ReleaseDate
+                                from Product p 
+                                inner join [Image] img on p.ProductID = img.ProductOrPack
+                                where img.Location = 0";
                 searches = conn.Query<SearchViewModel>(sql).ToList();
             }
             return searches;

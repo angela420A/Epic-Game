@@ -235,7 +235,7 @@ body{
     z-index: 2;
 }
 .sortLabel{
-    width: 100px;
+    width: 120px;
 }
 .sortLabel p, .wishCount p{
     display: inline-block;
@@ -271,9 +271,20 @@ body{
 
 .mode_4_li{
     padding: 10px;
+    position:relative;
 }
 
-.col-12{
+.mode_4_text h4:last-child{
+    position:absolute;
+    bottom: 5px;
+    padding-top: 20px;
+}
+
+.mode_4_text{
+    padding-top:10px;
+}
+
+.col-12 {
     padding: 0px;
 }
 
@@ -296,6 +307,7 @@ body{
 .mode_4_text p{
     color: #cccccc;
     font-size: 14px;
+    margin-bottom:50px;
 }
 
 .imgArea{
