@@ -31,7 +31,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
 
             foreach (var item in p)
             {
-                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = item.Product.Price });
+                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = decimal.Round(item.Product.Price*item.Product.Discount,2)});
             }
 
             return viewModel;
@@ -42,7 +42,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
 
             foreach (var item in p)
             {
-                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(), ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()), Price = item.Product.Price ,ProductCount = wishlistDAO.GetProductCount(item.ProductID.ToString()),Date = wishlistDAO.GetDate(item.ProductID.ToString())});
+                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(), ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()), Price = decimal.Round(item.Product.Price * item.Product.Discount,2), ProductCount = wishlistDAO.GetProductCount(item.ProductID.ToString()),Date = wishlistDAO.GetDate(item.ProductID.ToString())});
             }
             var result = viewModel.OrderByPropertyName(Key,boolean).ToList();
             return result;
