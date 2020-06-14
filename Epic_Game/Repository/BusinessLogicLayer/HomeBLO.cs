@@ -36,6 +36,11 @@ namespace Epic_Game.Repository.BusinessLogicLayer
            return HomeDAO.GetSearches().Where(x => new GameType().searchGameType(num,x.Category)).ToList();
         }
 
+        public List<SearchViewModel> SearchOrde(string key/*, int num*/)
+        {
+            return HomeDAO.GetSearches()/*.Where(x => new GameType().searchGameType(num, x.Category))*/.OrderByPropertyName(key).ToList();
+        }
+
         public List<SearchViewModel> GetAll()
         {
             return HomeDAO.GetSearches().ToList();

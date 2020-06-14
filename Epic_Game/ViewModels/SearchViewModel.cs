@@ -17,5 +17,6 @@ namespace Epic_Game.ViewModels
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
         public int Category { get; set; }
+        public string ReleaseDate { get; set; }
     }
 }
