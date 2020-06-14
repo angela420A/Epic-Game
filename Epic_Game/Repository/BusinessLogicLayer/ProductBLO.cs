@@ -63,7 +63,8 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 var smvm = new SocialMediaViewModel()
                 {
                     SM_URL = socialMedia.URL,
-                    SM_Community = socialMedia.Community
+                    SM_Community = socialMedia.Community,
+                    SM_ProductID = socialMedia.ProductID.ToString()
                 };
                 pmv.SM.Add(smvm);
             }
@@ -73,8 +74,8 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             {
                 var commentvm = new CommentViewModel()
                 {
-                    Comment_Title = Comment.Title,
-                    Comment_Date = Comment.Date,
+                    Comment_ProductID = Comment.ProductID,
+                    Comment_Date = Comment.Date.ToString(),
                     Comment_Description = Comment.Description,
                     Comment_Rank = Comment.Rank
                 };

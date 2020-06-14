@@ -32,9 +32,5 @@ namespace Epic_Game.ViewModels
         public List<CommentViewModel> PD_Comment { get;set; }
         public List<ImageViewModel> PD_image { get; set; }
         public SpecificationsViewModel[] PD_Specificatoin { get; set; }
-
-
-
-
     }
 }

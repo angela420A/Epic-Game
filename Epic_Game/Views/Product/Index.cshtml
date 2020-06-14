@@ -242,15 +242,23 @@
     </div>
 </div>
 <!-- 版本------------------------------- -->
-@Html.Partial("_Editions")
+@*@Html.Partial("_Editions")*@
 <!-- 附加------------------------------- -->
-@Html.Partial("_AddOns")
+@*@Html.Partial("_AddOns")*@
 
 <!-- 追蹤------------------------------- -->
-@Html.Partial("_Trackus", Model.SM)
+@if (Model.SM.Count() > 0)
+{
+    @Html.Partial("_Trackus", Model.SM)
+}
+
 
 <!-- 評論------------------------------- -->
-@Html.Partial("_Comments")
+@*@if (Model.PD_Comment.Count() > 0)
+{*@
+    @Html.Partial("_Comments")
+    //}
+
 
 <!--規格 ------------------- -->
 <div class="container allblock" id="specification">
@@ -306,7 +314,8 @@
                             <span class="span_text" v-if="specArray[0].SPE_Memory != null">{{specArray[0].SPE_Memory}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">{{specArray[0].SPE_Storage}}
+                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">
+                                {{specArray[0].SPE_Storage}}
                             </span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Processor != null"><span>Processor</span></div>
@@ -438,7 +447,7 @@
                             <span class="span_text" v-if="specArray[3].SPE_GPU != null">{{specArray[3].SPE_GPU}}</span>
 
                             <div class="small_title_span" v-if="specArray[3].SPE_Memory != null"><span>Memory</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Memory != null">{{specArray[3].SPE_Memory}}/span>
+                            <span class="span_text" v-if="specArray[3].SPE_Memory != null">{{specArray[3].SPE_Memory}}</span>
 
                             <div class="small_title_span" v-if="specArray[3].SPE_Storage != null"><span>Storage</span></div>
                             <span class="span_text" v-if="specArray[3].SPE_Storage != null">{{specArray[3].SPE_Storage}}</span>
@@ -488,11 +497,12 @@
             </div>
         </div>
     </div>
+</div>
 
 
-    @Scripts.Render("~/bundles/vue")
+@Scripts.Render("~/bundles/vue")
 
-    <script>
+<script>
     var a = new Vue({
         el: '#specification',
         data: {
@@ -513,4 +523,4 @@
     })
 
 
-    </script>
+</script>

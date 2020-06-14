@@ -23,7 +23,7 @@ namespace Epic_Game.Controllers
             else
             { 
                 ProductBLO proBLO = new ProductBLO();           
-                ProductViewModel VM = proBLO.GetProductViewModel("11f26289-b82e-4bdb-ba56-05c6457bf007", UserId);
+                ProductViewModel VM = proBLO.GetProductViewModel("02902f18-c98a-4955-b6c7-16711c511b34", UserId);
                 return View(VM);
             }
           
