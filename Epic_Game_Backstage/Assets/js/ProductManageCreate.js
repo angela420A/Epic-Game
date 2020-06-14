@@ -26,9 +26,18 @@ Vue.component('screen-compo', {
     }
 })
 
-var CatVue = new Vue({
-    el: '#CategoryVue',
+var PInfo = new Vue({
+    el: '#ProductInfoVue',
     data: {
+        ProName: "",
+        ProPrice: "",
+        ProType: "",
+        ProDeveloper: "",
+        ProPublisher: "",
+        ProContext: "",
+        ProAgeRestrct: "",
+        ProPrivInfo: "",
+        ProPrivLink:"",
         CategoriesGroup: [],
         CategoriesText: {
             "1": "Action",
@@ -99,7 +108,6 @@ var ImgVue = new Vue({
                 url: '/ProductManage/UploadImg',
                 mimeType: 'multipart/form-data'
             };
-            debugger;
             let array = [];
             this.UploadList.forEach(item => {
                 let form = new FormData();
@@ -130,7 +138,7 @@ var ImgVue = new Vue({
                         this.swiperList.push(element);
                         break;
                     case "screenShot":
-                        PInfoVue.swiperList.push(element);
+                        PIntroVue.swiperList.push(element);
                         break;
                 }
             })
@@ -179,17 +187,71 @@ var ImgVue = new Vue({
     }
 })
 
-var PInfoVue = new Vue({
-    el: '#ProductInfo',
+var PIntroVue = new Vue({
+    el: '#ProductIntro',
     data:{
         swiperList: ["https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/W0E2fcs.jpg"],
     },
     methods: {
-        getInfo: function () {
-            var r = CKEDITOR.instances.editor1.getData();
-        },
+        //getInfo: function () {
+        //    var r = CKEDITOR.instances.editor1.getData();
+        //},
         submit: function (e) {
             ImgVue.showFile(e);
         }
     }
 });
+
+var SubmitVue = new Vue({
+    el: '#submitVue',
+    methods: {
+        createProduct: function () {
+            let ProductVM = {
+                ProductName: PInfo.ProName,
+                Price: PInfo.ProPrice,
+                ContentType : PInfo.ProType,
+                Developer : PInfo.ProDeveloper,
+                Publisher : PInfo.ProPublisher,
+                Title: PInfo.ProContext,
+                Description: CKEDITOR.instances.editor1.getData(),
+                AgeRestriction : PInfo.ProAgeRestrct,
+                PrivacyPolicy : PInfo.ProPrivInfo,
+                PrivacyPolicyUrl: PInfo.ProPrivLink,
+                ImageVM: {
+                    StoreImg: ImgVue.storeImage,
+                    GameLogo: ImgVue.logoImage,
+                    SwiperImg: ImgVue.swiperList,
+                    ScreenShots: PIntroVue.swiperList
+                }
+            }
+            debugger;
+            let settings = {
+                async: false,
+                crossDomain: true,
+                processData: false,
+                contentType: false,
+                type: 'post',
+                url: '/ProductManage/CreateProduct',
+                dataType: 'json',
+                data: JSON.stringify(ProductVM)
+            };
+            $.ajax(settings).done(function (res) { });
+            //$.ajax({
+            //    url: "/ProductManage/CreateProduct",
+            //    type: "post",
+            //    data: { jdata: "aa" },
+            //    success: function () {
+            //        alert("success");
+            //    },
+            //    error: function (xhr, ajaxOptions, thrownError) {
+            //        console.log(xhr.status);
+            //        console.log(thrownError);
+            //        debugger;
+            //    }
+
+
+            //})
+        }
+    }
+
+})

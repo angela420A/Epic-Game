@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Epic_Game_Backstage.Repository.BusinessLogicLayer;
+using Epic_Game_Backstage.ViewModels;
 using Imgur.API.Authentication.Impl;
 using Imgur.API.Endpoints.Impl;
 using Imgur.API.Models;
+using Newtonsoft.Json;
 
 namespace Epic_Game_Backstage.Controllers
 {
@@ -39,18 +41,11 @@ namespace Epic_Game_Backstage.Controllers
 
         // POST: ProductManage/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateProduct(string jdata)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            ProductManageViewModel vm = JsonConvert.DeserializeObject<ProductManageViewModel>(jdata);
+            return RedirectToAction("Index");
         }
 
         // GET: ProductManage/Edit/5

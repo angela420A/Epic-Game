@@ -49,9 +49,6 @@
     background-position: bottom;
 }
 
-label.input-group-text {
-    border-right: none;
-}
 
 uploadLinkBtn {
     padding: 0 14px;
@@ -67,14 +64,28 @@ uploadLinkBtn {
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
 }
+
+.input-group-prepend label.input-group-text-right {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-right: 1px solid #ccc;
+    border-left: none;
+}
 .custom-select,
 .form-control {
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
 }
 
-.mg-75{
-    margin-top: 75px
+#PriceTextbox {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.mg-75 {
+    margin-top:50px
 }
 
 .swiper-wrap {

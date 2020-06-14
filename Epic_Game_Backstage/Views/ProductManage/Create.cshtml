@@ -1,5 +1,4 @@
-﻿@model Epic_Game_Backstage.ViewModels.ProductCeateViewModel
-
+﻿
 @{
     ViewBag.Title = "Create";
 }
@@ -29,68 +28,79 @@
     <h1 style="text-align:center; padding: 40px 0 70px">Create Product</h1>
     <div class="container ProductInfoPage">
         <h2>Basic Information:</h2>
-        <div class="row">
+        <div class="row" id="ProductInfoVue">
             <div class="col-12">
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                         <label class="input-group-text" id="inputGroup-sizing-lg">Product Name</label>
                     </div>
                     <input type="text" class="form-control" aria-label="Sizing input"
-                           aria-describedby="inputGroup-sizing-lg">
+                           aria-describedby="inputGroup-sizing-lg" v-model="ProName">
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-6">
                 <div class="input-group-prepend" style="margin-top:45px">
                     <label class="input-group-text" for="GameTtpeSelect">
                         Product
                         Type
                     </label>
-                    <select class="custom-select" id="GameTtpeSelect">
+                    <select class="custom-select" id="GameTtpeSelect" v-model="ProType">
                         <option value="Game">Game</option>
                         <option value="DLC">DLC</option>
                     </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group-prepend" style="margin-top:45px">
+                    <label class="input-group-text" for="PriceTextbox">Price</label>
+                    <input type="text" class="form-control" aria-label="Sizing input"
+                           aria-describedby="inputGroup-sizing-default" id="PriceTextbox"
+                           v-model="ProPrice">
+                    <label class="input-group-text input-group-text-right" for="PublisherTextbox">$ TWD</label>
                 </div>
             </div>
             <div class="col-6 mg-75">
                 <div class="input-group-prepend mb-3">
                     <label class="input-group-text" for="PublisherTextbox">Publisher</label>
                     <input type="text" class="form-control" aria-label="Sizing input"
-                           aria-describedby="inputGroup-sizing-default" id="PublisherTextbox">
+                           aria-describedby="inputGroup-sizing-default" id="PublisherTextbox"
+                           v-model="ProPublisher">
                 </div>
             </div>
             <div class="col-6 mg-75">
                 <div class="input-group-prepend mb-3">
                     <label class="input-group-text" for="DeveloperTextbox">Developer</label>
                     <input type="text" class="form-control" aria-label="Sizing input"
-                           aria-describedby="inputGroup-sizing-default" id="DeveloperTextbox">
+                           aria-describedby="inputGroup-sizing-default" id="DeveloperTextbox"
+                           v-model="ProDeveloper">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group mg-75">
-                    <label for="ProductIntro">Product Introduction:</label>
-                    <textarea class="form-control" id="ProductIntro" rows="3"></textarea>
+                    <label for="ProductContext">Product Introduction:</label>
+                    <textarea class="form-control" id="ProductContext" rows="3" v-model="ProContext"></textarea>
                 </div>
                 <label class="mg-75">Age restriction:</label>
                 <div class="input-group-prepend mb-3">
                     <label class="input-group-text" for="AgeRestrictionTextbox">Ages</label>
                     <input type="text" class="form-control" aria-label="Sizing input" id="AgeRestrictionTextbox"
-                           aria-describedby="inputGroup-sizing-default">
+                           aria-describedby="inputGroup-sizing-default" v-model="ProAgeRestrct">
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="PrivacyPolicyTextArea" class="mg-75">Privacy Policy:</label>
-                    <textarea class="form-control" id="PrivacyPolicyTextArea" rows="3"></textarea>
+                    <textarea class="form-control" id="PrivacyPolicyTextArea" rows="3" v-model="ProPrivInfo"></textarea>
                 </div>
                 <label class="mg-75">Privacy Policy Link:</label>
                 <div class="input-group-prepend mb-3">
                     <label class="input-group-text" for="PrivacyPolicyLink">URL</label>
                     <input type="text" class="form-control" aria-label="Sizing input" id="PrivacyPolicyLink"
-                           aria-describedby="inputGroup-sizing-default">
+                           aria-describedby="inputGroup-sizing-default" v-model="ProPrivLink">
                 </div>
             </div>
             <div class="col-12">
-                <div class="Categories mg-75" id="CategoryVue">
+                <div class="Categories mg-75">
                     <div>
                         <label id="inputGroup-sizing-lg">Product's categories:</label>
                     </div>
@@ -233,7 +243,7 @@
                 <b>Introduce the product!</b>
                 </textarea>
             </div>
-            <div class="col-5" id="ProductInfo">
+            <div class="col-5" id="ProductIntro">
                 <div class="card">
                     <div class="card-header UploadScreenShot_CardHeader" style="padding-bottom:15px">
                         <label class="w-100 btn btn-primary" style="text-align:center; color:antiquewhite" for="screenShot">Upload Image</label>
@@ -247,13 +257,19 @@
                         </div>
                     </div>
                     <div class="card-footer"></div>
-                    <button v-on:click="getInfo">123</button>
+                    @*<button v-on:click="getInfo">123</button>*@
                 </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" id="submitVue">
+            <div class="col">
+                <button class="btn btn-primary" v-on:click="createProduct">Create Product</button>
             </div>
         </div>
     </div>
 </div>
-
+@Html.Partial("_AjaxAntiForgeryPartial")
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
