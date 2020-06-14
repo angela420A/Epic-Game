@@ -5,6 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Epic_Game.Repository.BusinessLogicLayer;
+using EpicGameLibrary.Models;
+using System.ComponentModel;
+using Epic_Game.ViewModels;
+using Newtonsoft.Json;
 
 namespace Epic_Game.Controllers
 {
@@ -29,6 +33,13 @@ namespace Epic_Game.Controllers
             var libraryBLO = new LibraryBLO(userId);
             return View(libraryBLO.GetLibraryProduct());
         }
-        
+
+        [HttpPost]
+        public ActionResult ShowOrder(string Key)
+        {
+            var UserId = User.Identity.GetUserId();
+            var libraryBLO = new LibraryBLO(UserId, Key);
+            return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -152,6 +152,7 @@
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Js\ckeditorconfig_Product.js" />
     <Content Include="Assets\Js\ckeditorconfig.js" />
     <Content Include="Assets\Js\ckeditorplugin.js" />
     <Content Include="Assets\css\bootstrap.min.css" />

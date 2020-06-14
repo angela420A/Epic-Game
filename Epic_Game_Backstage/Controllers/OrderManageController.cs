@@ -87,8 +87,6 @@ namespace Epic_Game_Backstage.Controllers
                 }
                 else
                 {
-                    //search = "UserID";
-                    //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
                     orderVMlistiqu1 = orderVMlistiqu.Where(x => x.UserID.Contains(UserID));
                 }
                 if (orderVMlistiqu1 == null)
@@ -134,7 +132,6 @@ namespace Epic_Game_Backstage.Controllers
                 }
                 else
                 {
-                    //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
                     orderVMlistiqu1 = orderVMlistiqu.Where(x => x.Date.ToString().Contains(Date));
                 }
                 if (orderVMlistiqu1 == null)
@@ -157,7 +154,6 @@ namespace Epic_Game_Backstage.Controllers
                 }
                 else
                 {
-                    //users = db.order.Where(x => x.ProductID.ToString().Contains(ProductID));
                     orderVMlistiqu1 = orderVMlistiqu.Where(x => x.Payment.ToString().Contains(Payment));
                 }
                 if (orderVMlistiqu1 == null)
@@ -168,12 +164,6 @@ namespace Epic_Game_Backstage.Controllers
             return View(orderVMlistiqu1);
 
         }
-
-     
-     
-
-
-
         public ActionResult Edit(string id)
         {
             OrderManageBLO orderManageBLO = new OrderManageBLO();
@@ -198,9 +188,6 @@ namespace Epic_Game_Backstage.Controllers
                 return View(data);
             }
         }
-
-
-        // GET: orders1/Delete/5
         public ActionResult Delete(Guid id)
         {
             OrderManageBLO orderManageBLO = new OrderManageBLO();
