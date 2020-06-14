@@ -257,7 +257,7 @@
 @*@if (Model.PD_Comment.Count() > 0)
 {*@
     @Html.Partial("_Comments")
-    //}
+@*}*@
 
 
 <!--規格 ------------------- -->
@@ -314,22 +314,16 @@
                             <span class="span_text" v-if="specArray[0].SPE_Memory != null">{{specArray[0].SPE_Memory}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">
-                                {{specArray[0].SPE_Storage}}
-                            </span>
+                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">{{specArray[0].SPE_Storage}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Processor != null"><span>Processor</span></div>
                             <span class="span_text" v-if="specArray[0].SPE_Processor != null">{{specArray[0].SPE_Processor}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_RAM != null"><span>RAM</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_RAM != null">
-                                {{specArray[0].SPE_RAM}}
-                            </span>
+                            <span class="span_text" v-if="specArray[0].SPE_RAM != null">{{specArray[0].SPE_RAM}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Storag != null"><span>Storag</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Storag != null">
-                                {{specArray[0].SPE_Storag}}
-                            </span>
+                            <span class="span_text" v-if="specArray[0].SPE_Storag != null">{{specArray[0].SPE_Storag}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
                             <span class="span_text" v-if="specArray[0].SPE_GraphiceCard != null">{{specArray[0].SPE_GraphiceCard}}</span>
@@ -338,14 +332,10 @@
                             <span class="span_text" v-if="specArray[0].SPE_HDD != null">{{specArray[0].SPE_HDD}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_DirectX != null">
-                                {{specArray[0].SPE_DirectX}}
-                            </span>
+                            <span class="span_text" v-if="specArray[0].SPE_DirectX != null">{{specArray[0].SPE_DirectX}}</span>
 
                             <div class="small_title_span" v-if="specArray[0].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Additional != null">
-                                {{specArray[0].SPE_Additional}}
-                            </span>
+                            <span class="span_text" v-if="specArray[0].SPE_Additional != null">{{specArray[0].SPE_Additional}}</span>
                         </div>
 
                         <div class="speci col-6" v-if="specArray[1] != null">
@@ -382,14 +372,10 @@
                             <span class="span_text" v-if="specArray[1].SPE_HDD != null">{{specArray[1].SPE_HDD}}</span>
 
                             <div class="small_title_span" v-if="specArray[1].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_DirectX != null">
-                                {{specArray[1].SPE_DirectX}}
-                            </span>
+                            <span class="span_text" v-if="specArray[1].SPE_DirectX != null">{{specArray[1].SPE_DirectX}}</span>
 
                             <div class="small_title_span" v-if="specArray[1].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Additional != null">
-                                {{specArray[1].SPE_Additional}}
-                            </span>
+                            <span class="span_text" v-if="specArray[1].SPE_Additional != null">{{specArray[1].SPE_Additional}}</span>
                         </div>
                     </div>
                     <div v-show="isOS == true" class="table mac col-12">
