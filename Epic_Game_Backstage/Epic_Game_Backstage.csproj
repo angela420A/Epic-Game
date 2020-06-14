@@ -135,6 +135,7 @@
     <Compile Include="Controllers\OrderManageController.cs" />
     <Compile Include="Controllers\BackstageHomeController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
+    <Compile Include="Controllers\UserManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,13 +144,16 @@
     <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
     <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\UserManageBLO.cs" />
     <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\OrderManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
+    <Compile Include="ViewModels\UserManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Js\ckeditorconfig_Product.js" />
@@ -386,6 +390,7 @@
     <Content Include="Views\OrderManage\Edit.cshtml" />
     <Content Include="Views\OrderManage\Delete.cshtml" />
     <Content Include="Views\BackstageHome\Index.cshtml" />
+    <Content Include="Views\UserManage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
