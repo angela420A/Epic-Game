@@ -125,7 +125,8 @@ namespace Epic_Game.Repository.DataOperationLayer
                 string sql = @"select p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category,CONVERT(varchar(12) ,p.ReleaseDate, 111 ) As ReleaseDate
                                 from Product p 
                                 inner join [Image] img on p.ProductID = img.ProductOrPack
-                                where img.Location = 0";
+                                where img.Location = 0
+                                order by ReleaseDate DESC";
                 searches = conn.Query<SearchViewModel>(sql).ToList();
             }
             return searches;
