@@ -150,3 +150,9 @@ uploadLinkBtn {
     bottom: 0;
     position: absolute;
 }
+
+.swiper-link-input {
+    height: calc(1.5em + .65rem);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}

@@ -44,6 +44,7 @@ namespace Epic_Game_Backstage.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult CreateProduct(string jdata)
         {
+            if (jdata == null) return HttpNotFound("Error");
             ProductCeateViewModel vm = JsonConvert.DeserializeObject<ProductCeateViewModel>(jdata);
             blo = new ProductManageBLO();
             blo.ViewToModel(vm);

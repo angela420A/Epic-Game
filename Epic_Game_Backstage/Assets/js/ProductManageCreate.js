@@ -1,7 +1,7 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
 //Vue
 Vue.component('swiper-compo', {
-    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
+    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -29,16 +29,16 @@ Vue.component('screen-compo', {
 var PInfo = new Vue({
     el: '#ProductInfoVue',
     data: {
-        ProName: "",
-        ProPrice: "",
-        ProType: "",
-        ProDeveloper: "",
-        ProPublisher: "",
-        ProContext: "",
-        ProAgeRestrct: "",
-        ProPrivInfo: "",
-        ProPrivLink:"",
-        CategoriesGroup: [],
+        ProName: "123123",
+        ProPrice: "123123",
+        ProType: "Game",
+        ProDeveloper: "123123",
+        ProPublisher: "123123",
+        ProContext: "123123",
+        ProAgeRestrct: "123123",
+        ProPrivInfo: "123123",
+        ProPrivLink:"123123",
+        CategoriesGroup: ["1","1024"],
         CategoriesText: {
             "1": "Action",
             "2": "Adventure",
@@ -72,9 +72,9 @@ var PInfo = new Vue({
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        storeImage: {},
-        logoImage: {},
-        swiperList: ["https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg"],
+        storeImage: "https://i.imgur.com/YflgSCT.png",
+        logoImage: "https://i.imgur.com/YflgSCT.png",
+        swiperList: ["https://youtu.be/5qap5aO4i9A?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg"],
         UploadList: []
     },
     methods: {
@@ -205,15 +205,19 @@ var PIntroVue = new Vue({
 var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
-        createProduct: function () {
+        showLoading: function () {
+
+        },
+        createProduct2: function () {
             let ProductVM = {
                 ProductName: PInfo.ProName,
                 Price: PInfo.ProPrice,
-                ContentType : PInfo.ProType,
+                ContentType: PInfo.ProType,
+                Category: this.getCat,
                 Developer : PInfo.ProDeveloper,
                 Publisher : PInfo.ProPublisher,
                 Title: PInfo.ProContext,
-                Description: CKEDITOR.instances.editor1.getData(),
+                Description: this.transformHtml(CKEDITOR.instances.editor1.getData()),
                 AgeRestriction : PInfo.ProAgeRestrct,
                 PrivacyPolicy : PInfo.ProPrivInfo,
                 PrivacyPolicyUrl: PInfo.ProPrivLink,
@@ -236,24 +240,30 @@ var SubmitVue = new Vue({
             //    data: JSON.stringify(ProductVM)
             //};
             //$.ajax(settings).done(function (res) { });
-            var ddd = {
-                jdata: "aa"
-            }
-            var str = AddAntiForgeryToken(JSON.stringify(dd));
-            debugger;
+
             $.ajax({
                 url: "/ProductManage/CreateProduct",
                 type: "post",
-                data: str,
+                data: { jdata: JSON.stringify(ProductVM)},
                 success: function () {
-                    alert("success");
+                    window.location.href = "/ProductManage/Index"
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);
                     alert(thrownError);
-                    debugger;
                 }
             })
+        },
+        getCat: function () {
+            let res = 0;
+            PInfo.CategoriesGroup.forEach(el => {
+                res += parseInt(el);
+            })
+            return res;
+        },
+        transformHtml: function (str) {
+            let s = str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return s;
         }
     }
 

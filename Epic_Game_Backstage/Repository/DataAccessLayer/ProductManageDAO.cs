@@ -9,14 +9,12 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
 {
     public class ProductManageDAO
     {
-
-
-        public IEnumerable<Product> GetAllProducts()
+        public List<Product> GetAllProducts()
         {
             using(var _context = new EGContext())
             {
                 var repo = new EGRepository<Product>(_context);
-                return repo.GetAll().AsEnumerable();
+                return repo.GetAll().AsEnumerable().ToList();
             }
         }
         
