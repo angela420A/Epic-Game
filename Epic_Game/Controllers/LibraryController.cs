@@ -15,9 +15,6 @@ namespace Epic_Game.Controllers
     public class LibraryController : Controller
     {
         LibraryBLO blo;
-        public LibraryController()
-        {
-        }
         // GET: Library
         public ActionResult Index()
         {
@@ -29,31 +26,17 @@ namespace Epic_Game.Controllers
             }
             else
             {
-                if (TempData["Order"] != null)
-                {
-                    ViewData.Model = (List<LibraryViewModel>)TempData["Order"];
-                    return View();
-                }
-                else
-                {
-                    ViewData.Model = blo.GetLibraryProduct();
-                    return View();
-                }
+                ViewData.Model = blo.GetLibraryProduct();
+                return View();
             }
         }
 
-        //private ActionResult GetLibrary()
-        //{
-        //    return View(blo.GetLibraryProduct());
-        //}
         [HttpPost]
         public ActionResult ShowOrder(string Key)
         {
             var UserId = User.Identity.GetUserId();
             var libraryBLO = new LibraryBLO(UserId, Key);
-            TempData["Order"] = libraryBLO.OrderLibraryProduct();
-            //return RedirectToAction("Index");
-            return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
+            return Json(libraryBLO.OrderLibraryProduct(), JsonRequestBehavior.AllowGet);
         }
     }
 }
