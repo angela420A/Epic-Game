@@ -224,33 +224,36 @@ var SubmitVue = new Vue({
                     ScreenShots: PIntroVue.swiperList
                 }
             }
+            //debugger;
+            //let settings = {
+            //    async: false,
+            //    crossDomain: true,
+            //    processData: false,
+            //    contentType: false,
+            //    type: 'post',
+            //    url: '/ProductManage/CreateProduct',
+            //    dataType: 'json',
+            //    data: JSON.stringify(ProductVM)
+            //};
+            //$.ajax(settings).done(function (res) { });
+            var ddd = {
+                jdata: "aa"
+            }
+            var str = AddAntiForgeryToken(JSON.stringify(dd));
             debugger;
-            let settings = {
-                async: false,
-                crossDomain: true,
-                processData: false,
-                contentType: false,
-                type: 'post',
-                url: '/ProductManage/CreateProduct',
-                dataType: 'json',
-                data: JSON.stringify(ProductVM)
-            };
-            $.ajax(settings).done(function (res) { });
-            //$.ajax({
-            //    url: "/ProductManage/CreateProduct",
-            //    type: "post",
-            //    data: { jdata: "aa" },
-            //    success: function () {
-            //        alert("success");
-            //    },
-            //    error: function (xhr, ajaxOptions, thrownError) {
-            //        console.log(xhr.status);
-            //        console.log(thrownError);
-            //        debugger;
-            //    }
-
-
-            //})
+            $.ajax({
+                url: "/ProductManage/CreateProduct",
+                type: "post",
+                data: str,
+                success: function () {
+                    alert("success");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                    debugger;
+                }
+            })
         }
     }
 

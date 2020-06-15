@@ -9,23 +9,47 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
 {
     public class ProductManageDAO
     {
-        private EGContext context;
-        private EGRepository<Product> repo;
 
-        public ProductManageDAO()
-        {
-            context = new EGContext();
-            repo = new EGRepository<Product>(context);
-        }
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return repo.GetAll().AsEnumerable();
+            using(var _context = new EGContext())
+            {
+                var repo = new EGRepository<Product>(_context);
+                return repo.GetAll().AsEnumerable();
+            }
         }
         
         public Image GetStoreImage(Guid ProductId)
         {
-            return context.Image.FirstOrDefault(x => x.ProductOrPack.Equals(ProductId) && x.Location == 0);
+            using (var _context = new EGContext())
+            {
+                return _context.Image.FirstOrDefault(x => x.ProductOrPack.Equals(ProductId) && x.Location == 0);
+            }
+
+        }
+
+        public void CreateProduct(Product p)
+        {
+            using(var _context = new EGContext())
+            {
+                var repo = new EGRepository<Product>(_context);
+                repo.Create(p);
+                _context.SaveChanges();
+            }
+        }
+
+        public void CreateImages(IList<Image> images)
+        {
+            using (var _context = new EGContext())
+            {
+                var repo = new EGRepository<Image>(_context);
+                foreach (var img in images)
+                {
+                    repo.Create(img);
+                }
+                _context.SaveChanges();
+            }
         }
     }
 }

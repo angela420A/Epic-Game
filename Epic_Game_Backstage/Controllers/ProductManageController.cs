@@ -41,10 +41,12 @@ namespace Epic_Game_Backstage.Controllers
 
         // POST: ProductManage/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult CreateProduct(string jdata)
         {
-            ProductManageViewModel vm = JsonConvert.DeserializeObject<ProductManageViewModel>(jdata);
+            ProductCeateViewModel vm = JsonConvert.DeserializeObject<ProductCeateViewModel>(jdata);
+            blo = new ProductManageBLO();
+            blo.ViewToModel(vm);
             return RedirectToAction("Index");
         }
 
