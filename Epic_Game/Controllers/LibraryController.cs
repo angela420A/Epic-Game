@@ -14,24 +14,21 @@ namespace Epic_Game.Controllers
 {
     public class LibraryController : Controller
     {
+        LibraryBLO blo;
         // GET: Library
         public ActionResult Index()
         {
-            var UserId = User.Identity.GetUserId();
-            if (UserId == null)
+            blo = new LibraryBLO(User.Identity.GetUserId());
+
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
             else
             {
-                return GetLibrary(UserId);
+                ViewData.Model = blo.GetLibraryProduct();
+                return View();
             }
-        }
-
-        private ActionResult GetLibrary(string userId)
-        {
-            var libraryBLO = new LibraryBLO(userId);
-            return View(libraryBLO.GetLibraryProduct());
         }
 
         [HttpPost]
@@ -39,7 +36,7 @@ namespace Epic_Game.Controllers
         {
             var UserId = User.Identity.GetUserId();
             var libraryBLO = new LibraryBLO(UserId, Key);
-            return Json(libraryBLO.OrderLibraryProduct(),JsonRequestBehavior.AllowGet);
+            return Json(libraryBLO.OrderLibraryProduct(), JsonRequestBehavior.AllowGet);
         }
     }
 }
