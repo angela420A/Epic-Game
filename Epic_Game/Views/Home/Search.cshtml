@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Epic_Game.ViewModels.SearchViewModel>
 @{
     ViewBag.Title = "Search";
 }
@@ -21,12 +21,12 @@
                 <div class="NavList">
                     <input type="checkbox" id="checkControl" class="check_control">
                     <label for="checkControl" class="checkBoxlabel">
-                        Death Coming<i class="fas fa-chevron-down"></i>
+                        Browse<i class="fas fa-chevron-down"></i>
                     </label>
                     <div class="div_itemlist">
                         <ul class="itemList">
-                            <li><a href="@Url.Action("Index","Home")">探索</a></li>
-                            <li><a href="#">瀏覽</a></li>
+                            <li><a href="@Url.Action("Index","Home")">Discover</a></li>
+                            <li><a href="#">Browse</a></li>
                         </ul>
                     </div>
                     <nav class="navbar navbar-dark">
@@ -57,28 +57,23 @@
                 <div class="wishList-Controll">
                     <div class="sortArea">
                         <div class="sortLabelText">
-                            <p class="sort_label">排序依據:</p>
+                            <p class="sort_label">Sort By:</p>
                         </div>
                         <div class="sortSelectArea">
                             <input type="checkbox" id="sort_control" class="sort_checked">
                             <label for="sort_control" class="sortLabel">
-                                <p>上市日期</p>
+                                <p>Release Date</p>
                                 <i class="fas fa-chevron-up"></i>
                             </label>
                             <ul class="sort_list">
                                 <li>
-                                    <button>
-                                        <p>上市日期</p>
+                                    <button id="OrderByDate">
+                                        <p>Release Date</p>
                                     </button>
                                 </li>
                                 <li>
-                                    <button>
-                                        <p>關聯性</p>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button>
-                                        <p>依字母順序排列</p>
+                                    <button id="OrderByAlphabetical">
+                                        <p>Alphabetical</p>
                                     </button>
                                 </li>
                             </ul>
@@ -88,239 +83,123 @@
                 <div>
                     <div class="col-12 ">
                         <div class="new_mode_4">
-                            <ul class="mode_4_ul">
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 0.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 1.jpeg');"></div>
-
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 2.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 3.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 4.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 5.jpeg');"></div>
-
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 6.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 7.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 8.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 9.jpeg');"></div>
-
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 10.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 11.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 12.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 13.jpeg');"></div>
-
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 14.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="col-6 col-md-3 mode_4_li">
-                                    <a href="">
-                                        <div class="mode_4_img-2">
-                                            <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameBrowseImg/asset 15.jpeg');"></div>
-                                        </div>
-                                        <div class="mode_4_text">
-                                            <h4>Before We Leave</h4>
-                                            <p>Balancing Monkey Games | Ba...</p>
-                                            <h4>US$9.99</h4>
-                                        </div>
-                                    </a>
-                                </li>
+                            <ul id="search_ul" class="mode_4_ul">
+                                @foreach (var search in Model)
+                                {
+                                    <li class="col-6 col-md-3 mode_4_li">
+                                        <a href="">
+                                            <div class="mode_4_img-2">
+                                                <div class="imgArea" style="background-image: url('@search.Url');"></div>
+                                            </div>
+                                            <div class="mode_4_text">
+                                                <h4>@search.ProductName</h4>
+                                                <p>@search.Developer | @search.Publisher</p>
+                                                <h4>US$@decimal.Round(search.Price,0)</h4>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
                             </ul>
 
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <div class="mvc">
-                <ul class="mtree transit">
-                    <li>
-                        <a href="#">CATEGORIES</a>
-                        <ul>
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Editors</a></li>
-                            <li><a href="#">Puzzle</a></li>
-                            <li><a href="#">Racing</a></li>
-                            <li><a href="#">RPG</a></li>
-                            <li><a href="#">Shooter</a></li>
-                            <li><a href="#">Strategy</a></li>
-                            <li><a href="#">Survival</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Features</a>
-                        <ul>
-                            <li><a href="#">Controller Support</a></li>
-                            <li><a href="#">Co-op</a></li>
-                            <li><a href="#">Single Player</a></li>
-                            <li><a href="#">Multiplayer</a></li>
-                            <li><a href="#">Windows</a></li>
-                            <li><a href="#">Mac OS</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <section class="content gametyp">
+                    <ul class="list">
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="1">
+                                Action
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="2">
+                                Adventure
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="4">
+                                Editors
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="8">
+                                Puzzle
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="16">
+                                Racing
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="32">
+                                RPG
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="64">
+                                Shooter
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="128">
+                                Strategy
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="256">
+                                Survival
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="512">
+                                ControllerSupport
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="1024">
+                                CoOp
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="2048">
+                                SinglePlayer
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="4096">
+                                Multiplayer
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="8192">
+                                Windows
+                            </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--checkbox">
+                                <input id="checkbox" type="checkbox" class="checkbox" value="16384">
+                                MacOS
+                            </label>
+                        </li>
+                    </ul>
+                </section>
             </div>
 
 

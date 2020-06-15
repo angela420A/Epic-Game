@@ -10,57 +10,6 @@ body{
 
 /* ===============以下曾莞婷=================== */
 
-/*.navbar{
-    padding: 0rem 0rem;
-}
-
- .NavListArea{
-     width: 100%;
-    display: flex;
-    align-content: center;
-    height: 80px;
-    background-color: #151515;
-}
-.shopback{
-    
-    background-color: #151515;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    z-index: 2;
-}   
-.shopback ul{
-    padding: 0;
-}
-.checkBoxlabel{
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-}
-.NavList{
-    padding: 20px;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.div_itemlist{
-    position: absolute;
-    bottom: -99%;
-    width: 100%;
-    text-align: center;
-}
-.div_itemlist,.check_control{
-    display: none;
-}
-.check_control:checked ~ .div_itemlist{
-    display:initial;
-}
-.checkBoxlabel{
-    color: #e7e7e7;
-}*/
-
 ._stickyTop{
     position:sticky;
     top:60px;
@@ -286,7 +235,7 @@ body{
     z-index: 2;
 }
 .sortLabel{
-    width: 100px;
+    width: 120px;
 }
 .sortLabel p, .wishCount p{
     display: inline-block;
@@ -322,9 +271,20 @@ body{
 
 .mode_4_li{
     padding: 10px;
+    position:relative;
 }
 
-.col-12{
+.mode_4_text h4:last-child{
+    position:absolute;
+    bottom: 5px;
+    padding-top: 20px;
+}
+
+.mode_4_text{
+    padding-top:10px;
+}
+
+.col-12 {
     padding: 0px;
 }
 
@@ -347,6 +307,7 @@ body{
 .mode_4_text p{
     color: #cccccc;
     font-size: 14px;
+    margin-bottom:50px;
 }
 
 .imgArea{
@@ -366,149 +327,148 @@ body{
 }
 
 /* ===================================一下篩選器==================================== */
-
-ul.mtree {
-    opacity: 0;
-    margin-left: 0;
-    padding: 1.2em;
+.header {
+    height: 8rem;
+    background: #009688;
 }
 
-    ul.mtree ul {
-        margin-left: 1em;
-    }
-
-    ul.mtree li {
-        list-style: none;
-    }
-
-    ul.mtree a {
-        display: block;
-    }
-
-    ul.mtree li.mtree-node > a {
-        font-weight: bold;
-    }
-
-    ul.mtree a {
-        -webkit-transition: all 300ms ease-out;
-        -moz-transition: all 300ms ease-out;
-        /*-ms-transition: all 300ms ease-out;*/
-        -o-transition: all 300ms ease-out;
-        transition: all 300ms ease-out;
-    }
-
-    ul.mtree.transit {
-        background: #151515;
-    }
-
-        ul.mtree.transit ul {
-            margin-left: 0;
-        }
-
-            ul.mtree.transit ul > li {
-                font-size: .9em;
-            }
-
-        ul.mtree.transit li.mtree-node {
-            position: relative;
-        }
-
-            ul.mtree.transit li.mtree-node > a:before {
-                color: #CCC;
-                font-weight: normal;
-                position: absolute;
-                right: 20px;
-            }
-
-        ul.mtree.transit li.mtree-open > a:before {
-            content: '∧';
-        }
-
-        ul.mtree.transit li.mtree-closed > a:before {
-            content: '∨';
-        }
-
-        ul.mtree.transit ul > li:first-child {
-            margin-top: 1px;
-        }
-
-        ul.mtree.transit li.mtree-open > a {
-            background: #222;
-        }
-
-        ul.mtree.transit li > a:hover, ul.mtree.transit li.mtree-active > a {
-            background: #333;
-            color: #FFF;
-        }
-
-        ul.mtree.transit li.mtree-node > ul > li:last-child {
-            margin-bottom: .5em;
-            padding-bottom: .5em;
-            border-bottom: 1px solid #333;
-        }
-
-        ul.mtree.transit li.mtree-node:last-child > ul > li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        ul.mtree.transit a {
-            padding: 5px 0px 5px 0.8em;
-            color: #CCC;
-        }
-
-        ul.mtree.transit li li > a {
-            padding-left: 1.6em;
-        }
-
-        ul.mtree.transit li li li > a {
-            padding-left: 2.4em;
-        }
-
-        ul.mtree.transit li li li li > a {
-            padding-left: 3.2em;
-        }
-
-        ul.mtree.transit li li li li li > a {
-            padding-left: 4em;
-        }
-
-.mtree-demo .mtree {
-    background: #EEE;
-    margin: 20px auto;
-    max-width: 320px;
-    border-radius: 3px;
+.content {
+    /*width: 20rem;*/
+    /*margin: -4rem auto 0 auto;*/
+    /*padding: 1rem;*/
+    background: #fff;
+    border-radius: 0.125rem;
+    box-shadow: 0 0.125rem 0.3125rem 0 rgba(0, 0, 0, 0.25);
 }
 
-.mtree-skin-selector {
+.list {
+    margin: .5rem;
+}
+
+.list__item {
+    margin: 0 0 .5rem 0;
+    padding: 0;
+}
+
+.label--checkbox {
+    position: relative;
+    margin: .5rem;
+    font-family: Arial, sans-serif;
+    line-height: 135%;
+    cursor: pointer;
+}
+
+.checkbox {
+    position: relative;
+    top: -0.375rem;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+
+    .checkbox:before {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        content: "";
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #f2f2f2;
+    }
+
+    .checkbox:checked:before {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        height: .5rem;
+        border-color: #009688;
+        border-top-style: none;
+        border-right-style: none;
+    }
+
+    .checkbox:after {
+        content: "";
+        position: absolute;
+        top: -0.125rem;
+        left: 0;
+        width: 1.1rem;
+        height: 1.1rem;
+        background: #fff;
+        cursor: pointer;
+    }
+
+.button--round {
+    -webkit-transition: 0.3s background ease-in-out;
+    -moz-transition: 0.3s background ease-in-out;
+    transition: 0.3s background ease-in-out;
+    width: 2rem;
+    height: 2rem;
+    background: #5677fc;
+    border-radius: 50%;
+    box-shadow: 0 0.125rem 0.3125rem 0 rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-decoration: none;
     text-align: center;
-    background: #EEE;
-    padding: 10px 0 15px;
 }
 
-    .mtree-skin-selector li {
-        display: inline-block;
-        float: none;
+    .button--round i {
+        font-size: 1rem;
+        line-height: 220%;
+        vertical-align: middle;
     }
 
-    .mtree-skin-selector button {
-        padding: 5px 10px;
-        margin-bottom: 1px;
-        background: #BBB;
+    .button--round:hover {
+        background: #3b50ce;
     }
 
-        .mtree-skin-selector button:hover {
-            background: #999;
-        }
+.button--sticky {
+    position: fixed;
+    right: 2rem;
+    top: 16rem;
+}
 
-        .mtree-skin-selector button.active {
-            background: #999;
-            font-weight: bold;
-        }
+.content {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: slideUp;
+    animation-name: slideUp;
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .mtree-skin-selector button.csl.active {
-            background: #FFC000;
-        }
+.gametyp {
+    color: #E8E8E8;
+    background-color: #151515;
+}
+
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(6.25rem);
+        transform: translateY(6.25rem);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(6.25rem);
+        transform: translateY(6.25rem);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
 
 /* ===================================一上篩選器==================================== */

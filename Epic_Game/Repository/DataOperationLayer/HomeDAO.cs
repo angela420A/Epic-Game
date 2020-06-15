@@ -30,7 +30,7 @@ namespace Epic_Game.Repository.DataOperationLayer
                 conn = new SqlConnection(connString);
             }
         }
-        public List<StoreItems> getProducts()
+        public List<StoreItems> GetProducts()
         {
             var product = (from p in context.Product
                            join imgs in context.Image on p.ProductID equals imgs.ProductOrPack
@@ -39,7 +39,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             return product;
         }
 
-        public List<HomeActivityViewModels> getActivity()
+        public List<HomeActivityViewModels> GetActivity()
         {
             var Activity = (from a in context.Activity
                             select new HomeActivityViewModels() { ActivityName = a.ActivityName, Slogan = a.Slogan, Information = a.Information, IMG = a.IMG }).ToList();
@@ -47,7 +47,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
 
 
-        public List<StoreItems> getTopSales()
+        public List<StoreItems> GetTopSales()
         {
             List<StoreItems> TopSales;
             using (conn = new SqlConnection(connString))
@@ -66,7 +66,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
 
 
-        public List<StoreItems> getTopMostRelated()
+        public List<StoreItems> GetTopMostRelated()
         {
             List<StoreItems> MostRelated;
             using (conn = new SqlConnection(connString))
@@ -99,7 +99,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         //}
 
 
-        public List<StoreItems> getTopBestRank()
+        public List<StoreItems> GetTopBestRank()
         {
             List<StoreItems> BestRank;
             using (conn = new SqlConnection(connString))
@@ -116,5 +116,19 @@ namespace Epic_Game.Repository.DataOperationLayer
             return BestRank;
         }
 
+
+        public List<SearchViewModel> GetSearches()
+        {
+            List<SearchViewModel> searches;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category,CONVERT(varchar(12) ,p.ReleaseDate, 111 ) As ReleaseDate
+                                from Product p 
+                                inner join [Image] img on p.ProductID = img.ProductOrPack
+                                where img.Location = 0";
+                searches = conn.Query<SearchViewModel>(sql).ToList();
+            }
+            return searches;
+        }
     }
 }
