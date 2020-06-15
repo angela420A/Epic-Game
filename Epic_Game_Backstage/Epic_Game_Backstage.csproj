@@ -156,6 +156,7 @@
     <Compile Include="ViewModels\UserManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\UserManage\UserManageList.css" />
     <Content Include="Assets\Js\ckeditorconfig_Product.js" />
     <Content Include="Assets\Js\ckeditorconfig.js" />
     <Content Include="Assets\Js\ckeditorplugin.js" />
