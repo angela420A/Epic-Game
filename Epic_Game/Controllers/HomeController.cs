@@ -58,6 +58,12 @@ namespace Epic_Game.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult SearchAlphabetical(string key)
+        {
+            var result = _rbp.SearchAlphabetical(key);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult ProductMore()
         {
             return View();

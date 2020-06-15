@@ -210,7 +210,7 @@ function SeachEnumFlag() {
             ul.empty();
             data.forEach(element => {
                 let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('src', '/Product/Index/' + element.ProductID);
+                let a = $('<a></a>').attr('href', '/Product/Index/' + element.ProductID);
                 let div = $('<div></div>').attr('class', 'mode_4_img-2');
                 let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + element.Url + ')');
                 let div2 = $('<div></div>').attr('class', 'mode_4_text');
@@ -225,10 +225,6 @@ function SeachEnumFlag() {
                 div2.append(h4).append(p).append(h41);
                 ul.append(li);
             })
-            let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li').append($('<a></a>').attr('src', '/Product/Index/' + data.ProductID));
-            
-            //畫面清空 
-            //在seach頁面取出資料
         },
         error: function () {
             
@@ -242,7 +238,7 @@ function SeachEnumFlag() {
 
 
 
-//====================================以下排序功能==================================
+//====================================以下Date排序功能==================================
 
 let OrderByDate = document.querySelector("#OrderByDate");
 
@@ -258,7 +254,7 @@ OrderByDate.addEventListener('click', () => {
             ul.empty();
             for (let i = 0; i < json.length; i++) {
                 let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('src', '/Product/Index/' + json[i].ProductID);
+                let a = $('<a></a>').attr('href', '/Product/Index/' + json[i].ProductID);
                 let div = $('<div></div>').attr('class', 'mode_4_img-2');
                 let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + json[i].Url + ')');
                 let div2 = $('<div></div>').attr('class', 'mode_4_text');
@@ -273,12 +269,47 @@ OrderByDate.addEventListener('click', () => {
                 div2.append(h4).append(p).append(h41);
                 ul.append(li);
             }
-            let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li').append($('<a></a>').attr('src', '/Product/Index/' + json.ProductID));
+        },
+        error: function () {
+        }
+    })
+});
+
+//====================================以上Date排序功能==================================
+
+//====================================以下字母排序功能==================================
+
+OrderByAlphabetical.addEventListener('click', () => {
+    $.ajax({
+        url: '/Home/SearchAlphabetical',
+        data: { key: "ProductName" },
+        type: 'post',
+        success: function (Json) {
+            let ul = $('#search_ul');
+            ul.empty();
+            for (let i = 0; i < Json.length; i++) {
+                let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
+                let a = $('<a></a>').attr('href', '/Product/Index/' + Json[i].ProductID);
+                let div = $('<div></div>').attr('class', 'mode_4_img-2');
+                let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + Json[i].Url + ')');
+                let div2 = $('<div></div>').attr('class', 'mode_4_text');
+
+                let h4 = $('<h4></h4>').html(Json[i].ProductName);
+                let p = $('<p></p>').html(Json[i].Developer + '|' + Json[i].Publisher);
+                let h41 = $('<h4></h4>').html('TWD$' + Json[i].Price);
+
+                li.append(a);
+                a.append(div).append(div2);
+                div.append(div1);
+                div2.append(h4).append(p).append(h41);
+                ul.append(li);
+            }
         },
         error: function () {
 
         }
     })
-});
 
-//====================================以下排序功能==================================
+})
+
+//====================================以上字母排序功能==================================
