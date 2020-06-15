@@ -1,8 +1,10 @@
-﻿using EpicGameLibrary.Models;
+﻿using Epic_Game.ViewModels;
+using EpicGameLibrary.Models;
 using EpicGameLibrary.Repository;
 using Microsoft.Owin.Security.Provider;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -46,7 +48,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
         public List<Comment> GetCommentModels(string ProductID)
         {
-            return context.Comment.Where(x => x.ProductID.ToString().Equals(ProductID)).ToList();
+            return context.Comment.Where(x => x.ProductID.ToString().Equals(ProductID)).OrderByDescending(x => x.Date).Take(3).ToList();
         }
         public Library GetLibraryModels(string ProductID, string UserId)
         {
@@ -63,7 +65,49 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
         public string GetUserModels(string UserId)
         {
-            return context.AspNetUsers.FirstOrDefault(x => x.Id.ToString().Equals(UserId)).Id;
+            return context.AspNetUsers.FirstOrDefault(x => x.Id.ToString().Equals(UserId)).UserName;
+        }
+        public void AddCom(CommentPushViewModel CVM , string UserId)
+        {
+            var comment = new Comment
+            {
+                CommentID = Guid.NewGuid(),
+                ProductID = Guid.Parse(CVM.Comment_ProductID),
+                Title = CVM.Comment_Title,
+                Date = DateTime.Now,
+                Description = CVM.Comment_Description,
+                Rank = CVM.Comment_Rank,
+                UserID = UserId
+            };
+            context.Comment.Add(comment);
+            context.SaveChanges();
+        }
+        //public void DeleteCom(string ProductId, string UserId)
+        //{
+        //    var delete_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductId) && x.UserID == UserId);
+        //    context.Comment.Remove(delete_item);
+        //    context.SaveChanges();
+        //}
+        public void UploadCom(CommentPushViewModel CVM, string UserId)
+        {
+            var update_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(CVM.Comment_ProductID) && x.UserID == UserId);
+            if(update_item == null)
+            {
+                AddCom(CVM, UserId);
+                return;
+            }
+
+            update_item.Title = CVM.Comment_Title;
+            update_item.Date = DateTime.Now;
+            update_item.Description = CVM.Comment_Description;
+            update_item.Rank = CVM.Comment_Rank;
+            context.Comment.AddOrUpdate(update_item);
+            context.SaveChanges();
+        }
+
+        public Comment GetUserComm(string ProductID, string UserID)
+        {
+            return context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID) && x.UserID.Equals(UserID));
         }
     }
 }

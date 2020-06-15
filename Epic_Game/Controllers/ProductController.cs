@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Epic_Game.Repository.BusinessLogicLayer;
 using Microsoft.AspNet.Identity;
 using Epic_Game.ViewModels;
+using Newtonsoft.Json;
 
 namespace Epic_Game.Controllers
 {
@@ -21,12 +22,34 @@ namespace Epic_Game.Controllers
                 return RedirectToAction("Login", "Account");
             }
             else
-            { 
-                ProductBLO proBLO = new ProductBLO();           
+            {
+                ProductBLO proBLO = new ProductBLO();
                 ProductViewModel VM = proBLO.GetProductViewModel("02902f18-c98a-4955-b6c7-16711c511b34", UserId);
                 return View(VM);
             }
-          
+
         }
+        //新增評論
+        public ActionResult CreateComment(string jdata)
+        {
+            CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
+            ProductBLO blo = new ProductBLO();
+            var comments = blo.UploadComment(CVM , User.Identity.GetUserId());
+            return Json(comments, JsonRequestBehavior.AllowGet);//允許我get資料
+        }
+        //public ActionResult DeleteComment(string jdata)
+        //{
+        //    CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
+        //    ProductBLO blo = new ProductBLO();
+        //    blo.DeleteComment(CVM.Comment_ProductID, User.Identity.GetUserId());
+        //    return View();
+        //}
+        //public ActionResult UploadComment(string jdata)
+        //{
+        //    CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
+        //    ProductBLO blo = new ProductBLO();
+        //    blo.UploadComment(CVM, User.Identity.GetUserId());
+        //    return View();
+        //}
     }
 }
