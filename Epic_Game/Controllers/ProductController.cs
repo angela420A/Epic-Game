@@ -13,7 +13,7 @@ namespace Epic_Game.Controllers
     public class ProductController : Controller
     {
         //GET: Product
-        public ActionResult Index(string id)
+        public ActionResult Index(string ProductId)
         {
             var UserId = User.Identity.GetUserId();
             //如果使用者沒有登入,則會回傳到登入介面
@@ -24,8 +24,7 @@ namespace Epic_Game.Controllers
             else
             {
                 ProductBLO proBLO = new ProductBLO();
-                //ProductViewModel VM = proBLO.GetProductViewModel("02902f18-c98a-4955-b6c7-16711c511b34", UserId);
-                ProductViewModel VM = proBLO.GetProductViewModel(id, UserId);
+                ProductViewModel VM = proBLO.GetProductViewModel(ProductId, UserId);
                 return View(VM);
             }
 
@@ -36,7 +35,7 @@ namespace Epic_Game.Controllers
             CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
             ProductBLO blo = new ProductBLO();
             var comments = blo.UploadComment(CVM , User.Identity.GetUserId());
-            return Json(comments, JsonRequestBehavior.AllowGet);//允許用戶get資料
+            return Json(comments, JsonRequestBehavior.AllowGet);//允許用戶get資料  以json的方式回傳到ajax
         }
 
 
