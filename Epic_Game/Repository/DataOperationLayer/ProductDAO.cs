@@ -67,7 +67,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.AspNetUsers.FirstOrDefault(x => x.Id.ToString().Equals(UserId)).UserName;
         }
-        //沒評論過就新增一個評論
+        //新增一個評論
         public void AddCom(CommentPushViewModel CVM , string UserId)
         {
             var comment = new Comment
@@ -83,7 +83,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             context.Comment.Add(comment);
             context.SaveChanges();
         }
-        //更新過去的評論
+        //更改過去的評論
         public void UploadCom(CommentPushViewModel CVM, string UserId)
         {
             var update_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(CVM.Comment_ProductID) && x.UserID == UserId);

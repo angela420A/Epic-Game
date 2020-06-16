@@ -25,13 +25,12 @@ namespace Epic_Game.Controllers
         }
 
         // GET: Pay
-        public ActionResult Index()
+        public ActionResult Index(string ProductId)
         {
             //string ProductID = (string)TempData["ProductId"];
-            string ProductID = "d75ebeb8-4bc7-44b3-86bf-904ec05a5686";
             var UserId = User.Identity.GetUserId();
-            PayViewModel VM = PayBLO.GetPayViewModel(ProductID);
-            var hasgame = PayBLO.GetLibrary(UserId, ProductID);
+            PayViewModel VM = PayBLO.GetPayViewModel(ProductId);
+            var hasgame = PayBLO.GetLibrary(UserId, ProductId);
             if (UserId == null)
             {
                 return RedirectToAction("Login", "Account");
