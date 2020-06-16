@@ -66,19 +66,17 @@ namespace Epic_Game.Controllers
             Guid g = Guid.NewGuid();
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                string sql1 = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)";
-                var dates = new { OID = g, UID = UserId, PID = ProductID, DATE = DateTime.Now };
-                conn.Execute(sql1, dates);
+                var datas = new { OID = g, UID = UserId, PID = ProductID, DATE = DateTime.Now};
                 if (collect == true) 
                 { 
-                    string sql = "Update Library set Condition= 0 Where UserID=@UID and ProductID=@PID";
-                    var datas = new { UID = UserId, PID = ProductID };
+                    string sql = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)" +
+                                 "Update Library set Condition= 0 Where UserID=@UID and ProductID=@PID";
                     conn.Execute(sql, datas);
                 }
                 else
                 {
-                    string sql = "Insert into Library(UserID, ProductID, Condition) value (@UID, @PID , 0)";
-                    var datas = new { UID = UserId, PID = ProductID };
+                    string sql = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)" +
+                                 "Insert into Library(UserID, ProductID, Condition) value (@UID, @PID , 0)";
                     conn.Execute(sql, datas);
                 }
                 conn.Close();
