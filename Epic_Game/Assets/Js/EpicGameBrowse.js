@@ -210,7 +210,7 @@ function SeachEnumFlag() {
             ul.empty();
             data.forEach(element => {
                 let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('href', '/Product/Index/' + element.ProductID);
+                let a = $('<a></a>').attr('href', '/Product/' + element.ProductID);
                 let div = $('<div></div>').attr('class', 'mode_4_img-2');
                 let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + element.Url + ')');
                 let div2 = $('<div></div>').attr('class', 'mode_4_text');
@@ -254,7 +254,7 @@ OrderByDate.addEventListener('click', () => {
             ul.empty();
             for (let i = 0; i < json.length; i++) {
                 let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('href', '/Product/Index/' + json[i].ProductID);
+                let a = $('<a></a>').attr('href', '/Product/' + json[i].ProductID);
                 let div = $('<div></div>').attr('class', 'mode_4_img-2');
                 let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + json[i].Url + ')');
                 let div2 = $('<div></div>').attr('class', 'mode_4_text');
@@ -289,7 +289,7 @@ OrderByAlphabetical.addEventListener('click', () => {
             ul.empty();
             for (let i = 0; i < Json.length; i++) {
                 let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('href', '/Product/Index/' + Json[i].ProductID);
+                let a = $('<a></a>').attr('href', '/Product/' + Json[i].ProductID);
                 let div = $('<div></div>').attr('class', 'mode_4_img-2');
                 let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + Json[i].Url + ')');
                 let div2 = $('<div></div>').attr('class', 'mode_4_text');
