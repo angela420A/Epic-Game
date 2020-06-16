@@ -1,47 +1,38 @@
-
-window.onload = addeven();
-
-function addeven() {
-
-    let dis_img = document.querySelector(".dis_img");
-    let dis_list = document.querySelector(".dis_list");
-    let game_div = document.querySelectorAll(".game_div");
-    let dis_style = document.querySelector("#dis_style");
-    let link = document.querySelector(".link_icon");
+let dis_img = document.querySelector(".dis_img");
+let dis_list = document.querySelector(".dis_list");
+let dis_style = document.querySelector("#dis_style");
 
 
-    dis_img.addEventListener('click', () => {
-        dis_style.href = "/Assets/css/dis_img.css";
-        game_div.forEach((item) => {
-            item.classList.add("col-xl-4");
-            item.classList.add("col-md-6");
-        });
-    })
+dis_img.addEventListener('click', () => {
+    dis_style.href = "/Assets/css/dis_img.css";
+    document.querySelectorAll(".game_div").forEach((item) => {
+        item.classList.add("col-xl-4", "col-md-6");
+    });
+})
 
-    dis_list.addEventListener('click', () => {
-        dis_style.href = "/Assets/css/dis_list.css";
-        game_div.forEach((item) => {
-            //item.setAttribute('class', 'col-12 game_div')
-            item.className = "col-12";
-            item.classList.add("game_div");
-        });
-    })
+dis_list.addEventListener('click', () => {
+    dis_style.href = "/Assets/css/dis_list.css";
+    document.querySelectorAll(".game_div").forEach((item) => {
+        item.className = "game_div";
+        item.classList.add("col-12");
+    });
+})
 
-    link.addEventListener('click', () => {
+document.querySelector(".link_icon").addEventListener('click', () => {
 
 })
-}
 
 
 let recent = document.querySelector(".recent");
 let alphabetical = document.querySelector(".alphabetical");
 
 recent.addEventListener('click', () => {
+    dis_style.href = "/Assets/css/dis_img.css";
     $.ajax({
         url: '/Library/ShowOrder',
         data: { Key: "Date" },
-        type: 'get',
-        success: function () {
+        type: 'post',
+        success: function (jdata) {
             $(".game_products").empty();
             let row = document.querySelector(".game_products");
             for (let i = 0; i < jdata.length; i++) {
@@ -75,16 +66,15 @@ recent.addEventListener('click', () => {
         },
         error: function () { alert("error"); }
     });
-    addeven();
 })
 
 alphabetical.addEventListener('click', () => {
+    dis_style.href = "/Assets/css/dis_img.css";
     $.ajax({
         url: '/Library/ShowOrder',
         data: { Key: "ProductName" },
         type: 'post',
-        success: function () {
-            location.reload();
+        success: function (jdata) {
             $(".game_products").empty();
             let row = document.querySelector(".game_products");
             for (let i = 0; i < jdata.length; i++) {
@@ -118,5 +108,4 @@ alphabetical.addEventListener('click', () => {
         },
         error: function () { alert("error"); }
     });
-    addeven();
 })
