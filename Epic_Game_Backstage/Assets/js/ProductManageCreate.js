@@ -1,7 +1,7 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
 //Vue
 Vue.component('swiper-compo', {
-    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
+    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -11,7 +11,7 @@ Vue.component('swiper-compo', {
             ImgVue.swiperList.splice(index, 1);
         }
     }
-})
+});
 
 Vue.component('screen-compo', {
     template: '<li class="col-10" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
@@ -26,9 +26,18 @@ Vue.component('screen-compo', {
     }
 })
 
-var CatVue = new Vue({
-    el: '#CategoryVue',
+var PInfo = new Vue({
+    el: '#ProductInfoVue',
     data: {
+        ProName: "Mafia: Trilogy",
+        ProPrice: "1799",
+        ProType: "Game",
+        ProDeveloper: "Hangar 13",
+        ProPublisher: "2K",
+        ProContext: "Play all three crime dramas in the Mafia franchise in glorious ultra HD detail, including the built from the ground up, faithfully reimagined edition of the critically acclaimed original, Mafia.",
+        ProAgeRestrct: "14",
+        ProPrivInfo: "© 2020 TAKE-TWO INTERACTIVE SOFTWARE, INC. DEVELOPED BY HANGAR 13. MAFIA, TAKE-TWO INTERACTIVE SOFTWARE, 2K, HANGAR 13, AND THEIR RESPECTIVE LOGOS ARE ALL TRADEMARKS AND/OR REGISTERED TRADEMARKS OF TAKE-TWO INTERACTIVE SOFTWARE, INC. THE RATINGS ICON IS A TRADEMARK OF THE ENTERTAINMENT SOFTWARE ASSOCIATION. ALL OTHER MARKS ARE PROPERTY OF THEIR RESPECTIVE OWNERS. ALL RIGHTS RESERVED.",
+        ProPrivLink: "https://www.take2games.com/privacy",
         CategoriesGroup: [],
         CategoriesText: {
             "1": "Action",
@@ -63,14 +72,13 @@ var CatVue = new Vue({
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        storeImage: {},
-        logoImage: {},
-        swiperList: ["https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg"],
+        storeImage: "",
+        logoImage: "",
+        swiperList: [],
         UploadList: []
     },
     methods: {
         showFile(e) {
-            debugger;
             var t = e.target.files;
             var input = e.target.id;
             for (let i = 0; i < t.length; i++) {
@@ -87,6 +95,7 @@ var ImgVue = new Vue({
                 }
                 this.UploadList.push(data);
             }
+            debugger;
             this.submit(input);
         },
         submit: function (input) {
@@ -99,7 +108,6 @@ var ImgVue = new Vue({
                 url: '/ProductManage/UploadImg',
                 mimeType: 'multipart/form-data'
             };
-            debugger;
             let array = [];
             this.UploadList.forEach(item => {
                 let form = new FormData();
@@ -130,13 +138,12 @@ var ImgVue = new Vue({
                         this.swiperList.push(element);
                         break;
                     case "screenShot":
-                        PInfoVue.swiperList.push(element);
+                        PIntroVue.swiperList.push(element);
                         break;
                 }
             })
             this.showImage(array, input);
         },
-        //https://i.imgur.com/ycGq26p.jpg
         showImage: function (array, input) {
             let father = '#' + input + 'Area';
             if (input != 'SwiperImage') {
@@ -151,45 +158,68 @@ var ImgVue = new Vue({
             //    });
             //}
         }
-        //swiperComponent: function (URL) {
-        //    let col = $('<li></li>').attr('class', 'col-3');
-        //    let wrap = $('<div></div>').attr('class', 'swiper-wrap');
-        //    let DeleteSwiper = $('<div></div>').attr('class', 'DeleteSwiper');
-        //    let span1 = $('<span></span>');
-        //    let span2 = $('<span></span>');
-        //    let border = $('<div></div>').attr('class', 'swiper-border');
-        //    let ImgArea = $('<div></div>').attr('class', 'ImgArea');
-        //    col.append(wrap.append(DeleteSwiper.append(span1).append(span2)).append(border.append(ImgArea)));
-        //    ImgArea.attr('style', 'background-image: url("' + URL + '");');
-        //    return col;
-        //}
-        //< li class= "col-3" >
-        //    <div style="border: 1px solid #999;" class="swiper-wrap">
-        //        <div class="DeleteSwiper" id="DeleteSwiper">
-        //            <span></span>
-        //            <span></span>
-        //        </div>
-        //        <div style="padding-bottom: calc(3/5 * 100%); position: relative">
-        //            <div class="ImgArea">
-        //                <img src="" alt="swiper" />
-        //            </div>
-        //        </div>
-        //    </div>
-        //            </li >
     }
-})
+});
 
-var PInfoVue = new Vue({
-    el: '#ProductInfo',
+var PIntroVue = new Vue({
+    el: '#ProductIntro',
     data:{
-        swiperList: ["https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/W0E2fcs.jpg"],
+        swiperList: [],
     },
     methods: {
-        getInfo: function () {
-            var r = CKEDITOR.instances.editor1.getData();
-        },
         submit: function (e) {
             ImgVue.showFile(e);
+        }
+    }
+});
+
+var SubmitVue = new Vue({
+    el: '#submitVue',
+    methods: {
+        createProduct: function () {
+            let ProductVM = {
+                ProductName: PInfo.ProName,
+                Price: PInfo.ProPrice,
+                ContentType: PInfo.ProType,
+                Category: this.getCat(),
+                Developer: PInfo.ProDeveloper,
+                Publisher: PInfo.ProPublisher,
+                Title: PInfo.ProContext,
+                Description: this.transformHtml(CKEDITOR.instances.editor1.getData()),
+                AgeRestriction: PInfo.ProAgeRestrct,
+                PrivacyPolicy: PInfo.ProPrivInfo,
+                PrivacyPolicyUrl: PInfo.ProPrivLink,
+                ImageVM: {
+                    StoreImg: ImgVue.storeImage,
+                    GameLogo: ImgVue.logoImage,
+                    SwiperImg: ImgVue.swiperList,
+                    ScreenShots: PIntroVue.swiperList
+                }
+            }
+
+            $.ajax({
+                url: "/ProductManage/CreateProduct",
+                type: "post",
+                data: { jdata: JSON.stringify(ProductVM) },
+                success: function () {
+                    window.location.href = "/ProductManage/Index"
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            })
+        },
+        getCat: function () {
+            let res = 0;
+            PInfo.CategoriesGroup.forEach(el => {
+                res += parseInt(el);
+            })
+            return res;
+        },
+        transformHtml: function (str) {
+            let s = str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return s;
         }
     }
 });
