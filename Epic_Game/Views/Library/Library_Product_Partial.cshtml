@@ -3,7 +3,8 @@
 <div class="col-12 col-lg-6 col-xl-4 game_div" id="@Model.ProductId">
     <div class="game_div_insidebox">
         <div class="product_pic">
-            <img src="@Model.Img_Url" alt="game_picture" />
+            <img class="main_pic" src="@Model.Img_Url"/>
+            <img class="logo_pic" src="@Model.Img_Url_list"/>
         </div>
         <h3>@Model.ProductName</h3>
         <a class="link_icon" href="/Product/Index/@Model.ProductId">

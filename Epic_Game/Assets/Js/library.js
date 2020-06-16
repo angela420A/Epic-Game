@@ -49,7 +49,7 @@ function Create_products(_Key) {
                 $(`.game_div_insidebox:eq(${i})`).html($(
                     `<div class="product_pic"></div><h3>${jdata[i]["ProductName"]}</h3><a class="link_icon" href ="/Product/Index/${jdata[i]["ProductId"]}"><i class="fas fa-link"></i></a>`
                 ));
-                $(`.product_pic:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }))
+                $(`.product_pic:eq(${i})`).html($(`<img class="main_pic" src="${jdata[i]["Img_Url"]}"/><img class="logo_pic" src="${jdata[i]["Img_Url_list"]}"/>`))
             }
         },
         error: function () { alert("error"); }
