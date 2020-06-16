@@ -181,7 +181,7 @@ var SubmitVue = new Vue({
                 ProductName: PInfo.ProName,
                 Price: PInfo.ProPrice,
                 ContentType: PInfo.ProType,
-                Category: this.getCat,
+                Category: this.getCat(),
                 Developer: PInfo.ProDeveloper,
                 Publisher: PInfo.ProPublisher,
                 Title: PInfo.ProContext,
