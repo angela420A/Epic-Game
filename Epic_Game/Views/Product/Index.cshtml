@@ -257,10 +257,86 @@
 
 
 <!-- 評論------------------------------- -->
-@*@if (Model.PD_Comment.Count() > 0)
-{*@
-    @Html.Partial("_Comments")
-@*}*@
+
+<div class="container allblock" id="grading">
+    <div class="row">
+        <div class="col-12 col-xl-3">
+            <h3 class="title_name">Comments</h3>
+        </div>
+        <div class="col-12 col-xl-9 grading_content">
+            <div>
+                @*<div class="grading_number col-12">
+                        <span class="grading_text">5</span>
+                    </div>*@
+                <div class="col-12">
+                    @if (Model.PD_Comment.UserComment == null)
+                    {
+                        <button class="myBtn" id="myBtn" style="margin-bottom: 10px;" data-toggle="modal"
+                                data-target="#exampleModal">
+                            I want to comment!
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="myBtn" id="myBtn" style="margin-bottom: 10px;" data-toggle="modal"
+                                data-target="#exampleModal">
+                            I want to edit my comment!
+                        </button>
+                    }
+                </div>
+
+                <!-- Modal -->
+                <div class="modal faded" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">My Comment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" style="color: #e7e7e7;">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal_title">
+                                    <span>Title: </span><input v-model="title" type="text" style="width:100%">
+                                </div>
+
+                                <textarea v-model="content" name="Text1" cols="40" rows="5" style="width: 100%;"></textarea>
+                                @*<div class="grading_circle">
+                                        <div class="star-rating">
+                                            <span class="fa fa-star-o" data-rating="1"></span>
+                                            <span class="fa fa-star-o" data-rating="2"></span>
+                                            <span class="fa fa-star-o" data-rating="3"></span>
+                                            <span class="fa fa-star-o" data-rating="4"></span>
+                                            <span class="fa fa-star-o" data-rating="5"></span>
+                                            <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                                        </div>
+                                    </div>*@
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="modal_btn " data-dismiss="modal">Abort</button>
+                                <button v-on:click="upload" type="button" class="modal_btn btn_yellow" id="@Model.PD_ProductID">Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grading_comment">
+                    <div class="col-12 col-xl-12 pl-0 pr-0">
+                        <ul class="grading_ul">
+                            @if (Model.PD_Comment != null)
+                            {
+                                foreach (var com in Model.PD_Comment.Comments)
+                                {
+                                    @Html.Partial("_Comments", com)
+                                }
+                            }
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!--規格 ------------------- -->
@@ -492,6 +568,7 @@
 @Scripts.Render("~/bundles/vue")
 
 <script>
+    let comment = @Html.Raw(Json.Encode(Model.PD_Comment.UserComment));
     var a = new Vue({
         el: '#specification',
         data: {
@@ -510,6 +587,7 @@
             }
         },
     })
+
 
 
 </script>

@@ -24,14 +24,16 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             Product p = ProductDAO.GetProductModel(ProductId);
             List<Social_Media> sm = ProductDAO.GetSMModels(ProductId);
             List<Image> img = ProductDAO.GetImageModels(ProductId);
-            Library library = ProductDAO.GetLibraryModesl(ProductId, UserId);
+            Library library = ProductDAO.GetLibraryModels(ProductId, UserId);
             Pack pack = ProductDAO.GetPackModel(ProductId);
             List<Comment> comment = ProductDAO.GetCommentModels(ProductId);
+            Comment UserComm = ProductDAO.GetUserComm(ProductId, UserId);
             List<Specifications> spe = ProductDAO.GetSpecificationsModel(ProductId);
-            return ModelToViewModel(p, sm, img, library, pack, comment,spe);
+            
+            return ModelToViewModel(p, sm, img, library, pack, comment, UserComm, spe);
         }
 
-        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment, List<Specifications> spe)
+        public ProductViewModel ModelToViewModel(Product p, List<Social_Media> sm, List<Image> img, Library library, Pack pack, List<Comment> comment, Comment UserComm, List<Specifications> spe)
         {
             var pmv = new ProductViewModel
             {
@@ -56,7 +58,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_Discount = pack.Discount,
                 Library_Condition = library == null ? 2 : library.Condition
             };
-
+            //SocialMediaViewModel
             pmv.SM = new List<SocialMediaViewModel>();
             foreach (var socialMedia in sm)
             {
@@ -68,20 +70,21 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 };
                 pmv.SM.Add(smvm);
             }
-
-            pmv.PD_Comment = new List<CommentViewModel>();
-            foreach (var Comment in comment)
+            //CommentViewModel
+            var _Comment = new CommentViewModel();
+            _Comment.Comment_ProductID = p.ProductID.ToString();
+            _Comment.Comments = new List<CommentItem>();
+            foreach (var item in comment)
             {
-                var commentvm = new CommentViewModel()
-                {
-                    Comment_ProductID = Comment.ProductID,
-                    Comment_Date = Comment.Date.ToString(),
-                    Comment_Description = Comment.Description,
-                    Comment_Rank = Comment.Rank
-                };
-                pmv.PD_Comment.Add(commentvm);
+                _Comment.Comments.Add(CommMaping(item));
+            }
+            if(UserComm != null) {
+                _Comment.UserComment = CommMaping(UserComm);
             }
 
+                
+            pmv.PD_Comment = _Comment;
+            //ImageViewModel
             pmv.PD_image = new List<ImageViewModel>();
             foreach (var Image in img)
             {
@@ -94,7 +97,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 IsVideo(imagevm);
                 pmv.PD_image.Add(imagevm);
             }
-
+            //SpecificationsViewModel
             pmv.PD_Specificatoin = new SpecificationsViewModel[4];
             foreach (var specifications in spe)
             {
@@ -118,6 +121,18 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return pmv;
         }
 
+        public CommentItem CommMaping(Comment c)
+        {
+            return new CommentItem
+            {
+                Comment_Title = c.Title,
+                Comment_Description = c.Description,
+                Comment_Rank = c.Rank,
+                Comment_Date = c.Date.ToString("yyyy,MM,dd"),
+                Comment_UserName = ProductDAO.GetUserModels(c.UserID)
+            };
+        }
+
         public void IsVideo(ImageViewModel vm)
         {
             if (vm.Media_Type == 2)
@@ -125,6 +140,25 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 vm.Image_URL += "?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3";               
             }
         }
+        
+        //public void AddComment(CommentPushViewModel CVM, string UserId)
+        //{
+        //    ProductDAO.AddCom(CVM, UserId);
+        //}
+        //public void DeleteComment(string ProductId , string UserId)
+        //{
+        //    ProductDAO.DeleteCom(ProductId,UserId);
 
+        //}
+        public List<CommentItem> UploadComment(CommentPushViewModel CVM, string UserId)
+        {
+            ProductDAO.UploadCom(CVM, UserId);
+            List<CommentItem> res = new List<CommentItem>();
+            foreach(var c in ProductDAO.GetCommentModels(CVM.Comment_ProductID))
+            {
+                res.Add(CommMaping(c));
+            }
+            return res;
+        }
     }
 }

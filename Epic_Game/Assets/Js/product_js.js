@@ -149,7 +149,50 @@ function Wish() {
     });
 }
 //comment
+var connent = new Vue({
+    el: "#exampleModal",
+    data: {
+        title: "",
+        content: "",
+        rank: 0
+    },
+    methods: {
+        upload: function (e) {
 
+            let object = {
+                Comment_Title: this.title,
+                Comment_ProductID: e.target.id,
+                Comment_Date: "",
+                Comment_Description: this.content,
+                Comment_Rank: this.rank
+            }
+            $.ajax({
+                url: "/Product/CreateComment",
+                type: "post",
+                data: { jdata: JSON.stringify(object) },
+                
+                success: function (data) {                 
+                    let items = document.querySelectorAll(".grading_padding");
+                    for (let i = 0; i < 3; i++) {
+                        
+                        items[i].querySelector('.comment_title').innerHTML = data[i].Comment_Title;
+                        items[i].querySelector('#commAuthor').innerHTML = data[i].Comment_UserName;
+                        items[i].querySelector('.autor_card_date').innerHTML = data[i].Comment_Date;
+                        items[i].querySelector('#commContent').innerHTML = data[i].Comment_Description ;
+                    }
+                    $('#exampleModal').modal('hide')
+                },
+                error: function () {
+                    alert("Error!!");
 
- 
+                }
+            });
+        }
+    }
+});
+
+if (comment != null) {
+    connent.title = comment.Comment_Title;
+    connent.content = comment.Comment_Description;
+}
 
