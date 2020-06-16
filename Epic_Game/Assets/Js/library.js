@@ -27,85 +27,31 @@ let recent = document.querySelector(".recent");
 let alphabetical = document.querySelector(".alphabetical");
 
 recent.addEventListener('click', () => {
-    dis_style.href = "/Assets/css/dis_img.css";
-    $.ajax({
-        url: '/Library/ShowOrder',
-        data: { Key: "Date" },
-        type: 'post',
-        success: function (jdata) {
-            $(".game_products").empty();
-            let row = document.querySelector(".game_products");
-            for (let i = 0; i < jdata.length; i++) {
-                let col = document.createElement('div');
-                col.classList.add('col-12', 'col-lg-6', 'col-xl-4', 'game_div');
-                col.id = `${jdata[i]["ProductId"]}`;
-
-                let insidebox = document.createElement("div");
-                insidebox.className = "game_div_insidebox";
-
-                let pic_box = document.createElement('div');
-                pic_box.className = "product_pic";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-                img.alt = `game_picture`;
-
-                let title = document.createElement('h3');
-                title.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-link", "link_icon");
-
-                pic_box.appendChild(img);
-                insidebox.appendChild(pic_box);
-                insidebox.appendChild(title);
-                insidebox.appendChild(icon);
-                col.appendChild(insidebox);
-                row.appendChild(col);
-            }
-        },
-        error: function () { alert("error"); }
-    });
+    Create_products("Date");
 })
 
 alphabetical.addEventListener('click', () => {
+    Create_products("ProductName");
+})
+
+function Create_products(_Key) {
     dis_style.href = "/Assets/css/dis_img.css";
     $.ajax({
         url: '/Library/ShowOrder',
-        data: { Key: "ProductName" },
+        data: { Key: `${_Key}` },
         type: 'post',
         success: function (jdata) {
             $(".game_products").empty();
-            let row = document.querySelector(".game_products");
-            for (let i = 0; i < jdata.length; i++) {
-                let col = document.createElement('div');
-                col.classList.add('col-12', 'col-lg-6', 'col-xl-4', 'game_div');
-                col.id = `${jdata[i]["ProductId"]}`;
 
-                let insidebox = document.createElement("div");
-                insidebox.className = "game_div_insidebox";
-
-                let pic_box = document.createElement('div');
-                pic_box.className = "product_pic";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-                img.alt = `game_picture`;
-
-                let title = document.createElement('h3');
-                title.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-link", "link_icon");
-
-                pic_box.appendChild(img);
-                insidebox.appendChild(pic_box);
-                insidebox.appendChild(title);
-                insidebox.appendChild(icon);
-                col.appendChild(insidebox);
-                row.appendChild(col);
+            for (let i = 0; i <= jdata.length; i++) {
+                $('.game_products').append($('<div>', { class: 'col-12 col-lg-6 col-xl-4 game_div', id: `${jdata[i]["ProductId"]}` }));
+                $(`.game_div:eq(${i})`).html($('<div>', { class: 'game_div_insidebox' }));
+                $(`.game_div_insidebox:eq(${i})`).html($(
+                    `<div class="product_pic"></div><h3>${jdata[i]["ProductName"]}</h3><i class="fas fa-link link_icon"></i>`
+                ));
+                $(`.product_pic:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }))
             }
         },
         error: function () { alert("error"); }
     });
-})
+}
