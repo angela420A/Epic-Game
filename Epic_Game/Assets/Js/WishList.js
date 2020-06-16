@@ -33,375 +33,51 @@ function ChangeWish() {
     });
 }
 
-let wishCount_text = document.querySelector(".wishCount_text");
-wishCount_text.innerText = `${document.querySelectorAll(".changeHeart").length} items`;
+document.querySelector(".wishCount_text").innerText = `${document.querySelectorAll(".changeHeart").length} items`;
 
-let hot_sale = document.querySelector("#hot_sale");
-hot_sale.addEventListener('click', () => {
+document.querySelector("#hot_sale").addEventListener('click', () => {
+    Create_li("ProductCount", true);
+});
+
+document.querySelector("#recently").addEventListener('click', () => {
+    Create_li("Date", true);
+});
+
+document.querySelector("#alphabet").addEventListener('click', () => {
+    Create_li("ProductName", true);
+});
+
+document.querySelector("#price_true").addEventListener('click', () => {
+    Create_li("Price", true);
+});
+
+document.querySelector("#price_false").addEventListener('click', () => {
+    Create_li("Price", false);
+});
+
+function Create_li(_Key,_bool) {
     $.ajax({
         url: '/WishList/ShowOrder',
-        data: { Key: "ProductCount", boolean: true },
+        data: { Key: `${_Key}`, boolean: _bool },
         type: 'post',
         success: function (jdata) {
-            $(".wishlist-List").empty();
-            let wishlist_List = document.querySelector(".wishlist-List");
-
             for (let i = 0; i < jdata.length; i++) {
+                $(`.wishlist-List`).empty();
 
-                let li = document.createElement('li');
-                li.className = "wishList-ListItem";
-
-                let wishitem = document.createElement('div');
-                wishitem.className = "wishItem";
-                li.appendChild(wishitem);
-
-                let iteminfo = document.createElement('a');
-                iteminfo.href = `/Index/Product/${jdata[i]["ProductID"]}`;
-                iteminfo.classList.add("col", "itemInfo");
-
-                let ImgArea = document.createElement('div');
-                ImgArea.className = "wishItem-ImgArea";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-
-                let infoArea = document.createElement('div');
-                infoArea.classList.add("wishItem-infoArea", "col")
-
-                let ProductName_div = document.createElement('div');
-                ProductName_div.classList = "infoArea-productName";
-
-                let productname = document.createElement('p');
-                productname.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let price_div = document.createElement('div');
-                price_div.className = "infoArea-productPrice";
-
-                let price = document.createElement('p');
-                price.innerHTML = `${jdata[i]["Price"]}`
-
-                let btn_area = document.createElement('div');
-                btn_area.className = "wishItem-btnArea";
-
-                let btn = document.createElement('button');
-                btn.className = "changeHeart";
-                btn.id = `${jdata[i]["ProductID"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-heart");
-
-                ImgArea.appendChild(img);
-                ProductName_div.appendChild(productname);
-                price_div.appendChild(price);
-                infoArea.appendChild(ProductName_div);
-                infoArea.appendChild(price_div);
-                iteminfo.appendChild(ImgArea);
-                iteminfo.appendChild(infoArea);
-                btn.appendChild(icon);
-                btn_area.appendChild(btn);
-                wishitem.appendChild(iteminfo);
-                wishitem.appendChild(btn_area);
-                wishlist_List.appendChild(li);
+                $('.wishlist-List').append($('<li>', { class: 'wishList-ListItem' }));
+                $(`.wishList-ListItem:eq(${i})`).html($('<div>', { class: 'wishItem' }));
+                $(`.wishItem:eq(${i})`).html(`<a href="/Product/Index/${jdata[i]["ProductID"]}" class="col itemInfo"></a><div class="wishItem-btnArea"></div>`);
+                $(`.itemInfo:eq(${i})`).html('<div class="wishItem-ImgArea"></div><div class="wishItem-infoArea col"></div>');
+                $(`.wishItem-ImgArea:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }));
+                $(`.wishItem-infoArea:eq(${i})`).html($('<div class="infoArea-productName"></div><div class="infoArea-productPrice"></div>'));
+                $(`.infoArea-productName:eq(${i})`).html($('<p>').text(`${jdata[i]["ProductName"]}`));
+                $(`.infoArea-productPrice:eq(${i})`).html($('<p>').text(`$NTD : ${jdata[i]["Price"]}`));
+                $(`.wishItem-btnArea:eq(${i})`).html($('<button>', { class: 'changeHeart', id: `${jdata[i]["ProductID"]}` }));
+                $(`.changeHeart:eq(${i})`).html($('<i>', { class: 'fas fa-heart' }));
 
                 AddEven();
             }
         },
         error: function () { alert("error"); }
     });
-})
-
-let recently = document.querySelector("#recently");
-recently.addEventListener('click', () => {
-    $.ajax({
-        url: '/WishList/ShowOrder',
-        data: { Key: "Date", boolean: true },
-        type: 'post',
-        success: function (jdata) {
-            $(".wishlist-List").empty();
-            let wishlist_List = document.querySelector(".wishlist-List");
-
-            for (let i = 0; i < jdata.length; i++) {
-
-                let li = document.createElement('li');
-                li.className = "wishList-ListItem";
-
-                let wishitem = document.createElement('div');
-                wishitem.className = "wishItem";
-                li.appendChild(wishitem);
-
-                let iteminfo = document.createElement('a');
-                iteminfo.href = `/Index/Product/${jdata[i]["ProductID"]}`;
-                iteminfo.classList.add("col", "itemInfo");
-
-                let ImgArea = document.createElement('div');
-                ImgArea.className = "wishItem-ImgArea";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-
-                let infoArea = document.createElement('div');
-                infoArea.classList.add("wishItem-infoArea", "col")
-
-                let ProductName_div = document.createElement('div');
-                ProductName_div.classList = "infoArea-productName";
-
-                let productname = document.createElement('p');
-                productname.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let price_div = document.createElement('div');
-                price_div.className = "infoArea-productPrice";
-
-                let price = document.createElement('p');
-                price.innerHTML = `${jdata[i]["Price"]}`
-
-                let btn_area = document.createElement('div');
-                btn_area.className = "wishItem-btnArea";
-
-                let btn = document.createElement('button');
-                btn.className = "changeHeart";
-                btn.id = `${jdata[i]["ProductID"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-heart");
-
-                ImgArea.appendChild(img);
-                ProductName_div.appendChild(productname);
-                price_div.appendChild(price);
-                infoArea.appendChild(ProductName_div);
-                infoArea.appendChild(price_div);
-                iteminfo.appendChild(ImgArea);
-                iteminfo.appendChild(infoArea);
-                btn.appendChild(icon);
-                btn_area.appendChild(btn);
-                wishitem.appendChild(iteminfo);
-                wishitem.appendChild(btn_area);
-                wishlist_List.appendChild(li);
-
-                AddEven();
-            }
-        },
-        error: function () { alert("error"); }
-    });
-})
-
-let alphabet = document.querySelector("#alphabet");
-alphabet.addEventListener('click', () => {
-    $.ajax({
-        url: '/WishList/ShowOrder',
-        data: { Key: "ProductName", boolean: true },
-        type: 'post',
-        success: function (jdata) {
-            $(".wishlist-List").empty();
-            let wishlist_List = document.querySelector(".wishlist-List");
-
-            for (let i = 0; i < jdata.length; i++) {
-
-                let li = document.createElement('li');
-                li.className = "wishList-ListItem";
-
-                let wishitem = document.createElement('div');
-                wishitem.className = "wishItem";
-                li.appendChild(wishitem);
-
-                let iteminfo = document.createElement('a');
-                iteminfo.href = `/Index/Product/${jdata[i]["ProductID"]}`;
-                iteminfo.classList.add("col", "itemInfo");
-
-                let ImgArea = document.createElement('div');
-                ImgArea.className = "wishItem-ImgArea";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-
-                let infoArea = document.createElement('div');
-                infoArea.classList.add("wishItem-infoArea", "col")
-
-                let ProductName_div = document.createElement('div');
-                ProductName_div.classList = "infoArea-productName";
-
-                let productname = document.createElement('p');
-                productname.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let price_div = document.createElement('div');
-                price_div.className = "infoArea-productPrice";
-
-                let price = document.createElement('p');
-                price.innerHTML = `${jdata[i]["Price"]}`
-
-                let btn_area = document.createElement('div');
-                btn_area.className = "wishItem-btnArea";
-
-                let btn = document.createElement('button');
-                btn.className = "changeHeart";
-                btn.id = `${jdata[i]["ProductID"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-heart");
-
-                ImgArea.appendChild(img);
-                ProductName_div.appendChild(productname);
-                price_div.appendChild(price);
-                infoArea.appendChild(ProductName_div);
-                infoArea.appendChild(price_div);
-                iteminfo.appendChild(ImgArea);
-                iteminfo.appendChild(infoArea);
-                btn.appendChild(icon);
-                btn_area.appendChild(btn);
-                wishitem.appendChild(iteminfo);
-                wishitem.appendChild(btn_area);
-                wishlist_List.appendChild(li);
-
-                AddEven();
-            }
-        },
-        error: function () { alert("error"); }
-    });
-})
-
-let price_true = document.querySelector("#price_true");
-price_true.addEventListener('click', () => {
-    $.ajax({
-        url: '/WishList/ShowOrder',
-        data: { Key: "Price", boolean: true },
-        type: 'post',
-        success: function (jdata) {
-            $(".wishlist-List").empty();
-            let wishlist_List = document.querySelector(".wishlist-List");
-
-            for (let i = 0; i < jdata.length; i++) {
-
-                let li = document.createElement('li');
-                li.className = "wishList-ListItem";
-
-                let wishitem = document.createElement('div');
-                wishitem.className = "wishItem";
-                li.appendChild(wishitem);
-
-                let iteminfo = document.createElement('a');
-                iteminfo.href = `/Index/Product/${jdata[i]["ProductID"]}`;
-                iteminfo.classList.add("col", "itemInfo");
-
-                let ImgArea = document.createElement('div');
-                ImgArea.className = "wishItem-ImgArea";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-
-                let infoArea = document.createElement('div');
-                infoArea.classList.add("wishItem-infoArea", "col")
-
-                let ProductName_div = document.createElement('div');
-                ProductName_div.classList = "infoArea-productName";
-
-                let productname = document.createElement('p');
-                productname.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let price_div = document.createElement('div');
-                price_div.className = "infoArea-productPrice";
-
-                let price = document.createElement('p');
-                price.innerHTML = `${jdata[i]["Price"]}`
-
-                let btn_area = document.createElement('div');
-                btn_area.className = "wishItem-btnArea";
-
-                let btn = document.createElement('button');
-                btn.className = "changeHeart";
-                btn.id = `${jdata[i]["ProductID"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-heart");
-
-                ImgArea.appendChild(img);
-                ProductName_div.appendChild(productname);
-                price_div.appendChild(price);
-                infoArea.appendChild(ProductName_div);
-                infoArea.appendChild(price_div);
-                iteminfo.appendChild(ImgArea);
-                iteminfo.appendChild(infoArea);
-                btn.appendChild(icon);
-                btn_area.appendChild(btn);
-                wishitem.appendChild(iteminfo);
-                wishitem.appendChild(btn_area);
-                wishlist_List.appendChild(li);
-
-                AddEven();
-            }
-        },
-        error: function () { alert("error"); }
-    });
-})
-
-let price_false = document.querySelector("#price_false");
-price_false.addEventListener('click', () => {
-    $.ajax({
-        url: '/WishList/ShowOrder',
-        data: { Key: "Price", boolean: false },
-        type: 'post',
-        success: function (jdata) {
-            $(".wishlist-List").empty();
-            let wishlist_List = document.querySelector(".wishlist-List");
-
-            for (let i = 0; i < jdata.length; i++) {
-
-                let li = document.createElement('li');
-                li.className = "wishList-ListItem";
-
-                let wishitem = document.createElement('div');
-                wishitem.className = "wishItem";
-                li.appendChild(wishitem);
-
-                let iteminfo = document.createElement('a');
-                iteminfo.href = `/Index/Product/${jdata[i]["ProductID"]}`;
-                iteminfo.classList.add("col", "itemInfo");
-
-                let ImgArea = document.createElement('div');
-                ImgArea.className = "wishItem-ImgArea";
-
-                let img = document.createElement('img');
-                img.src = `${jdata[i]["Img_Url"]}`;
-
-                let infoArea = document.createElement('div');
-                infoArea.classList.add("wishItem-infoArea", "col")
-
-                let ProductName_div = document.createElement('div');
-                ProductName_div.classList = "infoArea-productName";
-
-                let productname = document.createElement('p');
-                productname.innerHTML = `${jdata[i]["ProductName"]}`;
-
-                let price_div = document.createElement('div');
-                price_div.className = "infoArea-productPrice";
-
-                let price = document.createElement('p');
-                price.innerHTML = `${jdata[i]["Price"]}`
-
-                let btn_area = document.createElement('div');
-                btn_area.className = "wishItem-btnArea";
-
-                let btn = document.createElement('button');
-                btn.className = "changeHeart";
-                btn.id = `${jdata[i]["ProductID"]}`;
-
-                let icon = document.createElement('i');
-                icon.classList.add("fas", "fa-heart");
-
-                ImgArea.appendChild(img);
-                ProductName_div.appendChild(productname);
-                price_div.appendChild(price);
-                infoArea.appendChild(ProductName_div);
-                infoArea.appendChild(price_div);
-                iteminfo.appendChild(ImgArea);
-                iteminfo.appendChild(infoArea);
-                btn.appendChild(icon);
-                btn_area.appendChild(btn);
-                wishitem.appendChild(iteminfo);
-                wishitem.appendChild(btn_area);
-                wishlist_List.appendChild(li);
-
-                AddEven();
-            }
-        },
-        error: function () { alert("error"); }
-    });
-})
+}
