@@ -4,84 +4,100 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContentType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Developer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Publisher)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categories)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            <div style="width: 135px">
-                <div style="padding-bottom: calc(4/3 * 100%); position: relative">
-                    <div class="imgArea" style="background-image: url('@item.ProductImage');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
-                </div>
-            </div>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContentType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price).ToString().Trim('0').Trim('.')
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Developer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Publisher)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @foreach (var cat in item.Categories)
-            {
-                <span>@cat</span>
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+@section topCSS{
+    <link href="~/Assets/css/ProductManage/ProductManageList.css" rel="stylesheet" />
 }
 
-</table>
+<div class="productManage-root">
+    <div class="productManage-title text-center">
+        <h2><i class="nc-icon nc-pin-3"></i> Product Manage</h2>
+    </div>
+
+    <div class="productManage-create">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+
+    <hr />
+
+    <div class="productManage-table">
+        <table class="table text-left">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContentType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Developer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Publisher)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categories)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductID)
+                    </td>
+                    <td>
+                        <div style="width: 135px">
+                            <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+                                <div class="imgArea" style="background-image: url('@item.ProductImage');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price).ToString().Trim('0').Trim('.')
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Developer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Publisher)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        @foreach (var cat in item.Categories)
+                        {
+                            <span>@cat</span>
+                        }
+                    </td>
+                    <td class="pm-table-buttom">
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ @class = "pm-table-edit" })
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */  @class = "pm-table-details"})
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ @class="pm-table-delete" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
