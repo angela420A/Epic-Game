@@ -29,16 +29,16 @@ Vue.component('screen-compo', {
 var PInfo = new Vue({
     el: '#ProductInfoVue',
     data: {
-        ProName: "123123",
-        ProPrice: "123123",
+        ProName: "Mafia: Trilogy",
+        ProPrice: "1799",
         ProType: "Game",
-        ProDeveloper: "123123",
-        ProPublisher: "123123",
-        ProContext: "123123",
-        ProAgeRestrct: "123123",
-        ProPrivInfo: "123123",
-        ProPrivLink:"123123",
-        CategoriesGroup: ["1","1024"],
+        ProDeveloper: "Hangar 13",
+        ProPublisher: "2K",
+        ProContext: "Play all three crime dramas in the Mafia franchise in glorious ultra HD detail, including the built from the ground up, faithfully reimagined edition of the critically acclaimed original, Mafia.",
+        ProAgeRestrct: "14",
+        ProPrivInfo: "© 2020 TAKE-TWO INTERACTIVE SOFTWARE, INC. DEVELOPED BY HANGAR 13. MAFIA, TAKE-TWO INTERACTIVE SOFTWARE, 2K, HANGAR 13, AND THEIR RESPECTIVE LOGOS ARE ALL TRADEMARKS AND/OR REGISTERED TRADEMARKS OF TAKE-TWO INTERACTIVE SOFTWARE, INC. THE RATINGS ICON IS A TRADEMARK OF THE ENTERTAINMENT SOFTWARE ASSOCIATION. ALL OTHER MARKS ARE PROPERTY OF THEIR RESPECTIVE OWNERS. ALL RIGHTS RESERVED.",
+        ProPrivLink: "https://www.take2games.com/privacy",
+        CategoriesGroup: [],
         CategoriesText: {
             "1": "Action",
             "2": "Adventure",
@@ -72,14 +72,13 @@ var PInfo = new Vue({
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        storeImage: "https://i.imgur.com/YflgSCT.png",
-        logoImage: "https://i.imgur.com/YflgSCT.png",
-        swiperList: ["https://youtu.be/5qap5aO4i9A?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/W0E2fcs.jpg"],
+        storeImage: "",
+        logoImage: "",
+        swiperList: [],
         UploadList: []
     },
     methods: {
         showFile(e) {
-            debugger;
             var t = e.target.files;
             var input = e.target.id;
             for (let i = 0; i < t.length; i++) {
@@ -96,6 +95,7 @@ var ImgVue = new Vue({
                 }
                 this.UploadList.push(data);
             }
+            debugger;
             this.submit(input);
         },
         submit: function (input) {
@@ -144,7 +144,6 @@ var ImgVue = new Vue({
             })
             this.showImage(array, input);
         },
-        //https://i.imgur.com/ycGq26p.jpg
         showImage: function (array, input) {
             let father = '#' + input + 'Area';
             if (input != 'SwiperImage') {
@@ -159,25 +158,13 @@ var ImgVue = new Vue({
             //    });
             //}
         }
-        //swiperComponent: function (URL) {
-        //    let col = $('<li></li>').attr('class', 'col-3');
-        //    let wrap = $('<div></div>').attr('class', 'swiper-wrap');
-        //    let DeleteSwiper = $('<div></div>').attr('class', 'DeleteSwiper');
-        //    let span1 = $('<span></span>');
-        //    let span2 = $('<span></span>');
-        //    let border = $('<div></div>').attr('class', 'swiper-border');
-        //    let ImgArea = $('<div></div>').attr('class', 'ImgArea');
-        //    col.append(wrap.append(DeleteSwiper.append(span1).append(span2)).append(border.append(ImgArea)));
-        //    ImgArea.attr('style', 'background-image: url("' + URL + '");');
-        //    return col;
-        //}
     }
 });
 
 var PIntroVue = new Vue({
     el: '#ProductIntro',
     data:{
-        swiperList: ["https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/W0E2fcs.jpg"],
+        swiperList: [],
     },
     methods: {
         submit: function (e) {

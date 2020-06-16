@@ -65,7 +65,9 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 AgeRestriction = vm.AgeRestriction,
                 Description = vm.Description.Replace("&lt;", "<").Replace("&gt;", ">"),
                 PrivacyPolicy = vm.PrivacyPolicy,
-                PrivacyPolicyUrl = vm.PrivacyPolicyUrl
+                PrivacyPolicyUrl = vm.PrivacyPolicyUrl,
+                OS = 1,
+                LanguagesSupported = "AUDIO: English, French, German, ItalianTEXT: Chinese - Traditional, English, Chinese - Simplified, Czech, French, German, Italian, Korean, Polish, Russian, Spanish - Spain, Portuguese - Brazil, Spanish - Latin America, Japanese"
             };
 
             var imgList = new List<Image>();
