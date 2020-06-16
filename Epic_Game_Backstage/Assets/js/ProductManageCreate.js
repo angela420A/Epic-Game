@@ -1,7 +1,7 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
 //Vue
 Vue.component('swiper-compo', {
-    template:'<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
+    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -11,7 +11,7 @@ Vue.component('swiper-compo', {
             ImgVue.swiperList.splice(index, 1);
         }
     }
-})
+});
 
 Vue.component('screen-compo', {
     template: '<li class="col-10" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
@@ -171,21 +171,8 @@ var ImgVue = new Vue({
         //    ImgArea.attr('style', 'background-image: url("' + URL + '");');
         //    return col;
         //}
-        //< li class= "col-3" >
-        //    <div style="border: 1px solid #999;" class="swiper-wrap">
-        //        <div class="DeleteSwiper" id="DeleteSwiper">
-        //            <span></span>
-        //            <span></span>
-        //        </div>
-        //        <div style="padding-bottom: calc(3/5 * 100%); position: relative">
-        //            <div class="ImgArea">
-        //                <img src="" alt="swiper" />
-        //            </div>
-        //        </div>
-        //    </div>
-        //            </li >
     }
-})
+});
 
 var PIntroVue = new Vue({
     el: '#ProductIntro',
@@ -193,9 +180,6 @@ var PIntroVue = new Vue({
         swiperList: ["https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/YflgSCT.png", "https://i.imgur.com/LqiqP3y.jpg", "https://i.imgur.com/W0E2fcs.jpg"],
     },
     methods: {
-        //getInfo: function () {
-        //    var r = CKEDITOR.instances.editor1.getData();
-        //},
         submit: function (e) {
             ImgVue.showFile(e);
         }
@@ -205,21 +189,18 @@ var PIntroVue = new Vue({
 var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
-        showLoading: function () {
-
-        },
-        createProduct2: function () {
+        createProduct: function () {
             let ProductVM = {
                 ProductName: PInfo.ProName,
                 Price: PInfo.ProPrice,
                 ContentType: PInfo.ProType,
                 Category: this.getCat,
-                Developer : PInfo.ProDeveloper,
-                Publisher : PInfo.ProPublisher,
+                Developer: PInfo.ProDeveloper,
+                Publisher: PInfo.ProPublisher,
                 Title: PInfo.ProContext,
                 Description: this.transformHtml(CKEDITOR.instances.editor1.getData()),
-                AgeRestriction : PInfo.ProAgeRestrct,
-                PrivacyPolicy : PInfo.ProPrivInfo,
+                AgeRestriction: PInfo.ProAgeRestrct,
+                PrivacyPolicy: PInfo.ProPrivInfo,
                 PrivacyPolicyUrl: PInfo.ProPrivLink,
                 ImageVM: {
                     StoreImg: ImgVue.storeImage,
@@ -228,23 +209,11 @@ var SubmitVue = new Vue({
                     ScreenShots: PIntroVue.swiperList
                 }
             }
-            //debugger;
-            //let settings = {
-            //    async: false,
-            //    crossDomain: true,
-            //    processData: false,
-            //    contentType: false,
-            //    type: 'post',
-            //    url: '/ProductManage/CreateProduct',
-            //    dataType: 'json',
-            //    data: JSON.stringify(ProductVM)
-            //};
-            //$.ajax(settings).done(function (res) { });
 
             $.ajax({
                 url: "/ProductManage/CreateProduct",
                 type: "post",
-                data: { jdata: JSON.stringify(ProductVM)},
+                data: { jdata: JSON.stringify(ProductVM) },
                 success: function () {
                     window.location.href = "/ProductManage/Index"
                 },
@@ -266,5 +235,4 @@ var SubmitVue = new Vue({
             return s;
         }
     }
-
-})
+});

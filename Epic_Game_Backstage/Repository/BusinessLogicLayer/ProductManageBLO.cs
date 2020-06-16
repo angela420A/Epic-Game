@@ -63,7 +63,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 ReleaseDate = DateTime.Now,
                 Category = vm.Category,
                 AgeRestriction = vm.AgeRestriction,
-                Description = vm.Description,
+                Description = vm.Description.Replace("&lt;", "<").Replace("&gt;", ">"),
                 PrivacyPolicy = vm.PrivacyPolicy,
                 PrivacyPolicyUrl = vm.PrivacyPolicyUrl
             };
