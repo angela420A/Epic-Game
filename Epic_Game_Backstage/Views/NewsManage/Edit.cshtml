@@ -65,16 +65,27 @@
     </div>
 }
 
+
+<div id='upload'>
+    <form action="">
+        <input type="file" v-on:change="showFile">
+        <input type="button" value="圖片轉換為圖片網址" v-on:click="submiturl" v-if="file!=null">
+    </form>
+    <label>{{showurl}}</label>
+</div>
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/vue")
 }
 @section endJS{
     <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
     <script src="~/Assets/Js/ckeditorplugin.js"></script>
+    <script src="~/Assets/js/Newsandorderimgurjs.js"></script>
 }
 
 
