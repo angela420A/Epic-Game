@@ -87,7 +87,7 @@ namespace EpicGameLibrary.Models
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Discount)
-                .HasPrecision(4, 2);
+                .HasPrecision(4, 0);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Comment)
