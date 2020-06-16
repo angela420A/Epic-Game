@@ -126,7 +126,7 @@
                 </div>
                 <div class="game_pic_btn_div">
                     <div class="game_pic_btn_left">
-                        <a href="@Url.Action("Index","Pay")" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
+                        <a href="@Url.Action("Index","Pay", new { id=Model.PD_ProductID})" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
                             @if (Model.Library_Condition == 0)
                             {
                                 <span style="font-size: 16px;">Aready Purchased</span>
@@ -224,16 +224,19 @@
                 <a href="#show" class="show btn" id="show">SHOW MORE</a>
                 <a href="#hide" class="hide btn" id="hide">SHOW LESS</a>
                 <div class="panel">
-                    @Model.PD_Description
-
+                    <main>
+                        <article>
+                            <p>@Html.Raw(Model.PD_Description)</p>
+                        </article>
+                    </main>
                     @*<div class="collapse_pic">
-                            <div class="col-12 col-md-6">
-                                <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
-                            </div>
-                        </div>*@
+                        <div class="col-12 col-md-6">
+                            <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
+                        </div>
+                    </div>*@
 
                 </div>
                 <div class="fade"></div>
