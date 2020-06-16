@@ -37,7 +37,6 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.Product.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID));
         }
-
         public Pack GetPackModel(string PackID)
         {
             return context.Pack.FirstOrDefault(x => x.PackID.ToString().Equals(PackID));
@@ -46,6 +45,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.Social_Media.Where(x => x.ProductID.ToString().Equals(ProductID)).ToList();
         }
+        //抓取目前最新的三則評論
         public List<Comment> GetCommentModels(string ProductID)
         {
             return context.Comment.Where(x => x.ProductID.ToString().Equals(ProductID)).OrderByDescending(x => x.Date).Take(3).ToList();
@@ -67,6 +67,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.AspNetUsers.FirstOrDefault(x => x.Id.ToString().Equals(UserId)).UserName;
         }
+        //沒評論過就新增一個評論
         public void AddCom(CommentPushViewModel CVM , string UserId)
         {
             var comment = new Comment
@@ -82,12 +83,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             context.Comment.Add(comment);
             context.SaveChanges();
         }
-        //public void DeleteCom(string ProductId, string UserId)
-        //{
-        //    var delete_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductId) && x.UserID == UserId);
-        //    context.Comment.Remove(delete_item);
-        //    context.SaveChanges();
-        //}
+        //更新過去的評論
         public void UploadCom(CommentPushViewModel CVM, string UserId)
         {
             var update_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(CVM.Comment_ProductID) && x.UserID == UserId);
@@ -104,7 +100,12 @@ namespace Epic_Game.Repository.DataOperationLayer
             context.Comment.AddOrUpdate(update_item);
             context.SaveChanges();
         }
-
+        //public void DeleteCom(string ProductId, string UserId)
+        //{
+        //    var delete_item = context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductId) && x.UserID == UserId);
+        //    context.Comment.Remove(delete_item);
+        //    context.SaveChanges();
+        //}
         public Comment GetUserComm(string ProductID, string UserID)
         {
             return context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID) && x.UserID.Equals(UserID));

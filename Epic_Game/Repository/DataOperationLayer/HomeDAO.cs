@@ -75,6 +75,7 @@ namespace Epic_Game.Repository.DataOperationLayer
                             img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
                             from Product p
                             inner join Image img on p.ProductID = img.ProductOrPack
+                            where img.Location = 0
                             order by p.ReleaseDate desc";
                 MostRelated = conn.Query<StoreItems>(sql).ToList();
             }
@@ -109,6 +110,7 @@ namespace Epic_Game.Repository.DataOperationLayer
                             from Product p
                             inner join Image img on p.ProductID = img.ProductOrPack
                             inner join Comment c on p.ProductID = c.ProductID
+                            where img.Location = 0
                             group by c.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
                             order by rank desc";
                 BestRank = conn.Query<StoreItems>(sql).ToList();
