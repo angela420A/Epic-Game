@@ -13,13 +13,12 @@ namespace EpicGameLibrary.Models
         [StringLength(100)]
         public string Author { get; set; }
 
-        [StringLength(100)]
+        [StringLength(500)]
         public string NewsTitle { get; set; }
 
         public DateTime Date { get; set; }
 
         [Required]
-        [StringLength(2000)]
         public string Description { get; set; }
 
         public string NewsImg { get; set; }
