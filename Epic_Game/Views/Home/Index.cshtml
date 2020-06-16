@@ -116,7 +116,7 @@
                     @foreach (var item in Model.BestDiscount)
                     {
                         <li class="mode_5_li">
-                            <a href="@Url.Action("Index", "Product", new { id = item.ProductID})">
+                            <a href="/Product/@item.ProductID">
                                 <div class="mode_5_img-2">
                                     <div class="imgArea" style="background-image: url('@item.Url');"></div>
                                     <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 6.jpeg" alt=""> -->

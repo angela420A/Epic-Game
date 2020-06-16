@@ -126,7 +126,7 @@
                 </div>
                 <div class="game_pic_btn_div">
                     <div class="game_pic_btn_left">
-                        <a href="@Url.Action("Index","Pay")" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
+                        <a href="@Url.Action("Index","Pay", new { id=Model.PD_ProductID})" type="button" class="game_pic_give btn_buy" style="text-decoration: none;">
                             @if (Model.Library_Condition == 0)
                             {
                                 <span style="font-size: 16px;">Aready Purchased</span>
