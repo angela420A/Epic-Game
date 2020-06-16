@@ -62,7 +62,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             wishlistDAO.DeleteWishListProduct(jdata);
         }
-        //ting
+        //ting 新增愛心
         public void addWish(string ProductID)
         {
             wishlistDAO.AddWish(ProductID);
