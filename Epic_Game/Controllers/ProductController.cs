@@ -13,7 +13,7 @@ namespace Epic_Game.Controllers
     public class ProductController : Controller
     {
         //GET: Product
-        public ActionResult Index(string ProductId)
+        public ActionResult Index(string id)
         {
             var UserId = User.Identity.GetUserId();
             //如果使用者沒有登入,則會回傳到登入介面
@@ -24,7 +24,8 @@ namespace Epic_Game.Controllers
             else
             {
                 ProductBLO proBLO = new ProductBLO();
-                ProductViewModel VM = proBLO.GetProductViewModel("02902f18-c98a-4955-b6c7-16711c511b34", UserId);
+                //ProductViewModel VM = proBLO.GetProductViewModel("02902f18-c98a-4955-b6c7-16711c511b34", UserId);
+                ProductViewModel VM = proBLO.GetProductViewModel(id, UserId);
                 return View(VM);
             }
 

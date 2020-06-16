@@ -31,7 +31,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
 
             foreach (var item in p)
             {
-                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = decimal.Round(item.Product.Price*item.Product.Discount,2)});
+                viewModel.Add(new WishListViewModel { ProductID = item.ProductID.ToString(),ProductName = item.Product.ProductName, Img_Url = wishlistDAO.GetImg(item.ProductID.ToString()),Price = decimal.Round(item.Product.Price*item.Product.Discount,0)});
             }
 
             return viewModel;

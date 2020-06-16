@@ -189,6 +189,7 @@
     <Content Include="Assets\js\core\bootstrap.min.js" />
     <Content Include="Assets\js\core\jquery.min.js" />
     <Content Include="Assets\js\core\popper.min.js" />
+    <Content Include="Assets\Js\Newsandorderimgurjs.js" />
     <Content Include="Assets\js\paper-dashboard.js" />
     <Content Include="Assets\js\paper-dashboard.min.js" />
     <Content Include="Assets\js\plugins\bootstrap-notify.js" />
@@ -392,6 +393,7 @@
     <Content Include="Views\OrderManage\Delete.cshtml" />
     <Content Include="Views\BackstageHome\Index.cshtml" />
     <Content Include="Views\UserManage\Index.cshtml" />
+    <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

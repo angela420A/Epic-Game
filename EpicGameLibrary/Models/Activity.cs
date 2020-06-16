@@ -21,7 +21,7 @@ namespace EpicGameLibrary.Models
         public string Slogan { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(300)]
         public string Information { get; set; }
 
         [Required]
