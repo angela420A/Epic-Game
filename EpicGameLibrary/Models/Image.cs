@@ -10,7 +10,6 @@ namespace EpicGameLibrary.Models
     public partial class Image
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ImgID { get; set; }
 
         [StringLength(20)]

@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "_AjaxAntiForgeryPartial";
+}
+
+<form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
+<script>
+    AddAntiForgeryToken = function (data) {
+        data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+        return data;
+    };
+</script>

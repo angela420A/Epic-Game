@@ -49,12 +49,16 @@ namespace Epic_Game_Backstage.ViewModels
 
         public string PrivacyPolicyUrl { get; set; }
 
+        public ImageCreateViewModel ImageVM { get; set; }
+    }
+
+    public class ImageCreateViewModel{
         public string StoreImg { get; set; }
-        
+
         public string GameLogo { get; set; }
 
         public List<string> SwiperImg { get; set; }
 
-        public List<string> ScreenShot { get; set; }
+        public List<string> ScreenShots { get; set; }
     }
 }
