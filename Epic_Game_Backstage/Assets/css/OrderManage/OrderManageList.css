@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.orderManage-root {
+    padding: 10px 30px;
+    font-family: Microsoft JhengHei !important;
+}
+
+.orderManage-root p, label{
+    margin-bottom: 0 !important;
+}
+
+.orderManage-title {
+    background-color: #FFFFFF;
+    width: 400px;
+    border-radius: 12px;
+    padding: 20px 20px 5px 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+}
+
+.orderManage-title >h2{
+    text-align: center;
+}
+
+.orderManage-title >h2 >i{
+    color: #EF8157;
+}
+
+.orderManage-title >p{
+    color: gray;
+}
+
+.orderManage-title >p >a{
+    color: gray;
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 13px;
+}
+
+.orderManage-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group{
+    display: flex;
+}
+
+.form-group-root{
+    display: flex;
+}
+
+.form-group{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.form-group input{
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
