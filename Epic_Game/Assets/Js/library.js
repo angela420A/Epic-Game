@@ -47,7 +47,7 @@ function Create_products(_Key) {
                 $('.game_products').append($('<div>', { class: 'col-12 col-lg-6 col-xl-4 game_div', id: `${jdata[i]["ProductId"]}` }));
                 $(`.game_div:eq(${i})`).html($('<div>', { class: 'game_div_insidebox' }));
                 $(`.game_div_insidebox:eq(${i})`).html($(
-                    `<div class="product_pic"></div><h3>${jdata[i]["ProductName"]}</h3><i class="fas fa-link link_icon"></i>`
+                    `<div class="product_pic"></div><h3>${jdata[i]["ProductName"]}</h3><a class="link_icon" href ="/Product/Index/${jdata[i]["ProductId"]}"><i class="fas fa-link"></i></a>`
                 ));
                 $(`.product_pic:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }))
             }

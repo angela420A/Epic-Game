@@ -208,7 +208,11 @@ body {
     display: initial;
 }
 
-.link_icon:hover {
+.link_icon i {
+    color: #fff;
+}
+
+.link_icon i:hover {
     color: rgb(9,83,210);
     cursor: pointer;
 }

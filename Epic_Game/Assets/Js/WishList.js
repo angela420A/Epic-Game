@@ -66,7 +66,7 @@ function Create_li(_Key,_bool) {
 
                 $('.wishlist-List').append($('<li>', { class: 'wishList-ListItem' }));
                 $(`.wishList-ListItem:eq(${i})`).html($('<div>', { class: 'wishItem' }));
-                $(`.wishItem:eq(${i})`).html(`<a href="/Index/Product/${jdata[i]["ProductID"]}" class="col itemInfo"></a><div class="wishItem-btnArea"></div>`);
+                $(`.wishItem:eq(${i})`).html(`<a href="/Product/Index/${jdata[i]["ProductID"]}" class="col itemInfo"></a><div class="wishItem-btnArea"></div>`);
                 $(`.itemInfo:eq(${i})`).html('<div class="wishItem-ImgArea"></div><div class="wishItem-infoArea col"></div>');
                 $(`.wishItem-ImgArea:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }));
                 $(`.wishItem-infoArea:eq(${i})`).html($('<div class="infoArea-productName"></div><div class="infoArea-productPrice"></div>'));
