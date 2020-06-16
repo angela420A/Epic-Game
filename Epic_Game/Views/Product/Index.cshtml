@@ -257,7 +257,6 @@
 
 
 <!-- 評論------------------------------- -->
-
 <div class="container allblock" id="grading">
     <div class="row">
         <div class="col-12 col-xl-3">
@@ -265,9 +264,6 @@
         </div>
         <div class="col-12 col-xl-9 grading_content">
             <div>
-                @*<div class="grading_number col-12">
-                        <span class="grading_text">5</span>
-                    </div>*@
                 <div class="col-12">
                     @if (Model.PD_Comment.UserComment == null)
                     {
@@ -300,18 +296,7 @@
                                 <div class="modal_title">
                                     <span>Title: </span><input v-model="title" type="text" style="width:100%">
                                 </div>
-
                                 <textarea v-model="content" name="Text1" cols="40" rows="5" style="width: 100%;"></textarea>
-                                @*<div class="grading_circle">
-                                        <div class="star-rating">
-                                            <span class="fa fa-star-o" data-rating="1"></span>
-                                            <span class="fa fa-star-o" data-rating="2"></span>
-                                            <span class="fa fa-star-o" data-rating="3"></span>
-                                            <span class="fa fa-star-o" data-rating="4"></span>
-                                            <span class="fa fa-star-o" data-rating="5"></span>
-                                            <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                                        </div>
-                                    </div>*@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="modal_btn " data-dismiss="modal">Abort</button>
@@ -330,7 +315,7 @@
                                     @Html.Partial("_Comments", com)
                                 }
                             }
-                            </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -363,7 +348,6 @@
                         </div>
                     </div>
                 }
-
                 else if (Model.OS == 3)
                 {
                     <div class="title_div" style="padding-left: 15px;">
@@ -587,7 +571,5 @@
             }
         },
     })
-
-
 
 </script>

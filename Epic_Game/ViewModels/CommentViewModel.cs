@@ -9,7 +9,7 @@ namespace Epic_Game.ViewModels
     {
         public string Comment_ProductID { get; set; }
         public List<CommentItem> Comments { get; set; } //卡片
-        public CommentItem UserComment { get; set; } //是否有評論
+        public CommentItem UserComment { get; set; } //是否有評論過
 
     }
     public class CommentItem
