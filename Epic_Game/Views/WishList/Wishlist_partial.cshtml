@@ -2,7 +2,7 @@
 
 <li class="wishList-ListItem">
     <div class="wishItem">
-        <a href="@Url.Action("Index","Product")" class="col itemInfo">
+        <a href="/Product/Index/@Model.ProductID" class="col itemInfo">
             <div class="wishItem-ImgArea">
                 <img src="@Model.Img_Url">
             </div>
@@ -11,7 +11,7 @@
                     <p>@Model.ProductName</p>
                 </div>
                 <div class="infoArea-productPrice">
-                    <p>@Model.Price</p>
+                    <p>$NTD : @Model.Price</p>
                 </div>
             </div>
         </a>
