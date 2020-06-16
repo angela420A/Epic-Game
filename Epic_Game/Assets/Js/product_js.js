@@ -170,16 +170,17 @@ var connent = new Vue({
                 url: "/Product/CreateComment",
                 type: "post",
                 data: { jdata: JSON.stringify(object) },
-                
+
+                //以動態生成的方式，更新目前在頁面上的評論
                 success: function (data) {                 
                     let items = document.querySelectorAll(".grading_padding");
-                    for (let i = 0; i < 3; i++) {
-                        
+                    for (let i = 0; i < 3; i++) {                     
                         items[i].querySelector('.comment_title').innerHTML = data[i].Comment_Title;
                         items[i].querySelector('#commAuthor').innerHTML = data[i].Comment_UserName;
                         items[i].querySelector('.autor_card_date').innerHTML = data[i].Comment_Date;
                         items[i].querySelector('#commContent').innerHTML = data[i].Comment_Description ;
                     }
+                    //關掉model
                     $('#exampleModal').modal('hide')
                 },
                 error: function () {

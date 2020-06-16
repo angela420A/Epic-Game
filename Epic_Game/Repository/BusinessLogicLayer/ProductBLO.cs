@@ -58,6 +58,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 //Pack_Discount = pack.Discount,
                 Library_Condition = library == null ? 2 : library.Condition
             };
+
             //SocialMediaViewModel
             pmv.SM = new List<SocialMediaViewModel>();
             foreach (var socialMedia in sm)
@@ -70,6 +71,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 };
                 pmv.SM.Add(smvm);
             }
+
             //CommentViewModel
             var _Comment = new CommentViewModel();
             _Comment.Comment_ProductID = p.ProductID.ToString();
@@ -80,10 +82,9 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
             if(UserComm != null) {
                 _Comment.UserComment = CommMaping(UserComm);
-            }
-
-                
+            }             
             pmv.PD_Comment = _Comment;
+
             //ImageViewModel
             pmv.PD_image = new List<ImageViewModel>();
             foreach (var Image in img)
@@ -97,6 +98,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 IsVideo(imagevm);
                 pmv.PD_image.Add(imagevm);
             }
+
             //SpecificationsViewModel
             pmv.PD_Specificatoin = new SpecificationsViewModel[4];
             foreach (var specifications in spe)
@@ -120,7 +122,13 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
             return pmv;
         }
-
+        public void IsVideo(ImageViewModel vm)
+        {
+            if (vm.Media_Type == 2)
+            {
+                vm.Image_URL += "?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3";               
+            }
+        }
         public CommentItem CommMaping(Comment c)
         {
             return new CommentItem
@@ -132,24 +140,6 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 Comment_UserName = ProductDAO.GetUserModels(c.UserID)
             };
         }
-
-        public void IsVideo(ImageViewModel vm)
-        {
-            if (vm.Media_Type == 2)
-            {
-                vm.Image_URL += "?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;iv_load_policy=3";               
-            }
-        }
-        
-        //public void AddComment(CommentPushViewModel CVM, string UserId)
-        //{
-        //    ProductDAO.AddCom(CVM, UserId);
-        //}
-        //public void DeleteComment(string ProductId , string UserId)
-        //{
-        //    ProductDAO.DeleteCom(ProductId,UserId);
-
-        //}
         public List<CommentItem> UploadComment(CommentPushViewModel CVM, string UserId)
         {
             ProductDAO.UploadCom(CVM, UserId);
@@ -160,5 +150,14 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             }
             return res;
         }
+
+        //public void AddComment(CommentPushViewModel CVM, string UserId)
+        //{
+        //    ProductDAO.AddCom(CVM, UserId);
+        //}
+        //public void DeleteComment(string ProductId , string UserId)
+        //{
+        //    ProductDAO.DeleteCom(ProductId,UserId);
+        //}
     }
 }
