@@ -36,7 +36,7 @@ namespace Epic_Game.Controllers
             CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
             ProductBLO blo = new ProductBLO();
             var comments = blo.UploadComment(CVM , User.Identity.GetUserId());
-            return Json(comments, JsonRequestBehavior.AllowGet);//允許用戶get資料
+            return Json(comments, JsonRequestBehavior.AllowGet);//允許用戶get資料  以json的方式回傳到ajax
         }
 
 
