@@ -14,6 +14,12 @@ namespace Epic_Game
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Pay",
+                url: "Pay/ToECpay",
+                defaults: new { controller = "Pay", action = "ToECpay" }
+            );
+
+            routes.MapRoute(
                 name: "Comment",
                 url: "Product/CreateComment",
                 defaults: new { controller = "Product", action = "CreateComment" }
