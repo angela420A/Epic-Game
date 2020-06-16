@@ -71,7 +71,7 @@ function Create_li(_Key,_bool) {
                 $(`.wishItem-ImgArea:eq(${i})`).html($('<img>', { src: `${jdata[i]["Img_Url"]}` }));
                 $(`.wishItem-infoArea:eq(${i})`).html($('<div class="infoArea-productName"></div><div class="infoArea-productPrice"></div>'));
                 $(`.infoArea-productName:eq(${i})`).html($('<p>').text(`${jdata[i]["ProductName"]}`));
-                $(`.infoArea-productPrice:eq(${i})`).html($('<p>').text(`$NTD:${jdata[i]["Price"]}`));
+                $(`.infoArea-productPrice:eq(${i})`).html($('<p>').text(`$NTD : ${jdata[i]["Price"]}`));
                 $(`.wishItem-btnArea:eq(${i})`).html($('<button>', { class: 'changeHeart', id: `${jdata[i]["ProductID"]}` }));
                 $(`.changeHeart:eq(${i})`).html($('<i>', { class: 'fas fa-heart' }));
 
