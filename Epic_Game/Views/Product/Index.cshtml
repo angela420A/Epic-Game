@@ -224,16 +224,19 @@
                 <a href="#show" class="show btn" id="show">SHOW MORE</a>
                 <a href="#hide" class="hide btn" id="hide">SHOW LESS</a>
                 <div class="panel">
-                    @Model.PD_Description
-
+                    <main>
+                        <article>
+                            <p>@Html.Raw(Model.PD_Description)</p>
+                        </article>
+                    </main>
                     @*<div class="collapse_pic">
-                            <div class="col-12 col-md-6">
-                                <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
-                            </div>
-                        </div>*@
+                        <div class="col-12 col-md-6">
+                            <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
+                        </div>
+                    </div>*@
 
                 </div>
                 <div class="fade"></div>

@@ -393,6 +393,7 @@
     <Content Include="Views\OrderManage\Delete.cshtml" />
     <Content Include="Views\BackstageHome\Index.cshtml" />
     <Content Include="Views\UserManage\Index.cshtml" />
+    <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
