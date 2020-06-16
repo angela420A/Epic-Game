@@ -6,29 +6,40 @@
     padding: 15px;
 }
 
-    .game_div_insidebox img {
-        position: absolute;
-        top: 0;
-        left:0;
-        height: 100%;
-        width: 100%;
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        background-position: bottom;
-    }
+.main_pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
 
-    .game_div_insidebox h3 {
-        font-size: 16px;
-        margin-top: 15px;
-    }
+.game_div_insidebox h3 {
+    height: 40px;
+    font-size: 16px;
+    margin-top: 15px;
+}
 
 .product_pic {
     position: relative;
     padding-bottom: calc(4/3 * 100%);
 }
 
-@media screen and (min-width : 768px){
-    .game_div_insidebox{
-        padding:30px;
+.logo_pic {
+    display: none;
+}
+
+@media screen and (max-width : 992px) {
+    .game_div_insidebox {
+        padding: 30px;
     }
+
+        .game_div_insidebox h3 {
+            height: 60px;
+            font-size: 20px;
+            margin-top: 15px;
+        }
 }

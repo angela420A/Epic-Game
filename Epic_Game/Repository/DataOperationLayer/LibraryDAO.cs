@@ -39,6 +39,18 @@ namespace Epic_Game.Repository.DataOperationLayer
                 return img.Url;
             }
         }
+        public string GetImg_list(string ProductId)
+        {
+            var img = context.Image.FirstOrDefault(x => x.ProductOrPack.ToString().Equals(ProductId) && x.Location == 1);
+            if (img == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return img.Url;
+            }
+        }
         public string GetDate(string ProductId)
         {
             var order = context.Order.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductId) && x.UserID.ToString().Equals(UserId));
