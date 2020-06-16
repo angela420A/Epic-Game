@@ -166,7 +166,6 @@ var connent = new Vue({
                 Comment_Description: this.content,
                 Comment_Rank: this.rank
             }
-            debugger;
             $.ajax({
                 url: "/Product/CreateComment",
                 type: "post",
