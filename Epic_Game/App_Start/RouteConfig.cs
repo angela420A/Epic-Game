@@ -20,6 +20,18 @@ namespace Epic_Game
             );
 
             routes.MapRoute(
+                name: "Finish",
+                url: "Pay/Finish",
+                defaults: new { controller = "Pay", action = "Finish" }
+            );
+
+            routes.MapRoute(
+                name: "CreatOrder",
+                url: "Pay/CreatOrder/{productid}",
+                defaults: new { controller = "Pay", action = "CreatOrder", productid = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Comment",
                 url: "Product/CreateComment",
                 defaults: new { controller = "Product", action = "CreateComment" }

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Finish";
     Layout = null;
 }
@@ -21,11 +20,12 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 
-<script>
+@*<script>
     $(function () {
+        
         $.ajax({
-            url: "/Pay/CreatOrder"
+            url: "{{route('Finish')}}"
         })
     });
     //setTimeout("location.href ='@Url.Action("Index","Library")'", 1000);
-</script>
+</script>*@
