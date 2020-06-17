@@ -15,9 +15,10 @@ body {
     margin-top: 20px;
 }
 
-.span_tag {
+.span_tag{
     padding-left: 10px;
     padding-right: 10px;
+
 }
 
 
@@ -109,6 +110,9 @@ body {
 .far, .fas {
     font-size: 15px;
     padding: 0 5px;
+}
+button:not(:disabled){
+    outline: none;
 }
 /* 導覽列 */
 .NavListArea {
@@ -419,7 +423,7 @@ body {
 }
 
 .fade {
-    height: 50px;
+    height: 90px;
     margin-top: -100px;
     position: relative;
 }
@@ -576,9 +580,17 @@ body {
 #specification .span_text {
     font-size: 14px;
     color: #e7e7e7;
-    height:50px;
 }
-
+#specification .span_tag {
+    padding: 30px 0px 30px 0;
+    border: none;
+}
+#specification .btn_winclick {
+    border-bottom:1px solid white;
+}
+#specification .btn_osclick {
+    border-bottom: 1px solid white;
+}
 #specification .li_text {
     color: #e7e7e7;
     display: inline;
@@ -587,24 +599,17 @@ body {
 
 #specification .title_div {
     display: flex;
-
 }
 
 #specification .title_div_div {
-    padding: 30px 10px 30px 0;
     opacity: 1;
-    border-bottom-color: currentColor;
     color: #e7e7e7;
     letter-spacing: 0.5px;
     font-weight: 500;
     cursor: pointer;
-/*    margin-right: 20px;*/
-    margin-bottom:20px;
-}
-#specification .speci {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
+    margin-right: 5px;
+    padding:0 10px;
 }
 
 #specification .table {
