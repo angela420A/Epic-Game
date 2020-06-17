@@ -1,0 +1,82 @@
+﻿@model Epic_Game_Backstage.ViewModels.ActivityViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+@section topCSS{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Assets/css/ActivityManage/Activity.css" rel="stylesheet" />
+}
+
+
+<h2 class="title">Edit</h2>
+<div class="container">
+    <h4>Activity</h4>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Title</label>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing input"
+                       aria-describedby="inputGroup-sizing-lg" v-model="ProName">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Product Name</label>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing input"
+                       aria-describedby="inputGroup-sizing-lg" v-model="ProName">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group" style="margin-top:10px;">
+                <label for="ProductContext">Activity Introduction:</label>
+                <textarea class="form-control" id="ProductContext" rows="3" v-model="ProContext"></textarea>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Due Date</label>
+                </div>
+                <input type="datetime-local" class="form-control" name="bdaytime">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 style="margin: 40px 0 20px;">Activity's Images:</h2>
+    <div class="row justify-content-center mg-75" id="app">
+        <div class="col-6 card">
+            <div class="card-body">
+                <h4 style="text-align:center">Game Logo</h4>
+                <div style="border: 1px solid #999; margin-top:67.5px">
+                    <div id="LogoImageArea" style="padding-bottom: calc(3/5 * 100%); position: relative">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="LogoImage" v-on:change="showFile">
+                    <label class="custom-file-label" for="LogoImage">Upload image</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</div>
+
+<div class="back" style="margin-left:20px;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
