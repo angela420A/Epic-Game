@@ -13,7 +13,7 @@ namespace Epic_Game_Backstage.Controllers
 {
     public class NewsManageController : Controller
     {
-        private EGContext db = new EGContext();
+        //private EGContext db = new EGContext();
 
         // GET: NewsManage
         public ActionResult Index()
@@ -258,14 +258,14 @@ namespace Epic_Game_Backstage.Controllers
             }
             return RedirectToAction("searchsort");
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
 
