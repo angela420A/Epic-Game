@@ -13,8 +13,9 @@ namespace Epic_Game.ViewModels
         public List<StoreItems> TopSales { get; set; } //熱銷
         public List<StoreItems> BestDiscount { get; set; } //折扣最高
         public List<StoreItems> MostRelated { get; set; } //最新發售
-        public List<StoreItems> MostPopular { get; set; } //下載量最高
+        public List<StoreItems> BestPrice{ get; set; } //價錢最低
         public List<StoreItems> BestRank { get; set; } //評價最高
+        public List<StoreItems> MostFollowe { get; set; } //最多人關注
 
     }
 
