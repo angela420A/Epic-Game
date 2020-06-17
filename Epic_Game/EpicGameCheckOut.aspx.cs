@@ -32,8 +32,8 @@ namespace Epic_Game
 
                     /* 基本參數 */
                     oPayment.Send.ReturnURL = "http://example.com";//付款完成通知回傳的網址
-                    oPayment.Send.ClientBackURL = "https://localhost:44303/Pay/Finish";//瀏覽器端返回的廠商網址
-                    oPayment.Send.OrderResultURL = "";//瀏覽器端回傳付款結果網址
+                    oPayment.Send.ClientBackURL = "";//瀏覽器端返回的廠商網址
+                    oPayment.Send.OrderResultURL = "https://localhost:44303/EpicGameCheckOutFeedback.aspx";//瀏覽器端回傳付款結果網址
                     oPayment.Send.MerchantTradeNo = "ECPay" + new Random().Next(0, 99999).ToString();//廠商的交易編號
                     oPayment.Send.MerchantTradeDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");//廠商的交易時間。
                     oPayment.Send.TotalAmount = Decimal.Parse(Session["P"].ToString());//交易總金額
@@ -45,6 +45,7 @@ namespace Epic_Game
                     oPayment.Send.DeviceSource = DeviceType.PC;//來源裝置
                     oPayment.Send.IgnorePayment = "";//不顯示的付款方式
                     //oPayment.Send.PlatformID = "";//特約合作平台商代號
+                    oPayment.Send.CustomField1 = Session["ProductId"].ToString();
 
                     //訂單的商品資料
                     oPayment.Send.Items.Add(new Item()

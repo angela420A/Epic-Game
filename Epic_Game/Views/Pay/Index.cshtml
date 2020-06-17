@@ -98,7 +98,7 @@
             <div class="confirm-container col-xs-12">
                 @if (discountprice == 0)
                 {
-                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Finish", "Pay")'">
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("CreatOrder", "Pay",new { productid = Model.ProductId})'">
                         <span>購買</span>
                     </button>
                 }
