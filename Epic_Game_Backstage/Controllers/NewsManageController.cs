@@ -52,9 +52,12 @@ namespace Epic_Game_Backstage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult searchsort(string option, string search, string searchname)
+        public ActionResult searchsort(string searchname,string option, string search)
         {
-            NewsSearch n = new NewsSearch();
+            NewsManageBLO newsManageBLO = new NewsManageBLO();
+            searchname = option;
+            List<NewsManageViewModel> newslist = newsManageBLO.SearchNews(searchname,search);
+            return newslist;
             //ViewBag.Nowsort = sort;
             ////目前的會等於現在sort名稱的，看是日期、錢等等
             //sort = string.IsNullOrEmpty(sort) ? "NewsTitle" : sort;
@@ -190,8 +193,6 @@ namespace Epic_Game_Backstage.Controllers
             //    }
             //}
             //return View(newsVMlistiqu1);
-            return n.Searchmethod1(search, option, searchname, option);
-
         }
         public ActionResult Create()
         {
