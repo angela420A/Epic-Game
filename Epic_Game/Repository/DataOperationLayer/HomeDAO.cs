@@ -52,7 +52,7 @@ namespace Epic_Game.Repository.DataOperationLayer
             List<StoreItems> TopSales;
             using (conn = new SqlConnection(connString))
             {
-                string sql = @"select TOP 5
+                string sql =    @"select TOP 5
                                 COUNT(o.ProductID) AS Sales,img.Url,p.ProductID,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
                                 from [Order] o 
                                 inner join Product P on o.ProductID = p.ProductID

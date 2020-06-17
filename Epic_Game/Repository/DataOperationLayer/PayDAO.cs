@@ -40,5 +40,10 @@ namespace Epic_Game.Repository.DataOperationLayer
         {
             return context.Image.FirstOrDefault(x => x.ProductOrPack.ToString().Equals(_ProductID) && x.Location == 0).Url;
         }
+
+        public IEnumerable<Order> CreateOrder(Guid guid, string _UserID, string _ProductID, DateTime dateTime)
+        {
+            return null;
+        }
     }
 }

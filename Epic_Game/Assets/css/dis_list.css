@@ -1,17 +1,16 @@
 .game_div_insidebox img {
-    height: 100%;
-    width: 100%;
+    max-width: 97px;
 }
 
 .game_div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom:20px;
 }
 
 .game_div_insidebox {
-    width:100%;
+    height:70px;
+    width: 100%;
     background-color: rgb(35,35,35);
     color: #fff;
     display: flex;
@@ -22,15 +21,20 @@
 
     .game_div_insidebox h3 {
         font-size: 20px;
-        margin-left: 10%;
         text-align: center;
     }
 
-.product_pic{
-    max-width:120px;
-    height:140px;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.product_pic {
+    padding: 10px;
+}
+
+.main_pic {
+    display: none;
+}
+
+@media screen and (max-width : 768px) {
+
+    .logo_pic {
+        display: none;
+    }
 }
