@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = null;
-    var Price =  string.Format("{0:####.#}", Model.Price);
+    var Price = string.Format("{0:####.#}", Model.Price);
+    var discountprice = decimal.Round(Model.Discount * Model.Price);
 }
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
@@ -11,7 +12,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="detail col-12 col-md-3 col-lg-3">
+        <div class="detail col-12 col-md-6 col-lg-4">
             <h5>訂單摘要</h5>
             <div class="game d-flex">
                 <div class="game_pic">
@@ -24,9 +25,23 @@
                 </div>
             </div>
             <div class="tp price">
+
                 <div class="price_price d-flex justify-content-between">
-                    <span class="span_color">價格</span>
-                    <span>USD $@Price</span>
+                    @if (discountprice == 0)
+                    {
+                        <span class="span_color">價格</span>
+                        <span style="text-decoration: line-through">TWD $@Price</span>
+                    }
+                    else if (Model.Discount == 1)
+                    {
+                        <span class="span_color">價格</span>
+                        <span>TWD $@Price</span>
+                    }
+                    else
+                    {
+                        <span class="span_color">價格</span>
+                        <span style="text-decoration: line-through">TWD $@Price</span>
+                    }
                 </div>
                 <div class="price_text">
                     <span class="span_color">若適用則包括增值稅</span>
@@ -34,12 +49,37 @@
             </div>
             <div class="tp total">
                 <div class="total_price d-flex justify-content-between">
-                    <span class="span_color">總計</span>
-                    <span>USD $@Price</span>
+                    @if (discountprice == 0)
+                    {
+                        <span class="span_color">折扣</span>
+                        <span>Free</span>
+                    }
+                    else if (Model.Discount == 1)
+                    {
+
+                    }
+                    else
+                    {
+                        <span class="span_color">折扣</span>
+                        <span>@decimal.Round(Model.Discount * 100)%</span>
+                    }
                 </div>
                 <div class="total_pay d-flex justify-content-between">
-                    <span>您的支付</span>
-                    <span>USD $@Price</span>
+                    @if (discountprice == 0)
+                    {
+                        <span>總計</span>
+                        <span>Free</span>
+                    }
+                    else if (Model.Discount == 1)
+                    {
+                        <span>總計</span>
+                        <span>TWD $@Price</span>
+                    }
+                    else
+                    {
+                        <span>總計</span>
+                        <span>TWD $@discountprice</span>
+                    }
                 </div>
             </div>
             <div class="input_creater">
@@ -56,9 +96,20 @@
                 <span>需要幫助嗎？ <a href="">聯絡我們</a></span>
             </div>
             <div class="confirm-container col-xs-12">
-                <button class="btn btn-primary" id="SendRequest">
-                    <span>結帳</span>
-                </button>
+                @if (discountprice == 0)
+                {
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("CreatOrder", "Pay",new { productid = Model.ProductId})'">
+                        <span>購買</span>
+                    </button>
+                }
+
+                else
+                {
+                    <button class="btn btn-primary" id="SendRequest">
+                        <span>購買</span>
+                    </button>
+                }
+
             </div>
         </div>
     </div>

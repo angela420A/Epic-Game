@@ -14,6 +14,30 @@ namespace Epic_Game
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Pay",
+                url: "Pay/ToECpay",
+                defaults: new { controller = "Pay", action = "ToECpay" }
+            );
+
+            routes.MapRoute(
+                name: "Finish",
+                url: "Pay/Finish",
+                defaults: new { controller = "Pay", action = "Finish" }
+            );
+
+            routes.MapRoute(
+                name: "CreatOrder",
+                url: "Pay/CreatOrder/{productid}",
+                defaults: new { controller = "Pay", action = "CreatOrder", productid = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Comment",
+                url: "Product/CreateComment",
+                defaults: new { controller = "Product", action = "CreateComment" }
+            );
+
+            routes.MapRoute(
                 name: "FindProductID",
                 url: "Product/{ProductId}",
                 defaults: new { controller = "Product", action = "Index", ProductId = UrlParameter.Optional }

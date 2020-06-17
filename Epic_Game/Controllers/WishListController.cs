@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Epic_Game.Models;
+using System.ComponentModel.DataAnnotations;
+using System.EnterpriseServices;
 
 namespace Epic_Game.Controllers
 {
@@ -36,24 +38,35 @@ namespace Epic_Game.Controllers
         //ting
         public void addWish(string ProductId)
         {
-            var UserId = User.Identity.GetUserId();
-            var blo = new WishListBLO(UserId);
-            blo.addWish(ProductId);
+        
+                var UserId = User.Identity.GetUserId();
+                var blo = new WishListBLO(UserId);
+                blo.addWish(ProductId);
+            
         }
         //ting
         public void ChangeWish(string jdata)
         {
-            var data = JsonConvert.DeserializeObject<WishChangeModel>(jdata);
-            WishListBLO blo = new WishListBLO(User.Identity.GetUserId());
-            if (blo.ifWish(data.ProductId))
+
+            if (!User.Identity.IsAuthenticated)
             {
-                Delete(data.ProductId);
+                Response.StatusCode = 400;
             }
             else
             {
-                addWish(data.ProductId);
+                var data = JsonConvert.DeserializeObject<WishChangeModel>(jdata);
+                WishListBLO blo = new WishListBLO(User.Identity.GetUserId());
+                if (blo.ifWish(data.ProductId))
+                {
+                    Delete(data.ProductId);
+                }
+                else
+                {
+                    addWish(data.ProductId);
+                }
+                RedirectToAction("Index", data.RedirectTo);
             }
-            RedirectToAction("Index", data.RedirectTo);
+
         }
         //阿寶
         public void Delete(string jdata)
