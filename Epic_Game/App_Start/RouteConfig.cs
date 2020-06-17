@@ -20,6 +20,12 @@ namespace Epic_Game
             );
 
             routes.MapRoute(
+                name: "Search",
+                url: "Home/Search/{id}",
+                defaults: new { controller = "Home", action = "Search" , SearchProduct = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Comment",
                 url: "Product/CreateComment",
                 defaults: new { controller = "Product", action = "CreateComment" }

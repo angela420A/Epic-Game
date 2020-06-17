@@ -42,5 +42,10 @@ namespace Epic_Game.Repository.BusinessLogicLayer
         {
             return HomeDAO.GetSearches().ToList();
         }
+
+        public IEnumerable<SearchViewModel> GetUserSearch(string id)
+        {
+            return HomeDAO.GetSearches().Where(x => x.ProductName.Contains(id));
+        }
     }
 }
