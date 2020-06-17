@@ -45,7 +45,6 @@ namespace Epic_Game.Controllers
                 var result = _rbp.GetUserSearch(id).ToList();
                 return View(result);
             }
-           
         }
 
         [HttpPost]
