@@ -24,6 +24,12 @@ Vue.component('screen-compo', {
             PInfoVue.swiperList.splice(index, 1);
         }
     }
+});
+
+Vue.component('socialMedia-compo', {
+    template: '<i class="sm.type"></i>',
+    props: ['sm'],
+    name: 'socialMedia-compo',
 })
 
 var PInfo = new Vue({

@@ -213,16 +213,16 @@
                     <ul id="SwiperImageArea" class="row">
                         <Swiper-Compo v-for="item in swiperList" v-bind:swiper="item" v-bind:key="item.id"></Swiper-Compo>
                         @*<li class="col-3">
-                                <div style="border: 1px solid #999;" class="swiper-wrap">
-                                    <div class="DeleteSwiper" id="DeleteSwiper">
-                                    </div>
-                                    <div style="padding-bottom: calc(3/5 * 100%); position: relative">
-                                        <div class="ImgArea">
-                                            <img src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover" />
-                                        </div>
+                            <div style="border: 1px solid #999;" class="swiper-wrap">
+                                <div class="DeleteSwiper" id="DeleteSwiper">
+                                </div>
+                                <div style="padding-bottom: calc(3/5 * 100%); position: relative">
+                                    <div class="ImgArea">
+                                        <img src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover" />
                                     </div>
                                 </div>
-                            </li>*@
+                            </div>
+                        </li>*@
                     </ul>
                 </div>
                 <div class="card-footer">
@@ -268,12 +268,43 @@
             </div>
         </div>
 
-        <div class="row justify-content-center" id="submitVue">
-            <div class="col">
-                <button class="btn btn-primary" v-on:click="createProduct">Create Product</button>
+        <h2 style="margin: 40px 0 20px;">
+            Product's Social Media:
+        </h2>
+        <div class="row justify-content-center mg-75" id="app">
+            <div class="col-6" style="padding: 30px 15px">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="GameTtpeSelect">
+                        Social Media
+                    </label>
+                    <select class="custom-select" id="GameTtpeSelect" v-model="ProType">
+                        <option value="youtube">YouTube</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="twitch">Twitch</option>
+                        <option value="discord">Discord</option>
+                        <option value="globe-asia">Other</option>
+                    </select>
+                </div>
+                <div class="input-group-prepend" style="margin-top:10px">
+                    <label class="input-group-text" for="PrivacyPolicyLink">URL</label>
+                    <input type="text" class="form-control" aria-label="Sizing input" id="PrivacyPolicyLink"
+                           aria-describedby="inputGroup-sizing-default" v-model="ProPrivLink">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center" id="submitVue">
+                <div class="col">
+                    <button class="btn btn-primary" v-on:click="createProduct">Create Product</button>
+                </div>
             </div>
         </div>
-    </div>
 
     <div id="LOADING">
 
