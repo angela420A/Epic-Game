@@ -37,7 +37,11 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
             return nvm;
         }
-
+        
+        public List<News> GetallnewsDatas()
+        {
+            return newsDAO.Getallnewsdata();
+        }
         //public List<NewsManageViewModel> SearchNews(string option,string search)
         //{
         //    NewsManageDAO NewsManageDAO = new NewsManageDAO();
