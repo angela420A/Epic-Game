@@ -38,18 +38,18 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             return nvm;
         }
 
-        public List<NewsManageBLO> SearchNews(string option,string search)
-        {
-            NewsManageDAO NewsManageDAO = new NewsManageDAO();
-            var newslist = NewsManageDAO.Searchnews(option,search);
-            List<NewsManageViewModel> vm = new List<NewsManageViewModel>();
-            foreach(var n in newslist)
-            {
-                vm.Add(ModelViewModel(n));
-            }
-            return vm;
+        //public List<NewsManageViewModel> SearchNews(string option,string search)
+        //{
+        //    NewsManageDAO NewsManageDAO = new NewsManageDAO();
+        //    var newslist = NewsManageDAO.Searchnews(option,search);
+        //    List<NewsManageViewModel> vm = new List<NewsManageViewModel>();
+        //    foreach(var n in newslist)
+        //    {
+        //        vm.Add(ModelViewModel(n));
+        //    }
+        //    return vm;
 
-        }
+        //}
 
 
 
