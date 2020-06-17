@@ -152,6 +152,7 @@
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
     <Compile Include="ViewModels\UserManageViewModel.cs" />
   </ItemGroup>
@@ -395,6 +396,7 @@
     <Content Include="Views\BackstageHome\Index.cshtml" />
     <Content Include="Views\UserManage\Index.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
+    <Content Include="Views\ProductManage\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

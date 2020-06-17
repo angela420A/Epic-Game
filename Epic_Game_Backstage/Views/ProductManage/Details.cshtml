@@ -1,0 +1,89 @@
+﻿@model Epic_Game_Backstage.ViewModels.ProductDetailsViewModel
+
+<div>
+    <h3>ProductDetails</h3>
+    <div style="width: 135px">
+        <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+            <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+        </div>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sales_volume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sales_volume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_income)
+        </dt>
+
+        <dd>
+            NTD : @Html.DisplayFor(model => model.total_income)
+        </dd>
+
+    </dl>
+</div>
+<div class="container">
+    <canvas id="lineChart"></canvas>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section endJS{
+    <script>
+        var ctx = document.getElementById("myChart");
+        var chart = new chart(ctx, {
+            type: "line",
+            data: {
+                labels: `${Date.now.toString("MM")} 月`
+            }
+        });
+    </script>
+}
