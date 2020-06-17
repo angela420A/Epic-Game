@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.update-stats {
+    cursor: pointer;
+    
+}
+
+.update-stats a{
+    color: #9A9A9A;
+}
