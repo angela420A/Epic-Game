@@ -178,13 +178,22 @@ $(document).ready(function () {
 
 
 
-// ===================================以下EnumFlag=================================
+// ===================================以下排序功能=================================
 
 let label_checkbox = document.querySelectorAll("#checkbox");
 
-label_checkbox.forEach(element => {
-    element.addEventListener('click', SeachEnumFlag)
+document.querySelector("#OrderByDate").addEventListener('click', () => {
+    OrderBy("ReleaseDate", true);
+});
 
+document.querySelector("#OrderByAlphabetical").addEventListener('click', () => {
+    OrderBy("ProductName", true);
+});
+
+label_checkbox.forEach(element => {
+    element.addEventListener('click', () => {
+        OrderBy("ReleaseDate", true);
+    })
 })
 
 function getTotal() {
@@ -198,56 +207,14 @@ function getTotal() {
     return total;
 }   
 
-function SeachEnumFlag() {
+
+
+function OrderBy(_Key, _bool) {
+
     let total = getTotal();
-
     $.ajax({
-        url: "/Home/Filter",
-        type: "get",
-        data: { num: total },
-        success: function (data) {
-            let ul = $('#search_ul');
-            ul.empty();
-            data.forEach(element => {
-                let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('href', '/Product/' + element.ProductID);
-                let div = $('<div></div>').attr('class', 'mode_4_img-2');
-                let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + element.Url + ')');
-                let div2 = $('<div></div>').attr('class', 'mode_4_text');
-
-                let h4 = $('<h4></h4>').html(element.ProductName);
-                let p = $('<p></p>').html(element.Developer + '|' + element.Publisher);
-                let h41 = $('<h4></h4>').html('TWD$' + element.Price);
-
-                li.append(a);
-                a.append(div).append(div2);
-                div.append(div1);
-                div2.append(h4).append(p).append(h41);
-                ul.append(li);
-            })
-        },
-        error: function () {
-            
-        }
-
-    })
-
-}
-
-// ===================================以上EnumFlag=================================
-
-
-
-//====================================以下Date排序功能==================================
-
-let OrderByDate = document.querySelector("#OrderByDate");
-
-let OrderByAlphabetical = document.querySelector("#OrderByAlphabetical");
-
-OrderByDate.addEventListener('click', () => {
-    $.ajax({    
         url: '/Home/SearchOrder',
-        data: { Key: "ReleaseDate" },
+        data: { Key: `${_Key}`, Boo: _bool, num: total },
         type: 'post',
         success: function (json) {
             let ul = $('#search_ul');
@@ -273,43 +240,6 @@ OrderByDate.addEventListener('click', () => {
         error: function () {
         }
     })
-});
+}
 
-//====================================以上Date排序功能==================================
-
-//====================================以下字母排序功能==================================
-
-OrderByAlphabetical.addEventListener('click', () => {
-    $.ajax({
-        url: '/Home/SearchAlphabetical',
-        data: { key: "ProductName" },
-        type: 'post',
-        success: function (Json) {
-            let ul = $('#search_ul');
-            ul.empty();
-            for (let i = 0; i < Json.length; i++) {
-                let li = $('<li></li>').attr('class', 'col-6 col-md-3 mode_4_li');
-                let a = $('<a></a>').attr('href', '/Product/' + Json[i].ProductID);
-                let div = $('<div></div>').attr('class', 'mode_4_img-2');
-                let div1 = $('<div></div>').attr('class', 'imgArea').attr('style', 'background-image: url(' + Json[i].Url + ')');
-                let div2 = $('<div></div>').attr('class', 'mode_4_text');
-
-                let h4 = $('<h4></h4>').html(Json[i].ProductName);
-                let p = $('<p></p>').html(Json[i].Developer + '|' + Json[i].Publisher);
-                let h41 = $('<h4></h4>').html('TWD$' + Json[i].Price);
-
-                li.append(a);
-                a.append(div).append(div2);
-                div.append(div1);
-                div2.append(h4).append(p).append(h41);
-                ul.append(li);
-            }
-        },
-        error: function () {
-
-        }
-    })
-
-})
-
-//====================================以上字母排序功能==================================
+//====================================以上排序功能==================================

@@ -44,25 +44,25 @@ namespace Epic_Game.Controllers
         {
             return View(vm);
         }
-        public ActionResult Filter(string num)
-        {
-            var result = _rbp.Flit(int.Parse(num));
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
+        //public ActionResult Filter(string num)
+        //{
+        //    var result = _rbp.Flit(int.Parse(num));
+        //    return Json(result, JsonRequestBehavior.AllowGet);
+        //}
 
 
         [HttpPost]
-        public ActionResult SearchOrder(string key)
+        public ActionResult SearchOrder(string Key, bool Boo,string num)
         {
-            var result = _rbp.SearchOrde(key);
+            var result = _rbp.SearchOrde(Key,Boo, int.Parse(num));
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult SearchAlphabetical(string key)
-        {
-            var result = _rbp.SearchAlphabetical(key);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
+        //public ActionResult SearchAlphabetical(string key)
+        //{
+        //    var result = _rbp.SearchAlphabetical(key);
+        //    return Json(result, JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult ProductMore()
         {
