@@ -5,6 +5,7 @@ using Epic_Game.ViewModels;
 using EpicGameLibrary.Models;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -57,55 +58,38 @@ namespace Epic_Game.Controllers
         }
 
         private string SQLConnectionStr = ConfigurationManager.ConnectionStrings["EGContext"].ConnectionString;
-        public void CreatOrder()
+        public ActionResult CreatOrder(string productid)
         {
-            string ProductID = "d75ebeb8-4bc7-44b3-86bf-904ec05a5686";
             var UserId = User.Identity.GetUserId();
-            var collect = PayBLO.Collect(UserId, ProductID);
+            var collect = PayBLO.Collect(UserId, productid);
             Guid g = Guid.NewGuid();
+            PayViewModel VM = PayBLO.GetPayViewModel(productid);
+            var price = decimal.Round(VM.Discount * VM.Price);
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                var datas = new { OID = g, UID = UserId, PID = ProductID, DATE = DateTime.Now};
-                if (collect == true) 
-                { 
-                    string sql = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)" +
+                var datas = new { OID = g, UID = UserId, PID = productid, DATE = DateTime.Now, PRICE = price };
+                if (collect == true)
+                {
+                    string sql = "Insert into [Order] values (@OID, @UID, @PID, @DATE, @PRICE)" +
                                  "Update Library set Condition= 0 Where UserID=@UID and ProductID=@PID";
                     conn.Execute(sql, datas);
                 }
                 else
                 {
-                    string sql = "Insert into Order(OrderID, UserID, ProductID, Date) value (@OID, @UID, @PID, @DATE)" +
-                                 "Insert into Library(UserID, ProductID, Condition) value (@UID, @PID , 0)";
+                    string sql = "Insert into [Order] values (@OID, @UID, @PID, @DATE, @PRICE)" +
+                                 "Insert into Library(UserID, ProductID, Condition) values (@UID, @PID , 0)";
                     conn.Execute(sql, datas);
                 }
                 conn.Close();
             }
-
-            //if (collect == true)
-            //{
-            //    //int affectedRow = 0;
-            //    using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
-            //    {
-                    
-            //        conn.Close();
-            //    }
-            //}
-            //else
-            //{
-            //    Order order = new Order { OrderID = g, UserID = UserId, ProductID = Guid.Parse(ProductID), Date = DateTime.Now };
-            //    Library library = new Library { UserID = UserId, ProductID = Guid.Parse(ProductID), Condition = 0 };
-            //    context.Order.Add(order);
-            //    context.Library.Add(library);
-            //}
-
-            //context.SaveChanges();
-
+            return RedirectToAction("Finish");
         }
 
 
         public string ToECpay(string jdata)
         {
             PayViewModel VM = PayBLO.GetPayViewModel(jdata);
+            Session["ProductId"] = VM.ProductId;
             Session["Name"] = VM.ProductName;
             Session["P"] = string.Format("{0:####.#}", Session["Price"] = VM.Price * VM.Discount);
 
