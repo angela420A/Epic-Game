@@ -9,17 +9,68 @@
     font-family: Microsoft JhengHei;
 }
 
+.userManageList-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .userManageList-title {
     background-color: #FFFFFF;
     width: 300px;
     border-radius: 12px;
-    padding: 20px;
+    padding: 20px 10px 5px 10px;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
     margin-bottom: 25px;
 }
 
 .userManageList-title h2>i{
     color: #EF8157;
+}
+
+.userManageList-title p {
+    color: gray;
+    font-size: 13px;
+}
+
+.userManageList-title p > a{
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+
+.userManageList-search {
+    font-family: Microsoft JhengHei;
+}
+
+.uml-search-item label{
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.uml-search-item input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.uml-search-input label {
+    color: #EF8157;
+}
+
+.um-search-btn {
+    background-color: #EF8157;
+    border: 1px solid #EF8157;
+    font-family: Microsoft JhengHei;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.um-search-btn:hover{
+    border-color: #EF8157;
+    background-color: white;
+    color: #EF8157;
+    transition: .3s;
 }
 
 .userManageList-tabel {
