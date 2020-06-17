@@ -16,21 +16,10 @@ body {
 }
 
 .span_tag {
-    color: #e7e7e7;
-    font-size: 12px;
-    padding-top: 3px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-    .span_tag span {
-        background-color: #353535;
-        padding: 2px 5px;
-        position: relative;
-    }
-
-.span_top {
-    display: inline-block;
-}
 
 .span_title {
     color: #e7e7e7;
@@ -430,7 +419,7 @@ body {
 }
 
 .fade {
-    height: 100px;
+    height: 50px;
     margin-top: -100px;
     position: relative;
 }
@@ -550,14 +539,6 @@ body {
     margin-top: 20px;
 }
 
-#grading .author_card_link {
-    margin-top: 10px;
-    font-size: 10px;
-    display: flex;
-    position: absolute;
-    bottom: 1rem;
-}
-
 #grading .author_card {
     margin-bottom: 10px;
 }
@@ -581,7 +562,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     background-color: black;
-    padding: 35px 50px;
+    padding: 35px 30px;
 }
 #specification .big_title_span, .small_title_span {
     color: #757575;
@@ -595,6 +576,7 @@ body {
 #specification .span_text {
     font-size: 14px;
     color: #e7e7e7;
+    height:50px;
 }
 
 #specification .li_text {
@@ -605,17 +587,19 @@ body {
 
 #specification .title_div {
     display: flex;
+
 }
 
 #specification .title_div_div {
-    padding: 30px 0;
+    padding: 30px 10px 30px 0;
     opacity: 1;
     border-bottom-color: currentColor;
     color: #e7e7e7;
     letter-spacing: 0.5px;
     font-weight: 500;
     cursor: pointer;
-    margin-right: 20px;
+/*    margin-right: 20px;*/
+    margin-bottom:20px;
 }
 #specification .speci {
     display: flex;
@@ -659,6 +643,10 @@ body {
     color: #e7e7e7;
     margin-top: 10px;
     font-size: 10px;
+}
+.language{
+    margin-top:50px;
+    margin-bottom:20px;
 }
 
 
