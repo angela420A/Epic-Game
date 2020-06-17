@@ -14,7 +14,7 @@ namespace Epic_Game_Backstage.ViewModels
         [StringLength(100)]
         public string Author { get; set; }
 
-        [StringLength(100)]
+        [StringLength(500)]
         [Display(Name = "請第一個輸入新聞頁面標題，之後請@再輸入新聞內容標題")]
         public string NewsTitle { get; set; }
 

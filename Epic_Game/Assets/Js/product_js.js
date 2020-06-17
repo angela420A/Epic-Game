@@ -144,7 +144,7 @@ function Wish() {
             }
         },
         error: function () {
-            alert("Error!!");
+            alert("Please Login !!!");
         }
     });
 }
@@ -184,7 +184,7 @@ var connent = new Vue({
                     $('#exampleModal').modal('hide');
                 },
                 error: function () {
-                    alert("Error!!");
+                    alert("Error!!!");
 
                 }
             });

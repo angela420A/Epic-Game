@@ -31,7 +31,7 @@
 <!-- 導覽列------------------------------- -->
 <div class="container-fluid shopback">
     <div class="row">
-        <div class="col" style="padding:0">
+        <div class="col-12">
             <div class="NavListArea">
                 <div class="NavList">
                     <input type="checkbox" id="checkControl" class="check_control">
@@ -230,13 +230,13 @@
                         </article>
                     </main>
                     @*<div class="collapse_pic">
-                        <div class="col-12 col-md-6">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
-                        </div>
-                    </div>*@
+                            <div class="col-12 col-md-6">
+                                <img src="~/Assets/images/EpicGameProduct/borderlands_add1.jpg" alt="">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <img src="~/Assets/images/EpicGameProduct/borderlands_add2.jpg" alt="">
+                            </div>
+                        </div>*@
 
                 </div>
                 <div class="fade"></div>
@@ -336,15 +336,20 @@
                 {
                     <div class="title_div" style="padding-left: 15px;">
                         <div class="title_div_div" id="Windows">
-                            <span class="span_text">WINDOWS </span>
+                            @*<span class="span_text"></span>*@
+                            <button class="span_text btn btn-success" style="margin-left: 5px;" v-on:click="changeToWin">window</button>
                         </div>
+
                     </div>
+
                 }
                 else if (Model.OS == 2)
                 {
                     <div class="title_div" style="padding-left: 15px;">
                         <div class="title_div_div" id="MACOS">
-                            <span class="span_text">MAC OS</span>
+                            <button class="span_text btn btn-success" style="margin-left: 5px;" v-on:click="changeToMac">MacOS</button>
+
+                            @*<span class="span_text">MAC OS</span>*@
                         </div>
                     </div>
                 }
@@ -352,177 +357,282 @@
                 {
                     <div class="title_div" style="padding-left: 15px;">
                         <div class="title_div_div" id="Windows" v-on:click="changeWin">
-                            <span class="span_text">WINDOWS </span>
+                            <button class="span_text btn btn-success" style="margin-left: 5px;" v-on:click="changeToWin">window</button>
+
+                            @*<span class="span_text">WINDOWS </span>*@
+
                         </div>
                         <div class="title_div_div" id="MACOS" v-on:click="changeOS">
-                            <span class="span_text">MAC OS</span>
+                            @*<span class="span_text">MAC OS</span>*@
+                            <button class=" span_text btn btn-success" style="margin-left: 5px;" v-on:click="changeToMac">MacOS</button>
+
                         </div>
                     </div>
                 }
                 <div>
-                    <div v-show="isOS == false" class="table win col-12">
-                        <div class="speci col-6" v-if="specArray[0] != null">
-                            <div class="win_min"><span class="big_title_span">Minimum</span></div>
+                    <div class="row">
+                        <div class="col-6" v-show="isOS == false">
+                            <div class="row">
+                                <div class="test col-6" v-if="array[0] != null">
+                                    <div class="win_min"><span class="big_title_span">Minimum</span></div>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_OS != null"><span>OS</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_OS != null">{{specArray[0].SPE_OS}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_OS != null"><span>OS</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_OS != null">{{array[0].SPE_OS}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_CPU != null"><span>CPU</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_CPU != null">{{specArray[0].SPE_CPU}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_CPU != null"><span>CPU</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_CPU != null">{{array[0].SPE_CPU}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_GPU != null"><span>GPU</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_GPU != null">{{specArray[0].SPE_GPU}}</span>
+                                    <div class="small_title_span" v-if=array[0].SPE_GPU != null"><span>GPU</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_GPU != null">{{array[0].SPE_GPU}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_Memory != null"><span>Memory</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Memory != null">{{specArray[0].SPE_Memory}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_Memory != null"><span>Memory</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_Memory != null">{{array[0].SPE_Memory}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Storage != null">{{specArray[0].SPE_Storage}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_Storage != null"><span>Storage</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_Storage != null">{{array[0].SPE_Storage}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_Processor != null"><span>Processor</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Processor != null">{{specArray[0].SPE_Processor}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_Processor != null"><span>Processor</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_Processor != null">{{array[0].SPE_Processor}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_RAM != null"><span>RAM</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_RAM != null">{{specArray[0].SPE_RAM}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_RAM != null"><span>RAM</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_RAM != null">{{array[0].SPE_RAM}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_Storag != null"><span>Storag</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Storag != null">{{specArray[0].SPE_Storag}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_Storag != null"><span>Storag</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_Storag != null">{{array[0].SPE_Storag}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_GraphiceCard != null">{{specArray[0].SPE_GraphiceCard}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_GraphiceCard != null">{{array[0].SPE_GraphiceCard}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_HDD != null"><span>HDD</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_HDD != null">{{specArray[0].SPE_HDD}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_HDD != null"><span>HDD</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_HDD != null">{{array[0].SPE_HDD}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_DirectX != null">{{specArray[0].SPE_DirectX}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_DirectX != null"><span>DirectX</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_DirectX != null">{{array[0].SPE_DirectX}}</span>
 
-                            <div class="small_title_span" v-if="specArray[0].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[0].SPE_Additional != null">{{specArray[0].SPE_Additional}}</span>
+                                    <div class="small_title_span" v-if="array[0].SPE_Additional != null"><span>Additional</span></div>
+                                    <span class="span_text" v-if="array[0].SPE_Additional != null">{{array[0].SPE_Additional}}</span>
+                                </div>
+                                <div class="test col-6" v-if="array[1] != null">
+                                    <div class="win_min"><span class="big_title_span">Recommended</span></div>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_OS != null"><span>OS</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_OS != null">{{array[1].SPE_OS}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_CPU != null"><span>CPU</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_CPU != null">{{array[1].SPE_CPU}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_GPU != null"><span>GPU</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_GPU != null">{{array[1].SPE_GPU}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_Memory != null"><span>Memory</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_Memory != null">{{array[1].SPE_Memory}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_Storage != null"><span>Storage</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_Storage != null">{{array[1].SPE_Storage}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_Processor != null"><span>Processor</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_Processor != null">{{array[1].SPE_Processor}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_RAM != null"><span>RAM</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_RAM != null">{{array[1].SPE_RAM}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_Storag != null"><span>Storag</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_Storag != null">{{array[1].SPE_Storag}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_GraphiceCard != null">{{array[1].SPE_GraphiceCard}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_HDD != null"><span>HDD</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_HDD != null">{{array[1].SPE_HDD}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_DirectX != null"><span>DirectX</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_DirectX != null">{{array[1].SPE_DirectX}}</span>
+
+                                    <div class="small_title_span" v-if="array[1].SPE_Additional != null"><span>Additional</span></div>
+                                    <span class="span_text" v-if="array[1].SPE_Additional != null">{{array[1].SPE_Additional}}</span>
+
+                                </div>
+
+                            </div>
                         </div>
-
-                        <div class="speci col-6" v-if="specArray[1] != null">
-                            <div class="win_min"><span class="big_title_span">Recommended</span></div>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_OS != null"><span>OS</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_OS != null">{{specArray[1].SPE_OS}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_CPU != null"><span>CPU</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_CPU != null">{{specArray[1].SPE_CPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_GPU != null"><span>GPU</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_GPU != null">{{specArray[1].SPE_GPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_Memory != null"><span>Memory</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Memory != null">{{specArray[1].SPE_Memory}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Storage != null">{{specArray[1].SPE_Storage}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_Processor != null"><span>Processor</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Processor != null">{{specArray[1].SPE_Processor}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_RAM != null"><span>RAM</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_RAM != null">{{specArray[1].SPE_RAM}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_Storag != null"><span>Storag</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Storag != null">{{specArray[1].SPE_Storag}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_GraphiceCard != null">{{specArray[1].SPE_GraphiceCard}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_HDD != null"><span>HDD</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_HDD != null">{{specArray[1].SPE_HDD}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_DirectX != null">{{specArray[1].SPE_DirectX}}</span>
-
-                            <div class="small_title_span" v-if="specArray[1].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[1].SPE_Additional != null">{{specArray[1].SPE_Additional}}</span>
-                        </div>
-                    </div>
-                    <div v-show="isOS == true" class="table mac col-12">
-                        <div class="speci col-6" v-if="specArray[2] != null">
-                            <div class="win_min"><span class="big_title_span">Minimum</span></div>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_OS != null"><span>OS</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_OS != null">{{specArray[2].SPE_OS}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_CPU != null"><span>CPU</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_CPU != null">{{specArray[2].SPE_CPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_GPU != null"><span>GPU</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_GPU != null">{{specArray[2].SPE_GPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_Memory != null"><span>Memory</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_Memory != null">{{specArray[2].SPE_Memory}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_Storage != null">{{specArray[2].SPE_Storage}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_Processor != null"><span>Processor</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_Processor != null">{{specArray[2].SPE_Processor}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_RAM != null"><span>RAM</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_RAM != null">{{specArray[2].SPE_RAM}} </span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_Storag != null"><span>Storag</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_Storag != null"> {{specArray[2].SPE_Storag}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_GraphiceCard != null"> {{specArray[2].SPE_GraphiceCard}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_HDD != null"><span>HDD</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_HDD != null"> {{specArray[2].SPE_HDD}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_DirectX != null"> {{specArray[2].SPE_DirectX}}</span>
-
-                            <div class="small_title_span" v-if="specArray[2].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[2].SPE_Additional != null">{{specArray[2].SPE_Additional}}</span>
-                        </div>
-
-
-                        <div class="speci col-6" v-if="specArray[3] != null">
-                            <div class="win_min"><span class="big_title_span">Recommended</span></div>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_OS != null"><span>OS</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_OS != null">{{specArray[3].SPE_OS}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_CPU != null"><span>CPU</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_CPU != null">{{specArray[3].SPE_CPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_GPU != null"><span>GPU</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_GPU != null">{{specArray[3].SPE_GPU}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_Memory != null"><span>Memory</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Memory != null">{{specArray[3].SPE_Memory}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_Storage != null"><span>Storage</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Storage != null">{{specArray[3].SPE_Storage}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_Processor != null"><span>Processor</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Processor != null"> {{specArray[3].SPE_Processor}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_RAM != null"><span>RAM</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_RAM != null">{{specArray[3].SPE_RAM}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_Storag != null"><span>Storag</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Storag != null">{{specArray[3].SPE_Storag}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_GraphiceCard != null">{{specArray[3].SPE_GraphiceCard}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_HDD != null"><span>HDD</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_HDD != null">{{specArray[3].SPE_HDD}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_DirectX != null"><span>DirectX</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_DirectX != null">{{specArray[3].SPE_DirectX}}</span>
-
-                            <div class="small_title_span" v-if="specArray[3].SPE_Additional != null"><span>Additional</span></div>
-                            <span class="span_text" v-if="specArray[3].SPE_Additional != null"> {{specArray[3].SPE_Additional}}</span>
+                        <div class="col-6" v-show="isOS == true">
+                            <div class="row">
+                                <div class="test col-6" v-if="array[2] != null">
+                                    <div>CPU<br>{{array[2].SEP_CPU}}</div>
+                                    <div>Ram<br>{{array[2].Ram}}</div>
+                                </div>
+                                <div class="test col-6" v-if="array[3] != null">
+                                    <div>CPU<br>{{array[3].SEP_CPU}}</div>
+                                    <div>Ram<br>{{array[3].Ram}}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @*<div v-show="isOS == false" class="table win col-12">
+                            <div class="speci col-6" v-if="array[0] != null">
+                                <div class="win_min"><span class="big_title_span">Minimum</span></div>
+
+                                <div class="small_title_span" v-if="array[0].SPE_OS != null"><span>OS</span></div>
+                                <span class="span_text" v-if="array[0].SPE_OS != null">{{array[0].SPE_OS}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_CPU != null"><span>CPU</span></div>
+                                <span class="span_text" v-if="array[0].SPE_CPU != null">{{array[0].SPE_CPU}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_GPU != null"><span>GPU</span></div>
+                                <span class="span_text" v-if="array[0].SPE_GPU != null">{{array[0].SPE_GPU}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_Memory != null"><span>Memory</span></div>
+                                <span class="span_text" v-if="array[0].SPE_Memory != null">{{array[0].SPE_Memory}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_Storage != null"><span>Storage</span></div>
+                                <span class="span_text" v-if="array[0].SPE_Storage != null">{{array[0].SPE_Storage}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_Processor != null"><span>Processor</span></div>
+                                <span class="span_text" v-if="array[0].SPE_Processor != null">{{array[0].SPE_Processor}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_RAM != null"><span>RAM</span></div>
+                                <span class="span_text" v-if="array[0].SPE_RAM != null">{{array[0].SPE_RAM}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_Storag != null"><span>Storag</span></div>
+                                <span class="span_text" v-if="array[0].SPE_Storag != null">{{array[0].SPE_Storag}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                <span class="span_text" v-if="array[0].SPE_GraphiceCard != null">{{array[0].SPE_GraphiceCard}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_HDD != null"><span>HDD</span></div>
+                                <span class="span_text" v-if="array[0].SPE_HDD != null">{{array[0].SPE_HDD}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_DirectX != null"><span>DirectX</span></div>
+                                <span class="span_text" v-if="array[0].SPE_DirectX != null">{{array[0].SPE_DirectX}}</span>
+
+                                <div class="small_title_span" v-if="array[0].SPE_Additional != null"><span>Additional</span></div>
+                                <span class="span_text" v-if="array[0].SPE_Additional != null">{{array[0].SPE_Additional}}</span>
+                            </div>
+
+                            <div class="speci col-6" v-if="array[1] != null">
+                                <div class="win_min"><span class="big_title_span">Recommended</span></div>
+
+                                <div class="small_title_span" v-if="array[1].SPE_OS != null"><span>OS</span></div>
+                                <span class="span_text" v-if="array[1].SPE_OS != null">{{array[1].SPE_OS}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_CPU != null"><span>CPU</span></div>
+                                <span class="span_text" v-if="array[1].SPE_CPU != null">{{array[1].SPE_CPU}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_GPU != null"><span>GPU</span></div>
+                                <span class="span_text" v-if="array[1].SPE_GPU != null">{{array[1].SPE_GPU}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_Memory != null"><span>Memory</span></div>
+                                <span class="span_text" v-if="array[1].SPE_Memory != null">{{array[1].SPE_Memory}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_Storage != null"><span>Storage</span></div>
+                                <span class="span_text" v-if="array[1].SPE_Storage != null">{{array[1].SPE_Storage}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_Processor != null"><span>Processor</span></div>
+                                <span class="span_text" v-if="array[1].SPE_Processor != null">{{array[1].SPE_Processor}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_RAM != null"><span>RAM</span></div>
+                                <span class="span_text" v-if="array[1].SPE_RAM != null">{{array[1].SPE_RAM}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_Storag != null"><span>Storag</span></div>
+                                <span class="span_text" v-if="array[1].SPE_Storag != null">{{array[1].SPE_Storag}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                <span class="span_text" v-if="array[1].SPE_GraphiceCard != null">{{array[1].SPE_GraphiceCard}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_HDD != null"><span>HDD</span></div>
+                                <span class="span_text" v-if="array[1].SPE_HDD != null">{{array[1].SPE_HDD}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_DirectX != null"><span>DirectX</span></div>
+                                <span class="span_text" v-if="array[1].SPE_DirectX != null">{{array[1].SPE_DirectX}}</span>
+
+                                <div class="small_title_span" v-if="array[1].SPE_Additional != null"><span>Additional</span></div>
+                                <span class="span_text" v-if="array[1].SPE_Additional != null">{{array[1].SPE_Additional}}</span>
+                            </div>
+                        </div>
+                        <div v-show="isOS == true" class="table mac col-12">
+                            <div class="speci col-6" v-if="array[2] != null">
+                                <div class="win_min"><span class="big_title_span">Minimum</span></div>
+
+                                <div class="small_title_span" v-if="array[2].SPE_OS != null"><span>OS</span></div>
+                                <span class="span_text" v-if="array[2].SPE_OS != null">{{array[2].SPE_OS}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_CPU != null"><span>CPU</span></div>
+                                <span class="span_text" v-if="array[2].SPE_CPU != null">{{array[2].SPE_CPU}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_GPU != null"><span>GPU</span></div>
+                                <span class="span_text" v-if="array[2].SPE_GPU != null">{{array[2].SPE_GPU}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_Memory != null"><span>Memory</span></div>
+                                <span class="span_text" v-if="array[2].SPE_Memory != null">{{array[2].SPE_Memory}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_Storage != null"><span>Storage</span></div>
+                                <span class="span_text" v-if="array[2].SPE_Storage != null">{{array[2].SPE_Storage}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_Processor != null"><span>Processor</span></div>
+                                <span class="span_text" v-if="array[2].SPE_Processor != null">{{array[2].SPE_Processor}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_RAM != null"><span>RAM</span></div>
+                                <span class="span_text" v-if="array[2].SPE_RAM != null">{{array[2].SPE_RAM}} </span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_Storag != null"><span>Storag</span></div>
+                                <span class="span_text" v-if="array[2].SPE_Storag != null"> {{array[2].SPE_Storag}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                <span class="span_text" v-if="array[2].SPE_GraphiceCard != null"> {{array[2].SPE_GraphiceCard}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_HDD != null"><span>HDD</span></div>
+                                <span class="span_text" v-if="array[2].SPE_HDD != null"> {{array[2].SPE_HDD}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_DirectX != null"><span>DirectX</span></div>
+                                <span class="span_text" v-if="array[2].SPE_DirectX != null"> {{array[2].SPE_DirectX}}</span>
+
+                                <div class="small_title_span" v-if="array[2].SPE_Additional != null"><span>Additional</span></div>
+                                <span class="span_text" v-if="array[2].SPE_Additional != null">{{array[2].SPE_Additional}}</span>
+                            </div>
+
+
+                            <div class="speci col-6" v-if="array[3] != null">
+                                <div class="win_min"><span class="big_title_span">Recommended</span></div>
+
+                                <div class="small_title_span" v-if="array[3].SPE_OS != null"><span>OS</span></div>
+                                <span class="span_text" v-if="array[3].SPE_OS != null">{{array[3].SPE_OS}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_CPU != null"><span>CPU</span></div>
+                                <span class="span_text" v-if="array[3].SPE_CPU != null">{{array[3].SPE_CPU}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_GPU != null"><span>GPU</span></div>
+                                <span class="span_text" v-if="array[3].SPE_GPU != null">{{array[3].SPE_GPU}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_Memory != null"><span>Memory</span></div>
+                                <span class="span_text" v-if="array[3].SPE_Memory != null">{{array[3].SPE_Memory}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_Storage != null"><span>Storage</span></div>
+                                <span class="span_text" v-if="array[3].SPE_Storage != null">{{array[3].SPE_Storage}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_Processor != null"><span>Processor</span></div>
+                                <span class="span_text" v-if="array[3].SPE_Processor != null"> {{array[3].SPE_Processor}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_RAM != null"><span>RAM</span></div>
+                                <span class="span_text" v-if="array[3].SPE_RAM != null">{{array[3].SPE_RAM}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_Storag != null"><span>Storag</span></div>
+                                <span class="span_text" v-if="array[3].SPE_Storag != null">{{array[3].SPE_Storag}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_GraphiceCard != null"><span>GraphiceCard</span></div>
+                                <span class="span_text" v-if="array[3].SPE_GraphiceCard != null">{{array[3].SPE_GraphiceCard}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_HDD != null"><span>HDD</span></div>
+                                <span class="span_text" v-if="array[3].SPE_HDD != null">{{array[3].SPE_HDD}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_DirectX != null"><span>DirectX</span></div>
+                                <span class="span_text" v-if="array[3].SPE_DirectX != null">{{array[3].SPE_DirectX}}</span>
+
+                                <div class="small_title_span" v-if="array[3].SPE_Additional != null"><span>Additional</span></div>
+                                <span class="span_text" v-if="array[3].SPE_Additional != null"> {{array[3].SPE_Additional}}</span>
+                            </div>
+                        </div>*@
+
+
                     <div>
                         <div class="small_title_span" style="padding-left: 15px;">
                             <span>Languages Supported</span>
@@ -551,25 +661,60 @@
 
 @Scripts.Render("~/bundles/vue")
 
+@*<script>
+        let comment = @Html.Raw(Json.Encode(Model.PD_Comment.UserComment));
+        var a = new Vue({
+            el: '#specification',
+            data: {
+                isOS: false,
+                array: @Html.Raw(JsonSpec)
+            },
+            methods: {
+                changeWin: function () {
+                    isOS = false;
+                    alert(isOS);
+                },
+                changeOS: function () {
+
+                    isOS = true;
+                    alert(isOS);
+                }
+            },
+        })
+
+    </script>*@
 <script>
     let comment = @Html.Raw(Json.Encode(Model.PD_Comment.UserComment));
     var a = new Vue({
         el: '#specification',
         data: {
             isOS: false,
-            specArray: @Html.Raw(JsonSpec)
+            array: @Html.Raw(JsonSpec)
+                //{
+                //    CPU: "i6",
+                //    Ram: "8GB"
+                //},
+                //{
+                //    CPU: "i7",
+                //    Ram: "16GB"
+                //},
+                //{
+                //    CPU: "i5",
+                //    Ram: "8GB"
+                //},
+                //{
+                //    CPU: "i9",
+                //    Ram: "8GB"
+                //},
+                
         },
         methods: {
-            changeWin: function () {
-                isOS = false;
-                alert(isOS);
+            changeToWin: function () {
+                this.isOS = false;
             },
-            changeOS: function () {
-
-                isOS = true;
-                alert(isOS);
+            changeToMac: function () {
+                this.isOS = true;
             }
-        },
+        }
     })
-
 </script>
