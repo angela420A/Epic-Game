@@ -33,19 +33,9 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             return homeViewModels;
         }
 
-        public List<SearchViewModel> Flit(int num)
+        public List<SearchViewModel> SearchOrde(string Key,bool Boo,int num)
         {
-           return HomeDAO.GetSearches().Where(x => new GameType().searchGameType(num,x.Category)).ToList();
-        }
-
-        public List<SearchViewModel> SearchOrde(string key/*, int num*/)
-        {
-            return HomeDAO.GetSearches()/*.Where(x => new GameType().searchGameType(num, x.Category))*/.OrderByPropertyName(key).ToList();
-        }
-
-        public List<SearchViewModel> SearchAlphabetical(string key)
-        {
-            return HomeDAO.GetSearches().OrderByPropertyName(key).ToList();
+            return HomeDAO.GetSearches().Where(x => new GameType().searchGameType(num, x.Category)).OrderByPropertyName(Key,Boo).ToList();
         }
 
         public List<SearchViewModel> GetAll()
