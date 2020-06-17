@@ -65,7 +65,8 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
 
         //public List<News> Searchnews(string option, string search)
         //{
-        //    return newscontext.News.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
+        //    var a = newscontext.News.AsEnumerable();
+        //    return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
         //}
     }
 }

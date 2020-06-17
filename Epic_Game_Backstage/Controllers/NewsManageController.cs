@@ -55,7 +55,7 @@ namespace Epic_Game_Backstage.Controllers
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult searchsort(string searchname,string option, string search)
+        //public ActionResult searchsort(string searchname, string option, string search)
         //{
         //    NewsManageBLO newsManageBLO = new NewsManageBLO();
         //    searchname = option;
