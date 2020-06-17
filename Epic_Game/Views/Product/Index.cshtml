@@ -336,7 +336,7 @@
                 {
                     <div class="title_div">
                         <div class="title_div_div" id="Windows">
-                            <button class="span_text span_tag" style="border:none; background:none;" v-on:click="changeToWin">WINDOW</button>
+                            <button class="span_text span_tag btn-click" style="background:none;" v-on:click="changeToWin">WINDOW</button>
                         </div>
                     </div>
                 }
@@ -344,22 +344,26 @@
                 {
                     <div class="title_div">
                         <div class="title_div_div" id="MACOS">
-                            <button class="span_text span_tag" style="margin-left: 5px;" v-on:click="changeToMac">MAC OS</button>
+                            <button class="span_text span_tag btn-click" style="background:none;" v-on:click="changeToMac">MAC OS</button>
                         </div>
                     </div>
                 }
                 else if (Model.OS == 3)
                 {
-                    <div class="title_div">
-                        <div class="title_div_div">
-                            <button class="span_text span_tag" style="margin-left: 5px;" v-on:click="changeToWin">WINDOW</button>
-
-                        </div>
-                        <div class="title_div_div">
-                            <button class=" span_text span_tag" style="margin-left: 5px;" v-on:click="changeToMac">MAC OS</button>
-
-                        </div>
-                    </div>
+            <div class="title_div">
+                <div class="title_div_div btn_winclick" v-if="isOS == false">
+                    <button class="span_text span_tag btn-click" style="background:none;" v-on:click="changeToWin">WINDOW</button>
+                </div>
+                <div class="title_div_div" v-if="isOS == true">
+                    <button class="span_text span_tag btn-click" style="background:none;" v-on:click="changeToWin">WINDOW</button>
+                </div>
+                <div class="title_div_div" v-if="isOS == false">
+                    <button class=" span_text span_tag btn-click" style="background:none;" v-on:click="changeToMac">MAC OS</button>
+                </div>
+                <div class="title_div_div btn_winclick" v-if="isOS == true">
+                    <button class=" span_text span_tag btn-click" style="background:none;" v-on:click="changeToMac">MAC OS</button>
+                </div>
+            </div>
                 }
                 <div>
                     <div class="" v-show="isOS == false">
@@ -446,7 +450,7 @@
 
                         </div>
                     </div>
-                    <div class="col-6" v-show="isOS == true">
+                    <div class="" v-show="isOS == true">
                         <div class="row">
                             <div class="test col-6" v-if="array[2] != null">
                                 <div class="win_min"><span class="big_title_span">Minimum</span></div>
@@ -487,7 +491,7 @@
                                 <div class="small_title_span" v-if="array[2].SPE_Additional != null"><span>Additional</span></div>
                                 <span class="span_text" v-if="array[2].SPE_Additional != null">{{array[2].SPE_Additional}}</span>
                             </div>
-                            <div class="test col-6" v-if="array[3] != null">
+                            <div class="" v-if="array[3] != null">
                                 <div class="win_min"><span class="big_title_span">Recommended</span></div>
 
                                 <div class="small_title_span" v-if="array[3].SPE_OS != null"><span>OS</span></div>
@@ -528,8 +532,6 @@
                             </div>
                         </div>
                     </div>
-
-
 
                     <div class="language">
                         <div class="small_title_span">
@@ -573,7 +575,10 @@
             },
             changeToMac: function () {
                 this.isOS = true;
-            }
-        }
+
+            },
+          
+        }  
     })
+
 </script>

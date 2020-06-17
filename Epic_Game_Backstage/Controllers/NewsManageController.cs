@@ -13,7 +13,7 @@ namespace Epic_Game_Backstage.Controllers
 {
     public class NewsManageController : Controller
     {
-        private EGContext db = new EGContext();
+        //private EGContext db = new EGContext();
 
         // GET: NewsManage
         public ActionResult Index()
@@ -27,10 +27,13 @@ namespace Epic_Game_Backstage.Controllers
             //目前的會等於現在sort名稱的，看是日期、錢等等
             sort = string.IsNullOrEmpty(sort) ? "NewsTitle" : sort;
             //看是如果現在是空的話就拿money來當排序
+
+
+            
             List<NewsManageViewModel> newsVMlist = new List<NewsManageViewModel>();
             var newsvm = new NewsManageViewModel();
-            var news1 = db.News.ToList();
             NewsManageBLO newsManageBLO = new NewsManageBLO();
+            var news1=newsManageBLO.GetallnewsDatas();
             foreach (var item in news1)
             {
                 NewsManageViewModel vm = newsManageBLO.Getnewsdata(item.NewsID.ToString());
@@ -52,7 +55,7 @@ namespace Epic_Game_Backstage.Controllers
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult searchsort(string searchname,string option, string search)
+        //public ActionResult searchsort(string searchname, string option, string search)
         //{
         //    NewsManageBLO newsManageBLO = new NewsManageBLO();
         //    searchname = option;
@@ -255,14 +258,14 @@ namespace Epic_Game_Backstage.Controllers
             }
             return RedirectToAction("searchsort");
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
 
