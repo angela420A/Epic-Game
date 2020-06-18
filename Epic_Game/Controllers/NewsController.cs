@@ -16,6 +16,10 @@ namespace Epic_Game.Controllers
         {
             return View();
         }
+        //public ActionResult Newsitem()
+        //{
+        //    return View(db.News.ToList());
+        //}
         public ActionResult Newsitem()
         {
             return View(db.News.ToList());

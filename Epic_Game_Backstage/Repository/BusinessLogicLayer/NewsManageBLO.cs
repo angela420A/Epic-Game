@@ -24,6 +24,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             News n = newsDAO.Getnewsdata(NewsID);
             return ModelViewModel(n);
         }
+
         public NewsManageViewModel ModelViewModel(News n)
         {
             var nvm = new NewsManageViewModel
