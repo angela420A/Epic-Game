@@ -21,35 +21,31 @@ namespace Epic_Game.Controllers
             return View(result);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            return View();
-        }
-
-        public ActionResult Search()
-        {
-            var result = _rbp.GetAll();
-            return View(result);
-        }
-
-        [HttpPost]
-        public ActionResult Search(List<SearchViewModel> vm)
-        {
-            return View(vm);
-        }
-        //public ActionResult Filter(string num)
+        //public ActionResult About()
         //{
-        //    var result = _rbp.Flit(int.Parse(num));
-        //    return Json(result, JsonRequestBehavior.AllowGet);
+        //    ViewBag.Message = "Your application description page.";
+        //    return View();
         //}
 
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+        //    return View();
+        //}
+
+        public ActionResult Search(string id)
+        {
+            if (id == null)
+            {
+                var result = _rbp.GetAll(); 
+                return View(result);
+            }
+             else
+            {
+                var result = _rbp.GetUserSearch(id).ToList();
+                return View(result);
+            }
+        }
 
         [HttpPost]
         public ActionResult SearchOrder(string Key, bool Boo,string num)
@@ -57,12 +53,6 @@ namespace Epic_Game.Controllers
             var result = _rbp.SearchOrde(Key,Boo, int.Parse(num));
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-        //public ActionResult SearchAlphabetical(string key)
-        //{
-        //    var result = _rbp.SearchAlphabetical(key);
-        //    return Json(result, JsonRequestBehavior.AllowGet);
-        //}
 
         public ActionResult ProductMore()
         {

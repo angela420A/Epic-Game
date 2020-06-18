@@ -210,6 +210,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\HomeBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\NewsBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\PayBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\LibraryBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductBLO.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Repository\BusinessLogicLayer\WishListBLO.cs" />
     <Compile Include="Repository\DataOperationLayer\HomeDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\LibraryDAO.cs" />
+    <Compile Include="Repository\DataOperationLayer\NewsDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\PayDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\ProductDAO.cs" />
     <Compile Include="Repository\DataOperationLayer\TransactionHistoryDAO.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModels.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
+    <Compile Include="ViewModels\NewsViewModels.cs" />
     <Compile Include="ViewModels\PayViewModel.cs" />
     <Compile Include="ViewModels\LibraryViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />

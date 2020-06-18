@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Epic_Game_Backstage.ViewModels.ActivityViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+@section topCSS{
+    <link href="~/Assets/css/ActivityManage/Activity.css" rel="stylesheet" />
+}
+<div class="container activityManage_root">
+
+    <div class="activity_header">
+        <div class="activityManage_title text-center">
+            <h2><i class="nc-icon nc-tile-56"></i> Activity</h2>
+            <hr />
+            <p>
+                <i class="fa fa-refresh"></i> @Html.ActionLink("Display All", "ordersearchsort")
+            </p>
+        </div>
+
+        <div class="form-group-root form-group">
+            <div class="form-group">
+                <p>
+                    @Html.Label("Search")@Html.TextBox("search")
+                    <input type="submit" value="Search" class="f-group-btn" />
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="productManage-create" style="margin-bottom:10px">
+            @Html.ActionLink("Create Activity", "Create")
+         </div>
+    <div class="activity_table">
+        <table class="table">
+            <tr>
+                <th>
+                  
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            @*@foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                }*@
+
+        </table>
+    </div>
+</div>
+
