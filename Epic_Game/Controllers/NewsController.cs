@@ -4,13 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Epic_Game.Repository.BusinessLogicLayer;
+using Epic_Game.ViewModels;
 using EpicGameLibrary.Models;
 
 namespace Epic_Game.Controllers
 {
     public class NewsController : Controller
     {
-        private EGContext db = new EGContext();
+        //private EGContext db = new EGContext();
         // GET: News
         public ActionResult Index()
         {
@@ -22,7 +24,9 @@ namespace Epic_Game.Controllers
         //}
         public ActionResult Newsitem()
         {
-            return View(db.News.ToList());
+            NewsBLO NewsBLO=new NewsBLO();
+            var news1 = NewsBLO.NewsViewModelstolist();
+            return View(news1);
         }
         public ActionResult Newscontent(Guid id)
         {
@@ -30,20 +34,22 @@ namespace Epic_Game.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News @new = db.News.Find(id);
+            NewsBLO NewsBLO = new NewsBLO();
+            //News @new = db.News.Find(id);
+            NewsViewModels @new = NewsBLO.FindViewModel(id);
             if (@new == null)
             {
                 return HttpNotFound();
             }
             return View(@new);
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

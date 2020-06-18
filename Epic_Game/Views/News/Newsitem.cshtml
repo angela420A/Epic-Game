@@ -1,5 +1,5 @@
-﻿
-@model IEnumerable<EpicGameLibrary.Models.News>
+﻿@*@model IEnumerable<EpicGameLibrary.Models.News>*@
+@model IEnumerable<Epic_Game.ViewModels.NewsViewModels>
 @{
     ViewBag.Title = "Newsitem";
 }
@@ -14,16 +14,12 @@
                 <div class="row">
                     @foreach (var item in Model)
                     {
-                        string img1 = item.NewsImg;
-                        string[] split = img1.Split('。');
-                        string title = item.NewsTitle;
-                        string[] titlesplit = title.Split('@');
                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 newsitemgroup">
                             <div class="newsitem">
                                 <a href="@Url.Action("Newscontent","News",new { id = item.NewsID})">
-                                    <img class="card-img-top" src="@Url.Content(split[1])">
+                                    <img class="card-img-top" src="@Url.Content(item.NewsImg)">
                                     <h2 class="card-text">
-                                        @titlesplit[1]
+                                        @item.NewsTitle
                                     </h2>
                                     <p class="Announcer">
                                         Epic Games 。1 day ago
