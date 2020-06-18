@@ -14,7 +14,7 @@ Vue.component('swiper-compo', {
 });
 
 Vue.component('screen-compo', {
-    template: '<li class="col-10" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"/></div></div></div></li>',
+    template: '<li class="col-10" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'screen-compo',
     methods: {
@@ -26,11 +26,32 @@ Vue.component('screen-compo', {
     }
 });
 
-Vue.component('socialMedia-compo', {
-    template: '<i class="sm.type"></i>',
-    props: ['sm'],
-    name: 'socialMedia-compo',
-})
+Vue.component('media-compo', {
+    template:
+             '<div class="col-2">'
+            +'<div class="card">'
+            +'<div class= "card-header row justify-content-center">'
+            +'<label>{{medias.Community}}</label>'
+            +'</div>'
+            +'<div class="card-body justify-content-center align-content-center row" style="height:103.86px">'
+            +'<a :href="medias.URL"><i :class="medias.Icon" style="font-size:40px"></i></a>'
+            +'</div>'
+            +'<div class="card-footer justify-content-center row">'
+            +'<div class="btn btn-outline-warning" v-on:click="deleteSM" :id="medias.URL">Delete</div>'
+            +'</div>'
+            + '</div>'
+            + '</div>',
+    props: ['medias'],
+    name: 'screen-compo',
+    methods: {
+        deleteSM: function (e) {
+            var url = e.target.id;
+            var index = SocialMediaVue.MediaList.findIndex(element => element.URL == url);
+            debugger;  
+            SocialMediaVue.MediaList.splice(index, 1);
+        }
+    }
+});
 
 var PInfo = new Vue({
     el: '#ProductInfoVue',
@@ -73,7 +94,7 @@ var PInfo = new Vue({
             }
         }
     }
-})
+});
 
 var ImgVue = new Vue({
     el: '#app',
@@ -176,6 +197,44 @@ var PIntroVue = new Vue({
         submit: function (e) {
             ImgVue.showFile(e);
         }
+    }
+});
+
+var SocialMediaVue = new Vue({
+    el : "#SocialMediaVue",
+    data: {
+        MediaList: [],
+        Media:"youtube",
+        MediaUrl: "",
+        MediaIcon: {
+            youtube: "fab fa-youtube",
+            facebook: "fab fa-facebook",
+            twitter: "fab fa-twitter",
+            instagram: "fab fa-instagram",
+            twitch: "fab fa-twitch",
+            discord: "fab fa-discord",
+            other: "fas fa-globe"
+        }
+    },
+    methods: {
+        AddNewMedia: function (e) {
+            var id = $('#MediaType').val();
+            debugger;
+            let SM = {
+                Community: this.Media,
+                URL: this.MediaUrl,
+                Icon: this.MediaIcon[this.Media]
+            }
+            this.MediaUrl = "";
+            this.MediaList.push(SM);
+        }
+    }
+});
+
+var SpecVue = new Vue({
+    el: '#SpecVue',
+    data: {
+        OSGroup: {}
     }
 });
 
