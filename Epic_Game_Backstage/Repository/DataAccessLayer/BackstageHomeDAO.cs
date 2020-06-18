@@ -25,9 +25,9 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             }
         }
 
-        public List<BackstageHomeViewModel> getSingledata()
+        public List<BackstageSingleDataVM> getSingledata()
         {
-            List<BackstageHomeViewModel> backstageHomeVM;
+            List<BackstageSingleDataVM> backstageHomeVM;
             using (conn = new SqlConnection(connString))
             {
                 string sql = @"SELECT 
@@ -41,7 +41,7 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                                 inner join AspNetUsers u on l.UserID = u.Id
                                ";
 
-                backstageHomeVM = conn.Query<BackstageHomeViewModel>(sql).ToList();
+                backstageHomeVM = conn.Query<BackstageSingleDataVM>(sql).ToList();
 
                 //string totalPrice = @"select SUM(Payment) from [Order]";
                 //string orderQuantity = @"select COUNT(*) from [Order]";
@@ -58,6 +58,54 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 //    }
                 //};
 
+            }
+            return backstageHomeVM;
+        }
+
+        public List<BackstageChartLineVM> getMonthData()
+        {
+            List<BackstageChartLineVM> backstageHomeVM;
+
+            using (conn = new SqlConnection(connString))
+                {
+                    string sql = @"SELECT 
+	                            SUM(o.Payment) AS January,
+	                            (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'February') AS February,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'March') AS March,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'April') AS April,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'May') AS May,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'June') AS June,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'July') AS July,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'August') AS August,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'September') AS September,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'October') AS October,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'November') AS November,
+	                             (select SUM(o.Payment)
+	                             from [Order] o
+	                             WHERE DATENAME(month, o.Date) = 'December') AS December
+                            from [Order] o
+                            WHERE DATENAME(month, o.Date) = 'January'";
+                backstageHomeVM = conn.Query<BackstageChartLineVM>(sql).ToList();
             }
             return backstageHomeVM;
         }
