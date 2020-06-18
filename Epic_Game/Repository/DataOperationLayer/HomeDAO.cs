@@ -82,22 +82,21 @@ namespace Epic_Game.Repository.DataOperationLayer
             return MostRelated;
         }
 
-        //public List<StoreItems> getTopMostPopular()
-        //{
-        //    List<StoreItems> MostPopular;
-        //    using (conn = new SqlConnection(connString))
-        //    {
-        //        string sql = @"select TOP 5
-        //                    sum(c.Rank) as rank,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
-        //                    from Product p
-        //                    inner join Image img on p.ProductID = img.ProductOrPack
-        //                    inner join Comment c on p.ProductID = c.ProductID
-        //                    group by c.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
-        //                    order by rank desc";
-        //        MostPopular = conn.Query<StoreItems>(sql).ToList();
-        //    }
-        //    return MostPopular;
-        //}
+        public List<StoreItems> GetTopBestPrice()
+        {
+            List<StoreItems> MostPopular;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select TOP 5
+                            img.Url,p.ProductID,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
+                            from Product p
+                            inner join Image img on p.ProductID = img.ProductOrPack
+                            where img.Location = 0
+                            order by p.Price Asc";
+                MostPopular = conn.Query<StoreItems>(sql).ToList();
+            }
+            return MostPopular;
+        }
 
 
         public List<StoreItems> GetTopBestRank()
@@ -118,6 +117,23 @@ namespace Epic_Game.Repository.DataOperationLayer
             return BestRank;
         }
 
+        public List<StoreItems> GetTopMostFollowe()
+        {
+            List<StoreItems> BestRank;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select TOP 5
+                                COUNT(l.ProductID) FolloweCount,img.Url,l.ProductID,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
+                                from Product p
+                                inner join Image img on p.ProductID = img.ProductOrPack
+                                inner join [Library] l on p.ProductID = l.ProductID 
+                                where img.Location = 0 and l.Condition = 1
+                                group by l.ProductID,img.Url,p.ProductID,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
+                                order by FolloweCount desc";
+                BestRank = conn.Query<StoreItems>(sql).ToList();
+            }
+            return BestRank;
+        }
 
         public List<SearchViewModel> GetSearches()
         {

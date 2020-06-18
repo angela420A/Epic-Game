@@ -85,7 +85,6 @@ var navBar = document.querySelector('.navbar');
 var searchnav = document.querySelector('svg');
 var onoff = false;
 var li = document.querySelector('.div_itemlist li');
-console.log(searchbar);
 searchnav.addEventListener('click', function () {
     if (onoff == false) {
         searchbar.setAttribute('style', 'display: block');
@@ -99,3 +98,20 @@ searchnav.addEventListener('click', function () {
     }
 });
 //===============================以上莞婷===========================
+
+//===============================以下收尋===========================
+
+var search = document.querySelector(".searchArea")
+search.addEventListener('keydown', function (event) {
+
+    if (event.keyCode == 13) {
+
+            let userinput = search.value;
+            let h = "/Home/Search/" + userinput;
+            window.location.href = h;
+
+        }
+});
+
+
+//===============================以上收尋===========================

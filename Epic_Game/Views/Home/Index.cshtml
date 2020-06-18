@@ -23,7 +23,7 @@
         <div class="col-12">
             <div class="NavListArea" >
                 <div class="NavList">
-                    <input type="checkbox" id="checkControl" class="check_control">
+                    <input value="" type="checkbox" id="checkControl" class="check_control">
                     <label for="checkControl" class="checkBoxlabel">
                         Discover<i class="fas fa-chevron-down"></i>
                     </label>
@@ -35,7 +35,7 @@
                     </div>
                     <nav class="navbar navbar-dark">
                         <form class="form-inline">
-                            <input class="form-control  bg-outline-dark col-12 col-xl-12" type="search" placeholder="search"
+                            <input class="searchArea form-control  bg-outline-dark col-12 col-xl-12" type="search" placeholder="search"
                                    aria-label="Search" />
                             <button class="searchbtn" disabled>
                                 <svg class="bi bi-search" width="1em"
@@ -70,13 +70,15 @@
             </div>
         }
     </div>
-    <div class="row">
+    @*<div class="row">
         <div class="col-12">
             <div class="free_title">
                 <h3 class="free_title_text">免費遊戲</h3>
                 <a class="free_title_more" href="@Url.Action("ProductMore","Home")">查看更多項目</a>
             </div>
         </div>
+
+
         <div class="col-12">
             <div class="free_content">
                 <ul class="free_item_ul">
@@ -102,7 +104,7 @@
             </div>
         </div>
 
-    </div>
+    </div>*@
     <div class="row">
         <div class="col-12">
             <div class="new_title">
@@ -124,7 +126,7 @@
                                 <div class="mode_5_text">
                                     <h4>@item.ProductName</h4>
                                     <p>@item.Developer |@item.Publisher</p>
-                                    <h4>US$@decimal.Round(item.Price, 2)</h4>
+                                    <h4>TW$@decimal.Round(item.Price, 0)</h4>
                                 </div>
                             </a>
                         </li>
@@ -171,14 +173,14 @@
                     @foreach (var topsales in Model.TopSales)
                     {
                         <li class="mode_5_li">
-                            <a href="">
+                            <a href="/Product/@topsales.ProductID">
                                 <div class="mode_5_img-2">
                                     <div class="imgArea" style="background-image: url('@topsales.Url');"></div>
                                 </div>
                                 <div class="mode_5_text">
                                     <h4>@topsales.ProductName</h4>
                                     <p>@topsales.Developer | @topsales.Publisher</p>
-                                    <h4>US$@decimal.Round(topsales.Price, 2)</h4>
+                                    <h4>TW$@decimal.Round(topsales.Price, 0)</h4>
                                 </div>
                             </a>
                         </li>
@@ -199,14 +201,14 @@
                     @foreach (var related in Model.MostRelated)
                     {
                         <li class="mode_5_li">
-                            <a href="">
+                            <a href="/Product/@related.ProductID">
                                 <div class="mode_5_img-2">
                                     <div class="imgArea" style="background-image: url('@related.Url');"></div>
                                 </div>
                                 <div class="mode_5_text">
                                     <h4>@related.ProductName</h4>
                                     <p>@related.Developer | @related.Publisher</p>
-                                    <h4>US$@decimal.Round(related.Price, 2)</h4>
+                                    <h4>TW$@decimal.Round(related.Price, 0)</h4>
                                 </div>
                             </a>
                         </li>
@@ -227,14 +229,14 @@
                     @foreach (var best in Model.BestRank)
                     {
                         <li class="mode_5_li">
-                            <a href="">
+                            <a href="/Product/@best.ProductID">
                                 <div class="mode_5_img-2">
                                     <div class="imgArea" style="background-image: url('@best.Url');"></div>
                                 </div>
                                 <div class="mode_5_text">
                                     <h4>@best.ProductName</h4>
                                     <p>@best.Developer | @best.Publisher</p>
-                                    <h4>US$@decimal.Round(best.Price, 2)</h4>
+                                    <h4>TW$@decimal.Round(best.Price, 0)</h4>
                                 </div>
                             </a>
                         </li>
@@ -271,77 +273,28 @@
     <div class="row">
         <div class="col-12">
             <div class="Rising_title">
-                <h3 class="Rising_text">《Rising》</h3>
+                <h3 class="Rising_text">FloorPrice</h3>
             </div>
         </div>
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 50.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 29.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 29.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 32.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 32.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 34.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 34.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 36.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 36.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    @foreach(var floorprice in Model.BestPrice)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@floorprice.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@floorprice.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@floorprice.ProductName</h4>
+                                    <p>@floorprice.Developer | @floorprice.Publisher</p>
+                                    <h4>TW$@decimal.Round(floorprice.Price, 0)</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
                 </ul>
             </div>
         </div>
@@ -349,77 +302,28 @@
     <div class="row">
         <div class="col-12">
             <div class="popular_title">
-                <h3 class="popular_text">最受歡迎</h3>
+                <h3 class="popular_text">MostFollowe</h3>
             </div>
         </div>
         <div class="col-12 ">
             <div class="new_mode_5">
                 <ul class="mode_5_ul">
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 39.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 39.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 12.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 12.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 30.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 30.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 31.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 31.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="mode_5_li">
-                        <a href="">
-                            <div class="mode_5_img-2">
-                                <div class="imgArea" style="background-image: url('../../Assets/images/EpicGameStoreImg/asset 14.jpeg');"></div>
-                                <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 14.jpeg" alt=""> -->
-                            </div>
-                            <div class="mode_5_text">
-                                <h4>Before We Leave</h4>
-                                <p>Balancing Monkey Games | Ba...</p>
-                                <h4>US$9.99</h4>
-                            </div>
-                        </a>
-                    </li>
+                    @foreach(var followe in Model.MostFollowe)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@followe.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@followe.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@followe.ProductName</h4>
+                                    <p>@followe.Developer | @followe.Publisher</p>
+                                    <h4>TW$@decimal.Round(followe.Price, 0)</h4>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
                 </ul>
             </div>
         </div>

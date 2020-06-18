@@ -13,7 +13,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
     {
         private NewsManageDAO newsDAO { get; set; }
 
-        EGContext db= new EGContext();
+        //EGContext db= new EGContext();
 
         public NewsManageBLO()
         {
@@ -24,6 +24,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             News n = newsDAO.Getnewsdata(NewsID);
             return ModelViewModel(n);
         }
+
         public NewsManageViewModel ModelViewModel(News n)
         {
             var nvm = new NewsManageViewModel
@@ -37,8 +38,23 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
             return nvm;
         }
+        
+        public List<News> GetallnewsDatas()
+        {
+            return newsDAO.Getallnewsdata();
+        }
+        //public List<NewsManageViewModel> SearchNews(string option, string search)
+        //{
+        //    NewsManageDAO NewsManageDAO = new NewsManageDAO();
+        //    var newslist = NewsManageDAO.Searchnews(option, search);
+        //    List<NewsManageViewModel> vm = new List<NewsManageViewModel>();
+        //    foreach (var n in newslist)
+        //    {
+        //        vm.Add(ModelViewModel(n));
+        //    }
+        //    return vm;
 
-
+        //}
 
 
 
@@ -83,21 +99,17 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         public bool addnews(NewsManageViewModel data)
         {
             data.NewsID = Guid.NewGuid();
-            db.News.Add(Convert(data));
-            db.SaveChanges();
+            newsDAO.adddao(data);
             return true;
         }
         public bool updatenews(NewsManageViewModel data)
         {
-            db.News.AddOrUpdate(Convert(data));
-            db.SaveChanges();
+            newsDAO.updatedao(data);
             return true;
         }
         public bool deletenews(Guid guid)
         {
-            var deleteo = db.News.FirstOrDefault(x => x.NewsID == guid);
-            db.News.Remove(deleteo);
-            db.SaveChanges();
+            newsDAO.deletedao(guid);
             return true;
         }
 

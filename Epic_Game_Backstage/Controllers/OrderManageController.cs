@@ -14,7 +14,7 @@ namespace Epic_Game_Backstage.Controllers
     public class OrderManageController : Controller
     {
 
-        private EGContext db = new EGContext();
+        //private EGContext db = new EGContext();
         // GET: OrderManage
         public ActionResult Index()
         {
@@ -31,9 +31,9 @@ namespace Epic_Game_Backstage.Controllers
             sort = string.IsNullOrEmpty(sort) ? "ProductID" : sort;
             //看是如果現在是空的話就拿money來當排序
             List<OrderManageViewModel> orderVMlist = new List<OrderManageViewModel>();
-            var ordervm = new OrderManageViewModel();
-            var order1 = db.Order.ToList();
+            var ordervm = new OrderManageViewModel();           
             OrderManageBLO orderBLO = new OrderManageBLO();
+            var order1 = orderBLO.GetallorderDatas();
             foreach (var item in order1)
             {
                 OrderManageViewModel vm = orderBLO.GetOrderdata(item.OrderID.ToString());
@@ -59,9 +59,9 @@ namespace Epic_Game_Backstage.Controllers
             //目前的會等於現在sort名稱的，看是日期、錢等等
             sort = string.IsNullOrEmpty(sort) ? "ProductID" : sort;
             //看是如果現在是空的話就拿money來當排序
-            List<OrderManageViewModel> orderVMlist = new List<OrderManageViewModel>();
-            var order1 = db.Order.ToList();
+            List<OrderManageViewModel> orderVMlist = new List<OrderManageViewModel>();        
             OrderManageBLO orderBLO = new OrderManageBLO();
+            var order1 = orderBLO.GetallorderDatas();
             foreach (var item in order1)
             {
                 OrderManageViewModel vm = orderBLO.GetOrderdata(item.OrderID.ToString());
@@ -203,13 +203,13 @@ namespace Epic_Game_Backstage.Controllers
         }
 
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

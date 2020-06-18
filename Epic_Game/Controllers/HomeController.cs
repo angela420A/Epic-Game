@@ -21,46 +21,36 @@ namespace Epic_Game.Controllers
             return View(result);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-            return View();
-        }
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            return View();
-        }
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+        //    return View();
+        //}
 
-        public ActionResult Search()
+        public ActionResult Search(string id)
         {
-            var result = _rbp.GetAll();
-            return View(result);
+            if (id == null)
+            {
+                var result = _rbp.GetAll(); 
+                return View(result);
+            }
+             else
+            {
+                var result = _rbp.GetUserSearch(id).ToList();
+                return View(result);
+            }
         }
 
         [HttpPost]
-        public ActionResult Search(List<SearchViewModel> vm)
+        public ActionResult SearchOrder(string Key, bool Boo,string num)
         {
-            return View(vm);
-        }
-        public ActionResult Filter(string num)
-        {
-            var result = _rbp.Flit(int.Parse(num));
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-
-        [HttpPost]
-        public ActionResult SearchOrder(string key)
-        {
-            var result = _rbp.SearchOrde(key);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult SearchAlphabetical(string key)
-        {
-            var result = _rbp.SearchAlphabetical(key);
+            var result = _rbp.SearchOrde(Key,Boo, int.Parse(num));
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
