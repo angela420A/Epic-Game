@@ -106,6 +106,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         //    context.Comment.Remove(delete_item);
         //    context.SaveChanges();
         //}
+        //要登入用戶才可進行評論
         public Comment GetUserComm(string ProductID, string UserID)
         {
             return context.Comment.FirstOrDefault(x => x.ProductID.ToString().Equals(ProductID) && x.UserID.Equals(UserID));

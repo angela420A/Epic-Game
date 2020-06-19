@@ -1,6 +1,7 @@
-﻿
+﻿@model Epic_Game_Backstage.ViewModels.BackstageHomeViewModel
 @{
     ViewBag.Title = "Index";
+
 }
 
 @section topCSS{
@@ -93,7 +94,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-globe text-warning"></i>
+                                <i class="nc-icon nc-controller-modern text-warning"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -149,7 +150,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-vector text-danger"></i>
+                                <i class="nc-icon nc-single-copy-04 text-danger"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -177,7 +178,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                                <i class="nc-icon nc-single-02 text-primary"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -211,6 +212,12 @@
                     <canvas id=chartHours width="400" height="100"></canvas>
                 </div>
                 <div class="card-footer ">
+                    <div class="legend">
+                        <i class="fa fa-circle text-primary"></i> Total Price Of Month
+                        <i class="fa fa-circle text-warning"></i> Read
+                        <i class="fa fa-circle text-danger"></i> Deleted
+                        <i class="fa fa-circle text-gray"></i> Unopened
+                    </div>
                     <hr>
                     <div class="stats">
                         <i class="fa fa-history"></i> Updated 3 minutes ago
@@ -275,16 +282,21 @@
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
-    <script src="~/Assets/js/plugins/chartjs.min.js"></script>
+    @*<script src="~/Assets/js/plugins/chartjs.min.js"></script>*@
     <!--  Notifications Plugin    -->
     <script src="~/Assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="~/Assets/demo/demo.js"></script>
     <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
-    });
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+
     </script>
 }
+
+@*@Html.Partial("BackstagePartialChart-Line");*@
+@Html.Partial("BackstagePartialChart-Line", Model)
+@Html.Partial("PiePartial")

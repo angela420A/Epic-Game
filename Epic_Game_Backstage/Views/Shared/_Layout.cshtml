@@ -12,14 +12,15 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">    <!-- CSS Files -->
     <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/Assets/demo/demo.css" rel="stylesheet" />
+    <link href="~/Assets/css/BackstageLayout/BackstageLayout.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/chartjs")
     @RenderSection("topCSS", required: false)
     @RenderSection("topJS", required: false)
 </head>
@@ -51,7 +52,6 @@
                     </li>
                     <li>
                         <a href="@Url.Action("ordersearchsort", "OrderManage")">
-                            @*<i class="nc-icon nc-diamond"></i>*@
                             <i class="nc-icon nc-tile-56"></i>
                             <p>Order Manage</p>
                         </a>
@@ -75,8 +75,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","Activity")">
-                            <i class="nc-icon nc-tile-56"></i>
+                        <a href="@Url.Action("Index","ActivityManage")">
+                            <i class="nc-icon nc-diamond"></i>
                             <p>Activities Manage</p>
                         </a>
                     </li>
@@ -128,12 +128,12 @@
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
-    <script src="~/Assets/js/plugins/chartjs.min.js"></script>
+    @*<script src="~/Assets/js/plugins/chartjs.min.js"></script>*@
     <!--  Notifications Plugin    -->
     <script src="~/Assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="~/Assets/demo/demo.js"></script>
+    @*<script src="~/Assets/demo/demo.js"></script>*@
     @*<script>
             $(document).ready(function () {
                 // Javascript method's body can be found in assets/assets-for-demo/js/demo.js

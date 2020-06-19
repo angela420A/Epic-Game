@@ -28,9 +28,10 @@ namespace Epic_Game_Backstage.Controllers
         }
 
         // GET: ProductManage/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            var vm = blo.GetProductDetailsView(id);
+            return View(vm);
         }
 
         // GET: ProductManage/Create
@@ -47,7 +48,7 @@ namespace Epic_Game_Backstage.Controllers
             if (jdata == null) return HttpNotFound("Error");
             ProductCeateViewModel vm = JsonConvert.DeserializeObject<ProductCeateViewModel>(jdata);
             blo = new ProductManageBLO();
-            blo.ViewToModel(vm);
+            blo.CreateProduct(vm);
             return RedirectToAction("Index");
         }
 

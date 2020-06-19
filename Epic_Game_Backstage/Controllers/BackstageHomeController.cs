@@ -17,9 +17,8 @@ namespace Epic_Game_Backstage.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var singleData = backstageHomeBLO.GetSingleData();
-
-            foreach(var data in singleData)
+            var allData = backstageHomeBLO.GetAllData();
+            foreach (var data in allData.backstageSingleDataVM)
             {
                 ViewBag.Product = data.ProductQuantity;
                 ViewBag.Total = data.TotalPrice;
@@ -27,7 +26,9 @@ namespace Epic_Game_Backstage.Controllers
                 ViewBag.User = data.UserQuantity;
             }
 
-            return View(singleData);
+            ViewBag.MonthData = allData.monthDataTotalPrice;
+
+            return View(allData);
         }
     }
 }

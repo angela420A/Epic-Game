@@ -14,9 +14,51 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             backstageHomeDAO = new BackstageHomeDAO();
         }
-        public List<BackstageHomeViewModel> GetSingleData()
+        public BackstageHomeViewModel GetAllData()
         {
-            return backstageHomeDAO.getSingledata().ToList();
+            BackstageHomeViewModel backstageHomeVM = new BackstageHomeViewModel();
+            backstageHomeVM.backstageSingleDataVM = backstageHomeDAO.getSingledata();
+            backstageHomeVM.backstageChartLineVM = backstageHomeDAO.getMonthData();
+            backstageHomeVM.monthDataTotalPrice = new int[12];
+
+            var type = backstageHomeVM.backstageChartLineVM[0].GetType();
+            var r = type.GetProperties();
+            for(int i = 0; i < 12; i++)
+            {
+                var name = r[i].Name;
+                var val  = (int)backstageHomeVM.backstageChartLineVM[0].GetType().GetProperty(name).GetValue(backstageHomeVM.backstageChartLineVM[0]);
+                backstageHomeVM.monthDataTotalPrice[i] = val;
+            }
+
+            //foreach (var item in backstageHomeDAO.getMonthData())
+            //{
+            //    backstageHomeVM.monthData[0] = item.January;
+            //    backstageHomeVM.monthData[1] = item.February;
+            //    backstageHomeVM.monthData[2] = item.March;
+            //    backstageHomeVM.monthData[3] = item.April;
+            //    backstageHomeVM.monthData[4] = item.May;
+            //    backstageHomeVM.monthData[5] = item.June;
+            //    backstageHomeVM.monthData[6] = item.July;
+            //    backstageHomeVM.monthData[7] = item.August;
+            //    backstageHomeVM.monthData[8] = item.September;
+            //    backstageHomeVM.monthData[9] = item.October;
+            //    backstageHomeVM.monthData[10] = item.November;
+            //    backstageHomeVM.monthData[11] = item.December;
+            //}
+
+            return backstageHomeVM;
+        }
+
+        public List<BackstageChartLineVMPie> GetProductTop5()
+        {
+            List<BackstageChartLineVMPie> result;
+            var queryresult = backstageHomeDAO.GetProductTop5();
+            result = queryresult.Select(x => new BackstageChartLineVMPie
+            {
+                ProductName = x.ProductName,
+                count = x.count
+            }).ToList();
+            return result;
         }
     }
 }

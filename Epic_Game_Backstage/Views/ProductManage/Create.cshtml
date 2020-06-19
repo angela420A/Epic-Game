@@ -1,4 +1,5 @@
-﻿
+﻿@model Epic_Game_Backstage.ViewModels.ActivityViewModel
+
 @{
     ViewBag.Title = "Create";
 }
@@ -10,21 +11,6 @@
 }
 
 <div>
-    @*<div class="row justify-content-center">
-            <div class="col-6">
-                <ul class="nav navbar">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary" id="ProductInfo">Product Information</button>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary" id="UploadInmage">Upload Image</button>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary" id="SeeProduct">See Product</button>
-                    </li>
-                </ul>
-            </div>
-        </div>*@
     <h1 style="text-align:center; padding: 40px 0 70px">Create Product</h1>
     <div class="container ProductInfoPage">
         <h2>Basic Information:</h2>
@@ -246,7 +232,7 @@
         <div class="row justify-content-center mg-75">
             <div class="col-7">
                 <textarea name="editor1" id="editor1" rows="10" cols="80">
-                <b>Introduce the product!</b>
+                Introduce the product!
                 </textarea>
             </div>
             <div class="col-5" id="ProductIntro">
@@ -268,13 +254,324 @@
             </div>
         </div>
 
-        <div class="row justify-content-center" id="submitVue">
-            <div class="col">
-                <button class="btn btn-primary" v-on:click="createProduct">Create Product</button>
+        <h2 style="margin: 40px 0 20px;">
+            Product's Social Media:
+        </h2>
+        <div class="row mg-75" id="SocialMediaVue">
+            <media-compo v-for="item in MediaList" v-bind:medias="item"></media-compo>
+
+            @*<div class="col-2">
+                    <div class="card">
+                        <div class="card-header row justify-content-center">
+                            <label>Media</label>
+                        </div>
+                        <div class="card-body justify-content-center align-content-center row" style="height:103.86px">
+                            <a href="link"><i class="fa fa-youtube" style="font-size:40px"></i></a>
+                        </div>
+                        <div class="card-footer justify-content-center row">
+                            <div class="btn btn-outline-warning">Delete</div>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header row justify-content-center">
+                        <label>Add New Media</label>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="MediaType">Media</label>
+                            <select class="custom-select" id="MediaType" style="height: 34.5px" v-model="Media">
+                                <option value="youtube">Youtube</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="twitch">Twitch</option>
+                                <option value="discord">Discord</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="MediaLink" style="width: 75px;">URL</label>
+                            <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                   aria-describedby="inputGroup-sizing-default" id="MediaLink" v-model="MediaUrl">
+                        </div>
+                    </div>
+                    <div class="card-footer justify-content-center row">
+                        <div class="btn btn-secondary" v-if="MediaUrl.length === 0" v-on:click="AddNewMedia" disabled>+ Social Media</div>
+                        <div class="btn btn-primary" v-if="MediaUrl.length!==0" v-on:click="AddNewMedia">+ Social Media</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="margin: 40px 0 20px;">
+            Products Specification:
+        </h2>
+        <div class="container" id="SpecVue">
+            <div class="row card">
+                <div class="col-12 card-header">
+                    <h3 style="font-size: 24px; text-align:center; color:grey">Operation System</h3>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-2">
+                            <div class="input-group-prepend justify-content-center">
+                                <input class="OS-select" id="os-windows" type="radio" value="Win" v-model="OSType" style="display:none">
+                                <label class="Os-label" for="os-windows">Windows</label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group-prepend justify-content-center">
+                                <input class="OS-select" id="os-mac" type="radio" value="Mac" v-model="OSType" style="display:none">
+                                <label class="Os-label" for="os-mac">MacOS</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card-body">
+                    <div class="row justify-content-around" v-if="OSType=='Win'">
+                        <div class="col-5">
+                            <label class="mb-3">Minimum(Windows):</label>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="OSTextbox_win_min">OS</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="OSTextbox_win_min" v-model="spec[0].OS">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="CPUTextbox_win_min">CPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="CPUTextbox_win_min" v-model="spec[0].CPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GPUTextbox_win_min">GPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GPUTextbox_win_min" v-model="spec[0].GPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="ProcessorTextbox_win_min">Processor</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="ProcessorTextbox_win_min" v-model="spec[0].Processor">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="RAMTextbox_win_min">RAM</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="RAMTextbox_win_min" v-model="spec[0].RAM">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="MemoryTextbox_win_min">Memory</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="MemoryTextbox_win_min" v-model="spec[0].Memory">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="StorageTextbox_win_min">Storage</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="StorageTextbox_win_min" v-model="spec[0].Storage">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GraphicCardTextbox_win_min">Graphic Card</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GraphicCardTextbox_win_min" v-model="spec[0].GraphiceCard">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="HDDTextbox_win_min">HDD</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="HDDTextbox_win_min" v-model="spec[0].HDD">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="DirectXTextbox_win_min">DirectX</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="DirectXTextbox_win_min" v-model="spec[0].DirectX">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="AddtionalFeatureTextbox_win_min">Addtional Feature</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="AddtionalFeatureTextbox_win_min" v-model="spec[0].AddtionalFeature">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <label class="mb-3">Recommended(Windows):</label>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="OSTextbox_win_rec">OS</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="OSTextbox_win_rec" v-model="spec[1].OS">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="CPUTextbox_win_rec">CPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="CPUTextbox_win_rec" v-model="spec[1].CPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GPUTextbox_win_rec">GPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GPUTextbox_win_rec" v-model="spec[1].GPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="ProcessorTextbox_win_rec">Processor</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="ProcessorTextbox_win_rec" v-model="spec[1].Processor">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="RAMTextbox_win_rec">RAM</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="RAMTextbox_win_rec" v-model="spec[1].RAM">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="MemoryTextbox_win_rec">Memory</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="MemoryTextbox_win_rec" v-model="spec[1].Memory">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="StorageTextbox_win_rec">Storage</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="StorageTextbox_win_rec" v-model="spec[1].Storage">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GraphicCardTextbox_win_rec">Graphic Card</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GraphicCardTextbox_win_rec" v-model="spec[1].GrapiceCard">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="HDDTextbox_win_rec">HDD</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="HDDTextbox_win_rec" v-model="spec[1].HDD">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="DirectXTextbox_win_rec">DirectX</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="DirectXTextbox_win_rec" v-model="spec[1].DirectX">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="AddtionalFeatureTextbox_win_rec">Addtional Feature</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="AddtionalFeatureTextbox_win_rec" v-model="spec[1].AddtionalFeature">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around" v-if="OSType=='Mac'">
+                        <div class="col-5">
+                            <label class="mb-3">Minimum(Mac):</label>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="OSTextbox_mac_min">OS</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="OSTextbox_mac_min" v-model="spec[2].OS">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="CPUTextbox_mac_min">CPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="CPUTextbox_mac_min" v-model="spec[2].CPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GPUTextbox_mac_min">GPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GPUTextbox_mac_min" v-model="spec[2].GPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="ProcessorTextbox_mac_min">Processor</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="ProcessorTextbox_mac_min" v-model="spec[2].Processor">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="RAMTextbox_mac_min">RAM</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="RAMTextbox_mac_min" v-model="spec[2].RAM">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="MemoryTextbox_mac_min">Memory</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="MemoryTextbox_mac_min" v-model="spec[2].Memory">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="StorageTextbox_mac_min">Storage</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="StorageTextbox_mac_min" v-model="spec[2].Storage">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GraphicCardTextbox_mac_min">Graphic Card</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GraphicCardTextbox_mac_min" v-model="spec[2].GraphiceCard">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="HDDTextbox_mac_min">HDD</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="HDDTextbox_mac_min" v-model="spec[2].HDD">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="DirectXTextbox_mac_min">DirectX</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="DirectXTextbox_mac_min" v-model="spec[2].DirectX">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="AddtionalFeatureTextbox_mac_min">Addtional Feature</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="AddtionalFeatureTextbox_mac_min" v-model="spec[2].AddtionalFeature">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <label class="mb-3">Recommended(Mac):</label>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="OSTextbox_mac_rec">OS</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="OSTextbox_mac_rec" v-model="spec[3].OS">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="CPUTextbox_mac_rec">CPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="CPUTextbox_mac_rec" v-model="spec[3].CPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GPUTextbox_mac_rec">GPU</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GPUTextbox_mac_rec" v-model="spec[3].GPU">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="ProcessorTextbox_mac_rec">Processor</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="ProcessorTextbox_mac_rec" v-model="spec[3].Processor">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="RAMTextbox_mac_rec">RAM</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="RAMTextbox_mac_rec" v-model="spec[3].RAM">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="MemoryTextbox_mac_rec">Memory</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="MemoryTextbox_mac_rec" v-model="spec[3].Memory">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="StorageTextbox_mac_rec">Storage</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="StorageTextbox_mac_rec" v-model="spec[3].Storage">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="GraphicCardTextbox_mac_rec">Graphic Card</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="GraphicCardTextbox_mac_rec" v-model="spec[3].GrapiceCard">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="HDDTextbox_mac_rec">HDD</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="HDDTextbox_mac_rec" v-model="spec[3].HDD">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="DirectXTextbox_mac_rec">DirectX</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="DirectXTextbox_mac_rec" v-model="spec[3].DirectX">
+                            </div>
+                            <div class="input-group-prepend mb-3">
+                                <label style="width:133px" class="input-group-text" for="AddtionalFeatureTextbox_mac_rec">Addtional Feature</label>
+                                <input type="text" class="form-control" aria-label="Sizing input" style="height: 34.5px"
+                                       aria-describedby="inputGroup-sizing-default" id="AddtionalFeatureTextbox_mac_rec" v-model="spec[3].AddtionalFeature">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+    <div class="row justify-content-center" id="submitVue">
+        <div class="col">
+            <button class="btn btn-primary" v-on:click="createProduct">Create Product</button>
+        </div>
+    </div>
     <div id="LOADING">
 
     </div>
