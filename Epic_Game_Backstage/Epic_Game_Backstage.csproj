@@ -303,6 +303,7 @@
     <Content Include="Assets\scss\paper-dashboard\_tables.scss" />
     <Content Include="Assets\scss\paper-dashboard\_typography.scss" />
     <Content Include="Assets\scss\paper-dashboard\_variables.scss" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
