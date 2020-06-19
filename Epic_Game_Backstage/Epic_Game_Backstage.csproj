@@ -422,6 +422,7 @@
     <Content Include="Views\ActivityManage\Create.cshtml" />
     <Content Include="Views\ActivityManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Details.cshtml" />
+    <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
