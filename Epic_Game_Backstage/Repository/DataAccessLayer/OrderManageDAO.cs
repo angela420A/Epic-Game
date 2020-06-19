@@ -47,5 +47,10 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             ordercontext.Order.Remove(deleteo);
             ordercontext.SaveChanges();
         }
+        public List<Order> Searchorder(string option, string search)
+        {
+            var a = ordercontext.Order.AsEnumerable();
+            return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
+        }
     }
 }
