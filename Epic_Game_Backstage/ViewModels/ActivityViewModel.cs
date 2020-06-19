@@ -12,6 +12,5 @@ namespace Epic_Game_Backstage.ViewModels
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime Time { get; set; }
-        public decimal Discount { get; set; }
     }
 }

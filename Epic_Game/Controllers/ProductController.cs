@@ -32,17 +32,17 @@ namespace Epic_Game.Controllers
         //新增評論
         public ActionResult CreateComment(string jdata)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            else
-            {
+            //if (!User.Identity.IsAuthenticated)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
+            //else
+            //{
                 CommentPushViewModel CVM = JsonConvert.DeserializeObject<CommentPushViewModel>(jdata);
                 ProductBLO blo = new ProductBLO();
                 var comments = blo.UploadComment(CVM, User.Identity.GetUserId());
                 return Json(comments, JsonRequestBehavior.AllowGet);//允許用戶get資料  以json的方式回傳到ajax
-            }
+            //}
         }
 
         //刪除評論

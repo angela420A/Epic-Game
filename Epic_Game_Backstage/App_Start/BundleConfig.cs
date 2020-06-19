@@ -28,8 +28,9 @@ namespace Epic_Game_Backstage
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css"
                       /*"~/Content/site.css"*/));
+
             bundles.Add(new ScriptBundle("~/bundles/chartjs").Include(
-                      "~/Content/Chart.min.js"));
+                     "~/Scripts/Chart.min.js"));
         }
     }
 }

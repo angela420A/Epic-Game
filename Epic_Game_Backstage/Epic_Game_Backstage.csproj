@@ -134,7 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\ActivityManageController.cs" />
     <Compile Include="Controllers\NewsManageController.cs" />
     <Compile Include="Controllers\OrderManageController.cs" />
     <Compile Include="Controllers\BackstageHomeController.cs" />
@@ -145,20 +145,25 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BusinessLogicLayer\BackstageHomeBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\ActivityManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
     <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\PieBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserManageBLO.cs" />
     <Compile Include="Repository\DataAccessLayer\BackstageHomeDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\ActivityManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\OrderManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\PieDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
     <Compile Include="ViewModels\ActivityViewModel.cs" />
     <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
+    <Compile Include="ViewModels\PieViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
@@ -167,10 +172,12 @@
   <ItemGroup>
     <Content Include="Assets\css\ActivityManage\Activity.css" />
     <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
+    <Content Include="Assets\css\BackstageLayout\BackstageLayout.css" />
     <Content Include="Assets\css\OrderManage\OrderManageList.css" />
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />
     <Content Include="Assets\css\UserManage\UserManageList.css" />
+    <Content Include="Assets\Js\ActivityManageCreate.js" />
     <Content Include="Assets\Js\ckeditorconfig_Product.js" />
     <Content Include="Assets\Js\ckeditorconfig.js" />
     <Content Include="Assets\Js\ckeditorplugin.js" />
@@ -209,7 +216,6 @@
     <Content Include="Assets\js\plugins\bootstrap-notify.js" />
     <Content Include="Assets\js\plugins\chartjs.min.js" />
     <Content Include="Assets\js\plugins\perfect-scrollbar.jquery.min.js" />
-    <Content Include="Assets\Js\test\test.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Assets\css\ProductCreate.css" />
@@ -413,9 +419,9 @@
     <Content Include="Views\BackstageHome\Index.cshtml" />
     <Content Include="Views\UserManage\Index.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
-    <Content Include="Views\Activity\Index.cshtml" />
-    <Content Include="Views\Activity\Create.cshtml" />
-    <Content Include="Views\Activity\Edit.cshtml" />
+    <Content Include="Views\ActivityManage\Index.cshtml" />
+    <Content Include="Views\ActivityManage\Create.cshtml" />
+    <Content Include="Views\ActivityManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
