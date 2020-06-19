@@ -58,15 +58,12 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 NewsImg = ovm.NewsImg
             };
         }
-        //public IEnumerable<News> Getallnewsdatadb()
-        //{
-        //    return newscontext.News;
-        //}
 
-        //public List<News> Searchnews(string option, string search)
-        //{
-        //    var a = newscontext.News.AsEnumerable();
-        //    return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
-        //}
+
+        public List<News> Searchnews(string option, string search)
+        {
+            var a = newscontext.News.AsEnumerable();
+            return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
+        }
     }
 }

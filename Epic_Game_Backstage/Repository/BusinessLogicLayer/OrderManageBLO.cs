@@ -81,6 +81,19 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         //    db.SaveChanges();
         //    return true;
         //}
+
+        public List<OrderManageViewModel> Searchorder(string option, string search)
+        {
+            OrderManageDAO orderManageDAO = new OrderManageDAO();
+            var orderlist = orderManageDAO.Searchorder(option, search);
+            List<OrderManageViewModel> vm = new List<OrderManageViewModel>();
+            foreach (var n in orderlist)
+            {
+                vm.Add(ModelViewModel(n));
+            }
+            return vm;
+
+        }
         public bool updateorder(OrderManageViewModel data)
         {
             orderDAO.updatedao(data);
