@@ -203,7 +203,13 @@ var PIntroVue = new Vue({
 var SocialMediaVue = new Vue({
     el: "#SocialMediaVue",
     data: {
-        MediaList: [],
+        MediaList: [
+            {
+                Community: "other",
+                URL: "https://mafiagame.com/zh-TW",
+                Icon: "fas fa-globe"
+            }
+        ],
         Media: "youtube",
         MediaUrl: "",
         MediaIcon: {
