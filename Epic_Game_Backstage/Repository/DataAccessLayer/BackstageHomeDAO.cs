@@ -10,7 +10,7 @@ using Dapper;
 
 namespace Epic_Game_Backstage.Repository.DataAccessLayer
 {
-    public class BackstageHomeDAO
+    public class BackstageHomeDAO 
     {
         private static string connString;
         public SqlConnection conn;
@@ -31,37 +31,21 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             using (conn = new SqlConnection(connString))
             {
                 string sql = @"SELECT 
-	                                COUNT(p.ProductID) AS ProductQuantity, 
-	                                (select	CAST(SUM(o.Payment) AS float)
-									from [Order] o) AS TotalPrice, 
-	                                (select COUNT(o.OrderID)
-									from [Order] o )AS OrderQuantity, 
-	                                (select COUNT(u.Id)
-									from [AspNetUsers] u) AS UserQuantity
-                                FROM Product p
-                               ";
+		                         COUNT(p.ProductID) AS ProductQuantity, 
+		                         (select	CAST(SUM(o.Payment) AS float)
+			from [Order] o) AS TotalPrice, 
+		                         (select COUNT(o.OrderID)
+			from [Order] o )AS OrderQuantity, 
+		                         (select COUNT(u.Id)
+			from [AspNetUsers] u) AS UserQuantity
+		                        FROM Product p
+		                       ";
 
                 backstageHomeVM = conn.Query<BackstageSingleDataVM>(sql).ToList();
-
-                //string totalPrice = @"select SUM(Payment) from [Order]";
-                //string orderQuantity = @"select COUNT(*) from [Order]";
-                //string userQuantity = @"select COUNT(*) from AspNetUsers";
-
-                //backstageHomeVM = new List<BackstageHomeViewModel>()
-                //{
-                //    new BackstageHomeViewModel
-                //    {
-                //        ProductQuantity = conn.QueryMultiple(productQuantity).ToString(),
-                //        TotalPrice = conn.Query<BackstageHomeViewModel>(totalPrice).ToString(),
-                //        OrderQuantity = conn.Query<BackstageHomeViewModel>(orderQuantity).ToString(),
-                //        UserQuantity = conn.Query<BackstageHomeViewModel>(userQuantity).ToString()
-                //    }
-                //};
 
             }
             return backstageHomeVM;
         }
-
         public List<BackstageChartLineVM> getMonthData()
         {
             List<BackstageChartLineVM> backstageHomeVM;
