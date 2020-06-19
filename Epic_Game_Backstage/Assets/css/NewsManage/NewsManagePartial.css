@@ -1,0 +1,36 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.newsManage-table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 0px 20px;
+}
+
+.table th > a {
+    color: black;
+    text-decoration: none;
+}
+
+.table td {
+    color: #9A9A9A;
+}
+
+.on-table-button a:first-child {
+    text-decoration: none;
+    color: #FCD27A;
+    font-weight: bold;
+}
+.on-table-button a:last-child {
+    text-decoration: none;
+    color: #51CBCE;
+    font-weight: bold;
+}
+
+.on-table-button a:hover {
+    text-decoration: underline;
+}

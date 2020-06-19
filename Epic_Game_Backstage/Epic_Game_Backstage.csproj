@@ -166,6 +166,8 @@
   <ItemGroup>
     <Content Include="Assets\css\ActivityManage\Activity.css" />
     <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
+    <Content Include="Assets\css\NewsManage\NewsManageList.css" />
+    <Content Include="Assets\css\NewsManage\NewsManagePartial.css" />
     <Content Include="Assets\css\OrderManage\OrderManageList.css" />
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />

@@ -1,46 +1,48 @@
 ﻿@model IEnumerable<Epic_Game_Backstage.ViewModels.NewsManageViewModel>
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("NewsImg", "searchsort", new { sort = "NewsImg", nowsort = ViewBag.Nowsort })
-        </th>
-        <th>
-            @Html.ActionLink("NewsTitle", "searchsort", new { sort = "NewsTitle", nowsort = ViewBag.Nowsort })
-        </th>
-        <th>
-            @Html.ActionLink("Author", "searchsort", new { sort = "Author", nowsort = ViewBag.Nowsort })
-        </th>
-        <th>
-            @Html.ActionLink("Date", "searchsort", new { sort = "Date", nowsort = ViewBag.Nowsort })
-        </th>
-        <th></th>
-    </tr>
+    <div class="newsManage-table">
+        <table class="table text-left">
+            <tr>
+                <th>
+                    @Html.ActionLink("NewsImg", "searchsort", new { sort = "NewsImg", nowsort = ViewBag.Nowsort })
+                </th>
+                <th>
+                    @Html.ActionLink("NewsTitle", "searchsort", new { sort = "NewsTitle", nowsort = ViewBag.Nowsort })
+                </th>
+                <th>
+                    @Html.ActionLink("Author", "searchsort", new { sort = "Author", nowsort = ViewBag.Nowsort })
+                </th>
+                <th>
+                    @Html.ActionLink("Date", "searchsort", new { sort = "Date", nowsort = ViewBag.Nowsort })
+                </th>
+                <th></th>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
-        <div>
-            <img class="card-img-top" src="@Url.Content(item.NewsImg)">
-        </div>
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NewsTitle)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Author)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Date)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
-    </td>
-</tr>
-    }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div>
+                            <img class="card-img-top" src="@Url.Content(item.NewsImg)">
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NewsTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td class="on-table-button">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
 
 
 
