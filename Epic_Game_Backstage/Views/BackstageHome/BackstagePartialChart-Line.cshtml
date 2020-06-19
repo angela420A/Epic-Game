@@ -2,10 +2,10 @@
 @{
     ViewBag.Title = "BackstagePartialChart-Line";
     var array = Json.Encode(Model.monthDataTotalPrice);
-
+    //var array2 = Json.Encode(Model.monthDataTotalCount);
 }
 
-<script>
+    <script>
     chartColor = "#FFFFFF";
 
     ctx = document.getElementById('chartHours').getContext("2d");
@@ -32,7 +32,8 @@
           //  pointHoverRadius: 0,
           //  borderSkipped: "left",
           //  borderWidth: 1,
-          //  data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+          //  data: [5000, 2330, 2765, 1872, 2424, 2321, 1234, 1453, 1243, 3244, 2534, 2252]
+          //      //
           //},
           //{
           //  borderColor: "#fcc468",
@@ -88,5 +89,5 @@
       }
     });
     console.log(myChart.data.data);
-</script>
+    </script>
 
