@@ -1,151 +1,88 @@
 ﻿@model Epic_Game_Backstage.ViewModels.ProductDetailsViewModel
-@{
 
-
-}
-
-
-<div class="container-fluid">
-    k<div class="row">
-        <div class="col-12 col-md-4">
-            <h3>ProductDetails</h3>
-            <div style="width: 135px">
-                <div style="padding-bottom: calc(4/3 * 100%); position: relative">
-                    <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
-                </div>
-            </div>
-            <hr />
-            <dl class="dl-horizontal">
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ProductId)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ProductId)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ProductName)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ProductName)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Developer)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Developer)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Publisher)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Publisher)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ReleaseDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.sales_volume)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.sales_volume)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.total_income)
-                </dt>
-
-                <dd>
-                    NTD : @Html.DisplayFor(model => model.total_income)
-                </dd>
-            </dl>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-                @Html.ActionLink("Back to List", "Index")
-            </p>
-        </div>
-        <div class="col-12 col-md-8">
-            <canvas id="lineChart"></canvas>
+<div>
+    <h3>ProductDetails</h3>
+    <div style="width: 135px">
+        <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+            <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
         </div>
     </div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sales_volume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sales_volume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_income)
+        </dt>
+
+        <dd>
+            NTD : @Html.DisplayFor(model => model.total_income)
+        </dd>
+
+    </dl>
 </div>
+<div class="container">
+    <canvas id="lineChart"></canvas>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
 
 @section endJS{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script>
-        var ctx = document.getElementById("lineChart");
-        var ctx = document.getElementById("lineChart");
-        var chart = new Chart(ctx, {
+        var ctx = document.getElementById("myChart");
+        var chart = new chart(ctx, {
             type: "line",
             data: {
-                datasets: [{
-                    label: "商品",
-                    data: [16, 16, 18, 21, 25, 27, 29, 29, 27, 24, 21, 17],
-                    fill: false,
-                    backgroundColor: 'rgba(255,165,0,0.3)',
-                    borderColor: 'rgb(255,165,0)',
-                    pointStyle: "circle",
-                    pointBackgroundColor: 'rgb(0,255,0)',
-                    pointRadius: 5,
-                    pointHoverRadius: 10
-                }]
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    fontSize: 26,
-                    text: '本月份產品銷售量'
-                },
-                tooltips: {
-                    mode: 'point',
-                    intersect: true,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: `月份`,
-                            fontSize: 20
-                        },
-                        ticks: {
-                            fontSize: 15
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: '銷售量',
-                            fontSize: 20
-                        },
-                        ticks: {
-                            fontSize: 15
-                        }
-                    }]
-                },
-                animation: {
-                    duration: 3000
-                }
+                labels: `${Date.now.toString("MM")} 月`
             }
         });
     </script>
