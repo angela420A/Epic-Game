@@ -159,6 +159,7 @@
     <Compile Include="Repository\DataAccessLayer\PieDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
+    <Compile Include="ViewModels\ActivityDetailsViewModel.cs" />
     <Compile Include="ViewModels\ActivityViewModel.cs" />
     <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
