@@ -7,7 +7,6 @@
     foreach (var tag in Model.PD_Category)
     {
         tags += ("," + " " + tag);
-        //tags += tag;
     }
     tags = tags.TrimStart(',').Trim();
 
@@ -377,7 +376,7 @@
                                 <div class="small_title_span" v-if="array[0].SPE_CPU != null"><span>CPU</span></div>
                                 <span class="span_text" v-if="array[0].SPE_CPU != null">{{array[0].SPE_CPU}}</span>
 
-                                <div class="small_title_span" v-if=array[0].SPE_GPU !=null"><span>GPU</span></div>
+                                <div class="small_title_span" v-if="array[0].SPE_GPU != null"><span>GPU</span></div>
                                 <span class="span_text" v-if="array[0].SPE_GPU != null">{{array[0].SPE_GPU}}</span>
 
                                 <div class="small_title_span" v-if="array[0].SPE_Memory != null"><span>Memory</span></div>
@@ -447,7 +446,6 @@
                                 <span class="span_text" v-if="array[1].SPE_Additional != null">{{array[1].SPE_Additional}}</span>
 
                             </div>
-
                         </div>
                     </div>
                     <div class="" v-show="isOS == true">

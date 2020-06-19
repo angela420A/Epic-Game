@@ -20,7 +20,7 @@
     color: #9A9A9A;
 }
 
-.on-table-button a:first-child {
+/*.on-table-button a:first-child {
     text-decoration: none;
     color: #FCD27A;
     font-weight: bold;
@@ -36,7 +36,7 @@
     text-decoration: none;
     color: #51CBCE;
     font-weight: bold;
-}
+}*/
 
 .on-table-button a:hover {
     text-decoration: underline;

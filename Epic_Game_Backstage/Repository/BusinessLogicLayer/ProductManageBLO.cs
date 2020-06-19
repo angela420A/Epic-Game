@@ -158,4 +158,30 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
         }
     }
+        }
+
+        //吳家寶
+        public ProductDetailsViewModel GetProductDetailsView(string id)
+        {
+            dao = new ProductManageDAO();
+            var details = dao.GetDetial(id);
+            return DetailToView(details);
+        }
+        public ProductDetailsViewModel DetailToView(Product product)
+        {
+            dao = new ProductManageDAO();
+            var result = new ProductDetailsViewModel
+            {
+                ProductId = product.ProductID.ToString(),
+                ProductName = product.ProductName,
+                Img_Url = dao.GetStoreImage(product.ProductID).Url,
+                Developer = product.Developer,
+                Publisher = product.Publisher,
+                ReleaseDate = product.ReleaseDate.ToString("yyyy-MM-dd"),
+                sales_volume = dao.GetSalesVol(product.ProductID.ToString()),
+                total_income = dao.GetTotalIncome(product.ProductID.ToString())
+            };
+            return result;
+        }
+    }
 }
