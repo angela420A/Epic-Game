@@ -48,7 +48,7 @@ namespace Epic_Game_Backstage.Controllers
             if (jdata == null) return HttpNotFound("Error");
             ProductCeateViewModel vm = JsonConvert.DeserializeObject<ProductCeateViewModel>(jdata);
             blo = new ProductManageBLO();
-            blo.ViewToModel(vm);
+            blo.CreateProduct(vm);
             return RedirectToAction("Index");
         }
 

@@ -26,5 +26,7 @@ namespace EpicGameLibrary.Models
 
         [Required]
         public string IMG { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }
