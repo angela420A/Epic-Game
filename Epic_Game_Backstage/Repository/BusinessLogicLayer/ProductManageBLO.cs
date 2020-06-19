@@ -62,7 +62,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             var imgList = new List<Image>();
             imgList.Add(new Image { Url = vm.ImageVM.StoreImg, ProductOrPack = p.ProductID, Location = 0, Type = 1 });
             imgList.Add(new Image { Url = vm.ImageVM.GameLogo, ProductOrPack = p.ProductID, Location = 1, Type = 1 });
-            CreateSwiperList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
+            CreateSwiperList(imgList, vm.ImageVM.ScreenShots, p.ProductID);
             CreateImageList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
             return imgList;
         }
