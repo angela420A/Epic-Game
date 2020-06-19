@@ -243,3 +243,17 @@ function OrderBy(_Key, _bool) {
 }
 
 //====================================以上排序功能==================================
+
+//====================================以下收尋功能==================================
+
+var search = document.querySelector(".searchArea")
+search.addEventListener('keydown', function (event) {
+
+    if (event.keyCode == 13) {
+        let userinput = search.value;
+        let h = "/Home/Search/" + userinput;
+        window.location.href = h;
+    }
+});
+
+//====================================以上收尋功能==================================

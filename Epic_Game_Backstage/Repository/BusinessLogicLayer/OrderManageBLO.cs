@@ -11,7 +11,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
 {
     public class OrderManageBLO
     {
-        private EGContext db = new EGContext();
+        //private EGContext db = new EGContext();
         private OrderManageDAO orderDAO { get; set; }
 
         public OrderManageBLO()
@@ -70,25 +70,38 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
         }
 
-
-        public bool addorder(OrderManageViewModel data)
+        public List<Order> GetallorderDatas()
         {
-            data.OrderID = Guid.NewGuid();
-            db.Order.Add(Convert(data));
-            db.SaveChanges();
-            return true;
+            return orderDAO.Getallorderdata();
+        }
+        //public bool addorder(OrderManageViewModel data)
+        //{
+        //    data.OrderID = Guid.NewGuid();
+        //    db.Order.Add(Convert(data));
+        //    db.SaveChanges();
+        //    return true;
+        //}
+
+        public List<OrderManageViewModel> Searchorder(string option, string search)
+        {
+            OrderManageDAO orderManageDAO = new OrderManageDAO();
+            var orderlist = orderManageDAO.Searchorder(option, search);
+            List<OrderManageViewModel> vm = new List<OrderManageViewModel>();
+            foreach (var n in orderlist)
+            {
+                vm.Add(ModelViewModel(n));
+            }
+            return vm;
+
         }
         public bool updateorder(OrderManageViewModel data)
         {
-            db.Order.AddOrUpdate(Convert(data));
-            db.SaveChanges();
+            orderDAO.updatedao(data);
             return true;
         }
         public bool deleteorder(Guid guid)
         {
-            var deleteo = db.Order.FirstOrDefault(x => x.OrderID == guid);
-            db.Order.Remove(deleteo);
-            db.SaveChanges();
+            orderDAO.deletedao(guid);
             return true;
         }
     }
