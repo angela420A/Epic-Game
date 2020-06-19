@@ -75,9 +75,7 @@
             </p>
         </div>
         <div class="col-12 col-md-8">
-            <div class="container">
                 <canvas id="lineChart"></canvas>
-            </div>
         </div>
     </div>
 </div>
@@ -86,10 +84,40 @@
 
 @section endJS{
     <script>
-        var ctx = document.getElementById("myChart");
+        var ctx = document.getElementById("lineChart");
         var chart = new chart(ctx, {
             type: "line",
             data: {
+                labels: "1月",
+                datasets: [{
+                    label: ["1","2","3","4"],
+                    data: [1, 2, 3, 4],
+                    fill: false,
+                    backgroundColor: 'rgba(255,165,0,0.3)',
+                    borderColor: 'rgb(255,165,0)',
+                    pointStyle: "circle",
+                    pointBackgroundColor: 'rgb(0,255,0)',
+                    pointRadius:5,
+                    pointHoverRadius: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    fontSize: 26,
+                    text: '本月銷售量'
+                },
+                tooltips: {
+                    mode: 'point',
+                    intersect: true
+                },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        fontColor:'black'
+                    }
+                }
             }
         });
     </script>

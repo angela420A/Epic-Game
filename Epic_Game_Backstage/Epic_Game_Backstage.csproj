@@ -162,7 +162,6 @@
     <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
-    <Compile Include="ViewModels\PieViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
@@ -171,6 +170,9 @@
   <ItemGroup>
     <Content Include="Assets\css\ActivityManage\Activity.css" />
     <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
+    <Content Include="Assets\css\NewsManage\Newsedit.css" />
+    <Content Include="Assets\css\NewsManage\NewsManageList.css" />
+    <Content Include="Assets\css\NewsManage\NewsManagePartial.css" />
     <Content Include="Assets\css\BackstageLayout\BackstageLayout.css" />
     <Content Include="Assets\css\OrderManage\OrderManageList.css" />
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
@@ -228,7 +230,6 @@
     <Content Include="Content\Chart.css" />
     <Content Include="Content\Chart.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -422,19 +423,15 @@
     <Content Include="Views\ActivityManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Details.cshtml" />
     <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
+    <Content Include="Views\BackstageHome\PiePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

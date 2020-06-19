@@ -17,26 +17,26 @@ header .Headimg {
     background-position: top;
 }
 
-.container {
+/*.container {
     max-width: none;
-}
+}*/
 
-header .container .row h2,
-header .container .row p,
+header h2,
+header p,
 article {
     font-family: Microsoft JhengHei;
     font-weight: 600;
-    width: 850px;
     margin-left: auto;
     margin-right: auto;
+    padding:0 15%;
 }
 
-header .container .row h2 {
+header h2 {
     margin-top: 5%;
     font-size: 45px;
 }
 
-header .container .row .Datetxt {
+header .Datetxt {
     margin-top: 2%;
 }
 
@@ -50,13 +50,8 @@ article img {
     height: auto !important;
 }
 
-
-.Ceotxt {
-    padding-bottom: 15%;
-}
-
-.Dowa:hover {
-    text-decoration: none;
+.allnewscontents{
+    width:100%;
 }
 
 .Groupnewscontent .col-xl-12,
@@ -66,7 +61,10 @@ article img {
     padding: 0;
 }
 
-.iframeclass {
+.Groupnewscontent{
+    width:100%;
+}
+article .iframeclass {
     position: relative;
     padding-bottom: 56.25%;
     overflow: hidden;
@@ -74,7 +72,7 @@ article img {
     margin-bottom: 3%;
 }
 
-iframe {
+article iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -83,13 +81,13 @@ iframe {
 }
 
 @media screen and (max-width:992px) {
-    .container {
+    /*.container {
         max-width: none;
-    }
+    }*/
 
-    header .container .row h2,
-    header .container .row .Datetxt,
-    header .container .row .Authortxt,
+    header h2,
+    header .Datetxt,
+    header .Authortxt,
     article {
         padding-left: 20px;
         padding-right: 20px;
@@ -98,22 +96,22 @@ iframe {
 }
 
 @media screen and (max-width:768px) {
-    header .container .row h2,
-    header .container .row .Datetxt,
-    header .container .row .Authortxt,
+    header  h2,
+    header  .Datetxt,
+    header  .Authortxt,
     article {
         padding-left: 3%;
         padding-right: 3%;
         width: 100%;
     }
 
-    header .container .row h2 {
+    header h2 {
         margin-top: 5%;
         font-size: 39px;
     }
 
-    header .container .row .Datetxt,
-    header .container .row .Authortxt,
+    header .Datetxt,
+    header .Authortxt,
     article {
         font-size: 15px;
     }

@@ -50,9 +50,13 @@ namespace Epic_Game_Backstage.ViewModels
         public string PrivacyPolicyUrl { get; set; }
 
         public ImageCreateViewModel ImageVM { get; set; }
+
+        public List<SocialMediaCreateViewModel> SMVM { get; set; }
+        public List<SpecificationCreateViewModel> SPVM { get; set; }
     }
 
-    public class ImageCreateViewModel{
+    public class ImageCreateViewModel
+    {
         public string StoreImg { get; set; }
 
         public string GameLogo { get; set; }
@@ -60,5 +64,27 @@ namespace Epic_Game_Backstage.ViewModels
         public List<string> SwiperImg { get; set; }
 
         public List<string> ScreenShots { get; set; }
+    }
+
+    public class SocialMediaCreateViewModel
+    {
+        public string Community { get; set; }
+        public string URL { get; set; }
+    }
+
+    public class SpecificationCreateViewModel
+    {
+        public string OS { get; set; }
+        public string CPU { get; set; }
+        public string GPU { get; set; }
+        public string Processor { get; set; }
+        public string RAM { get; set; }
+        public string Memory { get; set; }
+        public string Storage { get; set; }
+        public string GraphiceCard { get; set; }
+        public string HDD { get; set; }
+        public string DirectX { get; set; }
+        public string Additional_Features { get; set; }
+        public int Type { get; set; }
     }
 }

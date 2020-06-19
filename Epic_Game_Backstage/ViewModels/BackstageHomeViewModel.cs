@@ -9,6 +9,7 @@ namespace Epic_Game_Backstage.ViewModels
     {
         public List<BackstageSingleDataVM> backstageSingleDataVM;
         public List<BackstageChartLineVM> backstageChartLineVM;
+        public List<BackstageChartLineVMPie> backstageChartLineVMPie;
         public int[] monthDataTotalPrice { get; set; }
         public List<BackstageChartLineVM002> backstageChartLineVM002;
         public int[] monthDataTotalCount { get; set; }
@@ -53,6 +54,12 @@ namespace Epic_Game_Backstage.ViewModels
         public int OctCount { get; set; }
         public int NovCount { get; set; }
         public int DeceCount { get; set; }
+    }
+
+    public class BackstageChartLineVMPie
+    {
+        public string ProductName { get; set; }
+        public int count { get; set; }
     }
 
 }

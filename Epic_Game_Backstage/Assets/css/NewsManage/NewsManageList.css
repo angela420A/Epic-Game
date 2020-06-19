@@ -3,15 +3,17 @@
     padding: 0;
     list-style: none;
 }
-/*Create*/
-.activityManage_root {
+
+.newsManage-root {
     padding: 10px 30px;
-/*    font-family: Microsoft JhengHei !important;*/
+    font-family: Microsoft JhengHei !important;
 }
-.activity_top p {
-    margin-bottom: 0 !important;
-}
-.activityManage_title {
+
+    .newsManage-root p, label {
+        margin-bottom: 0 !important;
+    }
+
+.newsManage-title {
     background-color: #FFFFFF;
     width: 400px;
     border-radius: 12px;
@@ -19,21 +21,23 @@
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
     margin-bottom: 5px;
 }
-.activityManage_title > h2 > i {
-    color: #EF8157;
-}
 
-.activityManage_title > p {
-    color: gray;
-}
+    .newsManage-title > h2 > i {
+        color: #EF8157;
+    }
 
-.activityManage_title > p > a {
-    color: gray;
-    text-decoration: none;
-    padding-left: 10px;
-    font-size: 14px;
-}
-.activity_header {
+    .newsManage-title > p {
+        color: gray;
+    }
+
+        .newsManage-title > p > a {
+            color: gray;
+            text-decoration: none;
+            padding-left: 10px;
+            font-size: 13px;
+        }
+
+.newsManage-header {
     display: flex;
     justify-content: space-between;
 }
@@ -54,16 +58,16 @@
     font-size: 13px;
 }
 
-.form-group input {
-    margin-right: 10px;
-    margin-bottom: 13px;
-    margin-left: 5px;
-}
+    .form-group input {
+        margin-right: 10px;
+        margin-bottom: 13px;
+        margin-left: 5px;
+    }
 
-.form-group > p > label {
-    font-size: 18px;
-    color: #EF8157;
-}
+    .form-group > p > label {
+        font-size: 18px;
+        color: #EF8157;
+    }
 
 .f-group-btn {
     background-color: #EF8157;
@@ -80,18 +84,10 @@
         color: #EF8157;
         transition: .3s;
     }
-/*Edit*/
-.title{
-    margin-left:20px;
-    margin-top:10px;
-}
-
-.ImgArea {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
+.news-create > p > a {
+    color: #EF8157;
+    font-weight: bold;
+    text-decoration: none;
+    display:inline-block;
+    padding-top:5%;
 }

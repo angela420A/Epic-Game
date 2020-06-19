@@ -156,3 +156,13 @@ uploadLinkBtn {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.OS-select:checked ~ label {
+    color: #0094ff;
+    border: 1px solid #0094ff;
+    border-radius: 4px;
+}
+
+.Os-label{
+    padding: 10px;
+}

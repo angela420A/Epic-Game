@@ -9,7 +9,6 @@ namespace EpicGameLibrary.Models
     [Table("Activity")]
     public partial class Activity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ActivityID { get; set; }
 
         [Required]
@@ -26,5 +25,7 @@ namespace EpicGameLibrary.Models
 
         [Required]
         public string IMG { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

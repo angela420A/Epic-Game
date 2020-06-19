@@ -1,7 +1,7 @@
 ﻿@model Epic_Game_Backstage.ViewModels.BackstageHomeViewModel
 @{
     ViewBag.Title = "Index";
-    
+
 }
 
 @section topCSS{
@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-globe text-warning"></i>
+                                <i class="nc-icon nc-controller-modern text-warning"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -150,7 +150,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-vector text-danger"></i>
+                                <i class="nc-icon nc-single-copy-04 text-danger"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -178,7 +178,7 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                                <i class="nc-icon nc-single-02 text-primary"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -299,3 +299,4 @@
 
 @*@Html.Partial("BackstagePartialChart-Line");*@
 @Html.Partial("BackstagePartialChart-Line", Model)
+@Html.Partial("PiePartial")
