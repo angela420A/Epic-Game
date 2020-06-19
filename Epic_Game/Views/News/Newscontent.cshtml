@@ -4,43 +4,41 @@
     ViewBag.Title = "Newscontent";
 }
 
-<div class="Groupnewscontent ">
-    <header>
-        <div class="Headimg col-xl-12" style="background-image:url('@Model.NewsImg')">
-        </div>
-        <div class="container">
+    <div class="allnewscontents">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <h2>@Model.NewsTitle</h2>
-                    <p class="Datetxt">@Model.Date</p>
-                    <p class="Authortxt">
-                        @Model.Author
-                    </p>
+                <div class="Groupnewscontent ">
+                    <header>
+                        <div class="Headimg " style="background-image:url('@Model.NewsImg')">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <h2>@Model.NewsTitle</h2>
+                            <p class="Datetxt">@Model.Date</p>
+                            <p class="Authortxt">
+                                @Model.Author
+                            </p>
+                        </div>
+                    </header>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <main>
+                            <article>
+                                <p>@Html.Raw(Model.Description)</p>
+                            </article>
+                        </main>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <main>
-                    <article>
-                        <p>@Html.Raw(Model.Description)</p>
-                    </article>
-                </main>
-            </div>
         </div>
-    </div>
-</div>
 
 
 
-@section topCSS
+        @section topCSS
 {
-    <link href="~/Assets/css/Newscontentcss.css" rel="stylesheet" />
-}
-@section endJS
+            <link href="~/Assets/css/Newscontentcss.css" rel="stylesheet" />
+        }
+        @section endJS
 {
-    <script src="~/Assets/Js/Articlejs.js"></script>
-}
+            <script src="~/Assets/Js/Articlejs.js"></script>
+        }
 
