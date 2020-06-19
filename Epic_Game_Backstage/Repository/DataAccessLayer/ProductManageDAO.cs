@@ -17,7 +17,7 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 return repo.GetAll().AsEnumerable().ToList();
             }
         }
-
+        
         public Image GetStoreImage(Guid ProductId)
         {
             using (var _context = new EGContext())
@@ -45,6 +45,32 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 foreach (var img in images)
                 {
                     repo.Create(img);
+                }
+                _context.SaveChanges();
+            }
+        }
+
+        public void CreateSocialMedia(IList<Social_Media> medias)
+        {
+            using(var _context = new EGContext())
+            {
+                var repo = new EGRepository<Social_Media>(_context);
+                foreach(var m in medias)
+                {
+                    repo.Create(m);
+                }
+                _context.SaveChanges();
+            }
+        }
+
+        public void CreateSpecification(IList<Specifications> specifications)
+        {
+            using (var _context = new EGContext())
+            {
+                var repo = new EGRepository<Specifications>(_context);
+                foreach (var s in specifications)
+                {
+                    repo.Create(s);
                 }
                 _context.SaveChanges();
             }

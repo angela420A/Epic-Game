@@ -109,5 +109,22 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             }
             return backstageHomeVM;
         }
+
+        public IEnumerable<BackstageChartLineVMPie> GetProductTop5()
+        {
+            string SQLcommand = @"select top 5
+	                                p.ProductName,
+	                                count(*) as count
+                                  from [Order] o
+                                  inner join Product p on o.ProductID = p.ProductID 
+                                  group by p.ProductName
+                                  order by count desc";
+            IEnumerable<BackstageChartLineVMPie> result;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                result = conn.Query<BackstageChartLineVMPie>(SQLcommand);
+            }
+            return result;
+        }
     }
 }
