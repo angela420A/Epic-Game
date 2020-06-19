@@ -15,5 +15,6 @@ namespace Epic_Game_Backstage.ViewModels
         public string ReleaseDate { get; set; }
         public int sales_volume { get; set; }
         public int total_income { get; set; } //新台幣
+        public string[] Sale_line { get; set; }
     }
 }
