@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+.main-body{
+/*    height: calc(100vh - 69.6px);*/
+}
+
+.main-panel{
+/*    height: 100vh;*/
+}
