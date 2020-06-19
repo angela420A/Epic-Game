@@ -1,6 +1,7 @@
 ﻿using Epic_Game_Backstage.Repository.DataAccessLayer;
 using Epic_Game_Backstage.ViewModels;
 using EpicGameLibrary.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                         Title = i.Slogan,
                         ProductName = i.ActivityName,
                         Content = i.Information,
+                        
                     };
                     result.Add(item);
                 }
@@ -54,6 +56,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 Slogan = AVM.Title,
                 Information = AVM.Content,
                 IMG = AVM.Picture
+                
             };
             dao.CreateActivity(a);
 
