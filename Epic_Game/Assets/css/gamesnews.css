@@ -32,6 +32,7 @@ body {
     background-color: #151515;
     box-sizing: border-box;
     padding-left: 3%;
+    padding-right:3%;
     margin-top:-15px;
 }
 
@@ -95,96 +96,6 @@ body {
     font-size: 15px;
 }
 
-.Onlinefirendgroup {
-    min-width: 370px;
-    position: relative;
-    background-color: #151515;
-    padding: 2% 3% 0 3%;
-    display: flex;
-    justify-content: center;
-}
-
-.Onlinefirend {
-    background-color: #151515;
-    position:sticky;
-    height:360px;
-    top:28px;
-}
-
-.startimg {
-    transition: .3s;
-    width: 300px;
-}
-
-.Startgroup {
-    position: relative;
-    cursor: pointer;
-    margin-top:14px;
-}
-
-.startimg img {
-    width: 100%;
-}
-
-.Startgroup:hover .startimg {
-    background-color: rgb(11, 85, 223);
-}
-
-    .Startgroup:hover .startimg img {
-        width: 100%;
-        opacity: 0;
-    }
-
-.imgtxt {
-    display: none;
-}
-
-.Startgroup:hover .imgtxt {
-    display: inline;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.Fbgroup {
-    color: white;
-    width: 300px;
-    height: 90px;
-    background-color: rgb(75, 105, 189);
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-top: 14px;
-}
-
-    .Fbgroup:hover {
-        background-color: rgb(112, 133, 192);
-    }
-
-    .Fbgroup i {
-        color: rgb(33, 33, 82);
-        font-size: 45px;
-    }
-
-.Gamesfriendtxt {
-    font-size: 16px;
-    color: rgb(111, 113, 116);
-    margin-bottom:0px;
-}
-
-.Friend {
-    margin-top: 15%;
-}
-.Titlestartclass {
-    height: 20px;
-    display: flex;
-}
 
 @media screen and (max-width:1199px) {
     .newsitem {
@@ -214,9 +125,7 @@ body {
 }
 
 @media screen and (max-width:992px) {
-    .Onlinefirendgroup {
-        display: none;
-    }
+
 
     .Allcardgroup {
         padding-left:2%;
@@ -238,11 +147,6 @@ body {
 }
 
 @media screen and (max-width:768px) {
-
-    .Onlinefirendgroup {
-        display: none;
-    }
-
     .Allcardgroup h3 {
         margin-bottom: -1%;
     }
