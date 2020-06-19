@@ -149,14 +149,12 @@
     <Compile Include="Repository\BusinessLogicLayer\NewsManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
     <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
-    <Compile Include="Repository\BusinessLogicLayer\PieBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserManageBLO.cs" />
     <Compile Include="Repository\DataAccessLayer\BackstageHomeDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ActivityManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\OrderManageDAO.cs" />
-    <Compile Include="Repository\DataAccessLayer\PieDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
     <Compile Include="ViewModels\ActivityDetailsViewModel.cs" />
@@ -164,7 +162,6 @@
     <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
-    <Compile Include="ViewModels\PieViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProductManageViewModel.cs" />
@@ -425,6 +422,8 @@
     <Content Include="Views\ActivityManage\Create.cshtml" />
     <Content Include="Views\ActivityManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Details.cshtml" />
+    <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
+    <Content Include="Views\BackstageHome\PiePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
