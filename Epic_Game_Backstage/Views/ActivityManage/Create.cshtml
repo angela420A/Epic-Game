@@ -78,3 +78,10 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/vue")
+}
+@section endJS{
+    <script src="~/Assets/Js/ActivityManageCreate.js"></script>
+}
