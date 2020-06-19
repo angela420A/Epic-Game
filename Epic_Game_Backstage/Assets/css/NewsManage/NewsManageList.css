@@ -88,6 +88,6 @@
     color: #EF8157;
     font-weight: bold;
     text-decoration: none;
-    display:inline;
-    padding-top:1%;
+    display:inline-block;
+    padding-top:5%;
 }

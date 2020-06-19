@@ -34,3 +34,9 @@
 .on-table-button a:hover {
     text-decoration: underline;
 }
+.newsimg{
+    width:100%;
+}
+.newsimgitem{
+    width:300px;
+}
