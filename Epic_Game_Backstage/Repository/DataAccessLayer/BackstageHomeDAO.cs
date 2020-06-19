@@ -32,13 +32,13 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             {
                 string sql = @"SELECT 
 	                                COUNT(p.ProductID) AS ProductQuantity, 
-	                                SUM(o.Payment) AS TotalPrice, 
-	                                COUNT(o.OrderID) AS OrderQuantity, 
-	                                COUNT(u.Id) AS UserQuantity
+	                                (select	CAST(SUM(o.Payment) AS float)
+									from [Order] o) AS TotalPrice, 
+	                                (select COUNT(o.OrderID)
+									from [Order] o )AS OrderQuantity, 
+	                                (select COUNT(u.Id)
+									from [AspNetUsers] u) AS UserQuantity
                                 FROM Product p
-                                inner join [Order] o on o.ProductID = p.ProductID
-                                inner join Library l on p.ProductID = l.ProductID
-                                inner join AspNetUsers u on l.UserID = u.Id
                                ";
 
                 backstageHomeVM = conn.Query<BackstageSingleDataVM>(sql).ToList();
