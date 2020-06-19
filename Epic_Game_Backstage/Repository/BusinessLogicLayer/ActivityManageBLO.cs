@@ -38,7 +38,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                         Title = i.Slogan,
                         ProductName = i.ActivityName,
                         Content = i.Information,
-                        
+                        Time = i.Date
                     };
                     result.Add(item);
                 }
@@ -55,8 +55,8 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 ActivityName = AVM.ProductName,
                 Slogan = AVM.Title,
                 Information = AVM.Content,
-                IMG = AVM.Picture
-                
+                IMG = AVM.Picture,
+                Date = AVM.Time
             };
             dao.CreateActivity(a);
 
