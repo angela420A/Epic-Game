@@ -23,12 +23,11 @@ namespace Epic_Game_Backstage.Controllers
             var vm = blo.GetActivityManageView();
             return View(vm);
         }
-        // GET: ProductManage/Create
+        // GET: ActivityManage/Create
         public ActionResult Create()
         {
             ActivityViewModel data = new ActivityViewModel();
             return View(data);
-            //return View();
         }
         [HttpPost]
         public ActionResult Create(string jdata)
@@ -39,29 +38,34 @@ namespace Epic_Game_Backstage.Controllers
             blo.ViewToModel(AVM);
             return RedirectToAction("Index");
         }
-        [HttpPost]
 
+        // GET: ActivityManage/Delete
         public ActionResult Delete()
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
+        //接資料
+        [HttpPost]
+        public ActionResult Delete(string jdata)
+        {
+            ActivityViewModel AVM = JsonConvert.DeserializeObject<ActivityViewModel>(jdata);
+            blo = new ActivityManageBLO();
+            blo.DeleteActivity(AVM.ActivityID);
+            return View();
+        }
+
+        // GET: ActivityManage/Edit
         public ActionResult Edit()
         {
             return View();
         }
-        public ActionResult Details(int id)
+        // GET: ActivityManage/Edit
+        public ActionResult Details(string id)
         {
-            return View();
+            var vm = blo.GetActivityDetailsView(id);
+            return View(vm);
         }
+        // GET: ActivityManage/Edit
         public void UploadImg(string id)
         {
 
