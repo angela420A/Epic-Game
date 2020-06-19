@@ -102,8 +102,8 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         public ProductDetailsViewModel GetProductDetailsView(string id)
         {
             dao = new ProductManageDAO();
-            var detials = dao.GetDetial(id);
-            return DetailToView(detials);
+            var details = dao.GetDetial(id);
+            return DetailToView(details);
         }
         public ProductDetailsViewModel DetailToView(Product product)
         {
