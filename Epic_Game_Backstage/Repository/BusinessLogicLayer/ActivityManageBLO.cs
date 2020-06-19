@@ -7,11 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
+
 namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
 {
     public class ActivityManageBLO
     {
         private ActivityManageDAO dao;
+
+        //Create
         public List<ActivityViewModel> GetActivityManageView()
         {
             dao = new ActivityManageDAO();
@@ -29,6 +32,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 {
                     var item = new ActivityViewModel
                     {
+                        ActivityID = i.ActivityID.ToString(),
                         Picture = i.IMG,
                         Title = i.Slogan,
                         ProductName = i.ActivityName,
@@ -55,5 +59,30 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
 
         }
 
+        //Details
+        public ActivityDetailsViewModel GetActivityDetailsView(string id)
+        {
+            dao = new ActivityManageDAO();
+            var details = dao.GetDetailActivity(id);
+            return DetailToView(details);
+        }
+
+        public ActivityDetailsViewModel DetailToView(Activity a)
+        {
+            dao = new ActivityManageDAO();
+            var result = new ActivityDetailsViewModel
+            {
+                ActivityID = a.ActivityID.ToString(),
+                Picture = a.IMG,
+                ProductName = a.ActivityName,
+                Title = a.Slogan,
+                Content = a.Information
+            };
+            return result;
+        }
+        public void DeleteActivity(string ActivityId)
+        {
+            dao.DeleteAct(ActivityId);
+        }
     }
 }
