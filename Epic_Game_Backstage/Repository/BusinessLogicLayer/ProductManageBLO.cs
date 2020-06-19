@@ -19,12 +19,11 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             var products = dao.GetAllProducts();
             return ModelToView(products);
         }
-
         private List<ProductManageViewModel> ModelToView(List<Product> p)
         {
             dao = new ProductManageDAO();
             var result = new List<ProductManageViewModel>();
-            foreach(var i in p)
+            foreach (var i in p)
             {
                 try
                 {
@@ -46,12 +45,30 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 finally { }
             }
             return result;
-        }
-
-        public void ViewToModel(ProductCeateViewModel vm)
+        } 
+        
+        public void CreateProduct(ProductCeateViewModel vm)
         {
             dao = new ProductManageDAO();
-            var p = new Product()
+            var p = ProductMapping(vm);
+
+            dao.CreateProduct(p);
+            dao.CreateImages(ImageMapping(vm, p));
+            dao.CreateSocialMedia(CreateSMList(vm.SMVM, p.ProductID));
+            dao.CreateSpecification(CreateSPList(vm.SPVM, p.ProductID));
+        }
+        public List<Image> ImageMapping(ProductCeateViewModel vm, Product p)
+        {
+            var imgList = new List<Image>();
+            imgList.Add(new Image { Url = vm.ImageVM.StoreImg, ProductOrPack = p.ProductID, Location = 0, Type = 1 });
+            imgList.Add(new Image { Url = vm.ImageVM.GameLogo, ProductOrPack = p.ProductID, Location = 1, Type = 1 });
+            CreateSwiperList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
+            CreateImageList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
+            return imgList;
+        }
+        public Product ProductMapping(ProductCeateViewModel vm)
+        {
+            return new Product()
             {
                 ProductID = Guid.NewGuid(),
                 ProductName = vm.ProductName,
@@ -66,24 +83,32 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 Description = vm.Description.Replace("&lt;", "<").Replace("&gt;", ">"),
                 PrivacyPolicy = vm.PrivacyPolicy,
                 PrivacyPolicyUrl = vm.PrivacyPolicyUrl,
-                OS = 1,
+                OS = getOS(vm.SPVM),
                 LanguagesSupported = "AUDIO: English, French, German, ItalianTEXT: Chinese - Traditional, English, Chinese - Simplified, Czech, French, German, Italian, Korean, Polish, Russian, Spanish - Spain, Portuguese - Brazil, Spanish - Latin America, Japanese"
             };
-
-            var imgList = new List<Image>();
-            imgList.Add(new Image { Url = vm.ImageVM.StoreImg, ProductOrPack = p.ProductID, Location = 0, Type = 1 });
-            imgList.Add(new Image { Url = vm.ImageVM.GameLogo, ProductOrPack = p.ProductID, Location = 1, Type = 1 });
-            CreateSwiperList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
-            CreateImageList(imgList, vm.ImageVM.SwiperImg, p.ProductID);
-
-            dao.CreateProduct(p);
-            dao.CreateImages(imgList);
+        }
+        public int getOS(List<SpecificationCreateViewModel> vm)
+        {
+            if(vm[0].OS.Length > 0 && vm[1].OS.Length > 0)
+            {
+                return 3;
+            }else if(vm[0].OS.Length > 0)
+            {
+                return 1;
+            }else if(vm[1].OS.Length > 0)
+            {
+                return 2;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void CreateSwiperList(List<Image> list, List<string> source, Guid Pid)
         {
             foreach (var url in source)
             {
-                Image image = new Image { Url = url, Location = 2, ProductOrPack = Pid};
+                Image image = new Image { Url = url, Location = 2, ProductOrPack = Pid };
                 if (url.Contains("imgur") || url.Contains("jpg")) image.Type = 1;
                 else image.Type = 2;
                 list.Add(image);
@@ -93,10 +118,47 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             foreach (var url in source)
             {
-                Image image = new Image { Url = url, Location = 3 ,Type = 1, ProductOrPack = Pid };
+                Image image = new Image { Url = url, Location = 3, Type = 1, ProductOrPack = Pid };
                 list.Add(image);
             }
         }
+        public List<Social_Media> CreateSMList(List<SocialMediaCreateViewModel> list, Guid pid)
+        {
+            var result = new List<Social_Media>();
+            foreach (var vm in list) result.Add(new Social_Media { FollowID = Guid.NewGuid(), ProductID = pid, Community = vm.Community, URL = vm.URL });
+            return result;
+        }
+        public List<Specifications> CreateSPList(List<SpecificationCreateViewModel> list, Guid pid)
+        {
+            var result = new List<Specifications>();
+            foreach (var vm in list)
+            { 
+                if (vm.OS != null && vm.OS.Length > 0) result.Add(SPMapping(vm, pid));
+            }
+            return result;
+
+        }
+        public Specifications SPMapping(SpecificationCreateViewModel vm, Guid pid)
+        {
+            return new Specifications
+            {
+                ProductID = pid,
+                OS = vm.OS,
+                CPU = vm.CPU,
+                GPU = vm.GPU,
+                Memory = vm.Memory,
+                RAM = vm.RAM,
+                Storage = vm.Storage,
+                Processor = vm.Processor,
+                GraphiceCard = vm.GraphiceCard,
+                HDD = vm.HDD,
+                DirectX = vm.DirectX,
+                Additional_Features = vm.Additional_Features,
+                Type = vm.Type
+            };
+        }
+    
+        
 
         //吳家寶
         public ProductDetailsViewModel GetProductDetailsView(string id)

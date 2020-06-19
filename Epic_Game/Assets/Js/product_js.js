@@ -184,7 +184,7 @@ var connent = new Vue({
                     $('#exampleModal').modal('hide');
                 },
                 error: function () {
-                    alert("Error!!!");
+                    alert("Please Login!!!");
 
                 }
             });
