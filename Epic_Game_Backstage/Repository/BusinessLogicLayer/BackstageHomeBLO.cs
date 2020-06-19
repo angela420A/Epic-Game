@@ -49,5 +49,16 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             return backstageHomeVM;
         }
 
+        public List<BackstageChartLineVMPie> GetProductTop5()
+        {
+            List<BackstageChartLineVMPie> result;
+            var queryresult = backstageHomeDAO.GetProductTop5();
+            result = queryresult.Select(x => new BackstageChartLineVMPie
+            {
+                ProductName = x.ProductName,
+                count = x.count
+            }).ToList();
+            return result;
+        }
     }
 }
