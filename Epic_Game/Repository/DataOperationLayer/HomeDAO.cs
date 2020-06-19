@@ -119,7 +119,7 @@ namespace Epic_Game.Repository.DataOperationLayer
 
         public List<StoreItems> GetTopMostFollowe()
         {
-            List<StoreItems> BestRank;
+            List<StoreItems> MostFollowe;
             using (conn = new SqlConnection(connString))
             {
                 string sql = @"select TOP 5
@@ -130,9 +130,9 @@ namespace Epic_Game.Repository.DataOperationLayer
                                 where img.Location = 0 and l.Condition = 1
                                 group by l.ProductID,img.Url,p.ProductID,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price
                                 order by FolloweCount desc";
-                BestRank = conn.Query<StoreItems>(sql).ToList();
+                MostFollowe = conn.Query<StoreItems>(sql).ToList();
             }
-            return BestRank;
+            return MostFollowe;
         }
 
         public List<SearchViewModel> GetSearches()
@@ -148,6 +148,37 @@ namespace Epic_Game.Repository.DataOperationLayer
                 searches = conn.Query<SearchViewModel>(sql).ToList();
             }
             return searches;
+        }
+        public List<StoreItems> GetFreeGame()
+        {
+            List<StoreItems> FreeGame;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select top 1 
+                                p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category
+                                from Product p 
+                                inner join [Image] img on p.ProductID = img.ProductOrPack
+                                where img.Location = 4 and p.Price = 0";
+                FreeGame = conn.Query<StoreItems>(sql).ToList();
+            }
+            return FreeGame;
+        }
+
+        public List<StoreItems> GetTopDiscount()
+        {
+            List<StoreItems> TopDiscount;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select top 1
+                                p.ProductID,img.Url,p.ProductName,p.Developer,p.Publisher,p.Discount,p.Price,p.Category
+                                from Product p 
+                                inner join [Image] img on p.ProductID = img.ProductOrPack
+                                where img.Location = 4
+                                order by p.Discount
+                                ";
+                TopDiscount = conn.Query<StoreItems>(sql).ToList();
+            }
+            return TopDiscount;
         }
     }
 }
