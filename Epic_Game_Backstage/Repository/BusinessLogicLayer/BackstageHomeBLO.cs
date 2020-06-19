@@ -19,7 +19,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             BackstageHomeViewModel backstageHomeVM = new BackstageHomeViewModel();
             backstageHomeVM.backstageSingleDataVM = backstageHomeDAO.getSingledata();
             backstageHomeVM.backstageChartLineVM = backstageHomeDAO.getMonthData();
-            backstageHomeVM.monthData = new int[12];
+            backstageHomeVM.monthDataTotalPrice = new int[12];
 
             var type = backstageHomeVM.backstageChartLineVM[0].GetType();
             var r = type.GetProperties();
@@ -27,7 +27,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             {
                 var name = r[i].Name;
                 var val  = (int)backstageHomeVM.backstageChartLineVM[0].GetType().GetProperty(name).GetValue(backstageHomeVM.backstageChartLineVM[0]);
-                backstageHomeVM.monthData[i] = val;
+                backstageHomeVM.monthDataTotalPrice[i] = val;
             }
 
             //foreach (var item in backstageHomeDAO.getMonthData())
