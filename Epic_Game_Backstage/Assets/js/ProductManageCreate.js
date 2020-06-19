@@ -28,26 +28,26 @@ Vue.component('screen-compo', {
 
 Vue.component('media-compo', {
     template:
-             '<div class="col-2">'
-            +'<div class="card">'
-            +'<div class= "card-header row justify-content-center">'
-            +'<label>{{medias.Community}}</label>'
-            +'</div>'
-            +'<div class="card-body justify-content-center align-content-center row" style="height:103.86px">'
-            +'<a :href="medias.URL"><i :class="medias.Icon" style="font-size:40px"></i></a>'
-            +'</div>'
-            +'<div class="card-footer justify-content-center row">'
-            +'<div class="btn btn-outline-warning" v-on:click="deleteSM" :id="medias.URL">Delete</div>'
-            +'</div>'
-            + '</div>'
-            + '</div>',
+        '<div class="col-2">'
+        + '<div class="card">'
+        + '<div class= "card-header row justify-content-center">'
+        + '<label>{{medias.Community}}</label>'
+        + '</div>'
+        + '<div class="card-body justify-content-center align-content-center row" style="height:103.86px">'
+        + '<a :href="medias.URL"><i :class="medias.Icon" style="font-size:40px"></i></a>'
+        + '</div>'
+        + '<div class="card-footer justify-content-center row">'
+        + '<div class="btn btn-outline-warning" v-on:click="deleteSM" :id="medias.URL">Delete</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>',
     props: ['medias'],
     name: 'screen-compo',
     methods: {
         deleteSM: function (e) {
             var url = e.target.id;
             var index = SocialMediaVue.MediaList.findIndex(element => element.URL == url);
-            debugger;  
+            debugger;
             SocialMediaVue.MediaList.splice(index, 1);
         }
     }
@@ -190,7 +190,7 @@ var ImgVue = new Vue({
 
 var PIntroVue = new Vue({
     el: '#ProductIntro',
-    data:{
+    data: {
         swiperList: [],
     },
     methods: {
@@ -201,10 +201,10 @@ var PIntroVue = new Vue({
 });
 
 var SocialMediaVue = new Vue({
-    el : "#SocialMediaVue",
+    el: "#SocialMediaVue",
     data: {
         MediaList: [],
-        Media:"youtube",
+        Media: "youtube",
         MediaUrl: "",
         MediaIcon: {
             youtube: "fab fa-youtube",
@@ -234,7 +234,65 @@ var SocialMediaVue = new Vue({
 var SpecVue = new Vue({
     el: '#SpecVue',
     data: {
-        OSGroup: {}
+        OSType: "Win",
+        spec: [
+            {
+                OS: "TBC",
+                CPU: "",
+                GPU: "",
+                Processor: "TBC",
+                RAM: "",
+                Memory: "TBC",
+                Storage: "",
+                GraphiceCard: "",
+                HDD: "",
+                DirectX: "",
+                Addtional_Feature: "",
+                Type: 0
+            },
+            {
+                OS: "",
+                CPU: "",
+                GPU: "",
+                Processor: "",
+                RAM: "",
+                Memory: "",
+                Storage: "",
+                GraphiceCard: "",
+                HDD: "",
+                DirectX: "",
+                Addtional_Feature: "",
+                Type: 1
+            },
+            {
+                OS: "",
+                CPU: "",
+                GPU: "",
+                Processor: "",
+                RAM: "",
+                Memory: "",
+                Storage: "",
+                GraphiceCard: "",
+                HDD: "",
+                DirectX: "",
+                Addtional_Feature: "",
+                Type: 2
+            },
+            {
+                OS: "",
+                CPU: "",
+                GPU: "",
+                Processor: "",
+                RAM: "",
+                Memory: "",
+                Storage: "",
+                GraphiceCard: "",
+                HDD: "",
+                DirectX: "",
+                Addtional_Feature: "",
+                Type: 3
+            }
+        ]
     }
 });
 
@@ -259,7 +317,10 @@ var SubmitVue = new Vue({
                     GameLogo: ImgVue.logoImage,
                     SwiperImg: ImgVue.swiperList,
                     ScreenShots: PIntroVue.swiperList
-                }
+                },
+                SMVM: this.transformMedia(),
+                SPVM: SpecVue.spec
+
             }
 
             $.ajax({
@@ -285,6 +346,16 @@ var SubmitVue = new Vue({
         transformHtml: function (str) {
             let s = str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
             return s;
+        },
+        transformMedia: function () {
+            let array = [];
+            SocialMediaVue.MediaList.forEach(element => {
+                let obj = {};
+                obj.Community = element.Community;
+                obj.URL = element.URL;
+                array.push(obj);
+            });
+            return array;
         }
     }
 });
