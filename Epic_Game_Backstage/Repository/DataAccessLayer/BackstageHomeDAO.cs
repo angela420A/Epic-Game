@@ -109,5 +109,52 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             }
             return backstageHomeVM;
         }
+
+        public List<BackstageChartLineVM002> getMonthCount()
+        {
+            List<BackstageChartLineVM002> backstageChartLineVM002;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"SELECT 
+								COUNT(o.ProductID) AS JanCount,
+								(select COUNT(o.ProductID)
+								from [Order] o
+								where datename(month, o.Date) = 'February') AS FebCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'March') AS MarCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'April') AS AprCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'May') AS MayCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'June') AS JunCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'July') AS JulCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'August') AS AugCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'September') AS SepCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'October') AS OctCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'November') AS NovCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'December') AS DeceCount
+							FROM [Order] o 
+							WHERE DATENAME(month, o.Date) = 'January'";
+				backstageChartLineVM002 = conn.Query<BackstageChartLineVM002>(sql).ToList();
+            }
+			return backstageChartLineVM002;
+        }
     }
 }
