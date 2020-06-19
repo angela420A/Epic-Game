@@ -40,23 +40,35 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 backstageHomeVM.monthDataTotalCount[i] = val2;
             }
 
-            
-
-            
-
-            return backstageHomeVM;
-        }
-
-        public List<BackstageChartLineVMPie> GetProductTop5()
-        {
-            List<BackstageChartLineVMPie> result;
-            var queryresult = backstageHomeDAO.GetProductTop5();
-            result = queryresult.Select(x => new BackstageChartLineVMPie
+            var resultPie = backstageHomeDAO.GetProductTop5();
+            backstageHomeVM.backstageChartLineVMPie = resultPie.Select((x) => new BackstageChartLineVMPie
             {
                 ProductName = x.ProductName,
                 count = x.count
             }).ToList();
-            return result;
+
+            int size = backstageHomeVM.backstageChartLineVMPie.Count();
+            backstageHomeVM.PieData = new int[size];
+            for (int  i = 0; i < backstageHomeVM.PieData.Length ; i++)
+            {
+                backstageHomeVM.PieData[i] = backstageHomeVM.backstageChartLineVMPie[i].count;
+            }
+
+
+
+            return backstageHomeVM;
         }
+
+        //public List<BackstageChartLineVMPie> GetProductTop5()
+        //{
+        //    List<BackstageChartLineVMPie> result;
+        //    var queryresult = backstageHomeDAO.GetProductTop5();
+        //    result = queryresult.Select(x => new BackstageChartLineVMPie
+        //    {
+        //        ProductName = x.ProductName,
+        //        count = x.count
+        //    }).ToList();
+        //    return result;
+        //}
     }
 }
