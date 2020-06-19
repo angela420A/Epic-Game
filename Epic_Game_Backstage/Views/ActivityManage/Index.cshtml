@@ -33,34 +33,55 @@
         <table class="table">
             <tr>
                 <th>
-                  
+                    @Html.DisplayNameFor(model => model.ActivityID)
                 </th>
                 <th>
-
+                    @Html.DisplayNameFor(model => model.Picture)
                 </th>
                 <th>
-
+                    @Html.DisplayNameFor(model => model.ProductName)
                 </th>
                 <th>
-
+                    @Html.DisplayNameFor(model => model.Title)
                 </th>
                 <th>
-
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
                 </th>
             </tr>
-            @*@foreach(var item in Model)
-                {
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                }*@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActivityID)
+                    </td>
+                    <td>
+                        <div style="width: 135px">
+                            <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+                                <div class="imgArea" style="background-image: url('@item.Picture');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+                            </div>
+                        </div>
+                    </td>   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td class="pm-table-buttom">
+                        @Html.ActionLink("Edit", "Edit", new {  id=item.ActivityID }, new { @class = "pm-table-edit"})
+                        @Html.ActionLink("Details", "Details", new { id = item.ActivityID },new { @class = "pm-table-details"})
+                    </td>
+                </tr>
+            }
 
         </table>
     </div>
