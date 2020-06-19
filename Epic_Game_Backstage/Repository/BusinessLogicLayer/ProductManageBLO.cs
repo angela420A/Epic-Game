@@ -157,8 +157,8 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 Type = vm.Type
             };
         }
-    }
-        }
+    
+        
 
         //吳家寶
         public ProductDetailsViewModel GetProductDetailsView(string id)
