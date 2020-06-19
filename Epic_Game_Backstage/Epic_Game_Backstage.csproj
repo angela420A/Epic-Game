@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -141,18 +144,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\BackstageHomeBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ActivityManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
     <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
     <Compile Include="Repository\BusinessLogicLayer\UserManageBLO.cs" />
+    <Compile Include="Repository\DataAccessLayer\BackstageHomeDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ActivityManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\OrderManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
     <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
     <Compile Include="ViewModels\ActivityViewModel.cs" />
+    <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
     <Compile Include="ViewModels\OrderManageViewModel.cs" />
     <Compile Include="ViewModels\ProductCeateViewModel.cs" />
@@ -161,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\ActivityManage\Activity.css" />
+    <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
     <Content Include="Assets\css\OrderManage\OrderManageList.css" />
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />

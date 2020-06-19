@@ -19,6 +19,7 @@
     <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/Assets/css/BackstageHome/BackstageHome.css" rel="stylesheet" />
 }
 
 <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -31,7 +32,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
+            <a class="navbar-brand" href="@Url.Action("Index", "BackstageHome")">EpicGame Dashboard</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -92,24 +93,26 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-controller-modern text-warning"></i>
+                                <i class="nc-icon nc-globe text-warning"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Games</p>
-                                <p class="card-title">150<p>@*<----*@
+                                <p class="card-category">Product Quantity</p>
+                                <p class="card-title">@ViewBag.Product<p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @*<div class="card-footer ">
+                <div class="card-footer">
                     <hr>
-                    <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update Now
+                    <div class="update-stats stats">
+                        <a href="@Url.Action("Index", "BackstageHome")">
+                            <i class="fa fa-refresh"></i>
+                            Update Now
+                        </a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -123,19 +126,21 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Total</p>
-                                <p class="card-title">$ 1,345<p>@*<----*@
+                                <p class="card-category">Total Price</p>
+                                <p class="card-title">@ViewBag.Total<p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @*<div class="card-footer ">
+                <div class="card-footer ">
                     <hr>
-                    <div class="stats">
-                        <i class="fa fa-calendar-o"></i>
-                        Last day
+                    <div class="update-stats stats">
+                        <a href="@Url.Action("Index", "BackstageHome")">
+                            <i class="fa fa-refresh"></i>
+                            Update Now
+                        </a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -144,24 +149,26 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-single-copy-04 text-danger"></i>
+                                <i class="nc-icon nc-vector text-danger"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Orders</p>
-                                <p class="card-title">23<p>@*<----*@
+                                <p class="card-category">Order Quantity</p>
+                                <p class="card-title">@ViewBag.Order<p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @*<div class="card-footer ">
+                <div class="card-footer ">
                     <hr>
-                    <div class="stats">
-                        <i class="fa fa-clock-o"></i>
-                        In the last hour
+                    <div class="update-stats stats">
+                        <a href="@Url.Action("Index", "BackstageHome")">
+                            <i class="fa fa-refresh"></i>
+                            Update Now
+                        </a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
@@ -170,24 +177,26 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-single-02 text-primary"></i>
+                                <i class="nc-icon nc-favourite-28 text-primary"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Users</p>
-                                <p class="card-title">+45K<p>@*<----*@
+                                <p class="card-category">User Quantity</p>
+                                <p class="card-title">@ViewBag.User<p>
                             </div>
                         </div>
                     </div>
                 </div>
-                @*<div class="card-footer ">
+                <div class="card-footer ">
                     <hr>
-                    <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update now
+                    <div class="update-stats stats">
+                        <a href="@Url.Action("Index", "BackstageHome")">
+                            <i class="fa fa-refresh"></i>
+                            Update Now
+                        </a>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
     </div>
@@ -195,7 +204,7 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">每月遊戲銷售總計</h5>
+                    <h5 class="card-title">Users Behavior</h5>
                     <p class="card-category">24 Hours performance</p>
                 </div>
                 <div class="card-body ">
@@ -214,7 +223,7 @@
         <div class="col-md-4">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">前五個賣最好的遊戲</h5>
+                    <h5 class="card-title">Email Statistics</h5>
                     <p class="card-category">Last Campaign Performance</p>
                 </div>
                 <div class="card-body ">
@@ -237,7 +246,7 @@
         <div class="col-md-8">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-title">與去年銷售數量比較</h5>
+                    <h5 class="card-title">NASDAQ: AAPL</h5>
                     <p class="card-category">Line Chart with Points</p>
                 </div>
                 <div class="card-body">

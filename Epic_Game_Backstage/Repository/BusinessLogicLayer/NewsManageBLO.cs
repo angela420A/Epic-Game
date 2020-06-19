@@ -24,6 +24,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             News n = newsDAO.Getnewsdata(NewsID);
             return ModelViewModel(n);
         }
+
         public NewsManageViewModel ModelViewModel(News n)
         {
             var nvm = new NewsManageViewModel
@@ -42,18 +43,18 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             return newsDAO.Getallnewsdata();
         }
-        //public List<NewsManageViewModel> SearchNews(string option, string search)
-        //{
-        //    NewsManageDAO NewsManageDAO = new NewsManageDAO();
-        //    var newslist = NewsManageDAO.Searchnews(option, search);
-        //    List<NewsManageViewModel> vm = new List<NewsManageViewModel>();
-        //    foreach (var n in newslist)
-        //    {
-        //        vm.Add(ModelViewModel(n));
-        //    }
-        //    return vm;
+        public List<NewsManageViewModel> SearchNews(string option, string search)
+        {
+            NewsManageDAO NewsManageDAO = new NewsManageDAO();
+            var newslist = NewsManageDAO.Searchnews(option, search);
+            List<NewsManageViewModel> vm = new List<NewsManageViewModel>();
+            foreach (var n in newslist)
+            {
+                vm.Add(ModelViewModel(n));
+            }
+            return vm;
 
-        //}
+        }
 
 
 

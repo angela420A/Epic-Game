@@ -1,41 +1,43 @@
-﻿
-@model EpicGameLibrary.Models.News
+﻿@*@model EpicGameLibrary.Models.News*@
+@model Epic_Game.ViewModels.NewsViewModels
 @{
     ViewBag.Title = "Newscontent";
 }
 
-    <div class="Groupnewscontent ">
-        <header>
-            @{ 
-                string img = Model.NewsImg;
-                string[] split = img.Split('。');
-                string title = Model.NewsTitle;
-                string[] titlesplit = title.Split('@');
-            }
-            <div class="Headimg" style="background-image:url('@split[0]')">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <h2>@titlesplit[0]</h2>
-                        <p class="Datetxt">@Model.Date</p>
-                        <p class="Authortxt">@Model.Author</p>
-                    </div>
-                </div>
-            </div>
-        </header>
+<div class="Groupnewscontent ">
+    <header>
+        <div class="Headimg" style="background-image:url('@Model.NewsImg')">
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <main>
-                        <article>
-                            <p>@Html.Raw(Model.Description)</p>
-                        </article>
-                    </main>
+                    <h2>@Model.NewsTitle</h2>
+                    <p class="Datetxt">@Model.Date</p>
+                    <p class="Authortxt">
+                        @*@{
+            if (@Model.Author != "")
+            {
+                @Model.Author
+            }
+        }*@
+                        @Model.Author
+                    </p>
                 </div>
             </div>
         </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <main>
+                    <article>
+                        <p>@Html.Raw(Model.Description)</p>
+                    </article>
+                </main>
+            </div>
+        </div>
     </div>
+</div>
 
 
 
