@@ -413,7 +413,7 @@
     <Content Include="Views\Activity\Index.cshtml" />
     <Content Include="Views\Activity\Create.cshtml" />
     <Content Include="Views\Activity\Edit.cshtml" />
-    <Content Include="Views\BackstageHome\Pie.cshtml" />
+    <Content Include="Views\BackstageHome\PiePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
