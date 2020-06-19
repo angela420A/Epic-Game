@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Epic_Game_Backstage.ViewModels
 {
-    public class ActivityViewModel
+    public class ActivityDetailsViewModel
     {
         public string ActivityID { get; set; }
         public string Picture { get; set; }
