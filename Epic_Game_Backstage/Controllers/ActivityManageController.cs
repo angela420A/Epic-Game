@@ -30,7 +30,7 @@ namespace Epic_Game_Backstage.Controllers
             return View(data);
         }
         [HttpPost]
-        public ActionResult Create(string jdata)
+        public ActionResult CreateAct(string jdata)
         {
             if (jdata == null) return HttpNotFound("Error");
             ActivityViewModel AVM = JsonConvert.DeserializeObject<ActivityViewModel>(jdata);
@@ -65,10 +65,6 @@ namespace Epic_Game_Backstage.Controllers
             var vm = blo.GetActivityDetailsView(id);
             return View(vm);
         }
-        // GET: ActivityManage/Edit
-        public void UploadImg(string id)
-        {
-
-        }
+        //uploadImg 寫在ProductManage
     }
 }
