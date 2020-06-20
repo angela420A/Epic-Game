@@ -20,10 +20,10 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             dao = new ActivityManageDAO();
             var Activity = dao.GetAllActivities();
-            return ModelToView(Activity);
+            return ModelsToViews(Activity);
         }
 
-        private List<ActivityViewModel> ModelToView(List<Activity> a)
+        private List<ActivityViewModel> ModelsToViews(List<Activity> a)
         {
             dao = new ActivityManageDAO();
             var result = new List<ActivityViewModel>();
@@ -31,21 +31,26 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             {
                 try
                 {
-                    var item = new ActivityViewModel
-                    {
-                        ActivityID = i.ActivityID.ToString(),
-                        Picture = i.IMG,
-                        Title = i.Slogan,
-                        ProductName = i.ActivityName,
-                        Content = i.Information,
-                        Time = i.Date
-                    };
+                    var item = ModelToView(i);
                     result.Add(item);
                 }
                 catch (Exception ex) { }
                 finally { }
             }
             return result;
+        }
+
+        private ActivityViewModel ModelToView(Activity i)
+        {
+            return new ActivityViewModel
+            {
+                ActivityID = i.ActivityID.ToString(),
+                Picture = i.IMG,
+                Title = i.Slogan,
+                ProductName = i.ActivityName,
+                Content = i.Information,
+                Time = i.Date
+            };
         }
         public void ViewToModel(ActivityViewModel AVM)
         {
@@ -86,6 +91,13 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         public void DeleteActivity(string ActivityId)
         {
             dao.DeleteAct(ActivityId);
+        }
+
+        public ActivityViewModel GetUserEdit(string id)
+        {
+            dao = new ActivityManageDAO();
+            var result = dao.GetUserActivities(id);
+            return ModelToView(result);
         }
     }
 }

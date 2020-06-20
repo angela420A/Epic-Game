@@ -46,5 +46,10 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             context.SaveChanges();
         }
         //updateImg
+
+        public Activity GetUserActivities(string id)
+        {
+            return context.Activity.FirstOrDefault(x => x.ActivityID.ToString().Equals(id));
+        }
     }
 }
