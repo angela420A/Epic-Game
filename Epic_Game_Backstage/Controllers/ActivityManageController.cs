@@ -92,16 +92,23 @@ namespace Epic_Game_Backstage.Controllers
         }
 
         // GET: ActivityManage/Edit
-        public ActionResult Edit()
+        public ActionResult Edit(string id)
         {
-            return View();
+            var result = blo.GetEdit(id);
+            return View(result);
         }
         // GET: ActivityManage/Edit
-        public ActionResult Details(string id)
-        {
-            var vm = blo.GetActivityDetailsView(id);
-            return View(vm);
-        }
+        //public ActionResult Details(string id)
+        //{
+        //    var vm = blo.GetActivityDetailsView(id);
+        //    return View(vm);
+        //}
         //uploadImg 寫在ProductManage
+
+        public void UpDate(ActivityViewModel VM)
+        {
+            blo = new ActivityManageBLO();
+            blo.UpDate(VM);
+        }
     }
 }

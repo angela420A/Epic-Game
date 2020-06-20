@@ -68,7 +68,6 @@ var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
         createActivity: function () {
-           
             let Activity = {              
                 ProductName: Proto.ProName,
                 Title: Proto.ProTitle,
@@ -76,14 +75,12 @@ var SubmitVue = new Vue({
                 Time: Proto.DueDate,
                 Picture: ImgVue.logoImage
             }
-          
             $.ajax({
                 url: "/ActivityManage/CreateAct",
                 type: "post",
                 data: { jdata: JSON.stringify(Activity) },
                 
                 success: function () {
-   
                     window.location.href = "/ActivityManage/Index"
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
