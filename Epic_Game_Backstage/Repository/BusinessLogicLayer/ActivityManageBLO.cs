@@ -44,7 +44,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             return new ActivityViewModel
             {
-                ActivityID = i.ActivityID.ToString(),
+                ActivityID = i.ActivityID,
                 Picture = i.IMG,
                 Title = i.Slogan,
                 ProductName = i.ActivityName,
