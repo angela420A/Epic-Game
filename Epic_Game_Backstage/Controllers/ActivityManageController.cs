@@ -27,7 +27,7 @@ namespace Epic_Game_Backstage.Controllers
                 switch (item)
                 {
                     case "Activity Id":
-                        vm = vm.Where(x => x.ActivityID.Contains(search)).ToList();
+                        vm = vm.Where(x => x.ActivityID.ToString().Contains(search)).ToList();
                         break;
                     case "Product Name":
                         vm = vm.Where((x) => x.ProductName.Contains(search)).ToList();
