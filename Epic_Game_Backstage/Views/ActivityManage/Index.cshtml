@@ -77,8 +77,10 @@
                         @Html.DisplayFor(modelItem => item.Time)
                     </td>
                     <td class="pm-table-buttom">
-                        @Html.ActionLink("Edit", "Edit", new {  id=item.ActivityID }, new { @class = "pm-table-edit"})
-                        @Html.ActionLink("Details", "Details", new { id = item.ActivityID },new { @class = "pm-table-details"})
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ActivityID }, new { @class = "pm-table-edit" })
+                        @Html.ActionLink("Details", "Details", new { id = item.ActivityID }, new { @class = "pm-table-details" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ActivityID }, new { @class = "pm-table-delete" })
+
                     </td>
                 </tr>
             }
