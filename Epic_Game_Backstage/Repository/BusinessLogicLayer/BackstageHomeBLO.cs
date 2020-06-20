@@ -49,10 +49,13 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
 
             int size = backstageHomeVM.backstageChartLineVMPie.Count();
             backstageHomeVM.PieData = new int[size];
+            backstageHomeVM.PieProductName = new string[size];
             for (int  i = 0; i < backstageHomeVM.PieData.Length ; i++)
             {
                 backstageHomeVM.PieData[i] = backstageHomeVM.backstageChartLineVMPie[i].count;
+                backstageHomeVM.PieProductName[i] = backstageHomeVM.backstageChartLineVMPie[i].ProductName;
             }
+
 
 
 

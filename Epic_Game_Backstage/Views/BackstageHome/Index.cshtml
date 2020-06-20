@@ -1,7 +1,11 @@
 ﻿@model Epic_Game_Backstage.ViewModels.BackstageHomeViewModel
 @{
     ViewBag.Title = "Index";
-
+    var pd1 = Json.Encode(ViewBag.pd1);
+    var pd2 = Json.Encode(ViewBag.pd2);
+    var pd3 = Json.Encode(ViewBag.pd3);
+    var pd4 = Json.Encode(ViewBag.pd4);
+    var pd5 = Json.Encode(ViewBag.pd5);
 }
 
 @section topCSS{
@@ -205,7 +209,7 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Total Price Of Month</h5>
+                    <h5 class="card-title">TotalPrice Of Month</h5>
                     <p class="card-category">24 Hours performance</p>
                 </div>
                 <div class="card-body ">
@@ -230,18 +234,19 @@
         <div class="col-md-4">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Email Statistics</h5>
-                    <p class="card-category">Last Campaign Performance</p>
+                    <h5 class="card-title">Top 5 Products</h5>
+                    <p class="card-category">Recent information</p>
                 </div>
                 <div class="card-body ">
                     <canvas id="chartEmail"></canvas>
                 </div>
                 <div class="card-footer ">
                     <div class="legend">
-                        <i class="fa fa-circle text-gray"></i> Top1
-                        <i class="fa fa-circle text-primary"></i> Top2
-                        <i class="fa fa-circle text-warning"></i> Top3
-                        <i class="fa fa-circle text-danger"></i> Top4
+                        <i class="fa fa-circle text-gray"></i> @pd1
+                        <i class="fa fa-circle text-primary"></i> @pd2
+                        <i class="fa fa-circle text-warning"></i> @pd3
+                        <i class="fa fa-circle text-danger"></i> @pd4
+                        <i class="fa fa-circle text-success"></i>@pd5
                     </div>
                     <hr>
                     <div class="stats">
