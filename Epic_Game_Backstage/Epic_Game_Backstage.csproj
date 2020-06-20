@@ -425,6 +425,7 @@
     <Content Include="Views\ProductManage\Details.cshtml" />
     <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
     <Content Include="Views\BackstageHome\PiePartial.cshtml" />
+    <Content Include="Views\ActivityManage\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,7 +27,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             dao = new ActivityManageDAO();
             var result = new List<ActivityViewModel>();
-            foreach(var i in a)
+            foreach (var i in a)
             {
                 try
                 {
@@ -88,9 +88,26 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
             return result;
         }
-        public void DeleteActivity(string ActivityId)
+        //Delete
+        public void DeleteActivity(int id)
         {
-            dao.DeleteAct(ActivityId);
+            dao = new ActivityManageDAO();
+            dao.DeleteAct(id);
+        }
+
+        private ActivityViewModel ActivityToView(Activity a)
+        {
+            dao = new ActivityManageDAO();
+            var result = new ActivityViewModel()
+            {
+                    ActivityID = a.ActivityID,
+                    Picture = a.IMG,
+                    Title = a.Slogan,
+                    ProductName = a.ActivityName,
+                    Content = a.Information,
+                    Time = a.Date
+            };
+            return result;
         }
 
         public ActivityViewModel GetUserEdit(string id)
