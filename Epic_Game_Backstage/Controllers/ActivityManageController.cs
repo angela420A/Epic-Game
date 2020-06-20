@@ -63,18 +63,32 @@ namespace Epic_Game_Backstage.Controllers
         }
 
         // GET: ActivityManage/Delete
-        public ActionResult Delete()
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return Content("Please input ID");
+            }
+            EGContext db = new EGContext();
+            Activity act = db.Activity.Find(id);
+
+            if (act == null)
+            {
+                return HttpNotFound();
+            }
+            return View(act);
         }
         //接資料
         [HttpPost]
-        public ActionResult Delete(string jdata)
+        public ActionResult Delete(int id)
         {
-            ActivityViewModel AVM = JsonConvert.DeserializeObject<ActivityViewModel>(jdata);
-            blo = new ActivityManageBLO();
-            blo.DeleteActivity(AVM.ActivityID);
-            return View();
+
+            //EGContext db = new EGContext();
+            //Activity act = db.Activity.Find(id);
+            //db.Activity.Remove(act);
+            //db.SaveChanges();
+            blo.DeleteActivity(id);
+            return RedirectToAction("Index");
         }
 
         // GET: ActivityManage/Edit
