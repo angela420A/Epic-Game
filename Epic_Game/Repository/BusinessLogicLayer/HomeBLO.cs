@@ -30,6 +30,8 @@ namespace Epic_Game.Repository.BusinessLogicLayer
             homeViewModels.BestRank = HomeDAO.GetTopBestRank();
             homeViewModels.BestPrice = HomeDAO.GetTopBestPrice();
             homeViewModels.MostFollowe = HomeDAO.GetTopMostFollowe();
+            homeViewModels.FreeGame = HomeDAO.GetFreeGame();
+            homeViewModels.TopDiscount = HomeDAO.GetTopDiscount();
             return homeViewModels;
         }
 

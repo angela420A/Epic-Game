@@ -9,7 +9,6 @@ namespace EpicGameLibrary.Models
     [Table("Activity")]
     public partial class Activity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ActivityID { get; set; }
 
         [Required]

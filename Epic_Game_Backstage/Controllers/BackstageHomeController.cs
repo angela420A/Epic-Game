@@ -27,6 +27,7 @@ namespace Epic_Game_Backstage.Controllers
             }
 
             ViewBag.MonthData = allData.monthDataTotalPrice;
+            
 
             return View(allData);
         }
