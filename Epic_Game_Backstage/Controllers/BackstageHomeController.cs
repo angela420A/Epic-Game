@@ -26,7 +26,12 @@ namespace Epic_Game_Backstage.Controllers
                 ViewBag.User = data.UserQuantity;
             }
 
-            ViewBag.MonthData = allData.monthDataTotalPrice;
+            ViewBag.pd1 = allData.PieProductName[0];
+            ViewBag.pd2 = allData.PieProductName[1];
+            ViewBag.pd3 = allData.PieProductName[2];
+            ViewBag.pd4 = allData.PieProductName[3];
+            ViewBag.pd5 = allData.PieProductName[4];
+            
 
             return View(allData);
         }

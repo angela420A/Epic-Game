@@ -20,45 +20,58 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             backstageHomeVM.backstageSingleDataVM = backstageHomeDAO.getSingledata();
             backstageHomeVM.backstageChartLineVM = backstageHomeDAO.getMonthData();
             backstageHomeVM.monthDataTotalPrice = new int[12];
+            backstageHomeVM.backstageChartLineVM002 = backstageHomeDAO.getMonthCount();
+            backstageHomeVM.monthDataTotalCount = new int[12];
 
             var type = backstageHomeVM.backstageChartLineVM[0].GetType();
             var r = type.GetProperties();
-            for(int i = 0; i < 12; i++)
+
+            var type2 = backstageHomeVM.backstageChartLineVM002[0].GetType();
+            var r2 = type2.GetProperties();
+
+            for (int i = 0; i < 12; i++)
             {
                 var name = r[i].Name;
                 var val  = (int)backstageHomeVM.backstageChartLineVM[0].GetType().GetProperty(name).GetValue(backstageHomeVM.backstageChartLineVM[0]);
                 backstageHomeVM.monthDataTotalPrice[i] = val;
+
+                var name2 = r2[i].Name;
+                var val2 = (int)backstageHomeVM.backstageChartLineVM002[0].GetType().GetProperty(name2).GetValue(backstageHomeVM.backstageChartLineVM002[0]);
+                backstageHomeVM.monthDataTotalCount[i] = val2;
             }
 
-            //foreach (var item in backstageHomeDAO.getMonthData())
-            //{
-            //    backstageHomeVM.monthData[0] = item.January;
-            //    backstageHomeVM.monthData[1] = item.February;
-            //    backstageHomeVM.monthData[2] = item.March;
-            //    backstageHomeVM.monthData[3] = item.April;
-            //    backstageHomeVM.monthData[4] = item.May;
-            //    backstageHomeVM.monthData[5] = item.June;
-            //    backstageHomeVM.monthData[6] = item.July;
-            //    backstageHomeVM.monthData[7] = item.August;
-            //    backstageHomeVM.monthData[8] = item.September;
-            //    backstageHomeVM.monthData[9] = item.October;
-            //    backstageHomeVM.monthData[10] = item.November;
-            //    backstageHomeVM.monthData[11] = item.December;
-            //}
-
-            return backstageHomeVM;
-        }
-
-        public List<BackstageChartLineVMPie> GetProductTop5()
-        {
-            List<BackstageChartLineVMPie> result;
-            var queryresult = backstageHomeDAO.GetProductTop5();
-            result = queryresult.Select(x => new BackstageChartLineVMPie
+            var resultPie = backstageHomeDAO.GetProductTop5();
+            backstageHomeVM.backstageChartLineVMPie = resultPie.Select((x) => new BackstageChartLineVMPie
             {
                 ProductName = x.ProductName,
                 count = x.count
             }).ToList();
-            return result;
+
+            int size = backstageHomeVM.backstageChartLineVMPie.Count();
+            backstageHomeVM.PieData = new int[size];
+            backstageHomeVM.PieProductName = new string[size];
+            for (int  i = 0; i < backstageHomeVM.PieData.Length ; i++)
+            {
+                backstageHomeVM.PieData[i] = backstageHomeVM.backstageChartLineVMPie[i].count;
+                backstageHomeVM.PieProductName[i] = backstageHomeVM.backstageChartLineVMPie[i].ProductName;
+            }
+
+
+
+
+            return backstageHomeVM;
         }
+
+        //public List<BackstageChartLineVMPie> GetProductTop5()
+        //{
+        //    List<BackstageChartLineVMPie> result;
+        //    var queryresult = backstageHomeDAO.GetProductTop5();
+        //    result = queryresult.Select(x => new BackstageChartLineVMPie
+        //    {
+        //        ProductName = x.ProductName,
+        //        count = x.count
+        //    }).ToList();
+        //    return result;
+        //}
     }
 }

@@ -1,6 +1,7 @@
 ﻿@model Epic_Game_Backstage.ViewModels.ActivityViewModel
 @{
     ViewBag.Title = "Edit";
+    var data = Json.Encode(Model);
 }
 @section topCSS{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,7 +20,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" id="inputGroup-sizing-lg">Title</label>
                 </div>
-                <input type="text" class="form-control" aria-label="Sizing input"
+                <input id="Title" type="text" class="form-control" aria-label="Sizing input"
                        aria-describedby="inputGroup-sizing-lg" v-model="ProName">
             </div>
         </div>
@@ -79,6 +80,12 @@
 <div class="back" style="margin-left:20px;">
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    var obj = @Html.Raw(data);
+
+</script>
+
 @section endJS{
-    <script src="~/Assets/Js/ActivityManageCreate.js"></script>
+    <script src="~/Assets/Js/ActivityEdit.js"></script>
 }

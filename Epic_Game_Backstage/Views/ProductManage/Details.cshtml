@@ -6,98 +6,113 @@
             <h3>ProductDetails</h3>
             <div style="width: 135px">
                 <div style="padding-bottom: calc(4/3 * 100%); position: relative">
-                    <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+                    <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model._detailtext.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
                 </div>
             </div>
             <hr />
             <dl class="dl-horizontal">
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.ProductId)
+                    @Html.DisplayNameFor(model => model._detailtext.ProductId)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.ProductId)
+                    @Html.DisplayFor(model => model._detailtext.ProductId)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.ProductName)
+                    @Html.DisplayNameFor(model => model._detailtext.ProductName)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.ProductName)
+                    @Html.DisplayFor(model => model._detailtext.ProductName)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Developer)
+                    @Html.DisplayNameFor(model => model._detailtext.Developer)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Developer)
+                    @Html.DisplayFor(model => model._detailtext.Developer)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Publisher)
+                    @Html.DisplayNameFor(model => model._detailtext.Publisher)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Publisher)
+                    @Html.DisplayFor(model => model._detailtext.Publisher)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                    @Html.DisplayNameFor(model => model._detailtext.ReleaseDate)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.ReleaseDate)
+                    @Html.DisplayFor(model => model._detailtext.ReleaseDate)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.sales_volume)
+                    @Html.DisplayNameFor(model => model._detailtext.sales_volume)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.sales_volume)
+                    @Html.DisplayFor(model => model._detailtext.sales_volume)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.total_income)
+                    @Html.DisplayNameFor(model => model._detailtext.total_income)
                 </dt>
 
                 <dd>
-                    NTD : @Html.DisplayFor(model => model.total_income)
+                    NTD : @Html.DisplayFor(model => model._detailtext.total_income)
                 </dd>
 
             </dl>
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = Model._detailtext.ProductId }) |
                 @Html.ActionLink("Back to List", "Index")
             </p>
         </div>
         <div class="col-12 col-md-8">
-                <canvas id="lineChart"></canvas>
+            <canvas id="sales_chart" width="400" height="400"></canvas>
         </div>
     </div>
 </div>
 
-
-
 @section endJS{
     <script>
-        var ctx = document.getElementById("lineChart");
-        var chart = new chart(ctx, {
+
+        let month = new Array(12);
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+
+        let d = new Date();
+
+        var ctx = document.getElementById("sales_chart");
+        var chart = new Chart(ctx, {
             type: "line",
             data: {
-                labels: "1月",
+                labels: @Html.Raw(Json.Encode(Model._chart_toarray.DaysOfMonth)),
                 datasets: [{
-                    label: ["1","2","3","4"],
-                    data: [1, 2, 3, 4],
+                    label:"@Html.DisplayFor(model => model._detailtext.ProductName)",
+                    data: @Html.Raw(Json.Encode(Model._chart_toarray.CountOfDay)),
                     fill: false,
                     backgroundColor: 'rgba(255,165,0,0.3)',
                     borderColor: 'rgb(255,165,0)',
                     pointStyle: "circle",
                     pointBackgroundColor: 'rgb(0,255,0)',
-                    pointRadius:5,
+                    pointRadius: 5,
                     pointHoverRadius: 10
                 }]
             },
@@ -106,7 +121,7 @@
                 title: {
                     display: true,
                     fontSize: 26,
-                    text: '本月銷售量'
+                    text: `Total Sales In ${month[d.getMonth()]}`
                 },
                 tooltips: {
                     mode: 'point',
@@ -115,7 +130,7 @@
                 legend: {
                     position: 'bottom',
                     labels: {
-                        fontColor:'black'
+                        fontColor: 'black'
                     }
                 }
             }

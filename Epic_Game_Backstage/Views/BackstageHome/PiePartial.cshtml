@@ -1,6 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Pie";
+    var Piearray = Json.Encode(Model.PieData);
+    
+    
 }
 
 <script>
@@ -18,10 +21,11 @@
                     '#e3e3e3',
                     '#4acccd',
                     '#fcc468',
-                    '#ef8157'
+                    '#ef8157',
+                    '#81D7A7'
                 ],
                 borderWidth: 0,
-                data: [50, 50, 50, 50]
+                data: @Piearray
             }]
         },
 
