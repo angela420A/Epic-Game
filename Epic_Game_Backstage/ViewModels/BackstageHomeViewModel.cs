@@ -14,6 +14,7 @@ namespace Epic_Game_Backstage.ViewModels
         public List<BackstageChartLineVM002> backstageChartLineVM002;
         public int[] monthDataTotalCount { get; set; }
         public int[] PieData { get; set; }
+        public string[] PieProductName { get; set; }
     }
     public class BackstageSingleDataVM
     {
