@@ -50,7 +50,6 @@ namespace Epic_Game_Backstage.ViewModels
         public string PrivacyPolicyUrl { get; set; }
 
         public ImageCreateViewModel ImageVM { get; set; }
-
         public List<SocialMediaCreateViewModel> SMVM { get; set; }
         public List<SpecificationCreateViewModel> SPVM { get; set; }
     }

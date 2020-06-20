@@ -17,14 +17,45 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 return repo.GetAll().AsEnumerable().ToList();
             }
         }
-        
+
+        public Product getProduct(string id)
+        {
+            using (var _context = new EGContext())
+            {
+                return _context.Product.FirstOrDefault(x => x.ProductID.ToString().Equals(id));
+            }
+        }
+
+        public List<Image> getImages(string id)
+        {
+            using (var _context = new EGContext())
+            {
+                return _context.Image.Where(x => x.ProductOrPack.ToString().Equals(id)).ToList();
+            }
+        }
+
+        public List<Social_Media> getMedias(string id)
+        {
+            using (var _context = new EGContext())
+            {
+                return _context.Social_Media.Where(x => x.ProductID.ToString().Equals(id)).ToList();
+            }
+        }
+
+        public List<Specifications> getSpecifications(string id)
+        {
+            using (var _context = new EGContext())
+            {
+                return _context.Specifications.Where(x => x.ProductID.ToString().Equals(id)).ToList();
+            }
+        }
+
         public Image GetStoreImage(Guid ProductId)
         {
             using (var _context = new EGContext())
             {
                 return _context.Image.FirstOrDefault(x => x.ProductOrPack.Equals(ProductId) && x.Location == 0);
             }
-
         }
 
         public void CreateProduct(Product p)

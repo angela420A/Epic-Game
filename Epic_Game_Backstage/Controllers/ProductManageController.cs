@@ -53,14 +53,15 @@ namespace Epic_Game_Backstage.Controllers
         }
 
         // GET: ProductManage/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var vm = blo.getProductCreateView(id);
+            return View(vm);
         }
 
         // POST: ProductManage/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string jdata,string id)
         {
             try
             {

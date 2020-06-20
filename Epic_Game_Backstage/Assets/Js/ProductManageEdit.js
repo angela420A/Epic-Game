@@ -1,4 +1,20 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
+let CatArray = []
+
+let num = Obj.Category;
+let d = 1;
+for (let i = 0; i < 15; i++) {
+    let t = num & 1;
+    debugger;
+    if (num & 1 == 1) {
+        CatArray.push(d.toString());
+    }
+    num = num >>> 1;
+    d *= 2;
+}
+
+debugger;
+
 //Vue
 Vue.component('swiper-compo', {
     template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
@@ -56,16 +72,16 @@ Vue.component('media-compo', {
 var PInfo = new Vue({
     el: '#ProductInfoVue',
     data: {
-        ProName: "Mafia: Trilogy",
-        ProPrice: "1799",
-        ProType: "Game",
-        ProDeveloper: "Hangar 13",
-        ProPublisher: "2K",
-        ProContext: "Play all three crime dramas in the Mafia franchise in glorious ultra HD detail, including the built from the ground up, faithfully reimagined edition of the critically acclaimed original, Mafia.",
-        ProAgeRestrct: "14",
-        ProPrivInfo: "© 2020 TAKE-TWO INTERACTIVE SOFTWARE, INC. DEVELOPED BY HANGAR 13. MAFIA, TAKE-TWO INTERACTIVE SOFTWARE, 2K, HANGAR 13, AND THEIR RESPECTIVE LOGOS ARE ALL TRADEMARKS AND/OR REGISTERED TRADEMARKS OF TAKE-TWO INTERACTIVE SOFTWARE, INC. THE RATINGS ICON IS A TRADEMARK OF THE ENTERTAINMENT SOFTWARE ASSOCIATION. ALL OTHER MARKS ARE PROPERTY OF THEIR RESPECTIVE OWNERS. ALL RIGHTS RESERVED.",
-        ProPrivLink: "https://www.take2games.com/privacy",
-        CategoriesGroup: [],
+        ProName: Obj.ProductName,
+        ProPrice: Obj.Price,
+        ProType: Obj.ContentType,
+        ProDeveloper: Obj.Developer,
+        ProPublisher: Obj.Publisher,
+        ProContext: Obj.Title,
+        ProAgeRestrct: Obj.AgeRestriction,
+        ProPrivInfo: Obj.PrivacyPolicy,
+        ProPrivLink: Obj.PrivacyPolicyUrl,
+        CategoriesGroup: CatArray,
         CategoriesText: {
             "1": "Action",
             "2": "Adventure",
@@ -92,6 +108,18 @@ var PInfo = new Vue({
             } else {
                 inputTarget.setAttribute('class', 'btn btn-primary')
             }
+        },
+        getCats: function () {
+            let res = [];
+            let num = Obj.Category;
+            for (let i = 0; i < 15; i++) {
+                if (num & i == i) {
+                    debugger;
+                    res.push(i.toString());
+                    num >>> 1;
+                }
+            }
+            return res;
         }
     }
 });
@@ -326,6 +354,7 @@ var SubmitVue = new Vue({
                 },
                 SMVM: this.transformMedia(),
                 SPVM: SpecVue.spec
+
             }
 
             $.ajax({

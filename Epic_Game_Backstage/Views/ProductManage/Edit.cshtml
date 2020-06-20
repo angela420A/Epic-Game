@@ -1,5 +1,8 @@
-﻿@{
-    ViewBag.Title = "Create";
+﻿@model Epic_Game_Backstage.ViewModels.ProductCeateViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    var Data = Json.Encode(Model);
 }
 
 @section topCSS{
@@ -574,6 +577,9 @@
 
     </div>
 </div>
+<script>
+    let Obj = @Html.Raw(Data);
+</script>
 @Html.Partial("_AjaxAntiForgeryPartial")
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -586,5 +592,5 @@
 }
 @section endJS{
     <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-    <script src="~/Assets/js/ProductManageCreate.js"></script>
+    <script src="~/Assets/Js/ProductManageEdit.js"></script>
 }
