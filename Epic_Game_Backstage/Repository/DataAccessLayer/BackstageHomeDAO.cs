@@ -10,7 +10,7 @@ using Dapper;
 
 namespace Epic_Game_Backstage.Repository.DataAccessLayer
 {
-    public class BackstageHomeDAO
+    public class BackstageHomeDAO 
     {
         private static string connString;
         public SqlConnection conn;
@@ -31,37 +31,21 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
             using (conn = new SqlConnection(connString))
             {
                 string sql = @"SELECT 
-	                                COUNT(p.ProductID) AS ProductQuantity, 
-	                                (select	CAST(SUM(o.Payment) AS float)
-									from [Order] o) AS TotalPrice, 
-	                                (select COUNT(o.OrderID)
-									from [Order] o )AS OrderQuantity, 
-	                                (select COUNT(u.Id)
-									from [AspNetUsers] u) AS UserQuantity
-                                FROM Product p
-                               ";
+		                         COUNT(p.ProductID) AS ProductQuantity, 
+		                         (select	CAST(SUM(o.Payment) AS float)
+			from [Order] o) AS TotalPrice, 
+		                         (select COUNT(o.OrderID)
+			from [Order] o )AS OrderQuantity, 
+		                         (select COUNT(u.Id)
+			from [AspNetUsers] u) AS UserQuantity
+		                        FROM Product p
+		                       ";
 
                 backstageHomeVM = conn.Query<BackstageSingleDataVM>(sql).ToList();
-
-                //string totalPrice = @"select SUM(Payment) from [Order]";
-                //string orderQuantity = @"select COUNT(*) from [Order]";
-                //string userQuantity = @"select COUNT(*) from AspNetUsers";
-
-                //backstageHomeVM = new List<BackstageHomeViewModel>()
-                //{
-                //    new BackstageHomeViewModel
-                //    {
-                //        ProductQuantity = conn.QueryMultiple(productQuantity).ToString(),
-                //        TotalPrice = conn.Query<BackstageHomeViewModel>(totalPrice).ToString(),
-                //        OrderQuantity = conn.Query<BackstageHomeViewModel>(orderQuantity).ToString(),
-                //        UserQuantity = conn.Query<BackstageHomeViewModel>(userQuantity).ToString()
-                //    }
-                //};
 
             }
             return backstageHomeVM;
         }
-
         public List<BackstageChartLineVM> getMonthData()
         {
             List<BackstageChartLineVM> backstageHomeVM;
@@ -108,6 +92,53 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 backstageHomeVM = conn.Query<BackstageChartLineVM>(sql).ToList();
             }
             return backstageHomeVM;
+        }
+
+        public List<BackstageChartLineVM002> getMonthCount()
+        {
+            List<BackstageChartLineVM002> backstageChartLineVM002;
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"SELECT 
+								COUNT(o.ProductID) AS JanCount,
+								(select COUNT(o.ProductID)
+								from [Order] o
+								where datename(month, o.Date) = 'February') AS FebCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'March') AS MarCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'April') AS AprCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'May') AS MayCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'June') AS JunCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'July') AS JulCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'August') AS AugCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'September') AS SepCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'October') AS OctCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'November') AS NovCount,
+								(select COUNT(o.ProductID)
+								from [Order] o 
+								where datename(month, o.Date) = 'December') AS DeceCount
+							FROM [Order] o 
+							WHERE DATENAME(month, o.Date) = 'January'";
+				backstageChartLineVM002 = conn.Query<BackstageChartLineVM002>(sql).ToList();
+            }
+			return backstageChartLineVM002;
         }
 
         public IEnumerable<BackstageChartLineVMPie> GetProductTop5()

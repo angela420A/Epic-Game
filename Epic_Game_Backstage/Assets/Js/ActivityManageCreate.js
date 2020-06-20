@@ -1,114 +1,96 @@
 ﻿//輸入框
 var Proto = new Vue({
-    el: 'activityitem',
+    el: '#activityitem',   
     data: {
         ProTitle: "",
         ProName: "",
         ProContext: "",
-        //DueDate: ""
-    },
-
-    methods: {
-        createActivity: function (p) {
-            let object = {
-                ProductName: this.ProName,
-                Title: this.ProTitle,
-                Content: this.ProContext,
-                //Time: this.DueDate
-            }
-            $.ajax({
-                url: "/ActivityManage/Create",
-                type: "post",
-                data: { jada: JSON.stringify(ActivityVM) },
-                success: function () {
-                    window.location.href = "/ActivityManage/Index"
-                },
-                error: function () {
-                    alert("Error");
-                }
-            })
-        },
+        DueDate: ""
     }
-
 });
 //圖片
 var ImgVue = new Vue({
     el: '#app',
     data: {
         logoImage: "",
-        UploadList: []
+        UploadImg: {}
     },
     methods: {
         showFile(e) {
-            var t = e.target.files;
-            var input = e.target.id;
-            for (let i = 0; i < t.length; i++) {
-                let item = t[i];
-                let data = {
-                    file: item, // 準備拿 input type="file" 的值
-                    //album: album, // 若要指定傳到某個相簿，就填入相簿的 ID
-                    fs: {
-                        name: item.name, // input的圖檔名稱
-                        thumbnail: window.URL.createObjectURL(item), // input的圖片縮圖
-                        size: Math.floor(item.size * 0.001) + 'KB' // input的圖片大小
-                    },
-                    title: item.name, // 圖片標題
-                }
-                this.UploadList.push(data);
+            let item = e.target.files[0];
+            let data = {
+                file: item, // 準備拿 input type="file" 的值
+                //album: album, // 若要指定傳到某個相簿，就填入相簿的 ID
+                fs: {
+                    name: item.name, // input的圖檔名稱
+                    //thumbnail: window.URL.createObjectURL(item), // input的圖片縮圖
+                    size: Math.floor(item.size * 0.001) + 'KB' // input的圖片大小
+                },
+                title: item.name, // 圖片標題
             }
-            debugger;
-            this.submit(input);
+            this.UploadImg = data;
+            this.submit();
         },
-        submit: function (input) {
+        submit: function () {
             let settings = {
                 async: false,
                 crossDomain: true,
                 processData: false,
                 contentType: false,
                 type: 'post',
-                url: '/ActivityManage/UploadImg',
+                url: '/ProductManage/UploadImg',
                 mimeType: 'multipart/form-data'
             };
-            let array = [];
-            this.UploadList.forEach(item => {
-                let form = new FormData();
-                form.append('image', item.file);
-                form.append('title', item.title);
-                form.append('description', '');
-                //form.append('album', file.album); // 有要指定的相簿就加這行
-                settings.data = form;
-                $.ajax(settings).done(function (res) {
-                    //console.log(res); // 可以看見上傳成功後回的值
-                    array.push(res);
-                });
+            let url = "";
+            let form = new FormData();
+            form.append('image', this.UploadImg.file);
+            form.append('title', this.UploadImg.title);
+            form.append('description', '');
+            //form.append('album', file.album); // 有要指定的相簿就加這行
+            settings.data = form;
+            $.ajax(settings).done(function (res) {
+                //console.log(res); // 可以看見上傳成功後回的值
+                url = res;
             });
-            this.UploadList = [];
-            this.addToImgList(array, input);
+            this.logoImage = url;
+            this.showImage(url);
         },
-        addToImgList: function (array, input) {
-            debugger;
-            array.forEach(element => {
-                switch (input) {
-                    case "LogoImage":
-                        this.logoImage = element;
-                        break;
-                    //case "SwiperImage":
-                    //    this.swiperList.push(element);
-                    //    break;
-                    //case "screenShot":
-                    //    PIntroVue.swiperList.push(element);
-                    //    break;
-                }
-            })
-            this.showImage(array, input);
-        },
-        showImage: function (array, input) {
-            let father = '#' + input + 'Area';
-            if (input != 'SwiperImage') {
-                let u = $('<div></div>').attr('class', 'ImgArea');
-                $(father).append(u);
-                u.attr('style', 'background-image: url("' + array[0] + '");');
-            }
+        showImage: function (url) {
+            let father = '#LogoImageArea';
+            let u = $('<div></div>').attr('class', 'ImgArea');
+            $(father).append(u);
+            u.attr('style', 'background-image: url("' + url + '");');
+
         }
     }
 });
+var SubmitVue = new Vue({
+    el: '#submitVue',
+    methods: {
+        createActivity: function () {
+           
+            let Activity = {              
+                ProductName: Proto.ProName,
+                Title: Proto.ProTitle,
+                Content: Proto.ProContext,
+                Time: Proto.DueDate,
+                Picture: ImgVue.logoImage
+            }
+          
+            $.ajax({
+                url: "/ActivityManage/CreateAct",
+                type: "post",
+                data: { jdata: JSON.stringify(Activity) },
+                
+                success: function () {
+   
+                    window.location.href = "/ActivityManage/Index"
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        }
+    }
+})

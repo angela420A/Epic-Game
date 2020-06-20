@@ -6,66 +6,59 @@
 /*Create*/
 .activityManage_root {
     padding: 10px 30px;
-/*    font-family: Microsoft JhengHei !important;*/
-}
-.activity_top p {
-    margin-bottom: 0 !important;
-}
-.activityManage_title {
-    background-color: #FFFFFF;
-    width: 400px;
-    border-radius: 12px;
-    padding: 20px 20px 13px 20px;
-    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
-    margin-bottom: 5px;
-}
-.activityManage_title > h2 > i {
-    color: #EF8157;
+    font-family: Microsoft JhengHei !important;
 }
 
-.activityManage_title > p {
-    color: gray;
-}
-
-.activityManage_title > p > a {
-    color: gray;
-    text-decoration: none;
-    padding-left: 10px;
-    font-size: 14px;
-}
 .activity_header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
+.activityManage_title {
+    background-color: #FFFFFF;
+    width: 300px;
+    border-radius: 12px;
+    padding: 20px 10px 5px 10px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
 }
 
-.form-group-root {
-    display: flex;
+.activityManage_title > h2>i{
+     color: #EF8157;
 }
 
-.form-group {
-    display: flex;
-    /*   align-items: flex-end;*/
-    justify-content: center;
+.activityManage_title p{
+    color: gray;
     font-size: 13px;
 }
 
-.form-group input {
+.activityManage_title p > a{
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+
+.activityManage_srarch {
+    font-family: Microsoft JhengHei;
+}
+
+.am-search-item label {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.am-search-item input {
     margin-right: 10px;
-    margin-bottom: 13px;
-    margin-left: 5px;
+    cursor: pointer;
 }
 
-.form-group > p > label {
-    font-size: 18px;
+.am-search-input label {
     color: #EF8157;
+    margin-right: 10px;
 }
 
-.f-group-btn {
+.am-s-input-btn {
     background-color: #EF8157;
     border: 1px solid #EF8157;
     font-family: Microsoft JhengHei;
@@ -74,14 +67,46 @@
     color: white;
 }
 
-    .f-group-btn:hover {
-        border-color: #EF8157;
-        background-color: white;
-        color: #EF8157;
-        transition: .3s;
-    }
-/*Edit*/
-.title{
-    margin-left:20px;
-    margin-top:10px;
+.am-s-input-btn:hover {
+    border-color: #EF8157;
+    background-color: white;
+    color: #EF8157;
+    transition: .3s;
+}
+
+.activity_table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 0px 20px;
+}
+
+.activity_table td {
+    color: #9A9A9A;
+}
+
+.activityManage-create p {
+    margin-bottom: 0;
+}
+
+.activityManage-create > p > a {
+    color: #EF8157;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.am-table-buttom a:first-child {
+    text-decoration: none;
+    color: #FCD27A;
+    font-weight: bold;
+}
+
+.am-table-buttom a:last-child {
+    text-decoration: none;
+    color: #9BDFBA;
+    font-weight: bold;
+}
+
+.am-table-buttom a:hover {
+    text-decoration: underline;
 }

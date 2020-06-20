@@ -45,8 +45,8 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 finally { }
             }
             return result;
-        } 
-        
+        }
+
         public void CreateProduct(ProductCeateViewModel vm)
         {
             dao = new ProductManageDAO();
@@ -89,13 +89,15 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         }
         public int getOS(List<SpecificationCreateViewModel> vm)
         {
-            if(vm[0].OS.Length > 0 && vm[1].OS.Length > 0)
+            if (vm[0].OS.Length > 0 && vm[1].OS.Length > 0)
             {
                 return 3;
-            }else if(vm[0].OS.Length > 0)
+            }
+            else if (vm[0].OS.Length > 0)
             {
                 return 1;
-            }else if(vm[1].OS.Length > 0)
+            }
+            else if (vm[1].OS.Length > 0)
             {
                 return 2;
             }
@@ -132,7 +134,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             var result = new List<Specifications>();
             foreach (var vm in list)
-            { 
+            {
                 if (vm.OS != null && vm.OS.Length > 0) result.Add(SPMapping(vm, pid));
             }
             return result;
@@ -157,8 +159,8 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
                 Type = vm.Type
             };
         }
-    
-        
+
+
 
         //吳家寶
         public ProductDetailsViewModel GetProductDetailsView(string id)
@@ -172,14 +174,17 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             dao = new ProductManageDAO();
             var result = new ProductDetailsViewModel
             {
-                ProductId = product.ProductID.ToString(),
-                ProductName = product.ProductName,
-                Img_Url = dao.GetStoreImage(product.ProductID).Url,
-                Developer = product.Developer,
-                Publisher = product.Publisher,
-                ReleaseDate = product.ReleaseDate.ToString("yyyy-MM-dd"),
-                sales_volume = dao.GetSalesVol(product.ProductID.ToString()),
-                total_income = dao.GetTotalIncome(product.ProductID.ToString())
+                _detailtext = {
+                    ProductId = product.ProductID.ToString(),
+                    ProductName = product.ProductName,
+                    Img_Url = dao.GetStoreImage(product.ProductID).Url,
+                    Developer = product.Developer,
+                    Publisher = product.Publisher,
+                    ReleaseDate = product.ReleaseDate.ToString("yyyy-MM-dd"),
+                    sales_volume = dao.GetSalesVol(product.ProductID.ToString()),
+                    total_income = dao.GetTotalIncome(product.ProductID.ToString())
+                }
+                ,_chart_toarray = dao.GetSalesCount(product.ProductID.ToString())
             };
             return result;
         }

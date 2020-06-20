@@ -35,6 +35,12 @@
     padding: 0px 20px;
 }
 
+.productManage-table th > a {
+    text-decoration: none;
+    color: black;
+    cursor: none;
+}
+
 .productManage-table td{
     color: #9A9A9A;
 }
@@ -61,17 +67,6 @@
     text-decoration: underline;
 }
 
-/*.pm-table-edit {
-    text-decoration: none;
-    color: #FCD27A;
+th a{
+    color:#000;
 }
-
-.pm-table-details {
-    text-decoration: none;
-    color: #9BDFBA;
-}
-
-.pm-table-delete {
-    text-decoration: none;
-    color: #51CBCE;
-}*/

@@ -178,6 +178,7 @@
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />
     <Content Include="Assets\css\UserManage\UserManageList.css" />
+    <Content Include="Assets\Js\ActivityEdit.js" />
     <Content Include="Assets\Js\ActivityManageCreate.js" />
     <Content Include="Assets\Js\ckeditorconfig_Product.js" />
     <Content Include="Assets\Js\ckeditorconfig.js" />
@@ -424,6 +425,7 @@
     <Content Include="Views\ProductManage\Details.cshtml" />
     <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
     <Content Include="Views\BackstageHome\PiePartial.cshtml" />
+    <Content Include="Views\ActivityManage\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
