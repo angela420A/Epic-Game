@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Epic_Game_Backstage.Controllers
 {
@@ -18,9 +19,31 @@ namespace Epic_Game_Backstage.Controllers
         {
             blo = new ActivityManageBLO();
         }
-        public ActionResult Index()
+        public ActionResult Index(string search, string item)
         {
             var vm = blo.GetActivityManageView();
+            if (!String.IsNullOrEmpty(search))
+            {
+                switch (item)
+                {
+                    case "Activity Id":
+                        vm = vm.Where(x => x.ActivityID.ToString().Contains(search)).ToList();
+                        break;
+                    case "Product Name":
+                        vm = vm.Where((x) => x.ProductName.Contains(search)).ToList();
+                        break;
+                    case "Title":
+                        vm = vm.Where((x) => x.Title.Contains(search)).ToList();
+                        break;
+                    case "Content":
+                        vm = vm.Where((x) => x.Content.Contains(search)).ToList();
+                        break;
+                    case "Time":
+                        vm = vm.Where((x) => x.Time.ToString().Contains(search)).ToList();
+                        break;
+                }
+            }
+
             return View(vm);
         }
         // GET: ActivityManage/Create
