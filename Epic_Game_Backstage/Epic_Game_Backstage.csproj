@@ -398,7 +398,6 @@
     <Content Include="Views\ProductManage\Index.cshtml" />
     <Content Include="Views\ProductManage\Create.cshtml" />
     <Content Include="Views\NewsManage\Create.cshtml" />
-    <Content Include="Views\NewsManage\Delete.cshtml" />
     <Content Include="Views\NewsManage\Edit.cshtml" />
     <Content Include="Views\NewsManage\searchsort.cshtml" />
     <Content Include="Views\NewsManage\NewsPartail.cshtml" />
@@ -414,8 +413,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\OrderManage\ordersearchsort.cshtml" />
     <Content Include="Views\OrderManage\OrderPartial.cshtml" />
-    <Content Include="Views\OrderManage\Edit.cshtml" />
-    <Content Include="Views\OrderManage\Delete.cshtml" />
     <Content Include="Views\BackstageHome\Index.cshtml" />
     <Content Include="Views\UserManage\Index.cshtml" />
     <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
