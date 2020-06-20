@@ -4,8 +4,6 @@ let CatArray = []
 let num = Obj.Category;
 let d = 1;
 for (let i = 0; i < 15; i++) {
-    let t = num & 1;
-    debugger;
     if (num & 1 == 1) {
         CatArray.push(d.toString());
     }
@@ -13,7 +11,6 @@ for (let i = 0; i < 15; i++) {
     d *= 2;
 }
 
-debugger;
 
 //Vue
 Vue.component('swiper-compo', {
@@ -82,45 +79,34 @@ var PInfo = new Vue({
         ProPrivInfo: Obj.PrivacyPolicy,
         ProPrivLink: Obj.PrivacyPolicyUrl,
         CategoriesGroup: CatArray,
-        CategoriesText: {
-            "1": "Action",
-            "2": "Adventure",
-            "4": "Editors",
-            "8": "Puzzle",
-            "16": "Racing",
-            "32": "RPG",
-            "64": "Shooter",
-            "128": "Strategy",
-            "256": "Survival",
-            "512": "ControllerSupport",
-            "1024": "CoOp",
-            "2048": "SinglePlayer",
-            "4096": "Multiplayer",
-            "8192": "Windows",
-            "16384": "MacOS"
-        }
+        Catagories: [
+            { number: "1", name: "Action" },
+            { number: "2", name: "Adventure" },
+            { number: "4", name: "Editors" },
+            { number: "8", name: "Puzzle" },
+            { number: "16", name: "Racing" },
+            { number: "32", name: "RPG" },
+            { number: "64", name: "Shooter" },
+            { number: "128", name: "Strategy" },
+            { number: "256", name: "Survival" },
+            { number: "512", name: "ControllerSupport" },
+            { number: "1024", name: "CoOp" },
+            { number: "2048", name: "SinglePlayer" },
+            { number: "4096", name: "Multiplayer" },
+            { number: "8192", name: "Windows" },
+            { number: "16384", name: "MacOS" }
+        ]
     },
     methods: {
-        changeColor: function (event) {
-            let inputTarget = event.target;
-            if (inputTarget.className.includes('primary')) {
-                inputTarget.setAttribute('class', 'btn btn-secondary')
-            } else {
-                inputTarget.setAttribute('class', 'btn btn-primary')
+        ifSelected: function (e) {
+            debugger;
+            if (!this.CategoriesGroup.includes(e)) {
+                return true;
+            }
+            else {
+                return false;
             }
         },
-        getCats: function () {
-            let res = [];
-            let num = Obj.Category;
-            for (let i = 0; i < 15; i++) {
-                if (num & i == i) {
-                    debugger;
-                    res.push(i.toString());
-                    num >>> 1;
-                }
-            }
-            return res;
-        }
     }
 });
 

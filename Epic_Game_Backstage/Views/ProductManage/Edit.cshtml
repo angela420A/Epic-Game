@@ -92,71 +92,132 @@
                         <label id="inputGroup-sizing-lg">Product's categories:</label>
                     </div>
                     <!-- btn Area -->
+                    @*<div>
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Action" value="1"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" v-if="ifSeclectCat" for="Ctgy_Action">Action</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Adventure" value="2"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Adventure">Adventure</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Editors" value="4"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Editors">Editors</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Puzzle" value="8"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Puzzle">Puzzle</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Racing" value="16"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Racing">Racing</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_RPG" value="32"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_RPG">RPG</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Shooter" value="64"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Shooter">Shooter</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Strategy" value="128"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Strategy">Strategy</label>
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Survival" value="256"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Survival">Survival</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_ControllerSupport" value="512"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary"
+                   for="Ctgy_ControllerSupport">Controller Support</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_CoOp" value="1024"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_CoOp">Co-Op</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_SinglePlayer" value="2048"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_SinglePlayer">
+                Single
+                Player
+            </label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Multiplayer" value="4096"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary"
+                   for="Ctgy_Multiplayer">Multi-player</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Windows" value="8192"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Windows">Windows</label>
+
+            <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_MacOS" value="16384"
+                   style="display: none;">
+            <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_MacOS">Mac OS</label>
+
+        </div>*@
                     <div>
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Action" value="1"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Action">Action</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Action" value="1" style="display: none;">
+                        <label v-if="ifSelected('1')" class="btn btn-secondary" for="Ctgy_Action">Action</label>
+                        <label v-if="!(ifSelected('1'))" class="btn btn-primary" for="Ctgy_Action">Action</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Adventure" value="2"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Adventure">Adventure</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Adventure" value="2" style="display: none;">
+                        <label v-if="ifSelected('2')" class="btn btn-secondary" for="Ctgy_Adventure">Adventure</label>
+                        <label v-if="!(ifSelected('2'))" class="btn btn-primary" for="Ctgy_Adventure">Adventure</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Editors" value="4"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Editors">Editors</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Editors" value="4" style="display: none;">
+                        <label v-if="ifSelected('4')" class="btn btn-secondary" for="Ctgy_Editors">Editors</label>
+                        <label v-if="!(ifSelected('4'))" class="btn btn-primary" for="Ctgy_Editors">Editors</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Puzzle" value="8"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Puzzle">Puzzle</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Puzzle" value="8" style="display: none;">
+                        <label v-if="ifSelected('8')" class="btn btn-secondary" for="Ctgy_Puzzle">Puzzle</label>
+                        <label v-if="!(ifSelected('8'))" class="btn btn-primary" for="Ctgy_Puzzle">Puzzle</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Racing" value="16"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Racing">Racing</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Racing" value="16" style="display: none;">
+                        <label v-if="ifSelected('16')" class="btn btn-secondary" for="Ctgy_Racing">Racing</label>
+                        <label v-if="!(ifSelected('16'))" class="btn btn-primary" for="Ctgy_Racing">Racing</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_RPG" value="32"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_RPG">RPG</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_RPG" value="32" style="display: none;">
+                        <label v-if="ifSelected('32')" class="btn btn-secondary" for="Ctgy_RPG">RPG</label>
+                        <label v-if="!(ifSelected('32'))" class="btn btn-primary" for="Ctgy_RPG">RPG</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Shooter" value="64"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Shooter">Shooter</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Shooter" value="64" style="display: none;">
+                        <label v-if="ifSelected('64')" class="btn btn-secondary" for="Ctgy_Shooter">Shooter</label>
+                        <label v-if="!(ifSelected('64'))" class="btn btn-primary" for="Ctgy_Shooter">Shooter</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Strategy" value="128"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Strategy">Strategy</label>
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Survival" value="256"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Survival">Survival</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Strategy" value="128" style="display: none;">
+                        <label v-if="ifSelected('128')" class="btn btn-secondary" for="Ctgy_Strategy">Strategy</label>
+                        <label v-if="!(ifSelected('128'))" class="btn btn-primary" for="Ctgy_Strategy">Strategy</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_ControllerSupport" value="512"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary"
-                               for="Ctgy_ControllerSupport">Controller Support</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Survival" value="256" style="display: none;">
+                        <label v-if="ifSelected('256')" class="btn btn-secondary" for="Ctgy_Survival">Survival</label>
+                        <label v-if="!(ifSelected('256'))" class="btn btn-primary" for="Ctgy_Survival">Survival</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_CoOp" value="1024"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_CoOp">Co-Op</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_ControllerSupport" value="512" style="display: none;">
+                        <label v-if="ifSelected('512')" class="btn btn-secondary" for="Ctgy_ControllerSupport">Controller Support</label>
+                        <label v-if="!(ifSelected('512'))" class="btn btn-primary" for="Ctgy_ControllerSupport">Controller Support</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_SinglePlayer" value="2048"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_SinglePlayer">
-                            Single
-                            Player
-                        </label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_CoOp" value="1024" style="display: none;">
+                        <label v-if="ifSelected('1024')" class="btn btn-secondary" for="Ctgy_CoOp">Co-Op</label>
+                        <label v-if="!(ifSelected('1024'))" class="btn btn-primary" for="Ctgy_CoOp">Co-Op</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Multiplayer" value="4096"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary"
-                               for="Ctgy_Multiplayer">Multi-player</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_SinglePlayer" value="2048" style="display: none;">
+                        <label v-if="ifSelected('2048')" class="btn btn-secondary" for="Ctgy_SinglePlayer">Single Player</label>
+                        <label v-if="!(ifSelected('2048'))" class="btn btn-primary" for="Ctgy_SinglePlayer">Single Player</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Windows" value="8192"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_Windows">Windows</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Multiplayer" value="4096" style="display: none;">
+                        <label v-if="ifSelected('4096')" class="btn btn-secondary" for="Ctgy_Multiplayer">Multi-player</label>
+                        <label v-if="!(ifSelected('4096'))" class="btn btn-primary" for="Ctgy_Multiplayer">Multi-player</label>
 
-                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_MacOS" value="16384"
-                               style="display: none;">
-                        <label v-on:click="changeColor" class="btn btn-secondary" for="Ctgy_MacOS">Mac OS</label>
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_Windows" value="8192" style="display: none;">
+                        <label v-if="ifSelected('8192')" class="btn btn-secondary" for="Ctgy_Windows">Windows</label>
+                        <label v-if="!(ifSelected('8192'))" class="btn btn-primary" for="Ctgy_Windows">Windows</label>
 
+                        <input v-model="CategoriesGroup" type="checkbox" id="Ctgy_MacOS" value="16384" style="display: none;">
+                        <label v-if="ifSelected('16384')" class="btn btn-secondary" for="Ctgy_MacOS">Mac OS</label>
+                        <label v-if="!(ifSelected('16384'))" class="btn btn-primary" for="Ctgy_MacOS">Mac OS</label>
                     </div>
                 </div>
             </div>
