@@ -94,7 +94,7 @@ namespace Epic_Game_Backstage.Controllers
         // GET: ActivityManage/Edit
         public ActionResult Edit(string id)
         {
-            var result = blo.GetUserEdit(id);
+            var result = blo.GetEdit(id);
             return View(result);
         }
         // GET: ActivityManage/Edit
@@ -104,5 +104,11 @@ namespace Epic_Game_Backstage.Controllers
         //    return View(vm);
         //}
         //uploadImg 寫在ProductManage
+
+        public void UpDate(ActivityViewModel VM)
+        {
+            blo = new ActivityManageBLO();
+            blo.UpDate(VM);
+        }
     }
 }

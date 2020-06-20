@@ -110,11 +110,17 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             return result;
         }
 
-        public ActivityViewModel GetUserEdit(string id)
+        public ActivityViewModel GetEdit(string id)
         {
             dao = new ActivityManageDAO();
-            var result = dao.GetUserActivities(id);
+            var result = dao.GetActivities(id);
             return ModelToView(result);
+        }
+
+        public void UpDate(ActivityViewModel VM)
+        {
+            dao = new ActivityManageDAO();
+            dao.UpDate(VM);
         }
     }
 }

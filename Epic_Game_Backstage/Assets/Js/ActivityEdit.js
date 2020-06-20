@@ -68,6 +68,7 @@ var SubmitVue = new Vue({
     methods: {
         createActivity: function () {
             let Activity = {
+                ActivityID: obj.ActivityID,
                 ProductName: Proto.ProName,
                 Title: Proto.ProTitle,
                 Content: Proto.ProContext,
@@ -75,7 +76,7 @@ var SubmitVue = new Vue({
                 Picture: ImgVue.logoImage
             }
             $.ajax({
-                url: "/ActivityManage/CreateAct",
+                url: "/ActivityManage/UpDate",
                 type: "post",
                 data: { jdata: JSON.stringify(Activity) },
 
