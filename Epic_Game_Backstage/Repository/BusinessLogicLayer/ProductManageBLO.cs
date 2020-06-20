@@ -194,7 +194,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             vm.StoreImg = imgs.FirstOrDefault(x => x.Location == 0).Url;
             vm.GameLogo = imgs.FirstOrDefault(x => x.Location == 1).Url;
             vm.SwiperImg = imgs.Where(x => x.Location == 2).Select(x => x.Url).ToList();
-            vm.SwiperImg = imgs.Where(x => x.Location == 3).Select(x => x.Url).ToList();
+            vm.ScreenShots = imgs.Where(x => x.Location == 3).Select(x => x.Url).ToList();
             return vm;
         }
         public List<SpecificationCreateViewModel> MappinSpecificationToVM(List<Specifications> specs)

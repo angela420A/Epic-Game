@@ -1,20 +1,10 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
-let CatArray = []
 
-let num = Obj.Category;
-let d = 1;
-for (let i = 0; i < 15; i++) {
-    if (num & 1 == 1) {
-        CatArray.push(d.toString());
-    }
-    num = num >>> 1;
-    d *= 2;
-}
-
+$('#editor1').html(Obj.Description.replace(/\r\n|\n|\r/g, '<br />'));
 
 //Vue
 Vue.component('swiper-compo', {
-    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
+    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="This file is not a picture." style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -78,7 +68,7 @@ var PInfo = new Vue({
         ProAgeRestrct: Obj.AgeRestriction,
         ProPrivInfo: Obj.PrivacyPolicy,
         ProPrivLink: Obj.PrivacyPolicyUrl,
-        CategoriesGroup: CatArray,
+        CategoriesGroup: [],
         Catagories: [
             { number: "1", name: "Action" },
             { number: "2", name: "Adventure" },
@@ -99,7 +89,6 @@ var PInfo = new Vue({
     },
     methods: {
         ifSelected: function (e) {
-            debugger;
             if (!this.CategoriesGroup.includes(e)) {
                 return true;
             }
@@ -110,13 +99,23 @@ var PInfo = new Vue({
     }
 });
 
+let num = Obj.Category;
+let d = 1;
+for (let i = 0; i < 15; i++) {
+    if (num & 1 == 1) {
+        PInfo.CategoriesGroup.push(d.toString());
+    }
+    num = num >>> 1;
+    d *= 2;
+};
+
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        storeImage: "",
-        logoImage: "",
-        swiperList: [],
-        UploadList: []
+        storeImage: Obj.ImageVM.StoreImg,
+        logoImage: Obj.ImageVM.GameLogo,
+        swiperList: Obj.ImageVM.SwiperImg,
+        UploadList: Obj.ImageVM.ScreenShots
     },
     methods: {
         showFile(e) {
@@ -136,7 +135,6 @@ var ImgVue = new Vue({
                 }
                 this.UploadList.push(data);
             }
-            debugger;
             this.submit(input);
         },
         submit: function (input) {
@@ -169,12 +167,12 @@ var ImgVue = new Vue({
             debugger;
             array.forEach(element => {
                 switch (input) {
-                    case "StoreImage":
-                        this.storeImage = element;
-                        break;
-                    case "LogoImage":
-                        this.logoImage = element;
-                        break;
+                    //case "StoreImage":
+                    //    this.storeImage = element;
+                    //    break;
+                    //case "LogoImage":
+                    //    this.logoImage = element;
+                    //    break;
                     case "SwiperImage":
                         this.swiperList.push(element);
                         break;
@@ -198,6 +196,7 @@ var ImgVue = new Vue({
             //        $(father).append(swiper);
             //    });
             //}
+            //<div class="ImgArea"><img :src="imgUrl" alt="Sorry, the link is not a picture or is currently unvailable" style="width: 100%; height:100%; object-fit: cover"></div>
         }
     }
 });
@@ -217,13 +216,7 @@ var PIntroVue = new Vue({
 var SocialMediaVue = new Vue({
     el: "#SocialMediaVue",
     data: {
-        MediaList: [
-            {
-                Community: "other",
-                URL: "https://mafiagame.com/zh-TW",
-                Icon: "fas fa-globe"
-            }
-        ],
+        MediaList: [],
         Media: "youtube",
         MediaUrl: "",
         MediaIcon: {
@@ -238,17 +231,25 @@ var SocialMediaVue = new Vue({
     },
     methods: {
         AddNewMedia: function (e) {
-            var id = $('#MediaType').val();
-            debugger;
-            let SM = {
-                Community: this.Media,
-                URL: this.MediaUrl,
-                Icon: this.MediaIcon[this.Media]
-            }
+            //var id = $('#MediaType').val();
+            let SM = this.transformToSM(this.Media, this.MediaUrl, this.MediaIcon);
             this.MediaUrl = "";
             this.MediaList.push(SM);
+        },
+        transformToSM: function (media, url, icons) {
+            let obj = {
+                Community: media,
+                URL: url,
+                Icon: icons[media]
+            };
+            return obj;
         }
     }
+});
+
+Obj.SMVM.forEach(el => {
+    let obj = SocialMediaVue.transformToSM(el.Community, el.URL, SocialMediaVue.MediaIcon);
+    SocialMediaVue.MediaList.push(obj);
 });
 
 var SpecVue = new Vue({
@@ -316,6 +317,21 @@ var SpecVue = new Vue({
     }
 });
 
+Obj.SPVM.forEach(el => {
+    let sp = SpecVue.spec[el.Type];
+    sp.OS = el.OS;
+    sp.CPU = el.CPU;
+    sp.GPU = el.GPU;
+    sp.Processor = el.Processor;
+    sp.RAM = el.RAM;
+    sp.Memory = el.Memory;
+    sp.Storage = el.Storage;
+    sp.GraphiceCard = el.GraphiceCard;
+    sp.HDD = el.HDD;
+    sp.DirectX = el.DirectX;
+    sp.Addtional_Feature = el.Addtional_Feature;
+});
+
 var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
@@ -344,7 +360,7 @@ var SubmitVue = new Vue({
             }
 
             $.ajax({
-                url: "/ProductManage/CreateProduct",
+                url: "/ProductManage/Edit",
                 type: "post",
                 data: { jdata: JSON.stringify(ProductVM) },
                 success: function () {
