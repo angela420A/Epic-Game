@@ -95,3 +95,13 @@
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+/*delete*/
+.delete_h3 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+}
+.delete_table {
+    margin-left:10px;
+}
