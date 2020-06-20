@@ -17,6 +17,18 @@
                 </p>
             </div>
             <div class="activityManage_srarch text-center">
+                <div class="am-search-item">
+                    <label for="activityId">Activity Id</label>
+                    @Html.RadioButton("item", "Activity Id", new { @id = "activityId" })
+                    <label for="productName">Product Name</label>
+                    @Html.RadioButton("item", "Product Name", new { @id = "productName" })
+                    <label for="title">Title</label>
+                    @Html.RadioButton("item", "Title", new { @id = "title" })
+                    <label for="content">Content</label>
+                    @Html.RadioButton("item", "Content", new { @id = "content" })
+                    <label for="time">Time</label>
+                    @Html.RadioButton("item", "Time", new { @id = "time" })
+                </div>
                 <div class="am-search-input">
                     <p>
                         @Html.Label("Search")@Html.TextBox("search")

@@ -43,6 +43,16 @@
     font-family: Microsoft JhengHei;
 }
 
+.am-search-item label {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.am-search-item input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .am-search-input label {
     color: #EF8157;
     margin-right: 10px;
