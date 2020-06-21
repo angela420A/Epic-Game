@@ -53,7 +53,7 @@ var ImgVue = new Vue({
                 url = res;
             });
             this.logoImage = url;
-            this.showImage(url);
+            //this.showImage(url);
         },
         showImage: function (url) {
             let father = '#LogoImageArea';

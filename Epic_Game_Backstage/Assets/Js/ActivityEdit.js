@@ -1,4 +1,5 @@
-﻿var Proto = new Vue({
+﻿//輸入框
+var Proto = new Vue({
     el: '#activityitem',
     data: {
         ProTitle: obj.Title,
@@ -8,10 +9,23 @@
     }
 });
 
+//Vue.component('swiper-compo', {
+//    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="This file is not a picture." style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
+//    props: ['swiper'],
+//    name: 'siwper-compo',
+//    methods: {
+//        deleteUrl: function (e) {
+//            var url = e.path[1].querySelector('img').currentSrc;
+//            var index = ImgVue.swiperList.indexOf(url);
+//            ImgVue.swiperList.splice(index, 1);
+//        }
+//    }
+//});
+//圖片
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        logoImage: "",
+        logoImage: obj.Picture,
         UploadImg: {}
     },
     methods: {
@@ -52,7 +66,7 @@ var ImgVue = new Vue({
                 url = res;
             });
             this.logoImage = url;
-            this.showImage(url);
+            //this.showImage(url);
         },
         showImage: function (url) {
             let father = '#LogoImageArea';
