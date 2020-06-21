@@ -26,10 +26,10 @@ namespace Epic_Game_Backend.ActionFilter
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "Login" }));
                 return;
             }
-
+            var t = user.IsInRole("Admin");
             if (!user.IsInRole("Admin"))
             {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "MemberLogOff" }));
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Account", action = "Login" }));
                 return;
             }
         }

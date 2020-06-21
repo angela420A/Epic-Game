@@ -166,7 +166,9 @@ namespace Epic_Game_Backend.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "確認您的帳戶", "請按一下此連結確認您的帳戶 <a href=\"" + callbackUrl + "\">這裏</a>");
 
                     var RoleName = "Admin";
-
+                    var a = HttpContext.GetOwinContext();
+                    var b = a.Get<ApplicationRoleManager>();
+                    var c = b.RoleExists(RoleName);
                     //判斷角色是否存在
                     if (HttpContext.GetOwinContext().Get<ApplicationRoleManager>().RoleExists(RoleName) == false)
                     {
