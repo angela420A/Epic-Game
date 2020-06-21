@@ -122,6 +122,12 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
         }
 
         //吳家寶
+        public string connString = ConfigurationManager.ConnectionStrings["EGContext"].ConnectionString;
+        SqlConnection conn;
+        public void FindData()
+        {
+            conn = new SqlConnection(connString);
+        }
         public int GetSalesVol(string id)
         {
             using (var _context = new EGContext())
