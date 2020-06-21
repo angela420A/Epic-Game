@@ -4,82 +4,94 @@
     <link href="~/Assets/css/ProductDetails/ProductDetails.css" rel="stylesheet" />
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-4">
-            <h3>ProductDetails</h3>
+<div class="productDerails-root">
+    <div class="productDerails-data">
+        <div class="pd-data-header">
+            <div class="pd-d-header-title">
+                <h3>ProductDetails</h3>
+                <hr />
+                <p>
+                    Here you can see information about this product
+                </p>
+            </div>
             <div style="width: 135px">
                 <div style="padding-bottom: calc(4/3 * 100%); position: relative">
                     <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model._detailtext.Img_Url)');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
                 </div>
             </div>
-            <hr />
-            <dl class="dl-horizontal">
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.ProductId)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.ProductId)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.ProductName)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.ProductName)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.Developer)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.Developer)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.Publisher)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.Publisher)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.ReleaseDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.ReleaseDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.sales_volume)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model._detailtext.sales_volume)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model._detailtext.total_income)
-                </dt>
-
-                <dd>
-                    NTD : @Html.DisplayFor(model => model._detailtext.total_income)
-                </dd>
-
-            </dl>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model._detailtext.ProductId }) |
-                @Html.ActionLink("Back to List", "Index")
-            </p>
         </div>
-        <div class="col-12 col-md-8">
-            <canvas id="sales_chart" width="400" height="400"></canvas>
+
+        <hr />
+
+        <div class="pd-data-input">
+            <div class="pd-d-input-item">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.ProductId)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.ProductId)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.ProductName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.ProductName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.Developer)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.Developer)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.Publisher)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.Publisher)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.ReleaseDate)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.ReleaseDate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.sales_volume)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._detailtext.sales_volume)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model._detailtext.total_income)
+                    </dt>
+
+                    <dd>
+                        NTD : @Html.DisplayFor(model => model._detailtext.total_income)
+                    </dd>
+
+                </dl>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model._detailtext.ProductId }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+            <div class="pd-d-input-chart">
+                <canvas id="sales_chart" width="400" height="400"></canvas>
+            </div>
         </div>
     </div>
 </div>
