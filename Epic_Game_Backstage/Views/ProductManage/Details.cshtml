@@ -109,7 +109,7 @@
             data: {
                 labels: @Html.Raw(Json.Encode(Model._chart_toarray.DaysOfMonth)),
                 datasets: [{
-                    label:"@Html.DisplayFor(model => model._detailtext.ProductName)",
+                    label: "Product",
                     data: @Html.Raw(Json.Encode(Model._chart_toarray.CountOfDay)),
                     fill: false,
                     backgroundColor: 'rgba(255,165,0,0.3)',
