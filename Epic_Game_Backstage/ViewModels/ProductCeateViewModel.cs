@@ -8,6 +8,8 @@ namespace Epic_Game_Backstage.ViewModels
 {
     public class ProductCeateViewModel
     {
+        public string ProductID { get; set; }
+
         [Required]
         [StringLength(20)]
         public string ContentType { get; set; }
@@ -50,7 +52,6 @@ namespace Epic_Game_Backstage.ViewModels
         public string PrivacyPolicyUrl { get; set; }
 
         public ImageCreateViewModel ImageVM { get; set; }
-
         public List<SocialMediaCreateViewModel> SMVM { get; set; }
         public List<SpecificationCreateViewModel> SPVM { get; set; }
     }

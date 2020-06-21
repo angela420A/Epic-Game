@@ -218,6 +218,7 @@
     <Content Include="Assets\js\plugins\bootstrap-notify.js" />
     <Content Include="Assets\js\plugins\chartjs.min.js" />
     <Content Include="Assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assets\Js\ProductManageEdit.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Assets\css\ProductCreate.css" />
@@ -420,6 +421,7 @@
     <Content Include="Views\ActivityManage\Create.cshtml" />
     <Content Include="Views\ActivityManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Details.cshtml" />
+    <Content Include="Views\ProductManage\Edit.cshtml" />
     <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
     <Content Include="Views\BackstageHome\PiePartial.cshtml" />
     <Content Include="Views\ActivityManage\Delete.cshtml" />
