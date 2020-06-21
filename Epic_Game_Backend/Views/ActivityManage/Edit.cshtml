@@ -57,6 +57,9 @@
                 <h4 style="text-align:center">Game Logo</h4>
                 <div style="border: 1px solid #999; margin-top:67.5px">
                     <div id="LogoImageArea" style="padding-bottom: calc(3/5 * 100%); position: relative">
+                        <div class="ImgArea">
+                            <img v-if="logoImage.length>0" :src="logoImage" alt="Alternate Text" />
+                        </div>
                     </div>
                 </div>
             </div>

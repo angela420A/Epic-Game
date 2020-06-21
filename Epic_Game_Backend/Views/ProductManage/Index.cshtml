@@ -41,12 +41,6 @@
                         @Html.ActionLink("Price", "Index", new { sort = "Price", nowsort = ViewBag.Nowsort })
                     </th>
                     <th>
-                        @Html.ActionLink("Developer", "Index", new { sort = "Developer", nowsort = ViewBag.Nowsort })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Publisher", "Index", new { sort = "Publisher", nowsort = ViewBag.Nowsort })
-                    </th>
-                    <th>
                         @Html.ActionLink("ReleaseDate", "Index", new { sort = "ReleaseDate", nowsort = ViewBag.Nowsort })
                     </th>
                     <th>
@@ -75,12 +69,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Price).ToString().Trim('0').Trim('.')
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Developer)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Publisher)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ReleaseDate)

@@ -107,10 +107,11 @@ namespace Epic_Game_Backend.Controllers
         //}
         //uploadImg 寫在ProductManage
 
-        public void UpDate(ActivityViewModel VM)
+        public void UpDate(string jdata)
         {
             blo = new ActivityManageBLO();
-            blo.UpDate(VM);
+            ActivityViewModel AVM = JsonConvert.DeserializeObject<ActivityViewModel>(jdata);
+            blo.UpDate(AVM);
         }
     }
 }
