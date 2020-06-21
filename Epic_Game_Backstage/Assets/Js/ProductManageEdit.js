@@ -1,7 +1,10 @@
 ﻿CKEDITOR.replace('editor1', { customConfig: '/Assets/Js/ckeditorconfig_Product.js' });
+
+$('#editor1').html(Obj.Description.replace(/\r\n|\n|\r/g, '<br />'));
+
 //Vue
 Vue.component('swiper-compo', {
-    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="swiper" style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
+    template: '<li class="col-3" v-on:click="deleteUrl"><div style="border: 1px solid #999;" class="swiper-wrap"><div class="DeleteSwiper" id="DeleteSwiper"></div><div style="padding-bottom: calc(3/5 * 100%); position: relative"><div class="ImgArea"><img :src="swiper" alt="This file is not a picture." style="width: 100%; height:100%; object-fit: cover"></div></div></div></li>',
     props: ['swiper'],
     name: 'siwper-compo',
     methods: {
@@ -56,53 +59,63 @@ Vue.component('media-compo', {
 var PInfo = new Vue({
     el: '#ProductInfoVue',
     data: {
-        ProName: "Mafia: Trilogy",
-        ProPrice: "1799",
-        ProType: "Game",
-        ProDeveloper: "Hangar 13",
-        ProPublisher: "2K",
-        ProContext: "Play all three crime dramas in the Mafia franchise in glorious ultra HD detail, including the built from the ground up, faithfully reimagined edition of the critically acclaimed original, Mafia.",
-        ProAgeRestrct: "14",
-        ProPrivInfo: "© 2020 TAKE-TWO INTERACTIVE SOFTWARE, INC. DEVELOPED BY HANGAR 13. MAFIA, TAKE-TWO INTERACTIVE SOFTWARE, 2K, HANGAR 13, AND THEIR RESPECTIVE LOGOS ARE ALL TRADEMARKS AND/OR REGISTERED TRADEMARKS OF TAKE-TWO INTERACTIVE SOFTWARE, INC. THE RATINGS ICON IS A TRADEMARK OF THE ENTERTAINMENT SOFTWARE ASSOCIATION. ALL OTHER MARKS ARE PROPERTY OF THEIR RESPECTIVE OWNERS. ALL RIGHTS RESERVED.",
-        ProPrivLink: "https://www.take2games.com/privacy",
+        ProName: Obj.ProductName,
+        ProPrice: Obj.Price,
+        ProType: Obj.ContentType,
+        ProDeveloper: Obj.Developer,
+        ProPublisher: Obj.Publisher,
+        ProContext: Obj.Title,
+        ProAgeRestrct: Obj.AgeRestriction,
+        ProPrivInfo: Obj.PrivacyPolicy,
+        ProPrivLink: Obj.PrivacyPolicyUrl,
         CategoriesGroup: [],
-        CategoriesText: {
-            "1": "Action",
-            "2": "Adventure",
-            "4": "Editors",
-            "8": "Puzzle",
-            "16": "Racing",
-            "32": "RPG",
-            "64": "Shooter",
-            "128": "Strategy",
-            "256": "Survival",
-            "512": "ControllerSupport",
-            "1024": "CoOp",
-            "2048": "SinglePlayer",
-            "4096": "Multiplayer",
-            "8192": "Windows",
-            "16384": "MacOS"
-        }
+        Catagories: [
+            { number: "1", name: "Action" },
+            { number: "2", name: "Adventure" },
+            { number: "4", name: "Editors" },
+            { number: "8", name: "Puzzle" },
+            { number: "16", name: "Racing" },
+            { number: "32", name: "RPG" },
+            { number: "64", name: "Shooter" },
+            { number: "128", name: "Strategy" },
+            { number: "256", name: "Survival" },
+            { number: "512", name: "ControllerSupport" },
+            { number: "1024", name: "CoOp" },
+            { number: "2048", name: "SinglePlayer" },
+            { number: "4096", name: "Multiplayer" },
+            { number: "8192", name: "Windows" },
+            { number: "16384", name: "MacOS" }
+        ]
     },
     methods: {
-        changeColor: function (event) {
-            let inputTarget = event.target;
-            if (inputTarget.className.includes('primary')) {
-                inputTarget.setAttribute('class', 'btn btn-secondary')
-            } else {
-                inputTarget.setAttribute('class', 'btn btn-primary')
+        ifSelected: function (e) {
+            if (!this.CategoriesGroup.includes(e)) {
+                return true;
             }
-        }
+            else {
+                return false;
+            }
+        },
     }
 });
+
+let num = Obj.Category;
+let d = 1;
+for (let i = 0; i < 15; i++) {
+    if (num & 1 == 1) {
+        PInfo.CategoriesGroup.push(d.toString());
+    }
+    num = num >>> 1;
+    d *= 2;
+};
 
 var ImgVue = new Vue({
     el: '#app',
     data: {
-        storeImage: "",
-        logoImage: "",
-        swiperList: [],
-        UploadList: []
+        storeImage: Obj.ImageVM.StoreImg,
+        logoImage: Obj.ImageVM.GameLogo,
+        swiperList: Obj.ImageVM.SwiperImg,
+        UploadList: Obj.ImageVM.ScreenShots
     },
     methods: {
         showFile(e) {
@@ -122,7 +135,6 @@ var ImgVue = new Vue({
                 }
                 this.UploadList.push(data);
             }
-            debugger;
             this.submit(input);
         },
         submit: function (input) {
@@ -155,12 +167,12 @@ var ImgVue = new Vue({
             debugger;
             array.forEach(element => {
                 switch (input) {
-                    case "StoreImage":
-                        this.storeImage = element;
-                        break;
-                    case "LogoImage":
-                        this.logoImage = element;
-                        break;
+                    //case "StoreImage":
+                    //    this.storeImage = element;
+                    //    break;
+                    //case "LogoImage":
+                    //    this.logoImage = element;
+                    //    break;
                     case "SwiperImage":
                         this.swiperList.push(element);
                         break;
@@ -184,6 +196,7 @@ var ImgVue = new Vue({
             //        $(father).append(swiper);
             //    });
             //}
+            //<div class="ImgArea"><img :src="imgUrl" alt="Sorry, the link is not a picture or is currently unvailable" style="width: 100%; height:100%; object-fit: cover"></div>
         }
     }
 });
@@ -203,13 +216,7 @@ var PIntroVue = new Vue({
 var SocialMediaVue = new Vue({
     el: "#SocialMediaVue",
     data: {
-        MediaList: [
-            {
-                Community: "other",
-                URL: "https://mafiagame.com/zh-TW",
-                Icon: "fas fa-globe"
-            }
-        ],
+        MediaList: [],
         Media: "youtube",
         MediaUrl: "",
         MediaIcon: {
@@ -224,17 +231,25 @@ var SocialMediaVue = new Vue({
     },
     methods: {
         AddNewMedia: function (e) {
-            var id = $('#MediaType').val();
-            debugger;
-            let SM = {
-                Community: this.Media,
-                URL: this.MediaUrl,
-                Icon: this.MediaIcon[this.Media]
-            }
+            //var id = $('#MediaType').val();
+            let SM = this.transformToSM(this.Media, this.MediaUrl, this.MediaIcon);
             this.MediaUrl = "";
             this.MediaList.push(SM);
+        },
+        transformToSM: function (media, url, icons) {
+            let obj = {
+                Community: media,
+                URL: url,
+                Icon: icons[media]
+            };
+            return obj;
         }
     }
+});
+
+Obj.SMVM.forEach(el => {
+    let obj = SocialMediaVue.transformToSM(el.Community, el.URL, SocialMediaVue.MediaIcon);
+    SocialMediaVue.MediaList.push(obj);
 });
 
 var SpecVue = new Vue({
@@ -302,11 +317,27 @@ var SpecVue = new Vue({
     }
 });
 
+Obj.SPVM.forEach(el => {
+    let sp = SpecVue.spec[el.Type];
+    sp.OS = el.OS;
+    sp.CPU = el.CPU;
+    sp.GPU = el.GPU;
+    sp.Processor = el.Processor;
+    sp.RAM = el.RAM;
+    sp.Memory = el.Memory;
+    sp.Storage = el.Storage;
+    sp.GraphiceCard = el.GraphiceCard;
+    sp.HDD = el.HDD;
+    sp.DirectX = el.DirectX;
+    sp.Addtional_Feature = el.Addtional_Feature;
+});
+
 var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
         createProduct: function () {
             let ProductVM = {
+                ProductID : Obj.ProductID,
                 ProductName: PInfo.ProName,
                 Price: PInfo.ProPrice,
                 ContentType: PInfo.ProType,
@@ -326,10 +357,11 @@ var SubmitVue = new Vue({
                 },
                 SMVM: this.transformMedia(),
                 SPVM: SpecVue.spec
+
             }
 
             $.ajax({
-                url: "/ProductManage/CreateProduct",
+                url: "/ProductManage/Edit",
                 type: "post",
                 data: { jdata: JSON.stringify(ProductVM) },
                 success: function () {
