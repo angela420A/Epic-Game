@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Epic_Game_Backstage.Controllers
 {
@@ -18,9 +19,31 @@ namespace Epic_Game_Backstage.Controllers
         {
             blo = new ActivityManageBLO();
         }
-        public ActionResult Index()
+        public ActionResult Index(string search, string item)
         {
             var vm = blo.GetActivityManageView();
+            if (!String.IsNullOrEmpty(search))
+            {
+                switch (item)
+                {
+                    case "Activity Id":
+                        vm = vm.Where(x => x.ActivityID.ToString().Contains(search)).ToList();
+                        break;
+                    case "Product Name":
+                        vm = vm.Where((x) => x.ProductName.Contains(search)).ToList();
+                        break;
+                    case "Title":
+                        vm = vm.Where((x) => x.Title.Contains(search)).ToList();
+                        break;
+                    case "Content":
+                        vm = vm.Where((x) => x.Content.Contains(search)).ToList();
+                        break;
+                    case "Time":
+                        vm = vm.Where((x) => x.Time.ToString().Contains(search)).ToList();
+                        break;
+                }
+            }
+
             return View(vm);
         }
         // GET: ActivityManage/Create
@@ -40,31 +63,52 @@ namespace Epic_Game_Backstage.Controllers
         }
 
         // GET: ActivityManage/Delete
-        public ActionResult Delete()
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return Content("Please input ID");
+            }
+            EGContext db = new EGContext();
+            Activity act = db.Activity.Find(id);
+
+            if (act == null)
+            {
+                return HttpNotFound();
+            }
+            return View(act);
         }
         //接資料
         [HttpPost]
-        public ActionResult Delete(string jdata)
+        public ActionResult Delete(int id)
         {
-            ActivityViewModel AVM = JsonConvert.DeserializeObject<ActivityViewModel>(jdata);
-            blo = new ActivityManageBLO();
-            blo.DeleteActivity(AVM.ActivityID);
-            return View();
+
+            //EGContext db = new EGContext();
+            //Activity act = db.Activity.Find(id);
+            //db.Activity.Remove(act);
+            //db.SaveChanges();
+            blo.DeleteActivity(id);
+            return RedirectToAction("Index");
         }
 
         // GET: ActivityManage/Edit
-        public ActionResult Edit()
+        public ActionResult Edit(string id)
         {
-            return View();
+            var result = blo.GetEdit(id);
+            return View(result);
         }
         // GET: ActivityManage/Edit
-        public ActionResult Details(string id)
-        {
-            var vm = blo.GetActivityDetailsView(id);
-            return View(vm);
-        }
+        //public ActionResult Details(string id)
+        //{
+        //    var vm = blo.GetActivityDetailsView(id);
+        //    return View(vm);
+        //}
         //uploadImg 寫在ProductManage
+
+        public void UpDate(ActivityViewModel VM)
+        {
+            blo = new ActivityManageBLO();
+            blo.UpDate(VM);
+        }
     }
 }

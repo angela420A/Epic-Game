@@ -20,32 +20,37 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
         {
             dao = new ActivityManageDAO();
             var Activity = dao.GetAllActivities();
-            return ModelToView(Activity);
+            return ModelsToViews(Activity);
         }
 
-        private List<ActivityViewModel> ModelToView(List<Activity> a)
+        private List<ActivityViewModel> ModelsToViews(List<Activity> a)
         {
             dao = new ActivityManageDAO();
             var result = new List<ActivityViewModel>();
-            foreach(var i in a)
+            foreach (var i in a)
             {
                 try
                 {
-                    var item = new ActivityViewModel
-                    {
-                        ActivityID = i.ActivityID.ToString(),
-                        Picture = i.IMG,
-                        Title = i.Slogan,
-                        ProductName = i.ActivityName,
-                        Content = i.Information,
-                        Time = i.Date
-                    };
+                    var item = ModelToView(i);
                     result.Add(item);
                 }
                 catch (Exception ex) { }
                 finally { }
             }
             return result;
+        }
+
+        private ActivityViewModel ModelToView(Activity i)
+        {
+            return new ActivityViewModel
+            {
+                ActivityID = i.ActivityID,
+                Picture = i.IMG,
+                Title = i.Slogan,
+                ProductName = i.ActivityName,
+                Content = i.Information,
+                Time = i.Date
+            };
         }
         public void ViewToModel(ActivityViewModel AVM)
         {
@@ -83,9 +88,39 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             };
             return result;
         }
-        public void DeleteActivity(string ActivityId)
+        //Delete
+        public void DeleteActivity(int id)
         {
-            dao.DeleteAct(ActivityId);
+            dao = new ActivityManageDAO();
+            dao.DeleteAct(id);
+        }
+
+        private ActivityViewModel ActivityToView(Activity a)
+        {
+            dao = new ActivityManageDAO();
+            var result = new ActivityViewModel()
+            {
+                    ActivityID = a.ActivityID,
+                    Picture = a.IMG,
+                    Title = a.Slogan,
+                    ProductName = a.ActivityName,
+                    Content = a.Information,
+                    Time = a.Date
+            };
+            return result;
+        }
+
+        public ActivityViewModel GetEdit(string id)
+        {
+            dao = new ActivityManageDAO();
+            var result = dao.GetActivities(id);
+            return ModelToView(result);
+        }
+
+        public void UpDate(ActivityViewModel VM)
+        {
+            dao = new ActivityManageDAO();
+            dao.UpDate(VM);
         }
     }
 }
