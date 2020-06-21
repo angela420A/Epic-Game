@@ -312,13 +312,13 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             dao = new ProductManageDAO();
 
             var UpdateList = OldList.GetUpdateEntities(NewList, (x, y) => CompareFunc(x, y)).ToList();
-            var DeleteList = OldList.Except(UpdateList);
+            var DeleteList = OldList.Except(UpdateList).ToList();
             var CreateList = NewList.Except(NewList.GetUpdateEntities(OldList, (x, y) => CompareFunc(x, y))).ToList();
 
             dao.CreateEntitiies(CreateList);
             dao.DeleteEntitiies(DeleteList);
 
-            UpdateList.ForEach(x => Mapping(NewList.FirstOrDefault(y => CompareFunc(x, y)), x));
+            UpdateList.ForEach(x => Mapping(x, NewList.FirstOrDefault(y => CompareFunc(x, y))));
             dao.UpdateEntities(UpdateList);
         }
         //吳家寶
