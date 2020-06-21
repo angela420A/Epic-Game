@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using Dapper;
+using Epic_Game_Backstage.ViewModels;
 using EpicGameLibrary.Models;
 using EpicGameLibrary.Repository;
 
@@ -132,6 +136,45 @@ namespace Epic_Game_Backstage.Repository.DataAccessLayer
                 var result = _context.Order.Where(x => x.ProductID.ToString().Equals(id)).Sum(x => x.Payment);
                 return result == null ? 0 : (int)result;
             }
+        }
+        public Chart_Data_Toarray GetSalesCount(string ProductId)
+        {
+            FindData();
+            List<Chart_Data> SC = new List<Chart_Data>();
+            Chart_Data_Toarray result = new Chart_Data_Toarray();
+            using (conn = new SqlConnection(connString))
+            {
+                string sql = @"select datepart(DD, o.Date) as DaysOfMonth, count(datepart(DD, o.Date))as CountOfDay
+                               from [Order] o
+                               where
+	                           datepart(mm, o.Date) =  (select  datepart(mm, getdate())) 
+	                           AND
+	                           datepart(YYYY, o.Date) =  (select  datepart(YYYY, getdate()))
+                               AND "+
+	                         $"o.ProductID = '{ProductId}' "+
+                              "group by datepart(DD, o.Date)";
+                SC = conn.Query<Chart_Data>(sql).ToList();
+            }
+            var month_num = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+
+            result.DaysOfMonth = new int[month_num];
+            result.CountOfDay = new int[month_num];
+
+            for (int i = 1; i <= month_num; i++)
+            {
+                var d = i;
+                var c = 0;
+                foreach (var item in SC)
+                {
+                    if (item.DaysOfMonth == i)
+                    {
+                        c = item.CountOfDay;
+                    }
+                }
+                result.DaysOfMonth.SetValue(d,i - 1);
+                result.CountOfDay.SetValue(c,i - 1);
+            }
+            return result;
         }
     }
 }

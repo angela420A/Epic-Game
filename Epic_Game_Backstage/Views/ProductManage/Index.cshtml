@@ -20,82 +20,84 @@
     </div>
 
     <hr />
-
-    <div class="productManage-table">
-        <table class="table text-left">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductImage)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ContentType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Developer)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Publisher)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Categories)
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+    @using (Html.BeginForm())
+    {
+        <div class="productManage-table">
+            <table class="table text-left">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductID)
-                    </td>
-                    <td>
-                        <div style="width: 135px">
-                            <div style="padding-bottom: calc(4/3 * 100%); position: relative">
-                                <div class="imgArea" style="background-image: url('@item.ProductImage');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContentType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price).ToString().Trim('0').Trim('.')
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Developer)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Publisher)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ReleaseDate)
-                    </td>
-                    <td>
-                        @foreach (var cat in item.Categories)
-                        {
-                            <span>@cat</span>
-                        }
-                    </td>
-                    <td class="pm-table-buttom">
-                        @Html.ActionLink("Edit", "Edit", new {  id=item.ProductID }, new { @class = "pm-table-edit"})
-                        @Html.ActionLink("Details", "Details", new { id = item.ProductID },new { @class = "pm-table-details"})
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductImage)
+                    </th>
+                    <th>
+                        @Html.ActionLink("ProductName", "Index", new { sort = "ProductName", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("ContentType", "Index", new { sort = "ContentType", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Price", "Index", new { sort = "Price", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Developer", "Index", new { sort = "Developer", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Publisher", "Index", new { sort = "Publisher", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("ReleaseDate", "Index", new { sort = "ReleaseDate", nowsort = ViewBag.Nowsort })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Categories", "Index", new { sort = "Categories", nowsort = ViewBag.Nowsort })
+                    </th>
                 </tr>
-            }
-        </table>
-    </div>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductID)
+                        </td>
+                        <td>
+                            <div style="width: 135px">
+                                <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+                                    <div class="imgArea" style="background-image: url('@item.ProductImage');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContentType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price).ToString().Trim('0').Trim('.')
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Developer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Publisher)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseDate)
+                        </td>
+                        <td>
+                            @foreach (var cat in item.Categories)
+                            {
+                                <span>@cat</span>
+                            }
+                        </td>
+                        <td class="pm-table-buttom">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "pm-table-edit" })
+                            @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "pm-table-details" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>}
 </div>

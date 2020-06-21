@@ -138,24 +138,27 @@
     <div class="row">
         <div class="col-12">
             <div class="now_row_out">
-                <h3>現已推出</h3>
+                <h3>Free Game</h3>
             </div>
         </div>
         <div class="col-12">
             <div class="row_out_mode_1">
                 <ul class="mode_1_ul">
-                    <li class="mode_1_li">
-                        <div class="mode_1_text_img">
-                            <div class="mode_1_text">
-                                <h4>《Might & Magic:Chess Royale》</h4>
-                                <p>在即時的兵棋戰鬥中與另外 99 名玩家對戰。</p>
-                                <a class="btn btn-secondary" href="">了解詳情</a>
+                    @foreach (var free in Model.FreeGame)
+                    {
+                        <li class="mode_1_li">
+                            <div class="mode_1_text_img text_img_height">
+                                <div class="mode_1_text">
+                                    <h4>@free.ProductName</h4>
+                                    <p>Free Game</p>
+                                    <a class="btn btn-secondary" href="/Product/@free.ProductID">Learn More</a>
+                                </div>
+                                <div class="mode_1_img">
+                                    <img src="@free.Url" alt="">
+                                </div>
                             </div>
-                            <div class="mode_1_img">
-                                <img src="~/Assets/images/EpicGameStoreImg/asset 11.jpeg" alt="">
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -164,7 +167,7 @@
         <div class="col-12">
             <div class="best">
                 <h3 class="best_text">TopSales</h3>
-                <a class="best_more" href="">查看更多項目</a>
+                <a class="best_more" href="@Url.Action("Search","Home")">View More</a>
             </div>
         </div>
         <div class="col-12 ">
@@ -248,24 +251,28 @@
     <div class="row">
         <div class="col-12">
             <div class="now_row_out">
-                <h3>更新以上線</h3>
+                <h3>Best Discount</h3>
             </div>
         </div>
         <div class="col-12">
             <div class="row_out_mode_1">
                 <ul class="mode_1_ul">
-                    <li class="mode_1_li">
-                        <div class="mode_1_text_img">
-                            <div class="mode_1_text">
-                                <h4>《SuperMash》</h4>
-                                <p>在這款古怪遊戲最新的更新中面對離奇的怪物！</p>
-                                <a class="btn btn-secondary" href="">了解詳情</a>
+                    @foreach (var Discount in Model.TopDiscount)
+                    {
+                        <li class="mode_1_li">
+                            <div class="mode_1_text_img text_img_height">
+                                <div class="mode_1_text">
+                                    <h4>@Discount.ProductName</h4>
+                                    <p>Top Discount</p>
+                                    <a class="btn btn-secondary" href="/Product/@Discount.ProductID">Learn More</a>
+                                </div>
+                                <div class="mode_1_img">
+                                    <img src="@Discount.Url" alt="">
+                                </div>
                             </div>
-                            <div class="mode_1_img">
-                                <img src="~/Assets/images/EpicGameStoreImg/asset 33.jpeg" alt="">
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -331,7 +338,7 @@
     <div class="row">
         <div class="col-12">
             <div class="now_row_out">
-                <h3>Epic Games 商店類別</h3>
+                <h3>Epic Games Store Catalog</h3>
             </div>
         </div>
         <div class="col-12">
@@ -340,9 +347,9 @@
                     <li class="mode_1_li">
                         <div class="mode_1_text_img">
                             <div class="mode_1_text">
-                                <h4>瀏覽</h4>
-                                <p>探索我們的類別來尋找下一款最愛的遊戲！</p>
-                                <a class="btn btn-secondary" href="">瀏覽全部</a>
+                                <h4>Browse</h4>
+                                <p>Explore our catalog for your next favorite game!</p>
+                                <a class="btn btn-secondary" href="@Url.Action("Search","Home")">Browse All</a>
                             </div>
                             <div class="mode_1_img">
                                 <img src="~/Assets/images/EpicGameStoreImg/asset 38.jpeg" alt="">

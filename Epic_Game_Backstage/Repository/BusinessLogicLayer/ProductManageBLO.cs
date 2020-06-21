@@ -45,6 +45,7 @@ namespace Epic_Game_Backstage.Repository.BusinessLogicLayer
             }
             return result;
         }
+
         public void CreateProduct(ProductCeateViewModel vm)
         {
             dao = new ProductManageDAO();

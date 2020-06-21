@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Epic_Game_Backstage.Repository.BusinessLogicLayer;
 using Epic_Game_Backstage.ViewModels;
+using EpicGameLibrary.Service;
 using Imgur.API.Authentication.Impl;
 using Imgur.API.Endpoints.Impl;
 using Imgur.API.Models;
@@ -21,10 +22,24 @@ namespace Epic_Game_Backstage.Controllers
             blo = new ProductManageBLO();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string sort, string nowsort)
         {
-            var vm = blo.GetProductManageView();
-            return View(vm);
+            ViewBag.Nowsort = sort;
+            sort = string.IsNullOrEmpty(sort) ? "ProductName" : sort;
+
+            var result = blo.GetProductManageView();
+
+            if (sort.Equals(nowsort))
+            {
+                result = result.OrderByPropertyName(sort, false).ToList();
+                ViewBag.Nowsort = null;
+            }
+            else
+            {
+                result = result.OrderByPropertyName(sort).ToList();
+            }
+
+            return View(result);
         }
 
         // GET: ProductManage/Details/5

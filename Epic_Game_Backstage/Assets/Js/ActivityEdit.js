@@ -1,14 +1,13 @@
-﻿//輸入框
-var Proto = new Vue({
-    el: '#activityitem',   
+﻿var Proto = new Vue({
+    el: '#activityitem',
     data: {
-        ProTitle: "",
-        ProName: "",
-        ProContext: "",
-        DueDate: ""
+        ProTitle: obj.Title,
+        ProName: obj.ProductName,
+        ProContext: obj.Content,
+        DueDate: obj.Time,
     }
 });
-//圖片
+
 var ImgVue = new Vue({
     el: '#app',
     data: {
@@ -68,7 +67,8 @@ var SubmitVue = new Vue({
     el: '#submitVue',
     methods: {
         createActivity: function () {
-            let Activity = {              
+            let Activity = {
+                ActivityID: obj.ActivityID,
                 ProductName: Proto.ProName,
                 Title: Proto.ProTitle,
                 Content: Proto.ProContext,
@@ -76,10 +76,10 @@ var SubmitVue = new Vue({
                 Picture: ImgVue.logoImage
             }
             $.ajax({
-                url: "/ActivityManage/CreateAct",
+                url: "/ActivityManage/UpDate",
                 type: "post",
                 data: { jdata: JSON.stringify(Activity) },
-                
+
                 success: function () {
                     window.location.href = "/ActivityManage/Index"
                 },

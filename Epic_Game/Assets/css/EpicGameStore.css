@@ -536,6 +536,16 @@ body {
     margin-right: -15px;
 }
 
+.text_img_height{
+    height:415px;
+}
+
+@media screen and (min-width: 768px){
+    .text_img_height {
+        height: 415px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .mode_5_li {
         width: 25%;

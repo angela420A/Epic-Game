@@ -140,6 +140,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                 Comment_UserName = ProductDAO.GetUserModels(c.UserID)
             };
         }
+        //帶入comment裡的資料及用戶身份
         public List<CommentItem> UploadComment(CommentPushViewModel CVM, string UserId)
         {
             ProductDAO.UploadCom(CVM, UserId);
