@@ -1,0 +1,80 @@
+﻿@model EpicGameLibrary.Models.Activity
+@section topCSS{
+    <link href="~/Assets/css/ActivityManage/ActivityManageDelete.css" rel="stylesheet" />
+}
+
+<div class="activityManageDelete-root">
+    <div class="activityManageDelete-header text-center">
+        <h3 class="delete_h3">Are you sure you want to delete this Activity?</h3>
+        <hr />
+        <p>
+            When you press the Delete button, this activity will be completely deleted
+        </p>
+    </div>
+
+    <hr />
+
+    <div class="activityManageDelete-table text-left">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ActivityName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActivityName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Slogan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Slogan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Information)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Information)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IMG)
+            </dt>
+
+            <dd>
+                @* <div class="imgArea" style="background-image: url('@Html.DisplayFor(model => model.IMG))');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>*@
+
+                @Html.DisplayFor(model => model.IMG)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="activityManageDelete-deleteBtn">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="amd-deleteBtn-input">
+                <p>Yes! I'm sure I want to delete</p> |
+                <input type="submit" value="Delete" /> 
+            </div>
+            <div class="amd-deleteBtn-a">
+                <p>No! I decided not to delete, please let me</p> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>
+

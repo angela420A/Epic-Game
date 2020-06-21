@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Epic_Game_Backend.ViewModels.ActivityViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+@section topCSS{
+    <link href="~/Assets/css/ActivityManage/Activity.css" rel="stylesheet" />
+}
+<div class="activityManage_root">
+    @using (Html.BeginForm())
+    {
+        <div class="activity_header">
+            <div class="activityManage_title text-center">
+                <h2><i class="nc-icon nc-diamond"></i> Activity</h2>
+                <hr />
+                <p>
+                    <i class="fa fa-refresh"></i> @Html.ActionLink("Display All", "Index")
+                </p>
+            </div>
+            <div class="activityManage_srarch text-center">
+                <div class="am-search-item">
+                    <label for="activityId">Activity Id</label>
+                    @Html.RadioButton("item", "Activity Id", new { @id = "activityId" })
+                    <label for="productName">Product Name</label>
+                    @Html.RadioButton("item", "Product Name", new { @id = "productName" })
+                    <label for="title">Title</label>
+                    @Html.RadioButton("item", "Title", new { @id = "title" })
+                    <label for="content">Content</label>
+                    @Html.RadioButton("item", "Content", new { @id = "content" })
+                    <label for="time">Time</label>
+                    @Html.RadioButton("item", "Time", new { @id = "time" })
+                </div>
+                <div class="am-search-input">
+                    <p>
+                        @Html.Label("Search")@Html.TextBox("search")
+                        <input type="submit" value="Search" class="am-s-input-btn" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="activityManage-create" style="margin-bottom:10px">
+            <p>
+                @Html.ActionLink("Create Activity", "Create")
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="activity_table">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActivityID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Picture)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Content)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Time)
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivityID)
+                        </td>
+                        <td>
+                            <div style="width: 135px">
+                                <div style="padding-bottom: calc(4/3 * 100%); position: relative">
+                                    <div class="imgArea" style="background-image: url('@item.Picture');position: absolute; top: 0; height: 100%; width: 100%; background-size: auto 100%; background-repeat: no-repeat; background-position: bottom;"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td class="am-table-buttom">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ActivityID })
+                            @Html.ActionLink("Details", "Details", new { id = item.ActivityID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ActivityID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    }
+
+</div>
+
