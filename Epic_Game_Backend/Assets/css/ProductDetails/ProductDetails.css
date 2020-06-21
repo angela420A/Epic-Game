@@ -1,0 +1,94 @@
+﻿*{
+    margin: 0;
+    padding: 0 ;
+    list-style: none;
+}
+
+.productDerails-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Microsoft JhengHei !important;
+}
+
+.pd-data-header > div{
+    margin: auto;
+}
+
+.pd-data-header {
+    background-color: #FFFFFF;
+    width: 500px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+}
+
+.pd-d-header-title {
+    margin-right: 10px;
+}
+
+.pd-d-header-title h3 {
+    color: #EF8157;
+}
+
+.pd-d-header-title p {
+    margin: 0;
+    color: #9A9A9A;
+    font-size: 15px;
+}
+
+.pd-data-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pd-data-input > div {
+    margin: 0px 10px;
+}
+
+.pd-d-input-item {
+    background-color: #FFFFFF;
+    width: 500px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+}
+
+.pd-d-input-item > dl > dd {
+    color: #9A9A9A;
+}
+
+.pd-d-input-item p {
+    text-align: center;
+}
+
+.pd-d-input-item p > a:first-child {
+    text-decoration: none;
+    color: #FCD27A;
+    font-weight: bold;
+    margin: 0px 5px;
+}
+
+.pd-d-input-item p > a:last-child {
+    text-decoration: none;
+    color: #9BDFBA;
+    font-weight: bold;
+    margin: 0px 5px;
+}
+
+.pd-d-input-item p > a:hover {
+    text-decoration: underline;
+}
+
+.pd-d-input-chart {
+    background-color: #FFFFFF;
+    width: 500px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+}
+
+

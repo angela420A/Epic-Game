@@ -596,3 +596,20 @@ body {
         max-width: 1160px;
     }
 }
+
+
+.mode_1_img{
+    display: none;
+}
+
+.text_img_height{
+    height:230px;
+}
+@media screen and (min-width: 768px) {
+    .mode_1_img {
+        display: block;
+    }
+    .text_img_height {
+        height: 415px;
+    }
+}

@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.activityManageDelete-root {
+    font-family: Microsoft JhengHei !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activityManageDelete-header {
+    background-color: #FFFFFF;
+    width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 20px 20px;
+    margin: 30px auto;
+}
+
+.activityManageDelete-header > h3 {
+    color: #EF8157;
+}
+
+.activityManageDelete-header > p {
+    color: #9A9A9A;
+    font-size: 15px;
+}
+
+.activityManageDelete-root > hr {
+    width: 900px;
+}
+
+.activityManageDelete-table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 20px 20px;
+    margin: 10px auto;
+    width: 700px;
+}
+
+.activityManageDelete-table > dl > dd {
+    color: #9A9A9A;
+}
+
+.activityManageDelete-deleteBtn > form {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 20px 20px;
+    margin: 0px auto;
+    width: 700px;
+    text-align: center;
+}
+
+.activityManageDelete-deleteBtn > form > div > p {
+    color: #9A9A9A;
+    font-size: 15px;
+    margin: 0;
+    margin: 0px 10px;
+}
+
+.amd-deleteBtn-input, .amd-deleteBtn-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.amd-deleteBtn-input input {
+    color: white;
+    border: 1px solid #EF8157;
+    border-radius: 5px;
+    background-color: #EF8157;
+    margin: 0px 10px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.amd-deleteBtn-input input:hover {
+    color: #EF8157;
+    background-color: white;
+    transition: .5s;
+}
+
+.amd-deleteBtn-a a {
+    color: #EF8157;
+    margin: 0px 10px;
+}
+
