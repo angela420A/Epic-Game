@@ -8,6 +8,8 @@ namespace Epic_Game_Backstage.ViewModels
 {
     public class ProductCeateViewModel
     {
+        public string ProductID { get; set; }
+
         [Required]
         [StringLength(20)]
         public string ContentType { get; set; }

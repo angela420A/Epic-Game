@@ -65,8 +65,10 @@ namespace Epic_Game_Backstage.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-
+                if (jdata == null) return HttpNotFound("Error");
+                ProductCeateViewModel vm = JsonConvert.DeserializeObject<ProductCeateViewModel>(jdata);
+                blo = new ProductManageBLO();
+                blo.UpdateProductInformation(vm);
                 return RedirectToAction("Index");
             }
             catch

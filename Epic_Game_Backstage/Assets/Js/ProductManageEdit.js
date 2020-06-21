@@ -337,6 +337,7 @@ var SubmitVue = new Vue({
     methods: {
         createProduct: function () {
             let ProductVM = {
+                ProductID : Obj.ProductID,
                 ProductName: PInfo.ProName,
                 Price: PInfo.ProPrice,
                 ContentType: PInfo.ProType,
