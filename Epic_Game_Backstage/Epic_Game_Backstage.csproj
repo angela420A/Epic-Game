@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\ActivityManage\Activity.css" />
+    <Content Include="Assets\css\ActivityManage\ActivityManageDelete.css" />
     <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
     <Content Include="Assets\css\NewsManage\Newsedit.css" />
     <Content Include="Assets\css\NewsManage\NewsManageList.css" />
@@ -176,6 +177,7 @@
     <Content Include="Assets\css\BackstageLayout\BackstageLayout.css" />
     <Content Include="Assets\css\OrderManage\OrderManageList.css" />
     <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
+    <Content Include="Assets\css\ProductDetails\ProductDetails.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />
     <Content Include="Assets\css\UserManage\UserManageList.css" />
     <Content Include="Assets\Js\ActivityEdit.js" />

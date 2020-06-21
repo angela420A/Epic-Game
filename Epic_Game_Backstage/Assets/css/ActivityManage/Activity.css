@@ -101,9 +101,15 @@
     font-weight: bold;
 }
 
-.am-table-buttom a:last-child {
+.am-table-buttom a:nth-child(2) {
     text-decoration: none;
     color: #9BDFBA;
+    font-weight: bold;
+}
+
+.am-table-buttom a:last-child {
+    text-decoration: none;
+    color: #51CBCE;
     font-weight: bold;
 }
 
