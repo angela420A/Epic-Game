@@ -152,7 +152,7 @@ namespace Epic_Game_Backend.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email, Birthday = model.Birthday, Phone = model.Phone };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -175,7 +175,7 @@ namespace Epic_Game_Backend.Controllers
                     }
                     //將使用者加入該角色
                     await UserManager.AddToRoleAsync(user.Id, RoleName);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "BackstageHome");
                 }
                 AddErrors(result);
             }
@@ -404,7 +404,7 @@ namespace Epic_Game_Backend.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "BackstageHome");
         }
 
         //
@@ -461,7 +461,7 @@ namespace Epic_Game_Backend.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "BackstageHome");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

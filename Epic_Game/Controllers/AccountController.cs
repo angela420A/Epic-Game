@@ -150,6 +150,7 @@ namespace Epic_Game.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Name, Email = model.Email , Address = model.Address, City = model.City, Country = model.Country, PostalCode = model.PostalCode, Birthday = model.Birthday, Phone = model.Phone};

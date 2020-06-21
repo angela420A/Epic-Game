@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Imgur.API, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Imgur.API.4.0.1\lib\net45\Imgur.API.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -162,14 +168,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilter\BackendAttributes.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ActivityManageController.cs" />
+    <Compile Include="Controllers\BackstageHomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsManageController.cs" />
+    <Compile Include="Controllers\OrderManageController.cs" />
+    <Compile Include="Controllers\ProductManageController.cs" />
+    <Compile Include="Controllers\UserManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,19 +189,145 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\ActivityManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\BackstageHomeBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\NewsManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\NewsSearch.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\OrderManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\ProductManageBLO.cs" />
+    <Compile Include="Repository\BusinessLogicLayer\UserManageBLO.cs" />
+    <Compile Include="Repository\DataAccessLayer\ActivityManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\BackstageHomeDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\NewsManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\OrderManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\ProductManageDAO.cs" />
+    <Compile Include="Repository\DataAccessLayer\UserManageDAO.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ActivityDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ActivityViewModel.cs" />
+    <Compile Include="ViewModels\BackstageHomeViewModel.cs" />
+    <Compile Include="ViewModels\NewsManageViewModel.cs" />
+    <Compile Include="ViewModels\OrderManageViewModel.cs" />
+    <Compile Include="ViewModels\ProductCeateViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ProductManageViewModel.cs" />
+    <Compile Include="ViewModels\UserManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Assets\css\ActivityManage\Activity.css" />
+    <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
+    <Content Include="Assets\css\BackstageLayout\BackstageLayout.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\NewsManage\Newsedit.css" />
+    <Content Include="Assets\css\NewsManage\NewsManageList.css" />
+    <Content Include="Assets\css\NewsManage\NewsManagePartial.css" />
+    <Content Include="Assets\css\OrderManage\OrderManageList.css" />
+    <Content Include="Assets\css\OrderManage\OrderManagePartialList.css" />
+    <Content Include="Assets\css\paper-dashboard.css" />
+    <Content Include="Assets\css\paper-dashboard.min.css" />
+    <Content Include="Assets\css\ProductCreate.css" />
+    <Content Include="Assets\css\ProductManage\ProductManageList.css" />
+    <Content Include="Assets\css\UserManage\UserManageList.css" />
+    <Content Include="Assets\demo\demo.css" />
+    <Content Include="Assets\demo\demo.js" />
+    <Content Include="Assets\img\apple-icon.png" />
+    <Content Include="Assets\img\bg5.jpg" />
+    <Content Include="Assets\img\damir-bosnjak.jpg" />
+    <Content Include="Assets\img\default-avatar.png" />
+    <Content Include="Assets\img\faces\ayo-ogunseinde-1.jpg" />
+    <Content Include="Assets\img\faces\ayo-ogunseinde-2.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-1.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-2.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-3.jpg" />
+    <Content Include="Assets\img\faces\clem-onojeghuo-4.jpg" />
+    <Content Include="Assets\img\faces\erik-lucatero-1.jpg" />
+    <Content Include="Assets\img\faces\erik-lucatero-2.jpg" />
+    <Content Include="Assets\img\faces\joe-gardner-1.jpg" />
+    <Content Include="Assets\img\faces\joe-gardner-2.jpg" />
+    <Content Include="Assets\img\faces\kaci-baum-1.jpg" />
+    <Content Include="Assets\img\faces\kaci-baum-2.jpg" />
+    <Content Include="Assets\img\favicon.png" />
+    <Content Include="Assets\img\header.jpg" />
+    <Content Include="Assets\img\jan-sendereks.jpg" />
+    <Content Include="Assets\img\logo-small.png" />
+    <Content Include="Assets\img\mike.jpg" />
+    <Content Include="Assets\Js\ActivityEdit.js" />
+    <Content Include="Assets\Js\ActivityManageCreate.js" />
+    <Content Include="Assets\Js\ckeditorconfig.js" />
+    <Content Include="Assets\Js\ckeditorconfig_Product.js" />
+    <Content Include="Assets\Js\ckeditorplugin.js" />
+    <Content Include="Assets\Js\core\bootstrap.min.js" />
+    <Content Include="Assets\Js\core\jquery.min.js" />
+    <Content Include="Assets\Js\core\popper.min.js" />
+    <Content Include="Assets\Js\Newsandorderimgurjs.js" />
+    <Content Include="Assets\Js\paper-dashboard.js" />
+    <Content Include="Assets\Js\paper-dashboard.min.js" />
+    <Content Include="Assets\Js\plugins\bootstrap-notify.js" />
+    <Content Include="Assets\Js\plugins\chartjs.min.js" />
+    <Content Include="Assets\Js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assets\Js\ProductManageCreate.js" />
+    <Content Include="Assets\Js\ProductManageEdit.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\css\bootstrap.min.css.map" />
+    <Content Include="Assets\css\paper-dashboard.css.map" />
+    <Content Include="Assets\fonts\nucleo-icons.eot" />
+    <Content Include="Assets\fonts\nucleo-icons.ttf" />
+    <Content Include="Assets\fonts\nucleo-icons.woff" />
+    <Content Include="Assets\fonts\nucleo-icons.woff2" />
+    <Content Include="Assets\Js\paper-dashboard.js.map" />
+    <Content Include="Assets\scss\paper-dashboard\_alerts.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_animated-buttons.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_buttons.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_cards.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_checkboxes-radio.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_dropdown.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_fixed-plugin.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_footers.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_images.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_inputs.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_misc.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_mixins.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_navbar.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_nucleo-outline.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_page-header.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_responsive.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_tables.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_typography.scss" />
+    <Content Include="Assets\scss\paper-dashboard\_variables.scss" />
+    <Content Include="Assets\scss\paper-dashboard\cards\_card-chart.scss" />
+    <Content Include="Assets\scss\paper-dashboard\cards\_card-map.scss" />
+    <Content Include="Assets\scss\paper-dashboard\cards\_card-plain.scss" />
+    <Content Include="Assets\scss\paper-dashboard\cards\_card-stats.scss" />
+    <Content Include="Assets\scss\paper-dashboard\cards\_card-user.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_buttons.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_cards.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_dropdown.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_inputs.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_page-header.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_transparency.scss" />
+    <Content Include="Assets\scss\paper-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Assets\scss\paper-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
+    <Content Include="Assets\scss\paper-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <Content Include="Assets\scss\paper-dashboard.scss" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -201,6 +339,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -212,9 +352,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -235,22 +372,40 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ActivityManage\Create.cshtml" />
+    <Content Include="Views\ActivityManage\Delete.cshtml" />
+    <Content Include="Views\ActivityManage\Edit.cshtml" />
+    <Content Include="Views\ActivityManage\Index.cshtml" />
+    <Content Include="Views\BackstageHome\BackstagePartialChart-Line.cshtml" />
+    <Content Include="Views\BackstageHome\Index.cshtml" />
+    <Content Include="Views\BackstageHome\PiePartial.cshtml" />
+    <Content Include="Views\NewsManage\Create.cshtml" />
+    <Content Include="Views\NewsManage\Edit.cshtml" />
+    <Content Include="Views\NewsManage\NewsPartail.cshtml" />
+    <Content Include="Views\NewsManage\searchsort.cshtml" />
+    <Content Include="Views\OrderManage\OrderPartial.cshtml" />
+    <Content Include="Views\OrderManage\ordersearchsort.cshtml" />
+    <Content Include="Views\ProductManage\Create.cshtml" />
+    <Content Include="Views\ProductManage\Details.cshtml" />
+    <Content Include="Views\ProductManage\Edit.cshtml" />
+    <Content Include="Views\ProductManage\Index.cshtml" />
+    <Content Include="Views\Shared\_AjaxAntiForgeryPartial.cshtml" />
+    <Content Include="Views\UserManage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EpicGameLibrary\EpicGameLibrary.csproj">
+      <Project>{6e27d134-1cf9-46f7-8ddc-9c8a410c16f8}</Project>
+      <Name>EpicGameLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.productManage-root {
+    padding: 10px 30px;
+    font-family: Microsoft JhengHei;
+}
+
+.productManage-title {
+    background-color: #FFFFFF;
+    width: 400px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+}
+
+.productManage-title h2>i{
+    color: #EF8157;
+}
+
+.productManage-create>p>a{
+    color: #EF8157;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.productManage-table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 0px 20px;
+}
+
+.productManage-table th > a {
+    text-decoration: none;
+    color: black;
+    cursor: none;
+}
+
+.productManage-table td{
+    color: #9A9A9A;
+}
+
+.pm-table-buttom a:first-child {
+    text-decoration: none;
+    color: #FCD27A;
+    font-weight: bold;
+}
+
+.pm-table-buttom a:nth-child(2) {
+    text-decoration: none;
+    color: #9BDFBA;
+    font-weight: bold;
+}
+
+.pm-table-buttom a:last-child {
+    text-decoration: none;
+    color: #51CBCE;
+    font-weight: bold;
+}
+
+.pm-table-buttom a:hover {
+    text-decoration: underline;
+}
+
+th a{
+    color:#000;
+}

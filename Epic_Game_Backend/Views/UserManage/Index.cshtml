@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Epic_Game_Backend.ViewModels.UserManageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/UserManage/UserManageList.css" rel="stylesheet" />
+}
+
+<div class="userManageList-root">
+    @using (Html.BeginForm())
+    {
+        <div class="userManageList-header">
+            <div class="userManageList-title text-center">
+                <h2><i class="nc-icon nc-single-02"></i> User Manage</h2>
+                <hr />
+                <p>
+                    <i class="fa fa-refresh"></i> @Html.ActionLink("Display All", "Index")
+                </p>
+            </div>
+            <div class="userManageList-search">
+                <div class="uml-search-item">
+                    <label for="username">UserName</label>
+                    @Html.RadioButton("item", "UserName", new { @id ="username", @class="uml-s-item-radio"})
+                    <label for="city">City</label>
+                    @Html.RadioButton("item", "City", new { @id="city", @class="uml-s-item-radio"})
+                    <label for="country">Country</label>
+                    @Html.RadioButton("item", "Country", new { @id="country", @class= "uml-s-item-radio" })
+                    <label for="address">Address</label>
+                    @Html.RadioButton("item", "Address", new { @id="address", @class= "uml-s-item-radio" })
+                    <label for="postalcode">Postal Code</label>
+                    @Html.RadioButton("item", "PostalCode", new { @id= "postalcode", @class= "uml-s-item-radio" })
+                    <label for="birthday">Birthday</label>
+                    @Html.RadioButton("item", "Birthday", new { @id="birthday", @class= "uml-s-item-radio" })
+                    <label for="phone">Phone</label>
+                    @Html.RadioButton("item", "Phone", new { @id="phone", @class= "uml-s-item-radio" })
+                    <label for="email">Email</label>
+                    @Html.RadioButton("item", "Email", new { @id="email", @class= "uml-s-item-radio" })
+                </div>
+                <div class="uml-search-input text-right">
+                    @Html.Label("Search")
+                    @Html.TextBox("search")
+                    <input type="submit" value="Search" class="um-search-btn">
+                </div>
+            </div>
+        </div>
+
+
+        <hr />
+
+        @*<p>
+                @Html.ActionLink("Create New", "Create")
+            </p>*@
+
+        <div class="userManageList-tabel">
+            @*<div class="col-12 col-md-12 col-lg-12">*@
+                <table class="table text-left">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Country)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostalCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Birthday)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Country)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PostalCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Birthday)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            @*<td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>*@
+                        </tr>
+                    }
+
+                </table>
+            @*</div>*@
+        </div>
+    }
+
+</div>
