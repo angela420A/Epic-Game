@@ -216,6 +216,7 @@
     <Compile Include="ViewModels\UserManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\Account\Login.css" />
     <Content Include="Assets\css\ActivityManage\Activity.css" />
     <Content Include="Assets\css\ActivityManage\ActivityManageDelete.css" />
     <Content Include="Assets\css\BackstageHome\BackstageHome.css" />
