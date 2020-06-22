@@ -95,20 +95,20 @@ namespace Epic_Game_Backend.Repository.BusinessLogicLayer
             dao.DeleteAct(id);
         }
 
-        private ActivityViewModel ActivityToView(Activity a)
-        {
-            dao = new ActivityManageDAO();
-            var result = new ActivityViewModel()
-            {
-                    ActivityID = a.ActivityID,
-                    Picture = a.IMG,
-                    Title = a.Slogan,
-                    ProductName = a.ActivityName,
-                    Content = a.Information,
-                    Time = a.Date
-            };
-            return result;
-        }
+        //private ActivityViewModel ActivityToView(Activity a)
+        //{
+        //    dao = new ActivityManageDAO();
+        //    var result = new ActivityViewModel()
+        //    {
+        //            ActivityID = a.ActivityID,
+        //            Picture = a.IMG,
+        //            Title = a.Slogan,
+        //            ProductName = a.ActivityName,
+        //            Content = a.Information,
+        //            Time = a.Date
+        //    };
+        //    return result;
+        //}
 
         public ActivityViewModel GetEdit(string id)
         {
