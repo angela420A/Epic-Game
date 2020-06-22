@@ -1,0 +1,62 @@
+﻿
+@model IEnumerable<Epic_Game_Backend.ViewModels.NewsManageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="newsManage-root">
+    @using (Html.BeginForm())
+    {
+    <div class="newsManage-header">
+        <div>
+            <div class="newsManage-title text-center">
+                <h2><i class="nc-icon nc-bell-55"></i>News</h2>
+                <hr />
+                <p>
+                    <i class="fa fa-refresh"></i>@Html.ActionLink("Display All", "searchsort")
+                </p>
+            </div>
+            <div class="news-create">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+            </div>
+        </div>
+        <hr />
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group-root form-group">
+            <div class="form-group">
+                <div class="f-group-input">
+                    <text>NewsTitle</text>@Html.RadioButton("option", "NewsTitle", htmlAttributes: new { @class = "Radioclass",@checked = true })
+                    <text>Author</text>@Html.RadioButton("option", "Author", htmlAttributes: new { @class = "Radioclass" })
+                    <text>Date</text>@Html.RadioButton("option", "Date", htmlAttributes: new { @class = "Radioclass" })
+                </div>
+                <p>
+                    @Html.Label("search")@Html.TextBox("search")
+                    <input type="submit" value="查詢" class="f-group-btn" />
+                </p>
+            </div>
+        </div>
+    </div>
+        <hr />
+
+        if (Model != null)
+        {
+            @Html.Partial("NewsPartail", Model);
+
+        }
+    }
+</div>
+
+
+@section topCSS{
+    <link href="~/Assets/css/NewsManage/NewsManageList.css" rel="stylesheet" />
+    <link href="~/Assets/css/NewsManage/NewsManagePartial.css" rel="stylesheet" />
+}
+
+
+
+
