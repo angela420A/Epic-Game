@@ -540,10 +540,27 @@ body {
     height:415px;
 }
 
-@media screen and (min-width: 768px){
+.mode_5_text_discount {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 90%;
+    bottom: 4px;
+}
+
+.mode_5_text_discount h3 {
+    border: 1px solid #FFCC33;
+    padding: 5px;
+    font-size: 15px;
+    color: black;
+    background-color: #FFCC33;
+}
+   
+
+@media screen and (min-width: 768px) {
     .text_img_height {
-        height: 415px;
-    }
+    height: 415px;
+    }   
 }
 
 @media screen and (min-width: 768px) {
