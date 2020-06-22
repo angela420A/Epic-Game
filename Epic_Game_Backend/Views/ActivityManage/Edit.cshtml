@@ -1,0 +1,98 @@
+﻿@*@model IEnumerable<Epic_Game_Backend.ViewModels.ActivityViewModel>*@
+@{
+    ViewBag.Title = "Create";
+    var data = Json.Encode(Model);
+
+}
+@section topCSS{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Assets/css/ActivityManage/Activity.css" rel="stylesheet" />
+}
+<h1 style="text-align:center; padding: 40px 0 70px">Edit Activity</h1>
+
+<div class="container">
+    <h2>Basic Information:</h2>
+    <div class="row" id="activityitem">
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Title</label>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing input"
+                       aria-describedby="inputGroup-sizing-lg" v-model="ProTitle">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Product Name</label>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing input"
+                       aria-describedby="inputGroup-sizing-lg" v-model="ProName">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group" style="margin-top:10px;">
+                <label for="ProductContext">Activity Introduction:</label>
+                <textarea class="form-control" id="ProductContext" rows="3" v-model="ProContext"></textarea>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroup-sizing-lg">Due Date</label>
+                </div>
+                <input type="datetime-local" class="form-control" name="bdaytime" v-model="DueDate">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 style="margin: 40px 0 20px;">Activity's Images:</h2>
+    <div class="row justify-content-center mg-75" id="app">
+        <div class="col-6 card">
+            <div class="card-body">
+                <h4 style="text-align:center">Game Logo</h4>
+                <div style="border: 1px solid #999; margin-top:67.5px">
+                    <div id="LogoImageArea" style="padding-bottom: calc(3/5 * 100%); position: relative">
+                        <div class="ImgArea">
+                            <img v-if="logoImage.length>0" :src="logoImage" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="LogoImage" v-on:change="showFile">
+                    <label class="custom-file-label" for="LogoImage">Upload image</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*按鈕保存*@
+<div class="row justify-content-center" id="submitVue">
+    <div class="col" style="margin-left:20px;">
+        <button class="btn btn-primary" v-on:click="createActivity">UpData Product</button>
+    </div>
+</div>
+
+<div style="margin-left:20px;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    var obj = @Html.Raw(data);
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/vue")
+}
+@section endJS{
+    <script src="~/Assets/Js/ActivityEdit.js"></script>
+}

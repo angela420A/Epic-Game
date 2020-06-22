@@ -1,0 +1,56 @@
+﻿
+@model IEnumerable<Epic_Game_Backend.ViewModels.OrderManageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/OrderManage/OrderManageList.css" rel="stylesheet" />
+    <link href="~/Assets/css/OrderManage/OrderManagePartialList.css" rel="stylesheet" />
+}
+
+<div class="orderManage-root">
+    @using (Html.BeginForm())
+    {
+    <div class="orderManage-header">
+        <div class="orderManage-title text-center">
+            <h2><i class="nc-icon nc-tile-56"></i> Order Manage</h2>
+            <hr />
+            <p>
+                <i class="fa fa-refresh"></i> @Html.ActionLink("Display All", "ordersearchsort")
+            </p>
+        </div>
+
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group-root form-group">
+            <div class="form-group">
+
+                <div class="f-group-input">
+                    <text>UserID</text>@Html.RadioButton("option", "UserID", htmlAttributes: new { @class = "Radioclass", @checked = true })
+                    <text>ProductID</text>@Html.RadioButton("option", "ProductID", htmlAttributes: new { @class = "Radioclass" })
+                    <text>Date</text>@Html.RadioButton("option", "Date", htmlAttributes: new { @class = "Radioclass" })
+                    <text>Payment</text>@Html.RadioButton("option", "Payment", htmlAttributes: new { @class = "Radioclass" })
+                </div>
+                <p>
+                    @Html.Label("Search")@Html.TextBox("search")
+                    <input type="submit" value="Search" class="f-group-btn" />
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    <hr />
+
+        if (Model != null)
+        {
+            @Html.Partial("OrderPartial", Model);
+
+        }
+    }
+</div>
+
+
+
