@@ -269,9 +269,10 @@ body{
     text-decoration:none;
 }
 
-.mode_4_li{
+.mode_4_li {
     padding: 10px;
-    position:relative;
+    position: relative;
+    margin-bottom: 25px;
 }
 
 .mode_4_text h4:last-child{

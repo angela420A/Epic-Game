@@ -228,12 +228,23 @@ function OrderBy(_Key, _bool) {
 
                 let h4 = $('<h4></h4>').html(json[i].ProductName);
                 let p = $('<p></p>').html(json[i].Developer + '|' + json[i].Publisher);
-                let h41 = $('<h4></h4>').html('TWD$' + json[i].Price);
-
+                let div3 = $('<div></div>').attr('class','mode_5_text_discount')
+                let h41 = $('<h4></h4>').html('TW$' + json[i].Price);
+                if (json[i].Discount == 0) {
+                    var h3 = $('<h3></h3>').html('free');
+                }
+                else if (json[i].Discount != 1) {
+                    var h3 = $('<h3></h3>').html(json[i].Discount*100 + '%');
+                }
+                else {
+                    var h3 = $('<h1></h1>');
+                }
                 li.append(a);
                 a.append(div).append(div2);
                 div.append(div1);
-                div2.append(h4).append(p).append(h41);
+                div2.append(h4).append(p).append(div3);
+                div3.append(h41).append(h3);
+
                 ul.append(li);
             }
         },
