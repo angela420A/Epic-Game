@@ -126,7 +126,17 @@
                                 <div class="mode_5_text">
                                     <h4>@item.ProductName</h4>
                                     <p>@item.Developer |@item.Publisher</p>
-                                    <h4>TW$@decimal.Round(item.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(item.Price, 0)</h4>
+                                        @if (item.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (item.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(item.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -183,7 +193,17 @@
                                 <div class="mode_5_text">
                                     <h4>@topsales.ProductName</h4>
                                     <p>@topsales.Developer | @topsales.Publisher</p>
-                                    <h4>TW$@decimal.Round(topsales.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(topsales.Price, 0)</h4>
+                                        @if (topsales.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (topsales.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(topsales.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -211,7 +231,17 @@
                                 <div class="mode_5_text">
                                     <h4>@related.ProductName</h4>
                                     <p>@related.Developer | @related.Publisher</p>
-                                    <h4>TW$@decimal.Round(related.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(related.Price, 0)</h4>
+                                        @if (related.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (related.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(related.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -239,7 +269,17 @@
                                 <div class="mode_5_text">
                                     <h4>@best.ProductName</h4>
                                     <p>@best.Developer | @best.Publisher</p>
-                                    <h4>TW$@decimal.Round(best.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(best.Price, 0)</h4>
+                                        @if (best.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (best.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(best.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -296,7 +336,17 @@
                                 <div class="mode_5_text">
                                     <h4>@floorprice.ProductName</h4>
                                     <p>@floorprice.Developer | @floorprice.Publisher</p>
-                                    <h4>TW$@decimal.Round(floorprice.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(floorprice.Price, 0)</h4>
+                                        @if (floorprice.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (floorprice.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(floorprice.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -325,7 +375,17 @@
                                 <div class="mode_5_text">
                                     <h4>@followe.ProductName</h4>
                                     <p>@followe.Developer | @followe.Publisher</p>
-                                    <h4>TW$@decimal.Round(followe.Price, 0)</h4>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(followe.Price, 0)</h4>
+                                        @if (followe.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (followe.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(followe.Discount * 100)%</h3>
+                                        }
+                                    </div>
                                 </div>
                             </a>
                         </li>

@@ -94,7 +94,17 @@
                                             <div class="mode_4_text">
                                                 <h4>@search.ProductName</h4>
                                                 <p>@search.Developer | @search.Publisher</p>
-                                                <h4>US$@decimal.Round(search.Price,0)</h4>
+                                                <div class="mode_5_text_discount">
+                                                    <h4>TW$@decimal.Round(search.Price, 0)</h4>
+                                                    @if (search.Discount == 0)
+                                                    {
+                                                        <h3>free</h3>
+                                                    }
+                                                    else if (search.Discount != 1)
+                                                    {
+                                                        <h3>@decimal.Round(search.Discount * 100)%</h3>
+                                                    }
+                                                </div>
                                             </div>
                                         </a>
                                     </li>
