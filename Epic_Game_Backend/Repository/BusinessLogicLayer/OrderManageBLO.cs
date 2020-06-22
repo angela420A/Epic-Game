@@ -104,5 +104,38 @@ namespace Epic_Game_Backend.Repository.BusinessLogicLayer
             orderDAO.deletedao(guid);
             return true;
         }
+
+
+        public List<Order> GetorderDatas()
+        {
+            return orderDAO.Getordersdatas();
+        }
+
+
+        public List<OrderManageViewModel> NewsViewModelstolist()
+        {
+            var OrderViewModelslist = orderDAO.Getordersdatas();
+            return GetOrderManageViewModels(OrderViewModelslist);
+        }
+
+        public List<OrderManageViewModel> GetOrderManageViewModels(List<Order> n)
+        {
+            var OrderManageViewModelslist = new List<OrderManageViewModel>();
+            foreach (var i in n)
+            {
+                OrderManageViewModelslist.Add(new OrderManageViewModel
+                {
+                    OrderID = i.OrderID,
+                    UserID = i.UserID,
+                    ProductID = i.ProductID,
+                    Date = i.Date/*.ToString("yyyy.MM.dd")*/,
+                    Payment = i.Payment
+                });
+            }
+            return OrderManageViewModelslist;
+
+        }
+
+
     }
 }

@@ -24,7 +24,7 @@ namespace Epic_Game.Repository.DataOperationLayer
         }
         public List<News> Getallnewsdata()
         {
-            return newscontext.News.ToList();
+            return newscontext.News.OrderByDescending(x=>x.Date).ToList();
         }
     }
 }
