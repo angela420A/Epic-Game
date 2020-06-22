@@ -28,28 +28,17 @@ namespace Epic_Game_Backend.Controllers
 
         public ActionResult ordersearchsort(string sort, string nowsort)
         {
-            ViewBag.Nowsort = sort;
+            if (string.IsNullOrEmpty(sort) && string.IsNullOrEmpty(sort))
+            {
+                sort = "Date";
+                nowsort = "Date";
+            }
             //目前的會等於現在sort名稱的，看是日期、錢等等
-            sort = string.IsNullOrEmpty(sort) ? "ProductID" : sort;
-            //看是如果現在是空的話就拿money來當排序
-            List<OrderManageViewModel> orderVMlist = new List<OrderManageViewModel>();
-            var ordervm = new OrderManageViewModel();           
-            OrderManageBLO orderBLO = new OrderManageBLO();
-            var order1 = orderBLO.GetallorderDatas();
-            foreach (var item in order1)
-            {
-                OrderManageViewModel vm = orderBLO.GetOrderdata(item.OrderID.ToString());
-                orderVMlist.Add(vm);
-            }
-            if (sort.Equals(nowsort))
-            {
-                orderVMlist = orderVMlist.OrderByPropertyName(sort, false).ToList();
-                ViewBag.Nowsort = null;
-            }
-            else
-            {
-                orderVMlist = orderVMlist.OrderByPropertyName(sort).ToList();
-            }    
+            ViewBag.Nowsort = sort;
+
+            bool order = sort.Equals(nowsort);
+            var orderVMlist = new OrderManageBLO().NewsViewModelstolist().OrderByPropertyName(sort, !order).ToList();
+            if (order) ViewBag.Nowsort = null;
             return View(orderVMlist);
         }
 

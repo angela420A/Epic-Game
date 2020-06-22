@@ -15,7 +15,6 @@ namespace Epic_Game_Backend.ViewModels
         public string Author { get; set; }
 
         [StringLength(500)]
-        [Display(Name ="新聞頁面標題")]
         public string NewsTitle { get; set; }
 
 
@@ -28,7 +27,7 @@ namespace Epic_Game_Backend.ViewModels
         [AllowHtml]
         public string Description { get; set; }
 
-        [Display(Name ="圖片網址")]
+
         public string NewsImg { get; set; }
     }
 }

@@ -66,7 +66,7 @@ namespace Epic_Game.Repository.BusinessLogicLayer
                     NewsImg = i.NewsImg
                 });
             }
-            return NewsViewModelslist.ToList();
+            return NewsViewModelslist;
 
         }
     }
