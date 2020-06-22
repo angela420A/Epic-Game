@@ -65,5 +65,10 @@ namespace Epic_Game_Backend.Repository.DataAccessLayer
             var a = newscontext.News.AsEnumerable();
             return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
         }
+
+        public List<News> Getnewsdatas()
+        {
+            return newscontext.News.ToList();
+        }
     }
 }

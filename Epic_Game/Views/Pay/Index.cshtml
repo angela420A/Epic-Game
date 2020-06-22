@@ -51,7 +51,7 @@
                 <div class="total_price d-flex justify-content-between">
                     @if (discountprice == 0)
                     {
-                        <span class="span_color">折扣</span>
+                        <span class="span_color">Discount</span>
                         <span>Free</span>
                     }
                     else if (Model.Discount == 1)
@@ -60,24 +60,24 @@
                     }
                     else
                     {
-                <span class="span_color">Discount</span>
+                        <span class="span_color">Discount</span>
                         <span>@decimal.Round(Model.Discount * 100)%</span>
                     }
                 </div>
                 <div class="total_pay d-flex justify-content-between">
                     @if (discountprice == 0)
                     {
-                    <span>Total</span>
+                        <span>Total</span>
                         <span>Free</span>
                     }
                     else if (Model.Discount == 1)
                     {
-                <span>Total</span>
+                        <span>Total</span>
                         <span>TWD $@Price</span>
                     }
                     else
                     {
-                <span>Total</span>
+                        <span>Total</span>
                         <span>TWD $@discountprice</span>
                     }
                 </div>
