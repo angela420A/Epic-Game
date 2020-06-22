@@ -52,5 +52,9 @@ namespace Epic_Game_Backend.Repository.DataAccessLayer
             var a = ordercontext.Order.AsEnumerable();
             return a.Where(x => x.GetType().GetProperty(option).GetValue(x).ToString().Contains(search)).ToList();
         }
+        public List<Order> Getordersdatas()
+        {
+            return ordercontext.Order.ToList();
+        }
     }
 }

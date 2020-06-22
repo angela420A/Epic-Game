@@ -79,8 +79,8 @@ namespace Epic_Game
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "794208778530-uanhp7o44cppf08nschv29kfvuda3ksh.apps.googleusercontent.com",
-                ClientSecret = "N3f6LCzWA1kWngPwJxrHmfLC"
+                ClientId = "661357282939-29mia6p3dogm4m8qftbgv26q8vqq6j0n.apps.googleusercontent.com",
+                ClientSecret = "b0edDYzkeaB0znI2Cs-3ArYe"
             });
         }
     }

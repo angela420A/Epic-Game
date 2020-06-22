@@ -230,6 +230,7 @@
     <Content Include="Assets\css\paper-dashboard.css" />
     <Content Include="Assets\css\paper-dashboard.min.css" />
     <Content Include="Assets\css\ProductCreate.css" />
+    <Content Include="Assets\css\ProductDetails\ProductDetails.css" />
     <Content Include="Assets\css\ProductManage\ProductManageList.css" />
     <Content Include="Assets\css\UserManage\UserManageList.css" />
     <Content Include="Assets\demo\demo.css" />
@@ -334,6 +335,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

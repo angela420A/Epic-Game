@@ -113,6 +113,37 @@ namespace Epic_Game_Backend.Repository.BusinessLogicLayer
             return true;
         }
 
-    
-}
+        public List<News> GetnewsDatas()
+        {
+            return newsDAO.Getnewsdatas();
+        }
+
+
+        public List<NewsManageViewModel> NewsViewModelstolist()
+        {
+            var NewsViewModelslist = newsDAO.Getnewsdatas();
+            return GetNewsManageViewModels(NewsViewModelslist);
+        }
+
+        public List<NewsManageViewModel> GetNewsManageViewModels(List<News> n)
+        {
+            var NewsManageViewModelslist = new List<NewsManageViewModel>();
+            foreach (var i in n)
+            {
+                NewsManageViewModelslist.Add(new NewsManageViewModel
+                {
+                    NewsID = i.NewsID,
+                    Author = i.Author,
+                    NewsTitle = i.NewsTitle,
+                    Date = i.Date,
+                    Description = i.Description,
+                    NewsImg = i.NewsImg
+                });
+            }
+            return NewsManageViewModelslist;
+
+        }
+
+
+    }
 }
