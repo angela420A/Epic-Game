@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="detail col-12 col-md-6 col-lg-4">
-            <h5>訂單摘要</h5>
+            <h5>ORDER SUMMARY</h5>
             <div class="game d-flex">
                 <div class="game_pic">
                     <img src="@Model.ImgUrl" alt=""
@@ -21,7 +21,7 @@
                 </div>
                 <div class="game_text">
                     <h5>@Model.ProductName</h5>
-                    <span>由 @Model.Publisher</span>
+                    <span>By @Model.Publisher</span>
                 </div>
             </div>
             <div class="tp price">
@@ -29,29 +29,29 @@
                 <div class="price_price d-flex justify-content-between">
                     @if (discountprice == 0)
                     {
-                        <span class="span_color">價格</span>
+                        <span class="span_color">Price</span>
                         <span style="text-decoration: line-through">TWD $@Price</span>
                     }
                     else if (Model.Discount == 1)
                     {
-                        <span class="span_color">價格</span>
+                        <span class="span_color">Price</span>
                         <span>TWD $@Price</span>
                     }
                     else
                     {
-                        <span class="span_color">價格</span>
+                        <span class="span_color">Price</span>
                         <span style="text-decoration: line-through">TWD $@Price</span>
                     }
                 </div>
                 <div class="price_text">
-                    <span class="span_color">若適用則包括增值稅</span>
+                    <span class="span_color">VAT included if applicable</span>
                 </div>
             </div>
             <div class="tp total">
                 <div class="total_price d-flex justify-content-between">
                     @if (discountprice == 0)
                     {
-                        <span class="span_color">折扣</span>
+                        <span class="span_color">Discount</span>
                         <span>Free</span>
                     }
                     else if (Model.Discount == 1)
@@ -60,53 +60,53 @@
                     }
                     else
                     {
-                        <span class="span_color">折扣</span>
+                        <span class="span_color">Discount</span>
                         <span>@decimal.Round(Model.Discount * 100)%</span>
                     }
                 </div>
                 <div class="total_pay d-flex justify-content-between">
                     @if (discountprice == 0)
                     {
-                        <span>總計</span>
+                        <span>Total</span>
                         <span>Free</span>
                     }
                     else if (Model.Discount == 1)
                     {
-                        <span>總計</span>
+                        <span>Total</span>
                         <span>TWD $@Price</span>
                     }
                     else
                     {
-                        <span>總計</span>
+                        <span>Total</span>
                         <span>TWD $@discountprice</span>
                     }
                 </div>
             </div>
             <div class="input_creater">
-                <input name="affiliateSlug" placeholder="請輸入一個創作者標籤" value="" autocomplete="off" class="user_input">
+                <input name="affiliateSlug" placeholder="ENTER A CREATOR TAG" value="" autocomplete="off" class="user_input">
                 <i class="fas fa-info-circle"></i>
             </div>
             <div class="form-check email_ckeck">
                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
-                    點擊此處以和 Coffee Stain Studios 分享您的電子信箱。 Coffee Stain Studios 將依據其<a href="">隱私權政策</a>來使用您的電子信箱地址，因此我們建議您閱讀它。
+                    Click here to share your email with @Model.Publisher.@Model.Publisher will use your email address in accordance with its <a href="">privacy policy</a>, so we encourage you to read it.
                 </label>
             </div>
             <div class="help">
-                <span>需要幫助嗎？ <a href="">聯絡我們</a></span>
+                <span>Need Help? <a href="">Contact Us</a></span>
             </div>
             <div class="confirm-container col-xs-12">
                 @if (discountprice == 0)
                 {
                     <button class="btn btn-primary" onclick="location.href='@Url.Action("CreatOrder", "Pay",new { productid = Model.ProductId})'">
-                        <span>購買</span>
+                        <span>CHECKOUT</span>
                     </button>
                 }
 
                 else
                 {
                     <button class="btn btn-primary" id="SendRequest">
-                        <span>購買</span>
+                        <span>CHECKOUT</span>
                     </button>
                 }
 

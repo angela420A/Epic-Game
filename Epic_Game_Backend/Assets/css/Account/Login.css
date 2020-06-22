@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.accountLogin-root {
+    display: flex;
+    flex-direction: column;
+    font-family: Microsoft JhengHei !important;
+    margin: 50px;
+}
+
+.accountLogin-root > hr {
+    width: 800px;
+    margin: 0px auto;
+}
+
+.accountLogin-header {
+    background-color: #FFFFFF;
+    width: 500px;
+    border-radius: 12px;
+    padding: 20px 20px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    margin: 30px auto;
+}
+
+.accountLogin-header > h2 {
+    color: #EF8157;
+}
+
+.accountLogin-body {
+    display: flex;
+    margin: 20px auto;
+}
+
+.al-body-input {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    padding: 20px 20px;
+    width: 500px;
+    margin: 0px 10px;
+}
+
+.form-group > label {
+    color: #9A9A9A;
+}
+
+.f-group-checkbox label {
+    margin: 0px 10px;
+    color: #EF8157;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.f-group-loginBtn input {
+    color: white;
+    background-color: #EF8157;
+    border: 1px solid #EF8157;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.f-group-loginBtn input:hover {
+    color: #EF8157;
+    background-color: white;
+    transition: .5s;
+}
+
+.form-group-change > p > a {
+    text-decoration: none;
+    color: #FCD27A;
+    font-weight: bold;
+}
+
+.form-group-change > p > a:hover {
+    text-decoration: underline;
+}
+
+.externalLoginsListPartial-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.externalLoginsListPartial-root > hr {
+    width: 100%;
+    color: black;
+}
+
+.externalLoginsListPartial-header > h4 {
+    color: #EF8157;
+}
+
+.externalLoginsListPartial-body {
+    padding: 0px 20px;
+}
+
+.externalLoginsListPartial-body > p {
+    margin: 10px auto;
+    color: #9A9A9A;
+}
+
+.externalLoginsListPartial-body > p:last-child > a {
+    color: gray;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.externalLoginsListPartial-body > p:last-child > a:hover {
+    color: #EF8157;
+    transition: .3s;
+}

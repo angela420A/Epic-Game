@@ -50,7 +50,7 @@
                         @Html.ActionLink("ReleaseDate", "Index", new { sort = "ReleaseDate", nowsort = ViewBag.Nowsort })
                     </th>
                     <th>
-                        @Html.ActionLink("Categories", "Index", new { sort = "Categories", nowsort = ViewBag.Nowsort })
+                        @Html.DisplayNameFor(model => model.Categories)
                     </th>
                 </tr>
 
