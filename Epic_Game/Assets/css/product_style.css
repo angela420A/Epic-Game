@@ -464,6 +464,7 @@ button:not(:disabled){
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #trackus .trackus_i i {
