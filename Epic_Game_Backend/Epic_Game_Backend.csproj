@@ -253,6 +253,7 @@
     <Content Include="Assets\img\faces\kaci-baum-2.jpg" />
     <Content Include="Assets\img\favicon.png" />
     <Content Include="Assets\img\header.jpg" />
+    <Content Include="Assets\img\icon\logo.png" />
     <Content Include="Assets\img\jan-sendereks.jpg" />
     <Content Include="Assets\img\logo-small.png" />
     <Content Include="Assets\img\mike.jpg" />
