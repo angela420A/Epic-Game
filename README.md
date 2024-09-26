@@ -52,12 +52,26 @@ The application is currently deployed on Azure App Service, ensuring high availa
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 [![MVC][ASP.NETmvc]][ASP.NETmvc-url]   [![C#][C#]][C#-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url]     [![JQuery][JQuery]][JQuery-url]   [![Chart.js][Chart.js]][Chart.js-url]   [![MSSQL][MSSQL]][MSSQL-url]   [![Razor][Razor]][Razor-url]   [![Sass][Sass]][Sass-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+### Top contributors:
+
+<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
