@@ -54,7 +54,7 @@ The application is currently deployed on Azure App Service, ensuring high availa
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-[![MVC][ASP.NETmvc]][ASP.NETmvc-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url] 
+[![MVC][ASP.NETmvc]][ASP.NETmvc-url]   [![C#][C#]][C#-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url]     [![JQuery][JQuery]][JQuery-url]   [![Chart.js][Chart.js]][Chart.js-url]   [![MSSQL][MSSQL]][MSSQL-url]   [![Razor][Razor]][Razor-url]   [![Sass][Sass]][Sass-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,3 +72,15 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
 [Bootstrap]: https://img.shields.io/badge/-Bootstrap-purple?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com/
+[JQuery]: https://img.shields.io/badge/-JQuery-%230769ad?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com/
+[Chart.js]: https://img.shields.io/badge/-Chart.js-%23FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white
+[Chart.js-url]: https://www.chartjs.org/
+[C#]: https://img.shields.io/badge/-C%23-%236A0DAD?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
+[C#-url]: https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/
+[MSSQL]: https://img.shields.io/badge/-MSSQL-%236A0DAD?style=for-the-badge&logoColor=white&labelColor=black
+[MSSQL-url]: https://learn.microsoft.com/en-us/sql/?view=sql-server-ver16
+[Razor]: https://img.shields.io/badge/-Razor-lightblue?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
+[Razor-url]: https://learn.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
+[Sass]: https://img.shields.io/badge/-Sass-%23CC6699?style=for-the-badge&logo=sass&logoColor=white
+[Sass-url]: https://sass-lang.com/
