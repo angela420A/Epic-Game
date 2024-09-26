@@ -1,7 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 
-# About The Project
+# Epic Game
 
 <!-- PROJECT LOGO -->
 <br />
@@ -20,9 +20,11 @@
   </p>
 </div
 
+<br />
+<br />
 
 <!-- ABOUT THE PROJECT -->
-## Epic Game
+## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
