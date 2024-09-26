@@ -37,10 +37,11 @@ On the back-end, we have implemented robust administrative features, such as vie
 
 The application is currently deployed on Azure App Service, ensuring high availability and scalability. This project highlights our proficiency in full-stack web development, combining a dynamic user interface with a well-structured back-end architecture to deliver a comprehensive e-commerce solution.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Key Features of the Project:
+* Developed both front-end and back-end using the ASP.NET MVC framework.
+* Integrated a payment gateway for seamless transactions.
+* Implemented third-party authentication (Google, Facebook).
+* Utilized a three-tier architecture with ORM-Dapper for data management
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
