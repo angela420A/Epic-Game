@@ -54,7 +54,7 @@ The application is currently deployed on Azure App Service, ensuring high availa
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-[![MVC][ASP.NETmvc]][ASP.NETmvc-url]  
+[![MVC][ASP.NETmvc]][ASP.NETmvc-url]  [![JavaScript][JavaScript]][JavaScript-url]  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,3 +64,5 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [ASP.NETmvc]: https://img.shields.io/badge/-ASP.NET%20MVC-purple?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
 [ASP.NETmvc-url]: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/overview/asp-net-mvc-overview
+[JavaScript]: https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript&logoColor=yellow
+[JavaScript-url]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript
