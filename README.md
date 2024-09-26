@@ -54,7 +54,7 @@ The application is currently deployed on Azure App Service, ensuring high availa
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-[![MVC][ASP.NETmvc]][ASP.NETmvc-url]  [![JavaScript][JavaScript]][JavaScript-url]  
+[![MVC][ASP.NETmvc]][ASP.NETmvc-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url] 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,4 +65,10 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [ASP.NETmvc]: https://img.shields.io/badge/-ASP.NET%20MVC-purple?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
 [ASP.NETmvc-url]: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 [JavaScript]: https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript&logoColor=yellow
-[JavaScript-url]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript
+[JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[HTML]: https://img.shields.io/badge/-HTML-orange?style=for-the-badge&logo=html5&logoColor=white
+[HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[CSS]: https://img.shields.io/badge/-CSS-darkblue?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
+[Bootstrap]: https://img.shields.io/badge/-Bootstrap-purple?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
