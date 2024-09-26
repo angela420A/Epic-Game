@@ -26,13 +26,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<br />
+
+<div align="center">
+  <a href="https://bsdemoepic.azurewebsites.net/">
+    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/front-page.png" alt="mvc" width="850">
+  </a>
+</div>
 
 Our project is a web application inspired by the Epic Games platform, developed using the ASP.NET MVC framework. The front-end allows users to browse products and add them to a shopping cart, providing a seamless and user-friendly experience.
 
 <br />
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align="center">
+  <a href="https://epicgameadmin.azurewebsites.net/">
+    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/back-end.png" alt="mvc" width="850">
+  </a>
+</div>
 
 On the back-end, we have implemented robust administrative features, such as viewing a dashboard with key metrics, adding new products, and managing inventory.
 
@@ -69,7 +79,7 @@ Don't forget to give the project a star! Thanks again!
 ### Top contributors:
 
 <a href="https://github.com/angela420A/Epic-Game/graphs/contributors">
-  <img src="" alt="contrib.rocks image" />
+  <img src="https://github.com/angela420A/Epic-Game/blob/main/images/Contributing.png" alt="contrib.rocks image" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
