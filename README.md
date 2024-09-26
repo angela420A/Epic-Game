@@ -8,8 +8,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template" style="display: inline-block; vertical-align: top;">
-    <img src="https://www.pragimtech.com/wp-content/uploads/2019/04/asp-mvc.jpg" alt="mvc" width="350">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbLkWhhNwEZfdL-A7yiMvDkarGWT9EsTCX-g&s" alt="build-school" width="200">
+    <img src="https://www.pragimtech.com/wp-content/uploads/2019/04/asp-mvc.jpg" alt="mvc" width="250">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbLkWhhNwEZfdL-A7yiMvDkarGWT9EsTCX-g&s" alt="build-school" width="150">
   </a>
 
   <h3 align="center">Epic-Game</h3>
