@@ -1,17 +1,15 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 
-# Epic Game
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template" style="display: inline-block; vertical-align: top;">
     <img src="https://www.pragimtech.com/wp-content/uploads/2019/04/asp-mvc.jpg" alt="mvc" width="350">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbLkWhhNwEZfdL-A7yiMvDkarGWT9EsTCX-g&s" alt="build-school" width="200">
   </a>
 
-  <h3 align="center">Build School Team Project: ASP.NET MVC 4 Web Application Development</h3>
+  <h3 align="center">Epic Game</h3>
 
   <p align="center">
     This project was developed by my team and me during our coding exam at Build School, utilizing the ASP.NET MVC 4 framework. 
