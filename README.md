@@ -1,6 +1,8 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
-
+[![mvc-version][mvc-version]][mvc-v-url]
+[![razor-version][razor-version]][razor-v-url]
+[![dapper-version][dapper-version]][dapper-v-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -51,7 +53,7 @@ The application is currently deployed on Azure App Service, ensuring high availa
 
 ### Built With
 
-[![MVC][ASP.NETmvc]][ASP.NETmvc-url]   [![C#][C#]][C#-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url]     [![JQuery][JQuery]][JQuery-url]   [![Chart.js][Chart.js]][Chart.js-url]   [![MSSQL][MSSQL]][MSSQL-url]   [![Razor][Razor]][Razor-url]   [![Sass][Sass]][Sass-url]
+[![MVC][ASP.NETmvc]][ASP.NETmvc-url]   [![C#][C#]][C#-url]   [![Razor][Razor]][Razor-url]  [![JavaScript][JavaScript]][JavaScript-url]  [![HTML][HTML]][HTML-url]   [![CSS][CSS]][CSS-url]    [![Bootstrap][Bootstrap]][Bootstrap-url]     [![JQuery][JQuery]][JQuery-url]   [![Chart.js][Chart.js]][Chart.js-url]   [![MSSQL][MSSQL]][MSSQL-url]   [![Sass][Sass]][Sass-url]   [![Vue.js][Vue.js]][Vue.js-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +77,13 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[ASP.NETmvc]: https://img.shields.io/badge/-ASP.NET%20MVC-purple?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
+[mvc-version]: https://img.shields.io/badge/ASP.NET%20MVC-5.2.7-grey?style=flat&labelColor=%23512BD4
+[mvc-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[razor-version]: https://img.shields.io/badge/Razor-3.2.7-grey?style=flat&labelColor=lightblue
+[razor-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[dapper-version]: https://img.shields.io/badge/Dapper-3.2.7-grey?style=flat&labelColor=orange
+[dapper-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[ASP.NETmvc]: https://img.shields.io/badge/-ASP.NET%20MVC-black?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=%23512BD4
 [ASP.NETmvc-url]: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 [JavaScript]: https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript&logoColor=yellow
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
@@ -89,11 +97,13 @@ Don't forget to give the project a star! Thanks again!
 [JQuery-url]: https://jquery.com/
 [Chart.js]: https://img.shields.io/badge/-Chart.js-%23FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white
 [Chart.js-url]: https://www.chartjs.org/
-[C#]: https://img.shields.io/badge/-C%23-%236A0DAD?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
+[C#]: https://img.shields.io/badge/-C%23-black?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=%23512BD4
 [C#-url]: https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/
 [MSSQL]: https://img.shields.io/badge/-MSSQL-%236A0DAD?style=for-the-badge&logoColor=white&labelColor=black
 [MSSQL-url]: https://learn.microsoft.com/en-us/sql/?view=sql-server-ver16
-[Razor]: https://img.shields.io/badge/-Razor-lightblue?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=black
+[Razor]: https://img.shields.io/badge/-Razor-black?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=%23512BD4
 [Razor-url]: https://learn.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c
 [Sass]: https://img.shields.io/badge/-Sass-%23CC6699?style=for-the-badge&logo=sass&logoColor=white
 [Sass-url]: https://sass-lang.com/
+[Vue.js]: https://img.shields.io/badge/-Vue.js-%234FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white
+[Vue.js-url]: https://vuejs.org/
