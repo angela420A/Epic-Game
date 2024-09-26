@@ -11,12 +11,11 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbLkWhhNwEZfdL-A7yiMvDkarGWT9EsTCX-g&s" alt="build-school" width="200">
   </a>
 
-  <h3 align="center">One of the teams at Build School</h3>
+  <h3 align="center">Build School Team Project: ASP.NET MVC 4 Web Application Development</h3>
 
   <p align="center">
-    This project was developed by Build School students as part of ower coding exam, 
-    utilizing the ASP.NET MVC 4 framework. The project showcases ower understanding of web development principles, 
-    following a Model-View-Controller architecture to create a dynamic and scalable web application. 
+    This project was developed by my team and me during our coding exam at Build School, utilizing the ASP.NET MVC 4 framework. 
+    The project showcases our understanding of web development principles, following a Model-View-Controller (MVC) architecture to create a dynamic and scalable web application.
   </p>
 </div
 
@@ -28,7 +27,15 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Our project is a web application inspired by the Epic Games platform, developed using the ASP.NET MVC framework. The front-end allows users to browse products and add them to a shopping cart, providing a seamless and user-friendly experience.
+
+<br />
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+On the back-end, we have implemented robust administrative features, such as viewing a dashboard with key metrics, adding new products, and managing inventory.
+
+The application is currently deployed on Azure App Service, ensuring high availability and scalability. This project highlights our proficiency in full-stack web development, combining a dynamic user interface with a well-structured back-end architecture to deliver a comprehensive e-commerce solution.
 
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
