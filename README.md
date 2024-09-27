@@ -56,7 +56,7 @@ Key Features of the Project:
 
 <br />
 
-The application is currently deployed on Azure App Service, ensuring high availability and scalability. This project highlights our proficiency in full-stack web development, combining a dynamic user interface with a well-structured back-end architecture to deliver a comprehensive e-commerce solution.
+> The application is currently deployed on Azure App Service, ensuring high availability and scalability. This project highlights our proficiency in full-stack web development, combining a dynamic user interface with a well-structured back-end architecture to deliver a comprehensive e-commerce solution.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,10 +71,11 @@ The application is currently deployed on Azure App Service, ensuring high availa
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+A heartfelt thank you to my teammates for working alongside me to complete this website within just one month.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+<br />
+
+Each of you played an essential role in bringing this project to life, and it wouldn't have been possible without your dedication and collaboration. I truly appreciate everyone's contributions!
 
 ### Top contributors:
 
