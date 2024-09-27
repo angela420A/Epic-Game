@@ -35,7 +35,7 @@
 
 <div align="center">
   <a href="https://bsdemoepic.azurewebsites.net/">
-    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/front-page.png" alt="mvc" width="700">
+    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/front-page.png" alt="mvc" width="800">
   </a>
 </div>
 
@@ -45,7 +45,7 @@ Our project is a web application inspired by the Epic Games platform, developed 
 
 <div align="center">
   <a href="https://epicgameadmin.azurewebsites.net/">
-    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/back-end.png" alt="mvc" width="700">
+    <img src="https://github.com/angela420A/Epic-Game/blob/main/images/back-end.png" alt="mvc" width="800">
   </a>
 </div>
 
