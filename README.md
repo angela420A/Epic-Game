@@ -3,6 +3,11 @@
 [![mvc-version][mvc-version]][mvc-v-url]
 [![razor-version][razor-version]][razor-v-url]
 [![dapper-version][dapper-version]][dapper-v-url]
+[![entity-version][entity-version]][entity-v-url]
+[![jquery-version][jquery-version]][jquery-v-url]
+[![vue-version][vue-version]][vue-v-url]
+[![antlr-version][antlr-version]][antlr-v-url]
+[![bootstrap-version][bootstrap-version]][bootstrap-v-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -94,6 +99,17 @@ Each of you played an essential role in bringing this project to life, and it wo
 [razor-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
 [dapper-version]: https://img.shields.io/badge/Dapper-3.2.7-grey?style=flat&labelColor=orange
 [dapper-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[entity-version]: https://img.shields.io/badge/EntityFramework-6.2.0-grey?style=flat&labelColor=green
+[entity-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[jquery-version]: https://img.shields.io/badge/JQuery-3.4.1-grey?style=flat&labelColor=darkblue
+[jquery-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[vue-version]: https://img.shields.io/badge/Vue-2.6.11-grey?style=flat&labelColor=%234FC08D
+[vue-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[antlr-version]: https://img.shields.io/badge/Antlr-3.5.0.2-grey?style=flat&labelColor=%23E62431
+[antlr-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+[bootstrap-version]: https://img.shields.io/badge/Bootstrap-4.5.0-grey?style=flat&labelColor=%237952B3
+[bootstrap-v-url]: https://github.com/angela420A/Epic-Game/blob/main/Epic_Game/packages.config
+
 [ASP.NETmvc]: https://img.shields.io/badge/-ASP.NET%20MVC-black?style=for-the-badge&logo=dotnet&logoColor=white&labelColor=%23512BD4
 [ASP.NETmvc-url]: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 [JavaScript]: https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript&logoColor=yellow
